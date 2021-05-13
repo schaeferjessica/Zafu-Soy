@@ -11,15 +11,8 @@ const LineItem = props => {
     store: { client, checkout },
   } = useContext(StoreContext)
 
-  console.log(item.variant.image.src)
   const variantImage = item.variant.image ? (
-    <StaticImage
-      src={item.variant.image.src}
-      alt={`${item.title} product shot`}
-      placeholder="blurred"
-      width={200}
-      height={200}
-    />
+    <img src={item.variant.image.src} alt={`${item.title} product shot`} />
   ) : null
 
   const selectedOptions = item.variant.selectedOptions
@@ -31,11 +24,9 @@ const LineItem = props => {
   const handleRemove = () => {
     removeLineItem(client, checkout.id, item.id)
   }
-  console.log('variantImage :>> ', variantImage)
   return (
     <Wrapper>
       <Link to={`/product/${item.variant.product.handle}/`}>
-        popo
         {variantImage}
       </Link>
       <p>
