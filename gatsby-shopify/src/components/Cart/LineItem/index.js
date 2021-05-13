@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import { Wrapper } from './styles'
 

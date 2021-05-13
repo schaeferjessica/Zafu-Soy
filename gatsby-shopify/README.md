@@ -1,5 +1,5 @@
 <h2>Gatsby + Shopify</h2>
-<img alt="Gatsby" src="resources/shopify+gatsby.png" width="250px" />
+<img alt="Gatsby" src="resources/images/shopify+gatsby.png" width="250px" />
 
 <p style="text-decoration:underline">Docs:</p>
 
@@ -20,7 +20,7 @@ STYLING: [Emotion](https://emotion.sh/docs/introduction) is used as styled compo
     gatsby new my-shopify-store https://github.com/AlexanderProd/gatsby-shopify-starter
     ```
 6. change into main folder `cd my-shopify-store`
-7. start http://localhost:8000/ and [graphql](https://www.gatsbyjs.com/docs/tutorial/part-five/#introducing-graphiql) width `npm run start`
+7. start http://localhost:8000/ and [graphql](https://www.gatsbyjs.com/docs/tutorial/part-five/#introducing-graphiql) width `yarn install && yarn start`
 
    
 🐼 <p style="text-decoration:underline">Features:</p>
@@ -39,9 +39,10 @@ SHOP_NAME= name.~~myshopify.com~~ _(not private app name)_
 
 📌 
 <p style="text-decoration:underline">todos:</p>
-  [X] Convert Layout to function component.
+
+[X] Convert Layout to function component.
   
-  [X] Add dynamic inventory checking to avoid re-building after every purchase. 
+[X] Add dynamic inventory checking to avoid re-building after every purchase. 
 
 [X] Add better styling.
 

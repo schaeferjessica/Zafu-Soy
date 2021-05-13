@@ -16,9 +16,36 @@ export const GlobalStyle = props => (
         margin: 0;
       }
       html {
-        font-family: sans-serif;
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 1.7;
+        font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
+        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'IBM Plex Serif';
+      }
+
+      a {
+        color: black;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 7px;
+      }
+
+      button {
+        font-family: 'IBM Plex Sans';
+        font-size: 16px;
+        border: 1.5px solid black;
+        padding: 15px 30px
+      }
+
+      ul {
+        list-style: square inside;
       }
     `}
   />

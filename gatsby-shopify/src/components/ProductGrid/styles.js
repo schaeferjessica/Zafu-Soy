@@ -19,18 +19,11 @@ export const Product = styled.div`
 `
 
 export const Title = styled.span`
-  font-weight: 300;
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1rem;  
+  margin-top: 20px;
 `
 
 export const PriceTag = styled.span`
-  font-weight: 300;
   font-size: 1rem;
-  text-align: center;
   margin-top: 15px;
-
-  :before {
-    content: '- ';
-  }
 `
