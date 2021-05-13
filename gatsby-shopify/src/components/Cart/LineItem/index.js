@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-
+import { StaticImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import { Wrapper } from './styles'
 
@@ -11,11 +11,14 @@ const LineItem = props => {
     store: { client, checkout },
   } = useContext(StoreContext)
 
+  console.log(item.variant.image.src)
   const variantImage = item.variant.image ? (
-    <img
+    <StaticImage
       src={item.variant.image.src}
       alt={`${item.title} product shot`}
-      height="60px"
+      placeholder="blurred"
+      width={200}
+      height={200}
     />
   ) : null
 
@@ -28,11 +31,11 @@ const LineItem = props => {
   const handleRemove = () => {
     removeLineItem(client, checkout.id, item.id)
   }
-
+  console.log('variantImage :>> ', variantImage)
   return (
     <Wrapper>
-      {console.log(item)}
       <Link to={`/product/${item.variant.product.handle}/`}>
+        popo
         {variantImage}
       </Link>
       <p>

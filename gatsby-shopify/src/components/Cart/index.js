@@ -19,20 +19,13 @@ const Cart = () => {
   return (
     <div>
       {lineItems}
-      <h2>Subtotal</h2>
       <p>$ {checkout.subtotalPrice}</p>
-      <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
-      <br />
-      <h2>Total</h2>
-      <p>$ {checkout.totalPrice}</p>
-      <br />
+      <p>$ {checkout.totalTax} tax</p>
       <button
         onClick={handleCheckout}
         disabled={checkout.lineItems.length === 0}
       >
-        Check out
+        Check out - $ {checkout.totalPrice}
       </button>
     </div>
   )

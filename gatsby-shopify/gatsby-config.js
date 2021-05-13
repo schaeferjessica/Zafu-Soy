@@ -7,7 +7,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Gatsby Shopify`,
-    description: ``,
+    description: `Shopify store with Gatsby`,
     author: `@schaeferjessica`,
   },
   plugins: [
@@ -19,6 +19,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-layout`,
@@ -27,8 +28,8 @@ module.exports = {
       options: {
         name: `gatsby-starter-default`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#DBD7D3`,
+        theme_color: `#FFF`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -55,8 +56,5 @@ module.exports = {
         respectDNT: true,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
 }

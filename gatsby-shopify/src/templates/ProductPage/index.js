@@ -1,42 +1,39 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '~/components/seo'
+import Seo from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
-import {
-  Img,
-  Container,
-  TwoColumnGrid,
-  GridLeft,
-  GridRight,
-} from '~/utils/styles'
 import { ProductTitle, ProductDescription } from './styles'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
   return (
     <>
-      <SEO title={product.title} description={product.description} />
-      <Container>
-        <TwoColumnGrid>
-          <GridLeft>
-            {product.images.map(image => (
-              <Img
-                fluid={image.localFile.childImageSharp.fluid}
-                key={image.id}
-                alt={product.title}
-              />
-            ))}
-          </GridLeft>
-          <GridRight>
+      <Seo title={product.title} description={product.description} />
+      <div>
+        <div>
+          <div>
+            {product.images.map(image => {
+              const pluginImage = getImage(image.localFile)
+              return (
+                <GatsbyImage
+                  image={pluginImage}
+                  alt={product.title}
+                  key={image.id}
+                />
+              )
+            })}
+          </div>
+          <div>
             <ProductTitle>{product.title}</ProductTitle>
             <ProductDescription
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
             <ProductForm product={product} />
-          </GridRight>
-        </TwoColumnGrid>
-      </Container>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
@@ -82,9 +79,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 910) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(width: 1000)
           }
         }
       }

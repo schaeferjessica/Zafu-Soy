@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import { Grid, Product, Title, PriceTag } from './styles'
-import { Img } from '~/utils/styles'
 
 const ProductGrid = () => {
   const {
@@ -25,9 +24,7 @@ const ProductGrid = () => {
                 originalSrc
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 910) {
-                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                    }
+                    gatsbyImageData(width: 1000)
                   }
                 }
               }
@@ -60,20 +57,20 @@ const ProductGrid = () => {
               images: [firstImage],
               variants: [firstVariant],
             },
-          }) => (
-            <Product key={id}>
-              <Link to={`/product/${handle}/`}>
-                {firstImage && firstImage.localFile && (
-                  <Img
-                    fluid={firstImage.localFile.childImageSharp.fluid}
-                    alt={handle}
-                  />
-                )}
-              </Link>
-              <Title>{title}</Title>
-              <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
-            </Product>
-          )
+          }) => {
+            const image = getImage(firstImage.localFile)
+            return (
+              <Product key={id}>
+                <Link to={`/product/${handle}/`}>
+                  {firstImage && firstImage.localFile && (
+                    <GatsbyImage image={image} alt={handle} key={image.id} />
+                  )}
+                </Link>
+                <Title>{title}</Title>
+                <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
+              </Product>
+            )
+          }
         )
       ) : (
         <p>No Products found!</p>
