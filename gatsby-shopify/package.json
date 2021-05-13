@@ -1,0 +1,64 @@
+{
+  "name": "gatsby-shopify",
+  "private": false,
+  "description": "Shopify store with Gatsby",
+  "version": "0.1.0",
+  "author": "Jessica Schäfer <jessicaschaefer@mailcom>",
+  "engines": {
+    "node": "=> 10.13 < 14.9"
+  },
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
+    "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-google-analytics": "^2.0.13",
+    "gatsby-plugin-layout": "^1.0.11",
+    "gatsby-plugin-manifest": "^2.2.23",
+    "gatsby-plugin-offline": "^3.0.16",
+    "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-root-import": "^2.0.6",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-shopify": "^3.10.0",
+    "gatsby-transformer-sharp": "^2.12.0",
+    "isomorphic-fetch": "^3.0.0",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.19",
+    "prop-types": "^15.7.2",
+    "querystringify": "^2.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "set-value": "^3.0.2",
+    "shopify-buy": "^2.11.0"
+  },
+  "keywords": [
+    "gatsby",
+    "shopify",
+    "ecommerce",
+    "store",
+    "shop"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "develop": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "start": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "deploy": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "prettier": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schaeferjessica/shopify"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
