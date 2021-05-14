@@ -1,28 +1,47 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
 
-export const breakpoints = {
-  s: 576,
-  m: 768,
-  l: 992,
-  xl: 1200,
-}
+const device = {
+  mobile: 576,
+  tablet: 768,
+  desktop: 992,
+};
+
+export const breakpoint = {
+  mobile: `(max-width: ${device.mobile}px)`,
+  tablet: `(max-width: ${device.tablet}px)`,
+  desktop: `(max-width: ${device.desktop}px)`,
+};
 
 export const GlobalStyle = props => (
   <Global
     {...props}
     styles={css`
+    
       body {
         margin: 0;
       }
+
       html {
         font-weight: 300;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 16px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 15px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 14px;
+        }
       }
 
       h1,
@@ -31,17 +50,48 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Serif';
       }
 
+      h1 {
+        font-size: 26px;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 24px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 22px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 20px;
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 22px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 20px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 18px;
+        }
+      }
+
       a {
         color: black;
-        text-decoration-thickness: 1.5px;
-        text-underline-offset: 7px;
+        text-decoration-thickness: 1.2px;
+        text-underline-offset: 6px;
       }
 
       button {
         font-family: 'IBM Plex Sans';
-        font-size: 16px;
-        border: 1.5px solid black;
-        padding: 15px 30px
+        border: 1.2px solid black;
+        padding: 15px 30px;
       }
 
       ul {
