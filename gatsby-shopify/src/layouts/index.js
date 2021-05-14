@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link as LinkTo } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import '../../resources/fonts.css';
@@ -31,6 +32,22 @@ const Wrapper = styled.div`
   }
 `
 
+const Footer = styled.footer`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+  margin-bottom: 15px;
+`
+
+const LinkExtern  = styled.a`
+  font-size: 14px;
+`
+
+const Link = styled(LinkTo)`
+  font-size: 14px;
+  margin-left: 20px;
+`
+
 const Layout = ({ children }) => {
   return (
     <ContextProvider>
@@ -46,17 +63,16 @@ const Layout = ({ children }) => {
           }
         `}
         render={data => (
-          <>
+          <Wrapper>
             <Navigation siteTitle={data.site.siteMetadata.title} />
-            <Wrapper>
               {children}
-              <footer>
-                © {new Date().getFullYear()}, built by
-                {` `}
-                <a href="https://jessica.gatsbyjs.io/">Jessica Schäfer</a>
-              </footer>
-            </Wrapper>
-          </>
+              <Footer>
+                <small>&#169; {new Date().getFullYear()}, built by{` `}  
+                  <LinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExtern>
+                </small>
+                <Link to="/impressum/">Impressum</Link>
+              </Footer>
+          </Wrapper>
         )}
       />
     </ContextProvider>

@@ -3,7 +3,7 @@ import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 
 import StoreContext from '~/context/StoreContext'
-import { CartCounter, Container, MenuLink, Wrapper } from './styles'
+import { CartCounter, MenuLink, Wrapper } from './styles'
 
 const useQuantity = () => {
   const {
@@ -19,13 +19,11 @@ const Navigation = ({ siteTitle }) => {
 
   return (
     <Wrapper>
-      <Container>
         <MenuLink to="/">{siteTitle}</MenuLink>
         <MenuLink to="/cart">
-          {hasItems && <CartCounter>{quantity}</CartCounter>}
           Your Order
+          {hasItems && <CartCounter>{quantity}</CartCounter>}
         </MenuLink>
-      </Container>
     </Wrapper>
   )
 }

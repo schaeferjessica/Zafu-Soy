@@ -5,7 +5,7 @@ import { breakpoint } from '../../utils/styles'
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2.5rem;
+  gap: 4rem;
 
   @media ${breakpoint.desktop} {
     grid-template-columns: 1fr 1fr 1fr;
@@ -26,12 +26,6 @@ export const Product = styled.div`
   flex-direction: column;
 `
 
-export const Title = styled.span`
-  font-size: 1rem;  
-  margin-top: 20px;
-`
-
-export const PriceTag = styled.span`
-  font-size: 1rem;
-  margin-top: 15px;
+export const Title = styled.h2`
+  margin-top: 10px;
 `

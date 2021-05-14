@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
-import { Grid, Product, Title, PriceTag } from './styles'
+import { Grid, Product, Title  } from './styles'
 
 const ProductGrid = () => {
   const {
@@ -65,9 +65,9 @@ const ProductGrid = () => {
                   {firstImage && firstImage.localFile && (
                     <GatsbyImage image={image} alt={handle} key={image.id} />
                   )}
+                  <Title>{title}</Title>
                 </Link>
-                <Title>{title}</Title>
-                <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
+                  <span>{getPrice(firstVariant.price)}</span>
               </Product>
             )
           }

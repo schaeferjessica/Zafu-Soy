@@ -17,9 +17,10 @@ export const GlobalStyle = props => (
   <Global
     {...props}
     styles={css`
-    
+
       body {
         margin: 0;
+        background-color: #FAF9F8;
       }
 
       html {
@@ -48,6 +49,8 @@ export const GlobalStyle = props => (
       h2,
       h3 {
         font-family: 'IBM Plex Serif';
+        margin: 0px;
+        padding: 0px;
       }
 
       h1 {
@@ -67,30 +70,42 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-size: 24px;
+        font-weight: 300;
+        font-size: 18px;
 
         @media ${breakpoint.desktop} { 
-          font-size: 22px;
+          font-size: 17px;
         }
     
         @media ${breakpoint.tablet} { 
-          font-size: 20px;
+          font-size: 16px;
         }
     
         @media ${breakpoint.mobile} { 
-          font-size: 18px;
+          font-size: 15px;
         }
+      }
+
+      a,
+      p {
+        margin: 0px;
+        padding: 0px;
       }
 
       a {
         color: black;
-        text-decoration-thickness: 1.2px;
-        text-underline-offset: 6px;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
       }
 
       button {
         font-family: 'IBM Plex Sans';
-        border: 1.2px solid black;
+        border: 1px solid black;
         padding: 15px 30px;
       }
 
