@@ -1,9 +1,35 @@
 import React, { useContext } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
-
 import StoreContext from '~/context/StoreContext'
-import { CartCounter, MenuLink, Wrapper } from './styles'
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 20px;
+  padding-bottom: 50px;
+`
+
+const MenuLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`
+
+const CartCounter = styled.span`
+  border: 1px solid;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 14px;
+`
 
 const useQuantity = () => {
   const {
@@ -20,7 +46,7 @@ const Navigation = ({ siteTitle }) => {
   return (
     <Wrapper>
         <MenuLink to="/">{siteTitle}</MenuLink>
-        <MenuLink to="/cart">
+        <MenuLink to="/checkout">
           Your Order
           {hasItems && <CartCounter>{quantity}</CartCounter>}
         </MenuLink>

@@ -2,10 +2,52 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
-
 import StoreContext from '~/context/StoreContext'
+import styled from '@emotion/styled'
+import { breakpoint } from '../utils/styles'
 
-const ProductForm = ({ product }) => {
+const Button = styled.button`
+    font-family: 'IBM Plex Sans';
+    border: 1px solid black;
+    padding: 15px 30px;
+    background-color: transparent;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover span {
+        transform: translateY(-160%);
+    }
+
+    @media ${breakpoint.desktop} { 
+      font-size: 17px;
+    }
+
+    @media ${breakpoint.tablet} { 
+      font-size: 16px;
+    }
+
+    @media ${breakpoint.mobile} { 
+      font-size: 15px;
+    }
+`
+
+const Span = styled.span`
+    position: relative;
+    display: inline-block;
+    transition: transform .3s;
+
+&::before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 160%;
+    transform: translate3d(0, 0, 0);
+    }
+`
+
+const ProductDetail = ({ product }) => {
   const {
     options,
     variants,
@@ -66,15 +108,6 @@ const ProductForm = ({ product }) => {
     addVariantToCart(productVariant.shopifyId, quantity)
   }
 
-  /* 
-  Using this in conjunction with a select input for variants 
-  can cause a bug where the buy button is disabled, this 
-  happens when only one variant is available and it's not the
-  first one in the dropdown list. I didn't feel like putting 
-  in time to fix this since its an edge case and most people
-  wouldn't want to use dropdown styled selector anyways - 
-  at least if the have a sense for good design lol.
-  */
   const checkDisabled = (name, value) => {
     const match = find(variants, {
       selectedOptions: [
@@ -128,15 +161,15 @@ const ProductForm = ({ product }) => {
         onChange={handleQuantityChange}
         value={quantity}
       />
-      <button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
-        <span data-hover="Add to Order">Add to Order</span>
-      </button>
+      <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
+        <Span data-hover="Add to Order">Add to Order</Span>
+      </Button>
       {!available && <p>This Product is out of Stock</p>}
     </>
   )
 }
 
-ProductForm.propTypes = {
+ProductDetail.propTypes = {
   product: PropTypes.shape({
     descriptionHtml: PropTypes.string,
     handle: PropTypes.string,
@@ -176,4 +209,4 @@ ProductForm.propTypes = {
   addVariantToCart: PropTypes.func,
 }
 
-export default ProductForm
+export default ProductDetail

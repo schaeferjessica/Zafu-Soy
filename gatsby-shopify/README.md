@@ -46,6 +46,4 @@ SHOP_NAME= name.~~myshopify.com~~ _(not private app name)_
 
 [X] Add better styling.
 
-[X] Add image optimization using Gatsby sharp plugin.
-
 [X] Convert ProductForm to function component.

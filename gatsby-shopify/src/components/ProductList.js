@@ -1,12 +1,31 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
-import { Wrapper } from './styles'
+import styled from '@emotion/styled'
 
-const LineItem = props => {
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+`
+
+const Button = styled.button`
+  color: black;
+  text-decoration: none;
+
+&:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+`
+
+const ProductList = props => {
   const { item } = props
   const {
-    removeLineItem,
+    removeProductItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
@@ -21,7 +40,7 @@ const LineItem = props => {
     : null
 
   const handleRemove = () => {
-    removeLineItem(client, checkout.id, item.id)
+    removeProductItem(client, checkout.id, item.id)
   }
   return (
     <Wrapper>
@@ -35,9 +54,9 @@ const LineItem = props => {
       </p>
       {selectedOptions}
       {item.quantity}
-      <button onClick={handleRemove}>Remove</button>
+      <Button onClick={handleRemove}>Remove</Button>
     </Wrapper>
   )
 }
 
-export default LineItem
+export default ProductList

@@ -2,7 +2,40 @@ import React, { useContext } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
-import { Grid, Product, Title  } from './styles'
+import styled from '@emotion/styled'
+
+import { breakpoint } from '../utils/styles'
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 4rem;
+
+  @media ${breakpoint.desktop} {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  @media ${breakpoint.tablet} {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  @media ${breakpoint.mobile} {
+    grid-template-columns: 1fr;
+  } 
+`
+
+const Product = styled.div`
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+`
+
+const Title = styled.h2`
+  margin-top: 10px;
+`
+
 
 const ProductGrid = () => {
   const {

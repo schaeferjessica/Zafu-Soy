@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Seo from '~/components/seo'
-import ProductForm from '~/components/ProductForm'
-import { ProductTitle, ProductDescription } from './styles'
+import ProductDetail from '~/components/ProductDetail'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ProductPage = ({ data }) => {
@@ -26,11 +25,11 @@ const ProductPage = ({ data }) => {
             })}
           </div>
           <div>
-            <ProductTitle>{product.title}</ProductTitle>
-            <ProductDescription
+            <h1>{product.title}</h1>
+            <div
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
-            <ProductForm product={product} />
+            <ProductDetail product={product} />
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 
 import StoreContext from '~/context/StoreContext'
-import LineItem from './LineItem'
+import ProductList from './ProductList'
 
-const Cart = () => {
+const Checkout = () => {
   const {
     store: { checkout },
   } = useContext(StoreContext)
@@ -13,7 +13,7 @@ const Cart = () => {
   }
 
   const lineItems = checkout.lineItems.map(item => (
-    <LineItem key={item.id.toString()} item={item} />
+    <ProductList key={item.id.toString()} item={item} />
   ))
 
   return (
@@ -25,10 +25,10 @@ const Cart = () => {
         onClick={handleCheckout}
         disabled={checkout.lineItems.length === 0}
       >
-        Check out - $ {checkout.totalPrice}
+        Check out — $ {checkout.totalPrice}
       </button>
     </div>
   )
 }
 
-export default Cart
+export default Checkout

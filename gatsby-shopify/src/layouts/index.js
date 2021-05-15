@@ -4,9 +4,7 @@ import { Link as LinkTo } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import '../../resources/fonts.css';
-
 import ContextProvider from '~/provider/ContextProvider'
-
 import { GlobalStyle, breakpoint } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
 

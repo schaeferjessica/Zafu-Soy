@@ -105,43 +105,10 @@ export const GlobalStyle = props => (
 
       button {
         font-family: 'IBM Plex Sans';
-        border: 1px solid black;
-        padding: 15px 30px;
+        border: none;
         background-color: transparent;
-        font-size: 18px;
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
         cursor: pointer;
-
-        @media ${breakpoint.desktop} { 
-          font-size: 17px;
-        }
-    
-        @media ${breakpoint.tablet} { 
-          font-size: 16px;
-        }
-    
-        @media ${breakpoint.mobile} { 
-          font-size: 15px;
-        }
-      }
-
-      button:hover span {
-        transform: translateY(-160%);
-      }
-
-      button > span  {
-        position: relative;
-        display: inline-block;
-        transition: transform .3s;
-      }
-
-      button > span::before {
-        content: attr(data-hover);
-        position: absolute;
-        top: 160%;
-        transform: translate3d(0, 0, 0);
+        font-size: 16px;
       }
 
       ul {
