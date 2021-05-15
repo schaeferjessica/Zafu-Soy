@@ -2,9 +2,9 @@ import React from 'react'
 import { Global, css } from '@emotion/react'
 
 const device = {
-  mobile: 576,
-  tablet: 768,
-  desktop: 992,
+  mobile: 500,
+  tablet: 800,
+  desktop: 1200,
 };
 
 export const breakpoint = {
@@ -107,6 +107,41 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Sans';
         border: 1px solid black;
         padding: 15px 30px;
+        background-color: transparent;
+        font-size: 18px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 17px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 16px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 15px;
+        }
+      }
+
+      button:hover span {
+        transform: translateY(-160%);
+      }
+
+      button > span  {
+        position: relative;
+        display: inline-block;
+        transition: transform .3s;
+      }
+
+      button > span::before {
+        content: attr(data-hover);
+        position: absolute;
+        top: 160%;
+        transform: translate3d(0, 0, 0);
       }
 
       ul {

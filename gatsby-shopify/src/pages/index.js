@@ -2,11 +2,21 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Seo from '~/components/seo'
 import ProductGrid from '~/components/ProductGrid'
+import { breakpoint } from '~/utils/styles'
 
 const Text = styled.p`
   margin-top: 15px;
   margin-bottom: 35px;
   max-width: 47%;
+
+  
+  @media ${breakpoint.desktop} { 
+    max-width: 64%;
+  }
+
+  @media ${breakpoint.tablet} { 
+    max-width: 100%;
+  }
 `
 
 const IndexPage = () => (

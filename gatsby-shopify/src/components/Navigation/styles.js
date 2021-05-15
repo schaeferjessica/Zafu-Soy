@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: baseline;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 `
 
 export const MenuLink = styled(Link)`

@@ -9,10 +9,12 @@ export const Grid = styled.div`
 
   @media ${breakpoint.desktop} {
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
   }
 
   @media ${breakpoint.tablet} {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
   @media ${breakpoint.mobile} {

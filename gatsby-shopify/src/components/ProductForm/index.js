@@ -97,7 +97,7 @@ const ProductForm = ({ product }) => {
 
   return (
     <>
-      <h3>{price}</h3>
+      <span>{price}</span>
       {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
           <label htmlFor={name}>{name} </label>
@@ -116,7 +116,6 @@ const ProductForm = ({ product }) => {
               </option>
             ))}
           </select>
-          <br />
         </React.Fragment>
       ))}
       <label htmlFor="quantity">Quantity </label>
@@ -129,15 +128,10 @@ const ProductForm = ({ product }) => {
         onChange={handleQuantityChange}
         value={quantity}
       />
-      <br />
-      <button
-        type="submit"
-        disabled={!available || adding}
-        onClick={handleAddToCart}
-      >
-        Add to Cart
+      <button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
+        <span data-hover="Add to Order">Add to Order</span>
       </button>
-      {!available && <p>This Product is out of Stock!</p>}
+      {!available && <p>This Product is out of Stock</p>}
     </>
   )
 }
