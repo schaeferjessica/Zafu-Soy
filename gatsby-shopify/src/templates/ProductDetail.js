@@ -22,6 +22,14 @@ const ImageInner = styled.div`
 
 const ProductDetail = ({ data }) => {
   const product = data.shopifyProduct
+  console.log('product :>> ', product);
+
+  const price = Intl.NumberFormat(undefined, {
+    currency: product.priceRange.minVariantPrice.currencyCode,
+    minimumFractionDigits: 2,
+    style: 'currency',
+  }).format(product.variants[0].price)
+
   return (
     <>
       <Seo title={product.title} description={product.description} />
@@ -41,6 +49,8 @@ const ProductDetail = ({ data }) => {
           </div>
           <div>
             <h1>{product.title}</h1>
+            
+            <span>{price}</span>
             <div
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />

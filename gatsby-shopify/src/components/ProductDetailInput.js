@@ -9,26 +9,18 @@ const Button = styled.button`
     border: 1px solid black;
     padding: 15px 30px;
     background-color: transparent;
-    font-size: 18px;
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
+    margin-top: 15px;
+
+    @media ${breakpoint.desktop} { 
+      margin-top: 10px;
+    }
 
     &:hover span {
         transform: translateY(-160%);
-    }
-
-    @media ${breakpoint.desktop} { 
-      font-size: 17px;
-    }
-
-    @media ${breakpoint.tablet} { 
-      font-size: 16px;
-    }
-
-    @media ${breakpoint.mobile} { 
-      font-size: 15px;
     }
 `
 
@@ -43,6 +35,35 @@ const Span = styled.span`
     top: 160%;
     transform: translate3d(0, 0, 0);
     }
+`
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+`
+
+const Input = styled.input`
+  border: 1px solid black;
+  padding: 15px 30px;
+  background-color: transparent;
+  margin-top: 15px;
+
+  @media ${breakpoint.desktop} { 
+    margin-top: 10px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 `
 
 const ProductDetailInput = ({ product }) => {
@@ -96,17 +117,19 @@ const ProductDetailInput = ({ product }) => {
 
   return (
     <>
-      <span>{price}</span>
-      <label htmlFor="quantity">Quantity </label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        min="1"
-        step="1"
-        onChange={handleQuantityChange}
-        value={quantity}
-      />
+      <InputWrapper>
+        <label htmlFor="quantity">Quantity </label>
+        <Input
+          type="number"
+          id="quantity"
+          name="quantity"
+          min="1"
+          step="1"
+          onChange={handleQuantityChange}
+          value={quantity}
+        />
+      </InputWrapper>
+      
       <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
         <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>
       </Button>

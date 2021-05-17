@@ -49,6 +49,7 @@ export const GlobalStyle = props => (
       h2,
       h3 {
         font-family: 'IBM Plex Serif';
+        font-weight: 300;
         margin: 0px;
         padding: 0px;
       }
@@ -70,7 +71,6 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-weight: 300;
         font-size: 18px;
 
         @media ${breakpoint.desktop} { 
@@ -104,11 +104,28 @@ export const GlobalStyle = props => (
       }
 
       button {
-        font-family: 'IBM Plex Sans';
         border: none;
         background-color: transparent;
         cursor: pointer;
-        font-size: 16px;
+      }
+
+      button,
+      input {
+        font-family: 'IBM Plex Sans';
+        font-weight: 300;
+        font-size: 18px;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 17px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 16px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 15px;
+        }
       }
 
       ul {
