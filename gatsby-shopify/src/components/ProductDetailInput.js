@@ -1,6 +1,4 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
-import find from 'lodash/find'
-import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
@@ -49,12 +47,10 @@ const Span = styled.span`
 
 const ProductDetailInput = ({ product }) => {
   const {
-    options,
-    variants,
     variants: [initialVariant],
     priceRange: { minVariantPrice },
   } = product
-  const [variant, setVariant] = useState({ ...initialVariant })
+  const [variant] = useState({ ...initialVariant })
   const [quantity, setQuantity] = useState(1)
   const {
     addVariantToCart,
@@ -88,38 +84,8 @@ const ProductDetailInput = ({ product }) => {
     setQuantity(target.value)
   }
 
-  const handleOptionChange = (optionIndex, { target }) => {
-    const { value } = target
-    const currentOptions = [...variant.selectedOptions]
-
-    currentOptions[optionIndex] = {
-      ...currentOptions[optionIndex],
-      value,
-    }
-
-    const selectedVariant = find(variants, ({ selectedOptions }) =>
-      isEqual(currentOptions, selectedOptions)
-    )
-
-    setVariant({ ...selectedVariant })
-  }
-
   const handleAddToCart = () => {
     addVariantToCart(productVariant.shopifyId, quantity)
-  }
-
-  const checkDisabled = (name, value) => {
-    const match = find(variants, {
-      selectedOptions: [
-        {
-          name: name,
-          value: value,
-        },
-      ],
-    })
-    if (match === undefined) return true
-    if (match.availableForSale === true) return false
-    return true
   }
 
   const price = Intl.NumberFormat(undefined, {
@@ -131,26 +97,6 @@ const ProductDetailInput = ({ product }) => {
   return (
     <>
       <span>{price}</span>
-      {options.map(({ id, name, values }, index) => (
-        <React.Fragment key={id}>
-          <label htmlFor={name}>{name} </label>
-          <select
-            name={name}
-            key={id}
-            onBlur={event => handleOptionChange(index, event)}
-          >
-            {values.map(value => (
-              <option
-                value={value}
-                key={`${name}-${value}`}
-                disabled={checkDisabled(name, value)}
-              >
-                {value}
-              </option>
-            ))}
-          </select>
-        </React.Fragment>
-      ))}
       <label htmlFor="quantity">Quantity </label>
       <input
         type="number"
@@ -162,7 +108,7 @@ const ProductDetailInput = ({ product }) => {
         value={quantity}
       />
       <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
-        <Span data-hover="Add to Order">Add to Order</Span>
+        <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>
       </Button>
       {!available && <p>This Product is out of Stock</p>}
     </>

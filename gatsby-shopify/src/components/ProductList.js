@@ -22,22 +22,29 @@ const Button = styled.button`
 }
 `
 
+const Image = styled.img`
+  max-width: 300px;
+`
+
 const ProductList = props => {
   const { item } = props
+  console.log('item :>> ', item);
   const {
     removeProductItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
   const variantImage = item.variant.image ? (
-    <img src={item.variant.image.src} alt={`${item.title} product shot`} />
+    <Image src={item.variant.image.src} alt={`${item.title} product shot`}/>
   ) : null
 
+  /*
   const selectedOptions = item.variant.selectedOptions
     ? item.variant.selectedOptions.map(
-        option => `${option.name}: ${option.value} `
-      )
+      option => `${option.name}: ${option.value} `
+    )
     : null
+  */
 
   const handleRemove = () => {
     removeProductItem(client, checkout.id, item.id)
@@ -47,13 +54,8 @@ const ProductList = props => {
       <Link to={`/product/${item.variant.product.handle}/`}>
         {variantImage}
       </Link>
-      <p>
-        {item.title}
-        {`  `}
-        {item.variant.title === !'Default Title' ? item.variant.title : ''}
-      </p>
-      {selectedOptions}
-      {item.quantity}
+      <p>{item.title}</p>
+      <p>{item.quantity}</p>
       <Button onClick={handleRemove}>Remove</Button>
     </Wrapper>
   )

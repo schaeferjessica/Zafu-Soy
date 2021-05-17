@@ -100,7 +100,7 @@ const ContextProvider = ({ children }) => {
               })
             })
         },
-        removeLineItem: (client, checkoutID, lineItemID) => {
+        removeProductItem: (client, checkoutID, lineItemID) => {
           return client.checkout
             .removeLineItems(checkoutID, [lineItemID])
             .then(res => {
