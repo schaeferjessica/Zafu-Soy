@@ -1,26 +1,41 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import Seo from '~/components/seo'
-import ProductDetail from '~/components/ProductDetail'
+import ProductDetailInput from '~/components/ProductDetailInput'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import styled from '@emotion/styled'
 
-const ProductPage = ({ data }) => {
+const ImageInner = styled.div`
+  &.image-header {
+    width: 500px;
+  }
+
+  .gatsby-image-wrapper-constrained {
+    width: 100%;
+  }
+
+  &.image-product {
+    width: 300px;
+  }
+`
+
+
+const ProductDetail = ({ data }) => {
   const product = data.shopifyProduct
   return (
     <>
       <Seo title={product.title} description={product.description} />
       <div>
         <div>
-          <div>
-            {product.images.map(image => {
+            {product.images.map((image, index) => {
               const pluginImage = getImage(image.localFile)
               return (
-                <GatsbyImage
+                <ImageInner className={index === 1 ? 'image-header' : 'image-product'} key={image.id}>
+                  <GatsbyImage
                   image={pluginImage}
                   alt={product.title}
-                  key={image.id}
                 />
+                </ImageInner>
               )
             })}
           </div>
@@ -29,10 +44,9 @@ const ProductPage = ({ data }) => {
             <div
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
-            <ProductDetail product={product} />
+            <ProductDetailInput product={product} />
           </div>
         </div>
-      </div>
     </>
   )
 }
@@ -78,7 +92,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            gatsbyImageData(width: 1000)
+            gatsbyImageData
           }
         }
       }
@@ -86,4 +100,4 @@ export const query = graphql`
   }
 `
 
-export default ProductPage
+export default ProductDetail

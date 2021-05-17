@@ -47,7 +47,7 @@ const Span = styled.span`
     }
 `
 
-const ProductDetail = ({ product }) => {
+const ProductDetailInput = ({ product }) => {
   const {
     options,
     variants,
@@ -169,7 +169,7 @@ const ProductDetail = ({ product }) => {
   )
 }
 
-ProductDetail.propTypes = {
+ProductDetailInput.propTypes = {
   product: PropTypes.shape({
     descriptionHtml: PropTypes.string,
     handle: PropTypes.string,
@@ -209,4 +209,4 @@ ProductDetail.propTypes = {
   addVariantToCart: PropTypes.func,
 }
 
-export default ProductDetail
+export default ProductDetailInput

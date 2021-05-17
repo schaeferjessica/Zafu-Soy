@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   align-items: baseline;
   padding-top: 20px;
   padding-bottom: 50px;
+  z-index: 9;
+  position: relative;
 `
 
 const MenuLink = styled(Link)`
