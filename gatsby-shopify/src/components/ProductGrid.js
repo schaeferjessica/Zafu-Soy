@@ -7,12 +7,28 @@ import styled from '@emotion/styled'
 import { breakpoint } from '../utils/styles'
 
 const Collection = styled.section`
-margin: 30px 0 0 0;
-padding: 0;
-list-style: none;
-display: flex;
-min-height: 100%;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 45px;
+  padding-right: 45px;
+  margin-top: 20px;
+
+  @media ${breakpoint.desktop} { 
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  @media ${breakpoint.tablet} { 
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `
 
 const CollectionPicture = styled.div`
