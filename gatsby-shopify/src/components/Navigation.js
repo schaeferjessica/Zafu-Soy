@@ -6,13 +6,24 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
+  z-index: 9;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+`
+
+const Inner = styled.div`
+  background-color: #FAF9F8;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 45px;
+  padding-right: 45px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   padding-top: 20px;
-  padding-bottom: 50px;
-  z-index: 9;
-  position: relative;
+  padding-bottom: 20px;
 `
 
 const MenuLink = styled(Link)`
@@ -47,11 +58,13 @@ const Navigation = ({ siteTitle }) => {
 
   return (
     <Wrapper>
-        <MenuLink to="/">{siteTitle}</MenuLink>
+      <Inner>
+      <MenuLink to="/">{siteTitle}</MenuLink>
         <MenuLink to="/checkout">
           Your Order
           {hasItems && <CartCounter>{quantity}</CartCounter>}
         </MenuLink>
+      </Inner>
     </Wrapper>
   )
 }

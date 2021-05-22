@@ -71,6 +71,23 @@ export const GlobalStyle = props => (
       }
 
       h2 {
+        font-size: 24px;
+
+        @media ${breakpoint.desktop} { 
+          font-size: 22px;
+        }
+    
+        @media ${breakpoint.tablet} { 
+          font-size: 20px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 18px;
+        }
+      }
+
+
+      h3 {
         font-size: 18px;
 
         @media ${breakpoint.desktop} { 
@@ -130,6 +147,10 @@ export const GlobalStyle = props => (
 
       ul {
         list-style: square inside;
+      }
+
+      .gatsby-image-wrapper-constrained {
+        display: block;
       }
     `}
   />
