@@ -45,6 +45,18 @@ export const GlobalStyle = props => (
         }
       }
 
+      strong {
+        font-weight: 400;
+      }
+
+      small {
+        font-size: 15px;
+
+        @media ${breakpoint.mobile} { 
+          font-size: 14px;
+        }
+      }
+
       h1,
       h2,
       h3 {

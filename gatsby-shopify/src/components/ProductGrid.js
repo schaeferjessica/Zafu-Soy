@@ -97,7 +97,7 @@ const ProductGrid = () => {
   const { allShopifyCollection } = useStaticQuery(
     graphql`
     query {
-      allShopifyCollection(sort: { fields: [updatedAt], order:  DESC}) {
+      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
         nodes {
           image {
             localFile {

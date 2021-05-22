@@ -26,24 +26,53 @@ const Wrapper = styled.div`
 
   @media ${breakpoint.mobile} { 
     padding-left: 15px;
-    padding-right: 14px;
+    padding-right: 15px;
   }
 `
 
 const Footer = styled.footer`
   display: flex;
-  justify-content: flex-end;
-  margin-top: 50px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 60px;
   margin-bottom: 15px;
+
+  @media ${breakpoint.tablet} { 
+    flex-direction: column-reverse;
+  }
+`
+
+const FooterLinks = styled.footer`
+  display: flex;
+`
+
+const Small  = styled.small`
+  margin-top: 15px;
 `
 
 const LinkExtern  = styled.a`
-  font-size: 14px;
+  font-size: 15px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 14px;
+  }
 `
 
 const Link = styled(LinkTo)`
-  font-size: 14px;
-  margin-left: 20px;
+  font-size: 15px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 14px;
+  }
+`
+
+const Div = styled.div`
+display: flex;
+flex-direction: column;
+
+&:not(:first-child) {
+  margin-left: 40px;
+}
 `
 
 const Layout = ({ children }) => {
@@ -65,10 +94,19 @@ const Layout = ({ children }) => {
             <Navigation siteTitle={data.site.siteMetadata.title} />
               {children}
               <Footer>
-                <small>&#169; {new Date().getFullYear()}, built by{` `}  
+                <Small>&#169; {new Date().getFullYear()}, built by{` `}  
                   <LinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExtern>
-                </small>
-                <Link to="/impressum/">Impressum</Link>
+                </Small>
+                <FooterLinks>
+                  <Div>
+                    <Link to="/shipping/">Shipping & Returns</Link>
+                    <Link to="/impressum/">Impressum & Terms</Link>
+                  </Div>
+                  <Div>
+                    <LinkExtern href="https://www.instagram.com/" target="_blank">Instagram</LinkExtern>
+                    <LinkExtern href="https://www.facebook.com/" target="_blank">Facebook</LinkExtern>
+                  </Div>
+                </FooterLinks>
               </Footer>
           </Wrapper>
         )}
