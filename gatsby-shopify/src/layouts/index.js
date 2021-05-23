@@ -5,41 +5,38 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import '../../resources/fonts.css';
 import ContextProvider from '~/provider/ContextProvider'
-import { GlobalStyle, breakpoint } from '~/utils/styles'
+import { GlobalStyle, breakpoint, container } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
 
 const Footer = styled.footer`
   background-color: #313942;
   color: #faf9f8;
-`
-
-const FooterInner = styled.footer`
-  margin: 0 auto;
-  max-width: 1440px;
-  margin-top: 70px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 45px;
-  padding-right: 45px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  margin-top: 100px;
 
   @media ${breakpoint.desktop} { 
-    padding-left: 35px;
-    padding-right: 35px;
+    margin-top: 80px;
   }
 
   @media ${breakpoint.tablet} { 
-    padding-left: 25px;
-    padding-right: 25px;
+    margin-top: 50px;
   }
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 40px;
+  }
+`
+
+const FooterInner = styled.footer`
+  ${container}
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   @media ${breakpoint.mobile} { 
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 `
 

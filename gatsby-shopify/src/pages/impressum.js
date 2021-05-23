@@ -2,9 +2,10 @@ import React from 'react'
 import { Link as LinkTo } from 'gatsby'
 import Seo from '~/components/seo'
 import styled from '@emotion/styled'
-import { breakpoint } from '../utils/styles'
+import { breakpoint, container } from '../utils/styles'
 
 const Impressum = styled.div`
+  ${container};
   margin-top: 80px;
 
   p {

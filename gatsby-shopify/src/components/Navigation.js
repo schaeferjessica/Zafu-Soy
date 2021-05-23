@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { breakpoint } from '~/utils/styles'
+import { container } from '~/utils/styles'
 
 const Wrapper = styled.div`
   z-index: 9;
@@ -15,31 +15,13 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
+  ${container}
   background-color: #FAF9F8;
-  margin: 0 auto;
-  max-width: 1440px;
-  padding-left: 45px;
-  padding-right: 45px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   padding-top: 20px;
   padding-bottom: 20px;
-
-  @media ${breakpoint.desktop} { 
-    padding-left: 35px;
-    padding-right: 35px;
-  }
-
-  @media ${breakpoint.tablet} { 
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    padding-left: 15px;
-    padding-right: 15px;
-  }
 `
 
 const MenuLink = styled(Link)`
