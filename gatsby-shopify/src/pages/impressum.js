@@ -6,7 +6,11 @@ import { breakpoint, container } from '../utils/styles'
 
 const Impressum = styled.div`
   ${container};
-  margin-top: 80px;
+  margin-top: 150px;
+
+  @media ${breakpoint.tablet} { 
+    margin-top: 100px;
+  }
 
   p {
     margin-top: 10px;
@@ -63,8 +67,8 @@ const SecondPage = () => (
       <p><strong>Impressum & Terms</strong></p>
       <p>Informationspflicht laut § 5 TMG.</p>
       
-      <p>Jessica Schäfer</p>
-      <p>email@shopify.com</p>
+      <p>Maneki Space</p>
+      <p>info@maneki.space</p>
       
       <p>EU-Streitschlichtung - Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren. Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen Kommission unter http://ec.europa.eu/odr?tid=321264491 zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum. Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
