@@ -30,7 +30,7 @@ const MenuLink = styled(Link)`
 `
 
 const CartCounter = styled.span`
-  border: 1px solid;
+  border: 1px solid #313942;
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -40,6 +40,9 @@ const CartCounter = styled.span`
   align-items: center;
   flex-direction: row;
   font-size: 14px;
+  background-color: #313942;
+  color: #faf9f8;
+  font-weight: 400;
 `
 
 const useQuantity = () => {

@@ -55,6 +55,38 @@ const Product = styled.ul`
     gap: 1rem;
   } 
 `
+
+const ProductItem = styled.div`
+  a:hover {
+    .image-product:not(:only-child) {
+      opacity: 0;
+    }
+
+    .image-detail {
+      opacity: 1;
+    }
+  }
+
+  .image-detail {
+    opacity: 0;
+  }
+
+  .image-product,
+  .image-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 200ms ease-in-out;
+  }
+`
+
+const ProductImage = styled.div`
+  position: relative;
+  height: 410px;
+`
+
 const Context = styled.div`
   ${container}
 `
@@ -121,7 +153,7 @@ const ProductGrid = () => {
               originalSrc
               localFile {
                 childImageSharp {
-                  gatsbyImageData(width: 1000)
+                  gatsbyImageData(width: 500)
                 }
               }
             }
@@ -149,7 +181,7 @@ const ProductGrid = () => {
         return <CollectionItem key={collection.id}>
           {image && (
             <CollectionPicture>
-              <GatsbyImage image={image} alt={collection.title} key={image.id} layout="fullWidth"/>
+              <GatsbyImage image={image} alt={collection.title} key={image.id} layout="fullWidth"/>  
             </CollectionPicture>
           )}
         <Context>
@@ -165,21 +197,25 @@ const ProductGrid = () => {
                   id,
                   handle,
                   title,
-                  images: [firstImage],
+                  images,
                   variants: [firstVariant],
                 },
               ) => {
-                const image = getImage(firstImage.localFile)
                 return (
-                  <div key={id}>
+                  <ProductItem key={id}>
                     <Link to={`/product/${handle}/`}>
-                      {firstImage && firstImage.localFile && (
-                        <GatsbyImage image={image} alt={handle} key={image.id} />
-                      )}
+                      <ProductImage>
+                        {images.map((image, index) => {
+                          const pluginImage = getImage(image.localFile)
+                          return image.localFile && (
+                            <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
+                          )
+                        })}
+                      </ProductImage>
                       <H3>{title}</H3>
                     </Link>
                       <span>{getPrice(firstVariant.price)}</span>
-                  </div>
+                  </ProductItem>
                 )
               }
             )

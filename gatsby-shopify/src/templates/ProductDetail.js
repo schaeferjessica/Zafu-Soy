@@ -22,7 +22,6 @@ const ImageInner = styled.div`
 
 const ProductDetail = ({ data }) => {
   const product = data.shopifyProduct
-  console.log('product :>> ', product);
 
   const price = Intl.NumberFormat(undefined, {
     currency: product.priceRange.minVariantPrice.currencyCode,
