@@ -1,2 +1,4 @@
-# shopify
-gastby + shopify + contentful
+# Maneki Space 
+gastby + shopify
+
+www.maneki.space
