@@ -123,14 +123,16 @@ const Layout = ({ children }) => {
                   <Div>
                     <p><strong>Social</strong></p>
                     <Link to="/about/">about</Link>
-                    <LinkExtern href="https://www.instagram.com/" target="_blank">Instagram</LinkExtern>
-                    <LinkExtern href="https://www.facebook.com/" target="_blank">Facebook</LinkExtern>
+                    <Link to="/faq/">FAQ</Link>
+                    <LinkExtern href="https://www.instagram.com/maneki.space/" target="_blank">Instagram</LinkExtern>
+                    <LinkExtern href="https://www.facebook.com/maneki.space" target="_blank">Facebook</LinkExtern>
                   </Div>
                   <Div>
                     <p><strong>Orders & Support</strong></p>
-                    <Link to="/faq/">FAQ</Link>
                     <Link to="/shipping/">Shipping & Returns</Link>
-                    <Link to="/impressum/">Impressum & Terms</Link>
+                    <Link to="/impressum/">Impressum</Link>
+                    <Link to="/terms/">Terms</Link>
+                    <Link to="/privacy/">Privacy</Link>
                   </Div>
                 </FooterLinks>
                 <Small>&#169; {new Date().getFullYear()}, built by{` `}  

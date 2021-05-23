@@ -26,3 +26,35 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(`
+  {
+    allMdx {
+      nodes {
+        body
+        slug
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+  
+  `).then(result => {
+    result.data.allMdx.nodes.forEach(( node ) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/Legal.js`),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          title: node.frontmatter.title,
+          content: node.body,
+        },
+      })
+    })
+  })
+}
+

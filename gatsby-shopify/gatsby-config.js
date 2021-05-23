@@ -63,5 +63,13 @@ module.exports = {
         respectDNT: true,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/MDX`,
+      },
+    },
+    `gatsby-plugin-mdx`,
   ],
 }

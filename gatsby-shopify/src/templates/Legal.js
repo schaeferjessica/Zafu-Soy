@@ -3,10 +3,15 @@ import { Link as LinkTo } from 'gatsby'
 import Seo from '~/components/seo'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const Shipping = styled.div`
-  ${container}
-  margin-top: 80px;
+const Legal = styled.div`
+  ${container};
+  margin-top: 150px;
+
+  @media ${breakpoint.tablet} { 
+    margin-top: 100px;
+  }
 
   p {
     margin-top: 10px;
@@ -23,7 +28,6 @@ const Shipping = styled.div`
     font-family: IBM Plex Serif;
   }
 `
-
 const Link = styled(LinkTo)`
     font-family: 'IBM Plex Sans';
     border: 1px solid black;
@@ -57,15 +61,14 @@ const Span = styled.span`
     }
 `
 
-const SecondPage = () => (
-  <Shipping>
-    <Seo title="shipping and returns" />
-    <p><strong>Shipping</strong></p>
-    <p><strong>Returns</strong></p>
+const SecondPage = (data) => {
+return <Legal>
+    <Seo title={data.pageContext.title} />
+    <MDXRenderer>{data.pageContext.content}</MDXRenderer>
     <Link to="/">
       <Span data-hover="Take me Back">Take me Back</Span>
     </Link>
-  </Shipping>
-)
+  </Legal>
+}
 
 export default SecondPage
