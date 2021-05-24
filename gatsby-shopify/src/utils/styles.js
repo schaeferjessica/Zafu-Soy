@@ -43,6 +43,7 @@ export const GlobalStyle = props => (
 
       body {
         margin: 0;
+        box-sizing: border-box;
         background-color: #FAF9F8;
       }
 

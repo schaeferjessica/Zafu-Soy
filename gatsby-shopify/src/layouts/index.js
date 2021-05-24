@@ -6,7 +6,6 @@ import styled from '@emotion/styled'
 import '../../resources/fonts.css';
 import ContextProvider from '~/provider/ContextProvider'
 import { GlobalStyle, breakpoint, container } from '~/utils/styles'
-import Navigation from '~/components/Navigation'
 
 const Footer = styled.footer`
   background-color: #313942;
@@ -115,7 +114,6 @@ const Layout = ({ children }) => {
         `}
         render={data => (
           <div>
-            <Navigation siteTitle={data.site.siteMetadata.title} />
               {children}
             <Footer>
               <FooterInner>

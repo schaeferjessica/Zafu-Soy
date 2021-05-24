@@ -6,17 +6,22 @@ import { breakpoint } from '../utils/styles'
 
 const Button = styled.button`
     font-family: 'IBM Plex Sans';
-    border: 1px solid black;
+    border: 1px solid #313942;
+    background-color: #313942;
+    color: #faf9f8;
     padding: 15px 30px;
-    background-color: transparent;
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
     margin-top: 15px;
+    width: 60%;
+    margin-left: 20px;
 
     @media ${breakpoint.desktop} { 
       margin-top: 10px;
+      width: 100%;
+      margin-left: 0px;
     }
 
     &:hover span {
@@ -37,10 +42,26 @@ const Span = styled.span`
     }
 `
 
-const InputWrapper = styled.div`
+const InputInner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  width: 40%;
+
+  @media ${breakpoint.desktop} { 
+    margin-top: 10px;
+    width: 100%;
+  }
+`
+
+const InputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media ${breakpoint.desktop} { 
+    display: block;
+  }
 `
 
 const Input = styled.input`
@@ -116,8 +137,8 @@ const ProductDetailInput = ({ product }) => {
   }).format(variant.price)
 
   return (
-    <>
-      <InputWrapper>
+    <InputWrapper>
+      <InputInner>
         <label htmlFor="quantity">Quantity </label>
         <Input
           type="number"
@@ -128,13 +149,13 @@ const ProductDetailInput = ({ product }) => {
           onChange={handleQuantityChange}
           value={quantity}
         />
-      </InputWrapper>
+      </InputInner>
       
       <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
         <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>
       </Button>
       {!available && <p>This Product is out of Stock</p>}
-    </>
+    </InputWrapper>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link as LinkTo } from 'gatsby'
 import Seo from '~/components/seo'
+import Navigation from '~/components/Navigation'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -64,6 +65,7 @@ const Span = styled.span`
 const SecondPage = (data) => {
 return <Legal>
     <Seo title={data.pageContext.title} />
+    <Navigation />
     <MDXRenderer>{data.pageContext.content}</MDXRenderer>
     <Link to="/">
       <Span data-hover="Take me Back">Take me Back</Span>

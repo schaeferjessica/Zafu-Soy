@@ -27,6 +27,10 @@ const Inner = styled.div`
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+  &.navigation--transparent {
+    background-color: transparent;
+  }
 `
 
 const SvgWrapper = styled.div`
@@ -53,6 +57,16 @@ const SvgWrapper = styled.div`
     width: 60px;
     height: 60px;
   }
+`
+const Span = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
 `
 
 const Svg = styled.svg`
@@ -90,13 +104,14 @@ const useQuantity = () => {
   return [total !== 0, total]
 }
 
-const Navigation = ({ siteTitle }) => {
+const Navigation = ({isTransparent}) => {
   const [hasItems, quantity] = useQuantity()
 
   return (
     <Wrapper>
-      <Inner>
+      <Inner className={ isTransparent && "navigation--transparent"}>
       <MenuLink to="/">
+        <Span>Maneki Space</Span>
         <SvgWrapper>
         <Svg 
           version="1.0" 
