@@ -117,18 +117,20 @@ const H2 = styled.h2`
   }
 `
 
-const Text = styled.p`
-  margin-top: 10px;
-  width: 70%;
-
-  @media ${breakpoint.desktop} {
-    margin-top: 5px;
-    width: 65%;
-  }
+const Text = styled.div`
+  p {
+    margin-top: 10px;
+    width: 70%;
   
-  @media ${breakpoint.tablet} {
-    margin-top: 0px;
-    width: 100%;
+    @media ${breakpoint.desktop} {
+      margin-top: 5px;
+      width: 65%;
+    }
+    
+    @media ${breakpoint.tablet} {
+      margin-top: 0px;
+      width: 100%;
+    }
   }
 `
 
@@ -156,7 +158,7 @@ const ProductGrid = () => {
           }
           id
           title
-          description
+          descriptionHtml
           products {
             id
             title
@@ -200,7 +202,9 @@ const ProductGrid = () => {
           )}
         <Context>
           <H2>{collection.title}</H2>
-          <Text>{collection.description}</Text>
+          <Text
+            dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
+          </Text>
         </Context>
 
         <ProductContainer>
