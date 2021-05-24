@@ -56,7 +56,7 @@ const Product = styled.ul`
   } 
 `
 
-const ProductItem = styled.div`
+const ProductItem = styled.li`
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;

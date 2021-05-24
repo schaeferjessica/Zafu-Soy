@@ -20,46 +20,6 @@ const ImageInner = styled.div`
 `
 
 
-const ProductDetail = ({ data }) => {
-  const product = data.shopifyProduct
-
-  const price = Intl.NumberFormat(undefined, {
-    currency: product.priceRange.minVariantPrice.currencyCode,
-    minimumFractionDigits: 2,
-    style: 'currency',
-  }).format(product.variants[0].price)
-
-  return (
-    <>
-      <Seo title={product.title} description={product.description} />
-      <div>
-        <div>
-            {product.images.map((image, index) => {
-              const pluginImage = getImage(image.localFile)
-              return (
-                <ImageInner className={index === 1 ? 'image-header' : 'image-product'} key={image.id}>
-                  <GatsbyImage
-                  image={pluginImage}
-                  alt={product.title}
-                />
-                </ImageInner>
-              )
-            })}
-          </div>
-          <div>
-            <h1>{product.title}</h1>
-            
-            <span>{price}</span>
-            <div
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
-            <ProductDetailInput product={product} />
-          </div>
-        </div>
-    </>
-  )
-}
-
 export const query = graphql`
   query ($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
@@ -108,5 +68,46 @@ export const query = graphql`
     }
   }
 `
+
+const ProductDetail = ({ data }) => {
+  const product = data.shopifyProduct
+
+  const price = Intl.NumberFormat(undefined, {
+    currency: product.priceRange.minVariantPrice.currencyCode,
+    minimumFractionDigits: 2,
+    style: 'currency',
+  }).format(product.variants[0].price)
+
+  return (
+    <>
+      <Seo title={product.title} description={product.description} />
+      <div>
+        <div>
+            {product.images.map((image, index) => {
+              const pluginImage = getImage(image.localFile)
+              return (
+                <ImageInner className={index === 1 ? 'image-header' : 'image-product'} key={image.id}>
+                  <GatsbyImage
+                  image={pluginImage}
+                  alt={product.title}
+                />
+                </ImageInner>
+              )
+            })}
+          </div>
+          <div>
+            <h1>{product.title}</h1>
+            
+            <span>{price}</span>
+            <div
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            />
+            <ProductDetailInput product={product} />
+          </div>
+        </div>
+    </>
+  )
+}
+
 
 export default ProductDetail
