@@ -28,7 +28,6 @@ const Footer = styled.footer`
 const FooterInner = styled.footer`
   ${container}
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -37,10 +36,6 @@ const FooterInner = styled.footer`
     flex-direction: column;
     align-items: flex-start;
   }
-`
-
-const FooterLinks = styled.footer`
-  display: flex;
 
   p {
     font-size: 15px;
@@ -56,6 +51,19 @@ const FooterLinks = styled.footer`
     font-family: IBM Plex Serif;
   }
 `
+
+const FooterLinksLeft = styled.div`
+  display: flex;
+`
+
+const FooterLinksRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
+
 
 const Small  = styled.small`
   margin-top: 30px;
@@ -117,7 +125,7 @@ const Layout = ({ children }) => {
               {children}
             <Footer>
               <FooterInner>
-                <FooterLinks>
+                <FooterLinksLeft>
                   <Div>
                     <p><strong>Social</strong></p>
                     <Link to="/about/">about</Link>
@@ -132,10 +140,16 @@ const Layout = ({ children }) => {
                     <Link to="/terms/">Terms</Link>
                     <Link to="/privacy/">Privacy</Link>
                   </Div>
-                </FooterLinks>
-                <Small>&#169; {new Date().getFullYear()}, built by{` `}  
-                  <LinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExtern>
-                </Small>
+                </FooterLinksLeft>
+                <FooterLinksRight>
+                  <Div>
+                    <p><strong>Contact us:</strong></p>
+                    <Link to="/about/">how can we help? </Link>
+                  </Div>
+                  <Small>&#169; {new Date().getFullYear()}, built by{` `} 
+                    <LinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExtern>
+                  </Small>
+                </FooterLinksRight>
               </FooterInner>
             </Footer>
           </div>

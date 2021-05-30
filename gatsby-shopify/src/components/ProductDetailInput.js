@@ -15,18 +15,26 @@ const Button = styled.button`
     overflow: hidden;
     cursor: pointer;
     margin-top: 15px;
-    width: 60%;
-    margin-left: 20px;
+    
 
     @media ${breakpoint.desktop} { 
       margin-top: 10px;
-      width: 100%;
-      margin-left: 0px;
     }
 
     &:hover span {
         transform: translateY(-160%);
     }
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin-left: 20px;
+
+  @media ${breakpoint.desktop} { 
+    margin-left: 0px;
+  }
 `
 
 const Span = styled.span`
@@ -150,11 +158,12 @@ const ProductDetailInput = ({ product }) => {
           value={quantity}
         />
       </InputInner>
-      
-      <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
-        <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>
-      </Button>
-      {!available && <p>This Product is out of Stock</p>}
+      <ButtonWrapper>
+        <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
+          {available && <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>}
+          {!available && <span>currently out of stock</span>}
+        </Button>
+      </ButtonWrapper>
     </InputWrapper>
   )
 }

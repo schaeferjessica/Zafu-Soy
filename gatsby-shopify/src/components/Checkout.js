@@ -3,42 +3,29 @@ import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
 import styled from '@emotion/styled'
 import { breakpoint } from '../utils/styles'
-
-const StyledCheckoutWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.7);
-  z-index: 9;
-  display: flex;
-  justify-content: flex-end;
-  opacity: 0;
-  pointer-events: none;
-
-  &.is-active {
-    opacity: 1;
-    pointer-events: initial;
-
-    > div {
-      transform: translateX(0%);
-    }
-  } 
-`;
+import { navigate } from 'gatsby'
 
 const StyledCheckout = styled.div`
   transform: translateX(100%);
   transition: transform 300ms ease-in-out;
-  width: 42%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 24%;
   height: 100vh;
   background-color: white;
   padding: 20px;
-  z-index: 9;
+  z-index: 11;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+
+  &.is-active {
+    transform: translateX(0%);
+  } 
 `;
 
-const Button = styled.button`
+const ButtonCheckout = styled.button`
     font-family: 'IBM Plex Sans';
     border: 1px solid #313942;
     background-color: #313942;
@@ -52,7 +39,7 @@ const Button = styled.button`
     position: absolute;
     bottom: 50px;
     left: 20px;
-    width: 95%;
+    width: 91%;
 
     @media ${breakpoint.desktop} { 
       margin-top: 10px;
@@ -75,6 +62,44 @@ const Span = styled.span`
     transform: translate3d(0, 0, 0);
     }
 `
+const ButtonBack = styled.button`
+  display: block;
+  margin-top: 15px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  padding: 0px;
+  font-size: 17px;
+  align-self: flex-start;
+
+  &:hover {
+    text-decoration: none;
+  }
+`
+
+const Title = styled.h2`
+  margin-top: 25%;
+  margin-bottom: 5%;
+`
+const Ul = styled.ul`
+padding: 0;
+`
+
+const ButtonClose = styled.button`
+  border: 1px solid #313942;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  color: #313942;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  padding: 0px;
+  flex: 0 auto;
+`
 
 const Checkout = ({isOpen, handleCheckoutClose}) => {
   const {
@@ -84,26 +109,35 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
   const handleCheckout = () => {
     window.open(checkout.webUrl)
   }
+  const handleBackClick = () => {
+    handleCheckoutClose();
+    navigate('/');
+  }
 
   const lineItems = checkout.lineItems.map(item => (
     <ProductList key={item.id.toString()} item={item} />
   ))
 
   return (
-    <StyledCheckoutWrapper className={isOpen ? 'is-active' : ''}>
-      <StyledCheckout>
-        <button onClick={() => handleCheckoutClose()}>X</button>
-        <ul>
-          {lineItems}
-        </ul>
-        <Button 
-          onClick={handleCheckout}
-          disabled={checkout.lineItems.length === 0}
-          >
-          <Span data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</Span>
-        </Button>
-      </StyledCheckout>
-    </StyledCheckoutWrapper>
+    <StyledCheckout className={isOpen ? 'is-active' : ''}>
+      <ButtonClose onClick={() => handleCheckoutClose()}>X</ButtonClose>
+      {lineItems.length ? <>
+      <h2>Your Order</h2>
+      <Ul>
+        {lineItems}
+      </Ul>
+      <ButtonCheckout 
+        onClick={handleCheckout}
+        disabled={checkout.lineItems.length === 0}
+        >
+        <Span data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</Span>
+      </ButtonCheckout>
+      </> : <>
+      <Title>Your Order</Title>
+      <p>Looks like you haven’t added anthing to your order yet.</p>
+      <ButtonBack onClick={() => handleBackClick()}>Take me back to the Shop</ButtonBack> </>}
+      
+    </StyledCheckout>
   )
 }
 
