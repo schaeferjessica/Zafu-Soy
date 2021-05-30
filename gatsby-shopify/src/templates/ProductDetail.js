@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
+import Checkout from '~/components/Checkout'
 import ProductDetailInput from '~/components/ProductDetailInput'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
@@ -124,7 +125,16 @@ export const query = graphql`
 `
 
 const ProductDetail = ({ data }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const product = data.shopifyProduct
+
+  useEffect(() => {
+    if (isOpen) {
+      document.querySelector('body').classList.add('prevent-scroll');
+    } else {
+      document.querySelector('body').classList.remove('prevent-scroll');
+    }
+  }, [isOpen]);
 
   const price = Intl.NumberFormat(undefined, {
     currency: product.priceRange.minVariantPrice.currencyCode,
@@ -135,7 +145,8 @@ const ProductDetail = ({ data }) => {
   return (
     <>
       <Seo title={product.title} description={product.description} />
-      <Navigation isTransparent={true}/>
+      <Navigation isTransparent={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
+      <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
       <div>
         <div>
         <ImageHeader>

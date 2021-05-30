@@ -3,18 +3,24 @@ import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
 
-const Wrapper = styled.div`
+const ListItem = styled.li`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 0 2rem 0;
+`
+
+const ListItemContext = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `
 
 const Button = styled.button`
   color: black;
   text-decoration: none;
-
+  padding: 0;
+  
 &:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -50,14 +56,17 @@ const ProductList = props => {
     removeProductItem(client, checkout.id, item.id)
   }
   return (
-    <Wrapper>
+    <ListItem>
       <Link to={`/product/${item.variant.product.handle}/`}>
         {variantImage}
       </Link>
-      <p>{item.title}</p>
-      <p>{item.quantity}</p>
-      <Button onClick={handleRemove}>Remove</Button>
-    </Wrapper>
+      <ListItemContext>
+        <p>{item.title}</p>
+        <p>{item.quantity}</p>
+        <p>{item.variant.price}</p>
+        <Button onClick={handleRemove}>Remove</Button>
+      </ListItemContext>
+    </ListItem>
   )
 }
 

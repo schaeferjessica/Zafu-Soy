@@ -188,6 +188,10 @@ export const GlobalStyle = props => (
       .gatsby-image-wrapper-constrained {
         display: block;
       }
+
+      .prevent-scroll {
+        overflow: hidden;
+      }
     `}
   />
 )

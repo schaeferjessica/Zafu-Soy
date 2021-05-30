@@ -3,8 +3,8 @@ import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
-import { Link } from 'gatsby'
 import { breakpoint, container } from '~/utils/styles'
+import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
   z-index: 9;
@@ -73,8 +73,12 @@ const Svg = styled.svg`
   width: 100px;
   height: 100px;
 `
-
 const MenuLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`
+
+const MenuButton = styled.button`
   text-decoration: none;
   color: black;
 `
@@ -104,7 +108,7 @@ const useQuantity = () => {
   return [total !== 0, total]
 }
 
-const Navigation = ({isTransparent}) => {
+const Navigation = ({isTransparent, onOrderButtonClick}) => {
   const [hasItems, quantity] = useQuantity()
 
   return (
@@ -197,10 +201,10 @@ const Navigation = ({isTransparent}) => {
         </Svg>
         </SvgWrapper>
       </MenuLink>
-        <MenuLink to="/checkout">
+        <MenuButton onClick={() => onOrderButtonClick()}>
           Your Order
           {hasItems && <CartCounter>{quantity}</CartCounter>}
-        </MenuLink>
+        </MenuButton>
       </Inner>
     </Wrapper>
   )

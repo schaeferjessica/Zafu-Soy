@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link as LinkTo } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
+import Checkout from '~/components/Checkout'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -54,18 +55,29 @@ const Span = styled.span`
     display: inline-block;
     transition: transform .3s;
 
-&::before {
-    content: attr(data-hover);
-    position: absolute;
-    top: 160%;
-    transform: translate3d(0, 0, 0);
+    &::before {
+      content: attr(data-hover);
+      position: absolute;
+      top: 160%;
+      transform: translate3d(0, 0, 0);
     }
 `
 
 const SecondPage = (data) => {
-return <Legal>
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.querySelector('body').classList.add('prevent-scroll');
+    } else {
+      document.querySelector('body').classList.remove('prevent-scroll');
+    }
+  }, [isOpen]);
+  
+  return <Legal>
     <Seo title={data.pageContext.title} />
-    <Navigation />
+    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
+    <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <MDXRenderer>{data.pageContext.content}</MDXRenderer>
     <Link to="/">
       <Span data-hover="Take me Back">Take me Back</Span>
