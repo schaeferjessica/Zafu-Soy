@@ -11,7 +11,7 @@ const StyledCheckout = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 24%;
+  width: 30%;
   height: 100vh;
   background-color: white;
   padding: 20px;
@@ -23,6 +23,18 @@ const StyledCheckout = styled.div`
   &.is-active {
     transform: translateX(0%);
   } 
+
+  @media ${breakpoint.desktop} { 
+    width: 40%;
+  }
+
+  @media ${breakpoint.tablet} { 
+    width: 50%;
+  }
+
+  @media ${breakpoint.tablet} { 
+    width: 60%;
+  }
 `;
 
 const ButtonCheckout = styled.button`
@@ -93,12 +105,16 @@ const ButtonClose = styled.button`
   font-size: 14px;
   color: #313942;
   font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   align-self: flex-end;
   padding: 0px;
   flex: 0 auto;
+
+  span {
+    line-height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 const Checkout = ({isOpen, handleCheckoutClose}) => {
@@ -120,7 +136,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
 
   return (
     <StyledCheckout className={isOpen ? 'is-active' : ''}>
-      <ButtonClose onClick={() => handleCheckoutClose()}>X</ButtonClose>
+      <ButtonClose onClick={() => handleCheckoutClose()}><span>x</span></ButtonClose>
       {lineItems.length ? <>
       <h2>Your Order</h2>
       <Ul>
