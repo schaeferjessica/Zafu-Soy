@@ -15,7 +15,7 @@ const ListItemContext = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 20px;
-  width: 55%;
+  width: 45%;
 `
 
 const ListItemImage = styled.div`

@@ -47,11 +47,12 @@ const ButtonCheckout = styled.button`
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 15px;
+    padding-top: 15px;
     position: absolute;
     bottom: 50px;
     left: 20px;
     width: 91%;
+
 
     @media ${breakpoint.desktop} { 
       margin-top: 10px;
@@ -98,22 +99,20 @@ padding: 0;
 `
 
 const ButtonClose = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #313942;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
   font-size: 14px;
   color: #313942;
   font-weight: 400;
   align-self: flex-end;
   padding: 0px;
-  flex: 0 auto;
 
   span {
-    line-height: 23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 25px;
+    height: 25px;
   }
 `
 
