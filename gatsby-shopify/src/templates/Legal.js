@@ -6,6 +6,7 @@ import Checkout from '~/components/Checkout'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const Legal = styled.div`
   ${container};
@@ -63,6 +64,11 @@ const Span = styled.span`
     }
 `
 
+const ImageWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+`
+
 const SecondPage = (data) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -78,6 +84,9 @@ const SecondPage = (data) => {
     <Seo title={data.pageContext.title} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
+    <ImageWrapper>
+      {data.pageContext.image ? <GatsbyImage image={getImage(data.pageContext.image)} alt={data.pageContext.alt} /> : ""}
+    </ImageWrapper>
     <MDXRenderer>{data.pageContext.content}</MDXRenderer>
     <Link to="/">
       <Span data-hover="Take me Back">Take me Back</Span>

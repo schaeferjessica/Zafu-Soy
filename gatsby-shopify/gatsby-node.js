@@ -37,6 +37,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug
           frontmatter {
             title
+            alt
+            image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }
@@ -55,7 +61,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         title: node.frontmatter.title,
+        alt: node.frontmatter.alt,
         content: node.body,
+        image: node.frontmatter.image,
       },
     })
   });

@@ -130,8 +130,8 @@ const Layout = ({ children }) => {
                     <p><strong>Social</strong></p>
                     <Link to="/about/">about</Link>
                     <Link to="/faq/">FAQ</Link>
-                    <LinkExtern href="https://www.instagram.com/maneki.space/" target="_blank">Instagram</LinkExtern>
-                    <LinkExtern href="https://www.facebook.com/maneki.space" target="_blank">Facebook</LinkExtern>
+                    <LinkExtern href="https://www.instagram.com/maneki.space/" target="_blank" rel="noopener">Instagram</LinkExtern>
+                    <LinkExtern href="https://www.facebook.com/maneki.space" target="_blank" rel="noopener">Facebook</LinkExtern>
                   </Div>
                   <Div>
                     <p><strong>Orders & Support</strong></p>
