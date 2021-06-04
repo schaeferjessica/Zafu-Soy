@@ -33,7 +33,7 @@ const ImageHeader = styled.div`
 const ImageProduct = styled.div`
   ${container}
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin-top: 80px;
   align-items: center;
