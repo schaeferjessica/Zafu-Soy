@@ -27,11 +27,11 @@ const CollectionPicture = styled.div`
   margin: 0 auto; 
 `
 
-const ProductContainer = styled.div`
+export const ProductContainer = styled.div`
   ${container}
 `
 
-const Product = styled.ul`
+export const Product = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
@@ -56,7 +56,7 @@ const Product = styled.ul`
   } 
 `
 
-const ProductItem = styled.li`
+export const ProductItem = styled.li`
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;
@@ -82,7 +82,7 @@ const ProductItem = styled.li`
   }
 `
 
-const ProductImage = styled.div`
+export const ProductImage = styled.div`
   position: relative;
 
   > * {
@@ -134,7 +134,7 @@ const Text = styled.div`
   }
 `
 
-const H3 = styled.h3`
+export const H3 = styled.h3`
   margin-top: 5px;
 `
 
@@ -188,9 +188,9 @@ const ProductGrid = () => {
       currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
       minimumFractionDigits: 2,
       style: 'currency',
-    }).format(parseFloat(price ? price : 0))
+    }).format(parseFloat(price ? price : 0));
 
-    return (
+  return (
     <Collection>
       {allShopifyCollection.nodes.map(collection => {
         const image = collection.image ? getImage(collection.image.localFile) : null;

@@ -37,12 +37,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug
           frontmatter {
             title
-            alt
-            image {
+            imageOne {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData (width: 600)
               }
             }
+            altOne
+            imageTwo {
+              childImageSharp {
+                gatsbyImageData (width: 600)
+              }
+            }
+            altTwo
           }
         }
       }
@@ -54,6 +60,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   allLegalPages.data.allMdx.nodes.forEach(node => {
+    const images = [];
+    if (node.frontmatter.imageOne) images.push({
+      image: node.frontmatter.imageOne,
+      altText: node.frontmatter.altOne,
+    })
+    if (node.frontmatter.imageTwo) images.push({
+      image: node.frontmatter.imageTwo,
+      altText: node.frontmatter.altTwo,
+    })
+    
     actions.createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/Legal.js`),
@@ -63,7 +79,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         title: node.frontmatter.title,
         alt: node.frontmatter.alt,
         content: node.body,
-        image: node.frontmatter.image,
+        images: images,
       },
     })
   });

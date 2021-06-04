@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { graphql } from 'gatsby'
+import React, { useState, useEffect, useContext } from 'react'
+import StoreContext from '~/context/StoreContext'
+import { graphql, Link } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ProductDetailInput from '~/components/ProductDetailInput'
+import { Product, ProductItem, ProductImage, H3} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
@@ -75,6 +77,12 @@ const Description = styled.div`
   display: block;
 `
 
+const ProductContainer = styled.div`
+  ${container}
+
+  margin-top: 100px;
+`
+
 export const query = graphql`
   query ($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
@@ -121,12 +129,48 @@ export const query = graphql`
         }
       }
     }
+    allShopifyProduct(
+      sort: { fields: createdAt, order: DESC }
+      limit: 4
+      filter: { handle: { ne: $handle } }
+    ) {
+      nodes {
+        id
+        title
+        handle
+        createdAt
+        images {
+          id
+          originalSrc
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 500)
+            }
+          }
+        }
+        variants {
+          price
+        }
+      }
+    }
   }
 `
 
 const ProductDetail = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const product = data.shopifyProduct
+  const newestProducts = data.allShopifyProduct.nodes;
+
+  const {
+    store: { checkout },
+  } = useContext(StoreContext)
+
+  const getPrice = price =>
+  Intl.NumberFormat(undefined, {
+    currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
+    minimumFractionDigits: 2,
+    style: 'currency',
+  }).format(parseFloat(price ? price : 0));
 
   useEffect(() => {
     if (isOpen) {
@@ -190,6 +234,43 @@ const ProductDetail = ({ data }) => {
           </ImageProduct>
           </div>
         </div>
+
+        <ProductContainer>
+          <h2>New arrivals</h2>
+          <Product>
+          {newestProducts.length ? (
+            newestProducts.map(
+              ({
+                  id,
+                  handle,
+                  title,
+                  images,
+                  variants: [firstVariant],
+                },
+              ) => {
+                return (
+                  <ProductItem key={id}>
+                    <Link to={`/product/${handle}/`}>
+                      <ProductImage>
+                        {images.map((image, index) => {
+                          const pluginImage = getImage(image.localFile)
+                          return image.localFile && (
+                            <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
+                          )
+                        })}
+                      </ProductImage>
+                      <H3>{title}</H3>
+                    </Link>
+                      <span>{getPrice(firstVariant.price)}</span>
+                  </ProductItem>
+                )
+              }
+            )
+          ) : (
+            <p>No Products found!</p>
+          )}
+          </Product>
+        </ProductContainer>
     </>
   )
 }

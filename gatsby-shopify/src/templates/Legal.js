@@ -15,6 +15,14 @@ const Legal = styled.div`
   @media ${breakpoint.tablet} { 
     margin-top: 100px;
   }
+`
+const TextWrapper = styled.div`
+  margin-top: 50px;
+  width: 70%;
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 30px;
+  }
 
   p {
     margin-top: 10px;
@@ -29,8 +37,13 @@ const Legal = styled.div`
     margin-top: 30px;
     display: block;
     font-family: IBM Plex Serif;
+
+    @media ${breakpoint.mobile} { 
+      margin-top: 20px;
+    }
   }
 `
+
 const Link = styled(LinkTo)`
     font-family: 'IBM Plex Sans';
     border: 1px solid black;
@@ -40,10 +53,10 @@ const Link = styled(LinkTo)`
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 50px;
 
-    @media ${breakpoint.desktop} { 
-      margin-top: 20px;
+    @media ${breakpoint.mobile} { 
+      margin-top: 30px;
     }
 
     &:hover span {
@@ -66,7 +79,9 @@ const Span = styled.span`
 
 const ImageWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    column-gap: 20px;
 `
 
 const SecondPage = (data) => {
@@ -85,9 +100,11 @@ const SecondPage = (data) => {
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <ImageWrapper>
-      {data.pageContext.image ? <GatsbyImage image={getImage(data.pageContext.image)} alt={data.pageContext.alt} /> : ""}
+      {data.pageContext.images.length ? data.pageContext.images.map(image => <GatsbyImage image={getImage(image.image)} alt={image.altText || ''}/>) : ""}
     </ImageWrapper>
-    <MDXRenderer>{data.pageContext.content}</MDXRenderer>
+    <TextWrapper>
+     <MDXRenderer>{data.pageContext.content}</MDXRenderer>
+    </TextWrapper>
     <Link to="/">
       <Span data-hover="Take me Back">Take me Back</Span>
     </Link>

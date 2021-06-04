@@ -102,13 +102,17 @@ const ButtonClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #313942;
+  border: 1px solid #3139425c;
   border-radius: 50%;
   font-size: 14px;
   color: #313942;
   font-weight: 400;
   align-self: flex-end;
   padding: 0px;
+
+  &:hover {
+    border: 1px solid #313942;
+  }
 
   span {
     width: 25px;
