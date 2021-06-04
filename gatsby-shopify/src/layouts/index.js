@@ -35,6 +35,8 @@ const FooterInner = styled.footer`
   @media ${breakpoint.mobile} { 
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   p {
@@ -61,6 +63,10 @@ const FooterLinksRight = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 30px;
+  }
 `
 
 

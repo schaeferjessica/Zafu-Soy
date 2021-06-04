@@ -81,6 +81,14 @@ const ProductContainer = styled.div`
   ${container}
 
   margin-top: 100px;
+
+  @media ${breakpoint.tablet} {
+    margin-top: 80px;
+  }
+
+  @media ${breakpoint.mobile} {
+    margin-top: 50px;
+  }
 `
 
 export const query = graphql`

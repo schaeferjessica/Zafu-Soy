@@ -20,6 +20,10 @@ const TextWrapper = styled.div`
   margin-top: 50px;
   width: 70%;
 
+  @media ${breakpoint.tablet} { 
+    width: 100%;
+  }
+
   @media ${breakpoint.mobile} { 
     margin-top: 30px;
   }
@@ -82,6 +86,14 @@ const ImageWrapper = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     column-gap: 20px;
+
+    @media ${breakpoint.tablet} { 
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media ${breakpoint.mobile} { 
+      grid-template-columns: 1fr 1fr;
+    }
 `
 
 const SecondPage = (data) => {
