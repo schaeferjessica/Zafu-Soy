@@ -50,7 +50,7 @@ const TextWrapper = styled.div`
 
 const Link = styled(LinkTo)`
     font-family: 'IBM Plex Sans';
-    border: 1px solid black;
+    border: 1px solid #313942;
     padding: 15px 30px;
     background-color: transparent;
     position: relative;

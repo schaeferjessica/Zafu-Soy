@@ -51,6 +51,7 @@ const FooterInner = styled.footer`
     padding-bottom: 5px;
     display: block;
     font-family: IBM Plex Serif;
+    color: #faf9f8;
   }
 `
 
@@ -69,19 +70,32 @@ const FooterLinksRight = styled.div`
   }
 `
 
-
-
 const Small  = styled.small`
   margin-top: 30px;
+  color: #bab8b5;
+`
+
+const LinkExternSmall  = styled.a`
+  font-size: 16px;
+  margin-top: 5px;
+  color: #bab8b5;
+
+  &:hover {
+    color: #faf9f8;
+  }
+
+  @media ${breakpoint.mobile} { 
+    font-size: 15px;
+  }
 `
 
 const LinkExtern  = styled.a`
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 5px;
   color: #faf9f8;
 
   @media ${breakpoint.mobile} { 
-    font-size: 14px;
+    font-size: 15px;
   }
 `
 
@@ -153,7 +167,7 @@ const Layout = ({ children }) => {
                     <Link to="/about/">how can we help? </Link>
                   </Div>
                   <Small>&#169; {new Date().getFullYear()}, built by{` `} 
-                    <LinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExtern>
+                    <LinkExternSmall href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExternSmall>
                   </Small>
                 </FooterLinksRight>
               </FooterInner>

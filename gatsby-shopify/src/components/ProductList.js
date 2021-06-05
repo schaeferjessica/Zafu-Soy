@@ -19,18 +19,16 @@ const ListItemContext = styled.div`
 `
 
 const ListItemImage = styled.div`
-  width: 40%;
+  width: 35%;
 `
 
 const ListItemButton = styled.button`
-  color: black;
+  color: #3139425c;
   text-decoration: none;
   padding: 0;
   
 &:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
+  color: #313942;
 }
 `
 
@@ -64,7 +62,7 @@ const ProductList = props => {
         </Link>
       </ListItemImage>
       <ListItemContext>
-        <h2>{item.title}</h2>
+        <p>{item.title}</p>
         <p>{item.variant.price} €</p>
         <ListItemButton onClick={handleRemove}><small>{item.quantity} - Remove</small></ListItemButton>
       </ListItemContext>

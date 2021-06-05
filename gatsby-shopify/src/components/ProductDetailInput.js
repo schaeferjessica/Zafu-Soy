@@ -24,6 +24,18 @@ const Button = styled.button`
     &:hover span {
         transform: translateY(-160%);
     }
+
+    &.not-available {
+      background-color: transparent;
+
+      span {
+        color: #313942;
+      }
+    }
+
+    span {
+      color: #faf9f8;
+    }
 `
 
 const ButtonWrapper = styled.div`
@@ -41,12 +53,14 @@ const Span = styled.span`
     position: relative;
     display: inline-block;
     transition: transform .3s;
+    color: #faf9f8;
 
 &::before {
     content: attr(data-hover);
     position: absolute;
     top: 160%;
     transform: translate3d(0, 0, 0);
+    color: #faf9f8;
     }
 `
 
@@ -54,7 +68,7 @@ const InputInner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
-  width: 40%;
+  width: 30%;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
@@ -73,10 +87,12 @@ const InputWrapper = styled.div`
 `
 
 const Input = styled.input`
-  border: 1px solid black;
+  border: 1px solid #313942;
   padding: 15px 30px;
   background-color: transparent;
   margin-top: 15px;
+  outline: none;
+  box-shadow: none;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
@@ -147,7 +163,7 @@ const ProductDetailInput = ({ product }) => {
   return (
     <InputWrapper>
       <InputInner>
-        <label htmlFor="quantity">Quantity </label>
+        <label htmlFor="quantity">Quantity</label>
         <Input
           type="number"
           id="quantity"
@@ -159,7 +175,7 @@ const ProductDetailInput = ({ product }) => {
         />
       </InputInner>
       <ButtonWrapper>
-        <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
+        <Button type="submit" disabled={!available || adding} onClick={handleAddToCart} className={!available ? 'not-available' : 'is-available'}>
           {available && <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>}
           {!available && <span>currently out of stock</span>}
         </Button>

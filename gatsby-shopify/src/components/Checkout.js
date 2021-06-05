@@ -67,12 +67,14 @@ const Span = styled.span`
     position: relative;
     display: inline-block;
     transition: transform .3s;
+    color: #faf9f8;
 
 &::before {
     content: attr(data-hover);
     position: absolute;
     top: 170%;
     transform: translate3d(0, 0, 0);
+    color: #faf9f8;
     }
 `
 const ButtonBack = styled.button`

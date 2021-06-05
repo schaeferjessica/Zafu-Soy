@@ -88,6 +88,7 @@ export const GlobalStyle = props => (
         font-weight: 300;
         margin: 0px;
         padding: 0px;
+        color: #313942;
       }
 
       h1 {
@@ -140,13 +141,15 @@ export const GlobalStyle = props => (
       }
 
       a,
-      p {
+      p,
+      span, 
+      div {
         margin: 0px;
         padding: 0px;
+        color: #313942;
       }
 
       a {
-        color: black;
         text-decoration: none;
       }
 

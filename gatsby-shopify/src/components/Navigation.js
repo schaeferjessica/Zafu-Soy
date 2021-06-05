@@ -68,12 +68,12 @@ const Span = styled.span`
 
 const MenuLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: #313942;;
 `
 
 const MenuButton = styled.button`
   text-decoration: none;
-  color: black;
+  color: #313942;
 `
 
 const CartCounter = styled.span`
