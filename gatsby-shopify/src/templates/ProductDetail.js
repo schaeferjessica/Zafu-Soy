@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import StoreContext from '~/context/StoreContext'
 import { graphql, Link } from 'gatsby'
 import Seo from '~/components/seo'
@@ -9,8 +9,7 @@ import { Product, ProductItem, ProductImage, H3} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
-import {PhotoSwipeGallery} from 'react-photoswipe';
-import '../utils/photoswipe/photoswipe.css';
+import Lightbox from '../utils/photoswipe/Lightbox';
 
 const ImageInner = styled.div`
   .gatsby-image-wrapper-constrained {
@@ -34,23 +33,20 @@ const ImageHeader = styled.div`
 
 const ImageProduct = styled.div`
   ${container}
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 80px;
+  align-items: center;
 
-  .pswp-thumbnails {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    margin-top: 80px;
-    align-items: center;
-  
-    @media ${breakpoint.tablet} {
-      gap: 1rem;
-      grid-template-columns: 1fr 1fr;
-      margin-top: 50px;
-    }
-  
-    @media ${breakpoint.mobile} {
-      margin-top: 30px;
-    }
+  @media ${breakpoint.tablet} {
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 50px;
+  }
+
+  @media ${breakpoint.mobile} {
+    margin-top: 30px;
   }
 `
 
@@ -174,7 +170,9 @@ export const query = graphql`
 `
  
 const ProductDetail = ({ data }) => {
+  const galleryEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [images, setImages] = useState([]);
   const product = data.shopifyProduct
   const newestProducts = data.allShopifyProduct.nodes;
 
@@ -196,14 +194,9 @@ const ProductDetail = ({ data }) => {
       document.querySelector('body').classList.remove('prevent-scroll');
     }
   }, [isOpen]);
-
-  const price = Intl.NumberFormat(undefined, {
-    currency: product.priceRange.minVariantPrice.currencyCode,
-    minimumFractionDigits: 2,
-    style: 'currency',
-  }).format(product.variants[0].price)
-
-  const images = product.images.slice(1).map((image) => {
+  
+  useEffect(() => {
+    const images = product.images.slice(1).map((image) => {
       return {
         src: image.originalSrc,
         thumbnail: image.originalSrc,
@@ -211,13 +204,21 @@ const ProductDetail = ({ data }) => {
         h: image.localFile.childImageSharp.original.height,
         title: 'Image 1' // TODO: add alt-tag
       }
-  })
-  
-  const getThumbnailContent = (item) => {
-    return (
-      <img src={item.thumbnail} />
-    );
-  }
+    });
+    setImages(images);
+
+    if (galleryEl) {
+      new Lightbox(galleryEl.current, {
+        selector: '.lightbox-toggle',
+      }).init();
+    }
+  }, [isOpen]);
+
+  const price = Intl.NumberFormat(undefined, {
+    currency: product.priceRange.minVariantPrice.currencyCode,
+    minimumFractionDigits: 2,
+    style: 'currency',
+  }).format(product.variants[0].price)
 
   return (
     <>
@@ -250,8 +251,29 @@ const ProductDetail = ({ data }) => {
             />
             <ProductDetailInput product={product} />
           </Box>
-          <ImageProduct>
-            <PhotoSwipeGallery items={images} thumbnailContent={getThumbnailContent}/>
+          <ImageProduct ref={galleryEl}>
+            {product.images.map((image, index) => {
+              if (index !== 0) {
+                const pluginImage = getImage(image.localFile)
+                return (
+                  <ImageInner
+                    key={image.id}
+                    className='image-product lightbox-toggle'
+                    aria-label="Bild in einem Leuchtkasten öffnen"
+                    data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
+                    data-src={image.originalSrc}
+                    data-title="Title 1"
+                    data-figcaption=""
+                    data-copyright=""
+                  >
+                    <GatsbyImage
+                    image={pluginImage}
+                    alt={product.title}
+                  />
+                  </ImageInner>
+                )
+              }
+            })}
           </ImageProduct>
           </div>
         </div>
