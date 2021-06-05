@@ -94,6 +94,7 @@ const Input = styled.input`
   margin-top: 15px;
   outline: none;
   box-shadow: none;
+  border-radius: 0;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;

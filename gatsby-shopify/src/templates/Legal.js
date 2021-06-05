@@ -7,6 +7,8 @@ import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Shower from '../utils/shower';
+import { $$ } from '../utils/dom';
 
 const Legal = styled.div`
   ${container};
@@ -106,6 +108,26 @@ const SecondPage = (data) => {
       document.querySelector('body').classList.remove('prevent-scroll');
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const accordionButtons = $$('.accordion__button')
+
+   
+    if(accordionButtons.length) {
+      accordionButtons.forEach(accordionButton => {
+        const target = accordionButton.nextElementSibling;
+  
+          new Shower({
+            target: target,
+            handler: accordionButton,
+            easing: 'ease',
+            duration: 350,
+            initOpened: false,
+            openClassName: 'is-open',
+          }).init();
+      });
+    };
+  }, []);
   
   return <Legal>
     <Seo title={data.pageContext.title} />

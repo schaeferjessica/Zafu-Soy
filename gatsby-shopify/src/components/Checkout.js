@@ -113,6 +113,7 @@ const ButtonClose = styled.button`
   padding: 0px;
   width: 30px;
   height: 30px;
+  min-height: 30px;
 
   &:hover {
     border: 1px solid #313942;
