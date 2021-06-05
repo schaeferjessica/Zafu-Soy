@@ -27,6 +27,7 @@ const Button = styled.button`
 
     &.not-available {
       background-color: transparent;
+      cursor: default;
 
       span {
         color: #313942;

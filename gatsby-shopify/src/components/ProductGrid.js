@@ -105,6 +105,14 @@ const Context = styled.div`
   ${container}
 `
 
+const ContextWrapper = styled.div`
+  width: 70%;
+
+  @media ${breakpoint.tablet} {
+    width: 100%;
+  }
+`
+
 const H2 = styled.h2`
   margin-top: 50px;
 
@@ -201,10 +209,12 @@ const ProductGrid = () => {
             </CollectionPicture>
           )}
         <Context>
-          <H2>{collection.title}</H2>
-          <Text
-            dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
-          </Text>
+          <ContextWrapper>
+            <H2>{collection.title}</H2>
+            <Text
+              dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
+            </Text>
+            </ContextWrapper>
         </Context>
 
         <ProductContainer>
