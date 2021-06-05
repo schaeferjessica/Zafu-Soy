@@ -172,7 +172,6 @@ export const query = graphql`
 const ProductDetail = ({ data }) => {
   const galleryEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [images, setImages] = useState([]);
   const product = data.shopifyProduct
   const newestProducts = data.allShopifyProduct.nodes;
 
@@ -196,17 +195,6 @@ const ProductDetail = ({ data }) => {
   }, [isOpen]);
   
   useEffect(() => {
-    const images = product.images.slice(1).map((image) => {
-      return {
-        src: image.originalSrc,
-        thumbnail: image.originalSrc,
-        w: image.localFile.childImageSharp.original.width,
-        h: image.localFile.childImageSharp.original.height,
-        title: 'Image 1' // TODO: add alt-tag
-      }
-    });
-    setImages(images);
-
     if (galleryEl) {
       new Lightbox(galleryEl.current, {
         selector: '.lightbox-toggle',
