@@ -48,6 +48,22 @@ const TextWrapper = styled.div`
       margin-top: 20px;
     }
   }
+
+  .accordion {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .accordion__button {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .accordion__panel {
+    height: 0;
+    overflow: hidden;
+  }
 `
 
 const Link = styled(LinkTo)`
