@@ -196,8 +196,8 @@
   position: relative;
   display: block;
   float: right;
-  width: 44px;
-  height: 44px;
+  width: 24px;
+  height: 24px;
   margin: 0;
   padding: 0;
   overflow: visible;
@@ -208,12 +208,7 @@
   transition: all 0.2s ease-in-out;
   -webkit-appearance: none;
 }
-@media screen and (max-width: 767px) {
-  .pswp__button {
-    width: 20px;
-    height: 20px;
-  }
-}
+
 .pswp__button:active {
   outline: none;
 }
@@ -239,20 +234,13 @@
 }
 
 .pswp__button.focus-visible {
-  outline: 2px dotted black;
+  outline: 2px dotted #313942;
 }
 
 .pswp__button--arrow--left svg,
 .pswp__button--arrow--right svg {
-  width: 50px;
-  height: 50px;
-}
-@media screen and (max-width: 1199px) {
-  .pswp__button--arrow--left svg,
-.pswp__button--arrow--right svg {
-    width: 40px;
-    height: 40px;
-  }
+  width: 30px;
+  height: 30px;
 }
 @media screen and (max-width: 767px) {
   .pswp__button--arrow--left svg,
@@ -263,7 +251,7 @@
 }
 .pswp__button--arrow--left svg path,
 .pswp__button--arrow--right svg path {
-  fill: var(--c-black);
+  fill: #313942;
 }
 
 .pswp__button--close svg {
@@ -280,7 +268,7 @@
 }
 
 .pswp__button--zoom {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .pswp__button--zoom svg {
@@ -295,7 +283,15 @@
   display: block;
 }
 
-.pswp--zoomed-in .pswp__button--zoom svg rect:first-of-type {
+.zoom--minus {
+  display: none;
+}
+
+.pswp--zoomed-in .pswp__button--zoom .zoom--minus {
+  display: block;
+}
+
+.pswp--zoomed-in .pswp__button--zoom .zoom--plus {
   display: none;
 }
 
@@ -358,9 +354,8 @@
   display: flex;
   align-items: flex-end;
   height: 44px;
-  padding: 15px 40px 30px 10px;
-  color: #000;
-  font-weight: 600;
+  padding: 20px;
+  color: #313942;
   -webkit-user-select: none;
       -ms-user-select: none;
           user-select: none;
@@ -391,7 +386,7 @@
 .pswp__caption__center {
   max-width: calc(100% - 50px);
   padding: 15px 0 30px 40px;
-  color: var(--c-black);
+  color: #313942;
   font-size: 20px;
   line-height: 26px;
   text-align: left;
@@ -452,11 +447,9 @@
 .pswp_imagetitle_text p {
   position: relative;
   width: 100%;
-  padding: 55px 195px 75px 40px;
-  color: #000;
-  font-size: 20px;
-  line-height: 25px;
-  background: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  color: #313942;
+  font-size: 18px;
 }
 @media screen and (max-width: 1199px) {
   .pswp_imagetitle_text p {
@@ -467,9 +460,8 @@
 }
 @media screen and (max-width: 767px) {
   .pswp_imagetitle_text p {
-    padding: 25px 85px 50px 10px;
+    padding: 20px;
     font-size: 15px;
-    line-height: 20px;
   }
 }
 
@@ -589,21 +581,19 @@
   -webkit-font-smoothing: auto;
 }
 
-/* top black bar with buttons and "1 of X" indicator */
 .pswp__top-bar {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
   width: 100%;
-  min-height: 44px;
-  padding-top: 55px;
-  padding-right: 40px;
+  min-height: 40px;
+  padding: 40px;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 767px) {
   .pswp__top-bar {
-    padding-top: 25px;
-    padding-right: 10px;
+    padding: 20px;
   }
 }
 

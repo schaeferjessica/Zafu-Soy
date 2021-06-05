@@ -11,24 +11,11 @@ export default `
       <div class="pswp__top-bar">
         <button class="pswp__button pswp__button--close" title="Close lightbox (Esc)">
           <span class="sr-only">Close lightbox (Esc)</span>
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="10" 
-            height="10" 
-            viewBox="0 0 24 24">
-            <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 10.293l5.293-5.293.707.707-5.293 5.293 5.293 5.293-.707.707-5.293-5.293-5.293 5.293-.707-.707 5.293-5.293-5.293-5.293.707-.707 5.293 5.293z"/></svg>
         </button>
         <button class="pswp__button pswp__button--zoom" title="Zoom image in/out">
-          <svg class="icon icon-lupe_vergroessern">
-            <use xlink:href="#icon-lupe_vergroessern"></use>
-            <symbol id="icon-lupe_vergroessern" viewBox="0 0 28 28">
-            <path d="M7.892 6.724c-4.009 3.364-4.531 9.34-1.168 13.349s9.34 4.531 13.349 1.168c4.009-3.364 4.531-9.34 1.168-13.349s-9.34-4.531-13.349-1.168zM9.121 8.189c3.2-2.685 7.97-2.267 10.655 0.932s2.267 7.97-0.932 10.655c-3.2 2.685-7.97 2.267-10.655-0.932s-2.267-7.97 0.932-10.655z"></path>
-            <path d="M18.616 13.314v1.383h-9.22v-1.383z"></path>
-            <path d="M14.697 9.396v9.22h-1.383v-9.22z"></path>
-            <path d="M19.119 19.663l1.441-1.257 5.585 6.405-1.441 1.257z"></path>
-            </symbol>
-          </svg>
+          <svg class="zoom--plus" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5zm-4.5 8h4v-4h1v4h4v1h-4v4h-1v-4h-4v-1z"/></svg>
+          <svg class="zoom--minus" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5zm-4.5 8h9v1h-9v-1z"/></svg>
         </button>
         <div class="pswp__preloader">
           <div class="pswp__preloader__icn">
