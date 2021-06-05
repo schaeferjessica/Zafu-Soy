@@ -9,6 +9,8 @@ import { Product, ProductItem, ProductImage, H3} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
+import {PhotoSwipeGallery} from 'react-photoswipe';
+import '../utils/photoswipe/photoswipe.css';
 
 const ImageInner = styled.div`
   .gatsby-image-wrapper-constrained {
@@ -32,20 +34,23 @@ const ImageHeader = styled.div`
 
 const ImageProduct = styled.div`
   ${container}
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-top: 80px;
-  align-items: center;
 
-  @media ${breakpoint.tablet} {
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
-  }
-
-  @media ${breakpoint.mobile} {
-    margin-top: 30px;
+  .pswp-thumbnails {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 80px;
+    align-items: center;
+  
+    @media ${breakpoint.tablet} {
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 50px;
+    }
+  
+    @media ${breakpoint.mobile} {
+      margin-top: 30px;
+    }
   }
 `
 
@@ -133,6 +138,10 @@ export const query = graphql`
         localFile {
           childImageSharp {
             gatsbyImageData
+            original {
+              width
+              height
+            }
           }
         }
       }
@@ -163,7 +172,7 @@ export const query = graphql`
     }
   }
 `
-
+ 
 const ProductDetail = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const product = data.shopifyProduct
@@ -194,6 +203,22 @@ const ProductDetail = ({ data }) => {
     style: 'currency',
   }).format(product.variants[0].price)
 
+  const images = product.images.slice(1).map((image) => {
+      return {
+        src: image.originalSrc,
+        thumbnail: image.originalSrc,
+        w: image.localFile.childImageSharp.original.width,
+        h: image.localFile.childImageSharp.original.height,
+        title: 'Image 1' // TODO: add alt-tag
+      }
+  })
+  
+  const getThumbnailContent = (item) => {
+    return (
+      <img src={item.thumbnail} />
+    );
+  }
+
   return (
     <>
       <Seo title={product.title} description={product.description} />
@@ -201,44 +226,32 @@ const ProductDetail = ({ data }) => {
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
       <div>
         <div>
-        <ImageHeader>
-          {product.images.map((image, index) => {
-            if (index === 0) { 
-            const pluginImage = getImage(image.localFile)
-            return (
-              <ImageInner className='image-heading' key={image.id}>
-                <GatsbyImage
-                image={pluginImage}
-                alt={product.title}
-              />
-              </ImageInner>
-            )
-            }
-          })}
-        </ImageHeader>
-        <Box>
-          <h1>{product.title}</h1>
-          
-          <span>{price}</span>
-          <Description
-            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-          />
-          <ProductDetailInput product={product} />
-        </Box>
-        <ImageProduct>
-          {product.images.map((image, index) => {
-              if (index !== 0) {
-                const pluginImage = getImage(image.localFile)
-                return (
-                  <ImageInner className='image-product' key={image.id}>
-                    <GatsbyImage
-                    image={pluginImage}
-                    alt={product.title}
-                  />
-                  </ImageInner>
-                )
+          <ImageHeader>
+            {product.images.map((image, index) => {
+              if (index === 0) { 
+              const pluginImage = getImage(image.localFile)
+              return (
+                <ImageInner className='image-heading' key={image.id}>
+                  <GatsbyImage
+                  image={pluginImage}
+                  alt={product.title}
+                />
+                </ImageInner>
+              )
               }
             })}
+          </ImageHeader>
+          <Box>
+            <h1>{product.title}</h1>
+            
+            <span>{price}</span>
+            <Description
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            />
+            <ProductDetailInput product={product} />
+          </Box>
+          <ImageProduct>
+            <PhotoSwipeGallery items={images} thumbnailContent={getThumbnailContent}/>
           </ImageProduct>
           </div>
         </div>
