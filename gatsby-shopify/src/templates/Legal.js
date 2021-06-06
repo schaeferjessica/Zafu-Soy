@@ -87,6 +87,11 @@ const TextWrapper = styled.div`
     content: "↓";
     position: absolute;
     left: -20px;
+    transition: transform 500ms ease-in-out;
+  }
+
+  .accordion__button[aria-expanded="true"]::before {
+    transform: rotate(180deg);
   }
 
   .accordion__panel {

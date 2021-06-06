@@ -100,7 +100,7 @@ const ProductList = props => {
         </Link>
       </ListItemImage>
       <ListItemContext>
-        <p><strong>{item.title}</strong></p>
+        <h3>{item.title}</h3>
         <Price>
           <p>{item.variant.price} €</p>
         </Price>
