@@ -65,7 +65,7 @@ const Span = styled.span`
     }
 `
 
-export const InputInner = styled.div`
+const InputInner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -87,7 +87,7 @@ const InputWrapper = styled.div`
   }
 `
 
-export const Input = styled.input`
+const Input = styled.input`
   border: 1px solid #313942;
   padding: 0;
   padding: 15px 30px;
@@ -172,6 +172,7 @@ const ProductDetailInput = ({ product }) => {
           id="quantity"
           name="quantity"
           min="1"
+          max="10"
           step="1"
           onChange={handleQuantityChange}
           value={quantity}

@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
-import {InputInner, Input} from './ProductDetailInput';
 
 const ListItem = styled.li`
   display: flex;
@@ -16,7 +15,6 @@ const ListItemContext = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 20px;
-  width: 45%;
 `
 
 const ListItemImage = styled.div`
@@ -31,6 +29,29 @@ const ListItemButton = styled.button`
 &:hover {
   color: #313942;
 }
+`
+
+const Price = styled.div`
+  font-size: 15px;
+`
+
+const InputWrapper = styled.div`
+  margin-top: 10px;
+`
+
+const Input = styled.input`
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 0 0 0 10px;
+  margin: 5px 0;
+  width: 50px;
+  outline: none;
+  font-size: 15px;
+`
+
+const Label = styled.label`
+  font-size: 15px;
 `
 
 const ProductList = props => {
@@ -78,21 +99,24 @@ const ProductList = props => {
         </Link>
       </ListItemImage>
       <ListItemContext>
-        <p>{item.title}</p>
-        <p>{item.variant.price} €</p>
-        <InputInner>
-          <label htmlFor="checkout-quantity">Quantity</label>
+        <p><strong>{item.title}</strong></p>
+        <Price>
+          <p>{item.variant.price} €</p>
+        </Price>
+        <InputWrapper>
+          <Label htmlFor="checkout-quantity">Quantity</Label>
           <Input
             type="number"
             id="checkout-quantity"
             name="checkout-quantity"
             min="1"
+            max="10"
             step="1"
             onChange={handleQuantityChange}
             onBlur={handleInputBlur}
             value={quantity}
           />
-        </InputInner>
+        </InputWrapper>
         <ListItemButton onClick={handleRemove}><small>Remove</small></ListItemButton>
       </ListItemContext>
     </ListItem>
