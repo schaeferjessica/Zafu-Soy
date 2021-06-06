@@ -51,17 +51,12 @@ const CheckoutButton = styled.button`
     overflow: hidden;
     cursor: pointer;
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     left: 20px;
     width: 91%;
 
-
-    @media ${breakpoint.desktop} { 
-      margin-top: 10px;
-    }
-
     &:hover span {
-        transform: translateY(-170%);
+        transform: translateY(-350%);
     }
 `
 
@@ -74,11 +69,18 @@ const Span = styled.span`
 &::before {
     content: attr(data-hover);
     position: absolute;
-    top: 170%;
+    top: 350%;
     transform: translate3d(0, 0, 0);
     color: #faf9f8;
     }
 `
+
+const SpanShipping = styled(Span)`  
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+`
+
 const ButtonBack = styled.button`
   display: block;
   margin-top: 15px;
@@ -99,7 +101,10 @@ const Title = styled.h2`
   margin-bottom: 5%;
 `
 const Ul = styled.ul`
-padding: 0;
+  padding: 0;
+  height: calc(100vh - 220px);
+  position: relative;
+  overflow: auto;
 `
 
 const ButtonClose = styled.button` 
@@ -166,6 +171,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           disabled={checkout.lineItems.length === 0}
           >
           <Span data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</Span>
+          <SpanShipping data-hover={`Free Shipping`}>Free Shipping</SpanShipping>
         </CheckoutButton>
         </> : <>
         <Title>Your Order</Title>
