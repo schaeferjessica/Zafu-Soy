@@ -87,7 +87,7 @@ const TextWrapper = styled.div`
     content: "↓";
     position: absolute;
     left: -20px;
-}
+  }
 
   .accordion__panel {
     height: 0;
