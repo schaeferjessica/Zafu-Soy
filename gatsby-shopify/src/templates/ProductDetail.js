@@ -5,7 +5,7 @@ import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ProductDetailInput from '~/components/ProductDetailInput'
-import { Product, ProductItem, ProductImage, H3} from '~/components/ProductGrid'
+import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
@@ -164,6 +164,7 @@ export const query = graphql`
         }
         variants {
           price
+          availableForSale
         }
       }
     }
@@ -293,7 +294,8 @@ const ProductDetail = ({ data }) => {
                       </ProductImage>
                       <H3>{title}</H3>
                     </Link>
-                      <span>{getPrice(firstVariant.price)}</span>
+                      <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
+                      {firstVariant.availableForSale ? '' : <SpanSold>Sold out</SpanSold>}
                   </ProductItem>
                 )
               }

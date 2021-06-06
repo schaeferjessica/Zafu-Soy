@@ -146,6 +146,19 @@ export const H3 = styled.h3`
   margin-top: 5px;
 `
 
+export const SpanPrice = styled.span`
+  display: block;
+`
+
+export const SpanSold = styled.span`
+  background-color: #313942;
+  color: #faf9f8;
+  padding: 0px 5px;
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 15px;
+`
+
 
 const ProductGrid = () => {
   const {
@@ -183,6 +196,7 @@ const ProductGrid = () => {
             }
             variants {
               price
+              availableForSale
             }
           }
         }
@@ -242,7 +256,8 @@ const ProductGrid = () => {
                       </ProductImage>
                       <H3>{title}</H3>
                     </Link>
-                      <span>{getPrice(firstVariant.price)}</span>
+                      <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
+                      {firstVariant.availableForSale ? '' : <SpanSold>Sold out</SpanSold>}
                   </ProductItem>
                 )
               }
