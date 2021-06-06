@@ -89,7 +89,7 @@ const ProductList = props => {
 
   useEffect(() => {
     setQuantity(item.quantity);
-  }, [props]);
+  }, [props, item.quantity]);
 
   return (
     <ListItem>
@@ -113,6 +113,7 @@ const ProductList = props => {
             max="10"
             step="1"
             onChange={handleQuantityChange}
+            onMouseUp={handleInputBlur}
             onBlur={handleInputBlur}
             value={quantity}
           />

@@ -147,7 +147,7 @@ const ImageWrapper = styled.div`
     }
 `
 
-const SecondPage = (data) => {
+const LegaPage = (data) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -183,7 +183,7 @@ const SecondPage = (data) => {
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <ImageWrapper>
-      {data.pageContext.images.length ? data.pageContext.images.map(image => <GatsbyImage image={getImage(image.image)} alt={image.altText || ''}/>) : ""}
+      {data.pageContext.images.length ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.image)} alt={image.altText || ''}/>) : ""}
     </ImageWrapper>
     <TextWrapper>
      <MDXRenderer>{data.pageContext.content}</MDXRenderer>
@@ -194,4 +194,4 @@ const SecondPage = (data) => {
   </Legal>
 }
 
-export default SecondPage
+export default LegaPage
