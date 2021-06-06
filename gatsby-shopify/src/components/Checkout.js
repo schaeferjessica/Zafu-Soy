@@ -100,7 +100,7 @@ const Ul = styled.ul`
 padding: 0;
 `
 
-const ButtonClose = styled.button`
+const ButtonClose = styled.button` 
   display: flex;
   justify-content: center;
   align-items: center;

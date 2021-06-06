@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
+import {InputInner, Input} from './ProductDetailInput';
 
 const ListItem = styled.li`
   display: flex;
@@ -36,12 +37,26 @@ const ProductList = props => {
   const { item } = props
   const {
     removeProductItem,
+    updateLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
+  const [quantity, setQuantity] = useState(item.quantity);
 
   const variantImage = item.variant.image ? (
     <img src={item.variant.image.src} alt={`${item.title} product shot`}/>
   ) : null
+
+  const handleQuantityChange = ({ target }) => {
+    setQuantity(target.value);
+  }
+
+  const handleInputBlur = ({ target }) => {
+    updateLineItem(client, checkout.id, item.id, target.value)
+  }
+  
+  const handleRemove = () => {
+    removeProductItem(client, checkout.id, item.id)
+  }
 
   /*
   const selectedOptions = item.variant.selectedOptions
@@ -51,9 +66,10 @@ const ProductList = props => {
     : null
   */
 
-  const handleRemove = () => {
-    removeProductItem(client, checkout.id, item.id)
-  }
+  useEffect(() => {
+    setQuantity(item.quantity);
+  }, [props]);
+
   return (
     <ListItem>
       <ListItemImage>
@@ -64,7 +80,20 @@ const ProductList = props => {
       <ListItemContext>
         <p>{item.title}</p>
         <p>{item.variant.price} €</p>
-        <ListItemButton onClick={handleRemove}><small>{item.quantity} - Remove</small></ListItemButton>
+        <InputInner>
+          <label htmlFor="checkout-quantity">Quantity</label>
+          <Input
+            type="number"
+            id="checkout-quantity"
+            name="checkout-quantity"
+            min="1"
+            step="1"
+            onChange={handleQuantityChange}
+            onBlur={handleInputBlur}
+            value={quantity}
+          />
+        </InputInner>
+        <ListItemButton onClick={handleRemove}><small>Remove</small></ListItemButton>
       </ListItemContext>
     </ListItem>
   )

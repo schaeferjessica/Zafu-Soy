@@ -65,7 +65,7 @@ const Span = styled.span`
     }
 `
 
-const InputInner = styled.div`
+export const InputInner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -87,8 +87,9 @@ const InputWrapper = styled.div`
   }
 `
 
-const Input = styled.input`
+export const Input = styled.input`
   border: 1px solid #313942;
+  padding: 0;
   padding: 15px 30px;
   background-color: transparent;
   margin-top: 15px;
