@@ -130,6 +130,7 @@ export const query = graphql`
       }
       images {
         originalSrc
+        altText
         id
         localFile {
           childImageSharp {
@@ -250,7 +251,7 @@ const ProductDetail = ({ data }) => {
                     aria-label="Bild in einem Leuchtkasten öffnen"
                     data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
                     data-src={image.originalSrc}
-                    data-title="Title 1"
+                    data-title={image.altText}
                     data-figcaption=""
                     data-copyright=""
                   >
