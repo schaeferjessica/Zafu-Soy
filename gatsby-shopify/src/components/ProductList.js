@@ -21,14 +21,14 @@ const ListItemImage = styled.div`
   width: 35%;
 `
 
-const ListItemButton = styled.button`
-  color: #3139425c;
+const ListItemRemove = styled.button`
+  color: var(--color-gray);
   text-decoration: none;
   padding: 0;
   
-&:hover {
-  color: #313942;
-}
+  &:hover {
+    color: var(--color-blue);
+  }
 `
 
 const Price = styled.div`
@@ -48,6 +48,7 @@ const Input = styled.input`
   width: 50px;
   outline: none;
   font-size: 15px;
+  font-family: IBM Plex Sans;
 `
 
 const Label = styled.label`
@@ -118,7 +119,7 @@ const ProductList = props => {
             value={quantity}
           />
         </InputWrapper>
-        <ListItemButton onClick={handleRemove}><small>Remove</small></ListItemButton>
+        <ListItemRemove onClick={handleRemove}><small>Remove</small></ListItemRemove>
       </ListItemContext>
     </ListItem>
   )

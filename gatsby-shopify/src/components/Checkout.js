@@ -42,9 +42,9 @@ const CheckoutInner = styled.div`
 
 const CheckoutButton = styled.button`
     font-family: 'IBM Plex Sans';
-    border: 1px solid #313942;
-    background-color: #313942;
-    color: #faf9f8;
+    border: 1px solid var(--color-blue);
+    background-color: var(--color-blue);
+    color: var(--color-white);
     padding: 15px 30px;
     position: relative;
     display: inline-block;
@@ -64,14 +64,14 @@ const Span = styled.span`
     position: relative;
     display: inline-block;
     transition: transform .3s;
-    color: #faf9f8;
+    color: var(--color-white);
 
 &::before {
     content: attr(data-hover);
     position: absolute;
     top: 350%;
     transform: translate3d(0, 0, 0);
-    color: #faf9f8;
+    color: var(--color-white);
     }
 `
 
@@ -111,10 +111,10 @@ const ButtonClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #3139425c;
+  border: 1px solid var(--color-gray);
   border-radius: 50%;
   font-size: 14px;
-  color: #313942;
+  color: var(--color-blue);
   font-weight: 400;
   align-self: flex-end;
   padding: 0px;
@@ -123,7 +123,7 @@ const ButtonClose = styled.button`
   min-height: 30px;
 
   &:hover {
-    border: 1px solid #313942;
+    border: 1px solid var(--color-blue);
   }
 
   span {

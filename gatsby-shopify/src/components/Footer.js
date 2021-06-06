@@ -5,8 +5,8 @@ import '../../resources/fonts.css';
 import { breakpoint, container } from '~/utils/styles'
 
 const FooterComponent = styled.footer`
-  background-color: #313942;
-  color: #faf9f8;
+  background-color: var(--color-blue);
+  color: var(--color-white);
   margin-top: 100px;
 
   @media ${breakpoint.desktop} { 
@@ -48,7 +48,7 @@ const FooterInner = styled.footer`
     padding-bottom: 5px;
     display: block;
     font-family: IBM Plex Serif;
-    color: #faf9f8;
+    color: var(--color-white);
   }
 `
 
@@ -69,16 +69,16 @@ const FooterLinksRight = styled.div`
 
 const Small  = styled.small`
   margin-top: 30px;
-  color: #bab8b5;
+  color: var(--color-gray);
 `
 
 const LinkExternSmall  = styled.a`
   font-size: 16px;
   margin-top: 5px;
-  color: #bab8b5;
+  color: var(--color-gray);
 
   &:hover {
-    color: #faf9f8;
+    color: var(--color-white);
   }
 
   @media ${breakpoint.mobile} { 
@@ -89,7 +89,7 @@ const LinkExternSmall  = styled.a`
 const LinkExtern  = styled.a`
   font-size: 16px;
   margin-top: 5px;
-  color: #faf9f8;
+  color: var(--color-white);
 
   @media ${breakpoint.mobile} { 
     font-size: 15px;
@@ -99,7 +99,7 @@ const LinkExtern  = styled.a`
 const Link = styled(LinkTo)`
   font-size: 15px;
   margin-top: 5px;
-  color: #faf9f8;
+  color: var(--color-white);
 
   @media ${breakpoint.mobile} { 
     font-size: 14px;
@@ -133,7 +133,7 @@ const LiCurrency = styled.li`
   color: white;
 `
 const ButtonCurrency = styled.button`
-  color: #faf9f8;
+  color: var(--color-white);
   font-size: 15px;
   display: none;
   padding: 0px;
@@ -144,7 +144,7 @@ const ButtonCurrent = styled.button`
   padding: 0px;
   margin-top: 5px;
   margin-left: 20px;
-  color: #faf9f8;
+  color: var(--color-white);
   font-size: 15px;
   display: block;
   position: relative;

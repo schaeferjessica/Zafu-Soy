@@ -36,10 +36,19 @@ export const container = `
   }
 `;
 
+export const ciColor = '#313942'
+
 export const GlobalStyle = props => (
   <Global
     {...props}
     styles={css`
+
+      :root {
+        --color-green: #596460;
+        --color-white: #faf9f8;
+        --color-gray: #acaba6;
+        --color-blue: ${ciColor};
+      }
 
       .sr-only {
         position: absolute;
@@ -55,7 +64,7 @@ export const GlobalStyle = props => (
       body {
         margin: 0;
         box-sizing: border-box;
-        background-color: #FAF9F8;
+        background-color: var(--color-white);
       }
 
       html {
@@ -99,7 +108,7 @@ export const GlobalStyle = props => (
         font-weight: 300;
         margin: 0px;
         padding: 0px;
-        color: #313942;
+        color: var(--color-blue);
       }
 
       h1 {
@@ -157,7 +166,7 @@ export const GlobalStyle = props => (
       div {
         margin: 0px;
         padding: 0px;
-        color: #313942;
+        color: var(--color-blue);
       }
 
       a {

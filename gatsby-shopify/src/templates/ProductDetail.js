@@ -54,7 +54,7 @@ const Box = styled.div`
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #FAF9F8;
+  background-color: var(--color-white);
   padding: 20px;
   width: 40%;
 
