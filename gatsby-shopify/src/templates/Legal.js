@@ -32,7 +32,15 @@ const TextWrapper = styled.div`
 
   p {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 17px;
+
+    @media ${breakpoint.desktop} { 
+      font-size: 16px;
+    }
+
+    @media ${breakpoint.tablet} { 
+      font-size: 15px;
+    }
 
     @media ${breakpoint.mobile} { 
       font-size: 14px;
@@ -52,17 +60,42 @@ const TextWrapper = styled.div`
   .accordion {
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 17px;
+
+    @media ${breakpoint.desktop} { 
+      font-size: 16px;
+    }
+
+    @media ${breakpoint.tablet} { 
+      font-size: 15px;
+    }
+
+    @media ${breakpoint.mobile} { 
+      font-size: 14px;
+    }
   }
 
   .accordion__button {
     display: block;
+    position: relative;
+    text-align: left;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 20px;
   }
+
+  .accordion__button::before {
+    content: "↓";
+    position: absolute;
+    left: -20px;
+}
 
   .accordion__panel {
     height: 0;
     overflow: hidden;
+  }
+
+  .accordion__panel p {
+    margin-left: 20px;
   }
 `
 
