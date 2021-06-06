@@ -151,8 +151,8 @@ export const SpanPrice = styled.span`
 `
 
 export const SpanSold = styled.span`
-  background-color: var(--color-blue);
-  color: var(--color-white);
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
   padding: 0px 5px;
   display: inline-block;
   margin-top: 5px;

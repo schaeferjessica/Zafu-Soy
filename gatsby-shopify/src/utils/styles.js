@@ -189,18 +189,18 @@ export const GlobalStyle = props => (
       input {
         font-family: 'IBM Plex Sans';
         font-weight: 300;
-        font-size: 18px;
+        font-size: 17px;
 
         @media ${breakpoint.desktop} { 
-          font-size: 17px;
-        }
-    
-        @media ${breakpoint.tablet} { 
           font-size: 16px;
         }
     
-        @media ${breakpoint.mobile} { 
+        @media ${breakpoint.tablet} { 
           font-size: 15px;
+        }
+    
+        @media ${breakpoint.mobile} { 
+          font-size: 14px;
         }
       }
 
