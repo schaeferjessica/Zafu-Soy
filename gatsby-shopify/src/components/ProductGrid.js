@@ -11,20 +11,31 @@ const Collection = styled.section`
 `
 
 const CollectionItem = styled.div`
-  margin-top: 100px;
+  margin-top: 0px;
 
-  @media ${breakpoint.desktop} {
-    margin-top: 80px;
-  }
+  &:not(:first-child) {
+    margin-top: 100px;
 
-  @media ${breakpoint.tablet} {
-    margin-top: 50px;
+    @media ${breakpoint.desktop} { 
+      margin-top: 80px;
+    }
+  
+    @media ${breakpoint.tablet} { 
+      margin-top: 50px;
+    }
+  
+    @media ${breakpoint.mobile} { 
+      margin-top: 40px;
+    }
   }
 `
 
 const CollectionPicture = styled.div`
-  max-width: 1440px;
   margin: 0 auto; 
+
+  .gatsby-image-wrapper {
+    height: 100vh;
+  }
 `
 
 export const ProductContainer = styled.div`
@@ -52,6 +63,7 @@ export const Product = styled.ul`
   }
 
   @media ${breakpoint.mobile} {
+    margin-bottom: 60px;
     gap: 1rem;
   } 
 `
@@ -152,7 +164,7 @@ export const SpanPrice = styled.span`
 
 export const SpanSold = styled.span`
   color: var(--color-blue);
-  border: 1px solid var(--color-blue);
+  background-color: white;
   padding: 0px 5px;
   display: inline-block;
   margin-top: 5px;
@@ -173,7 +185,7 @@ const ProductGrid = () => {
           image {
             localFile {
               childImageSharp {
-                gatsbyImageData(width: 1440, height: 810)
+                gatsbyImageData
               }
             }
           }

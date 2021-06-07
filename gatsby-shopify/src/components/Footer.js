@@ -87,12 +87,12 @@ const LinkExternSmall  = styled.a`
 `
 
 const LinkExtern  = styled.a`
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 5px;
   color: var(--color-white);
 
   @media ${breakpoint.mobile} { 
-    font-size: 15px;
+    font-size: 14px;
   }
 `
 
@@ -139,6 +139,10 @@ const ButtonCurrency = styled.button`
   padding: 0px;
   margin-top: 5px;
   margin-left: 20px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 14px;
+  }
 `
 const ButtonCurrent = styled.button`
   padding: 0px;
