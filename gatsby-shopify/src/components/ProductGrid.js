@@ -13,7 +13,7 @@ const Collection = styled.section`
 const CollectionItem = styled.div`
   margin-top: 0px;
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-top: 100px;
 
     @media ${breakpoint.desktop} { 
@@ -118,14 +118,7 @@ const Context = styled.div`
 `
 
 const ContextWrapper = styled.div`
-  width: 70%;
-
-  @media ${breakpoint.tablet} {
-    width: 100%;
-  }
-`
-
-const H2 = styled.h2`
+  max-width: 70%;
   margin-top: 50px;
 
   @media ${breakpoint.desktop} {
@@ -133,11 +126,34 @@ const H2 = styled.h2`
   }
 
   @media ${breakpoint.tablet} {
+    max-width: 100%;
     margin-top: 20px;
   }
 `
 
+const H2 = styled.h2`
+  font-size: 17px;
+
+  @media ${breakpoint.desktop} {
+    font-size: 16px;
+  }
+  
+  @media ${breakpoint.tablet} {
+    font-size: 15px;
+  }
+`
+
 const Text = styled.div`
+  font-size: 22px;
+
+  @media ${breakpoint.desktop} {
+    font-size: 20px;
+  }
+  
+  @media ${breakpoint.tablet} {
+    font-size: 18px;
+  }
+
   p {
     margin-top: 10px;
     width: 70%;
@@ -163,12 +179,16 @@ export const SpanPrice = styled.span`
 `
 
 export const SpanSold = styled.span`
-  color: var(--color-blue);
-  background-color: white;
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
   padding: 0px 5px;
   display: inline-block;
   margin-top: 5px;
   font-size: 15px;
+
+  @media ${breakpoint.mobile} {
+    font-size: 14px;
+  }
 `
 
 
@@ -240,7 +260,7 @@ const ProductGrid = () => {
             <Text
               dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
             </Text>
-            </ContextWrapper>
+          </ContextWrapper>
         </Context>
 
         <ProductContainer>

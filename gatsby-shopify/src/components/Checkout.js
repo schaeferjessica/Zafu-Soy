@@ -13,7 +13,7 @@ const StyledCheckout = styled.div`
   right: 0;
   width: 30%;
   height: 100vh;
-  background-color: white;
+  background-color: var(--color-white);
   z-index: 11;
   overflow: auto;
 

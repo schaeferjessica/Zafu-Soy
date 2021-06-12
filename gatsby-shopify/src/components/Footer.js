@@ -110,7 +110,7 @@ const Div = styled.div`
 display: flex;
 flex-direction: column;
 
-&:not(:first-child) {
+&:not(:first-of-type) {
   margin-left: 100px;
 
   @media ${breakpoint.desktop} { 

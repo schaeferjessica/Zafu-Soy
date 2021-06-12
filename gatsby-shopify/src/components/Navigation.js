@@ -78,16 +78,14 @@ const MenuButton = styled.button`
 const CartCounter = styled.span`
   border: 1px solid var(--color-blue);
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   font-size: 14px;
-  background-color: var(--color-blue);
-  color: var(--color-white);
   font-weight: 400;
 `
 
@@ -122,7 +120,7 @@ const Navigation = ({isTransparent, onOrderButtonClick}) => {
         </MenuLink>
         <MenuButton onClick={() => onOrderButtonClick()}>
           Your Order
-          {hasItems && <CartCounter>{quantity}</CartCounter>}
+          {hasItems ? <CartCounter>{quantity}</CartCounter> : <CartCounter>0</CartCounter>}
         </MenuButton>
       </Inner>
     </Wrapper>

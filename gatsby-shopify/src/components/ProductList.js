@@ -49,6 +49,7 @@ const Input = styled.input`
   outline: none;
   font-size: 15px;
   font-family: IBM Plex Sans;
+  background-color: var(--color-white);
 `
 
 const Label = styled.label`
