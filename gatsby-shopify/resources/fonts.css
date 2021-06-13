@@ -1,3 +1,14 @@
+/* NeueMachina - regular */
+@font-face {
+  font-family: 'NeueMachina';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('./fonts/NeueMachina-Regular.woff2') format('woff2'),
+    url('./fonts/NeueMachina-Regular.woff') format('woff');
+  font-display: swap;
+}
+
 /* ibm-plex-sans-300 - latin */
 @font-face {
   font-family: 'IBM Plex Sans';

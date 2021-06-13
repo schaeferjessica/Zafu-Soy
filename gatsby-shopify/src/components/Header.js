@@ -1,8 +1,23 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { breakpoint, container } from '../utils/styles'
 
 const HeaderTop = styled.div`
-    height: 40vh
+    ${container}
+    height: 40vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 40px;
+`
+
+const H1 = styled.h1`
+    font-family: 'NeueMachina';
+`
+
+const HeaderLink = styled.a`
+    margin-bottom: 15px;
 `
 
 const IframeBottom = styled.div`
@@ -40,7 +55,10 @@ const Iframe = styled.iframe`
 const Header = () => {  
     return (
         <>
-            <HeaderTop></HeaderTop>
+            <HeaderTop>
+                <H1>Maneki Space</H1>
+                <HeaderLink href="">shop</HeaderLink>
+            </HeaderTop>
             <IframeBottom>
                 <IframeOuter>
                 <IframeWrapper>
