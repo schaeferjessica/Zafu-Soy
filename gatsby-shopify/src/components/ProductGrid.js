@@ -51,7 +51,6 @@ export const Product = styled.ul`
   }
 
   @media ${breakpoint.mobile} {
-    margin-bottom: 60px;
     gap: 1rem;
   } 
 `
@@ -115,6 +114,7 @@ const ContextWrapper = styled.div`
 
 const H2 = styled.h2`
   font-size: 17px;
+  color: var(--color-gray);
 
   @media ${breakpoint.desktop} {
     font-size: 16px;

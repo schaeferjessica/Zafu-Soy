@@ -26,6 +26,11 @@ const Inner = styled.div`
   &.navigation--transparent {
     background-color: transparent;
   }
+
+  @media ${breakpoint.tablet} { 
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `
 
 const SvgWrapper = styled.div`

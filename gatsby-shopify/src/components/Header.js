@@ -8,14 +8,23 @@ const HeaderTop = styled.div`
     display: grid;
     align-items: end;
     justify-items: start;
-    margin-left: 40px;
     background-color: var(--color-white);
+
+    @media ${breakpoint.tablet} {
+        height: 30vh;
+      }
 `
 
 const HeaderContextLeft = styled.div`
     grid-column: 1 / 6;
     grid-row: 1 / 1;
     margin-bottom: 20px;
+
+    @media ${breakpoint.tablet} {
+        grid-column: 1 / 1;
+        grid-row: 4 / 4;
+        margin-bottom: 10px;
+      }
 `
 
 const HeaderLink = styled.a`
@@ -32,13 +41,21 @@ const HeaderSvg = styled.svg`
 `
 
 const HeaderContextRight = styled.div`
-    grid-column: 3 / 6;
+    grid-column: 3 / 12;
     grid-row: 1 / 1;
     margin-bottom: 20px;
+
+    @media ${breakpoint.tablet} {
+        grid-column: 1 / 1;
+        grid-row: 3 / 4;
+        margin-bottom: 10px;
+        margin-top: 95px;
+      }
 `
 
 const H1 = styled.h1`
     margin-top: 10px;
+    letter-spacing: 1px;
 `
 
 const HeaderText = styled.p`
@@ -63,7 +80,7 @@ const IframeWrapper = styled.div`
     height: 100%;
     overflow: hidden;
 `
-const Iframe = styled.iframe`
+const Video = styled.video`
     display: block;
     height: 300%;
     left: auto;
@@ -96,16 +113,9 @@ const Header = () => {
             <IframeBottom>
                 <IframeOuter>
                 <IframeWrapper>
-                    {/* <Iframe 
-                        src="https://www.youtube.com/embed/rMKpKojBxgI?autoplay=1&amp;mute=1&amp;showinfo=0&amp;modestbranding=1&amp;autohide=0&amp;branding=0&amp;cc_load_policy=0&amp;controls=0&amp;fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;quality=hd720&amp;rel=0&amp;showinfo=0&amp;wmode=opaque&amp;loop=1" 
-                        title="YouTube video player" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen="1">
-                    </Iframe> */}
-                    <video autoplay>
+                    <Video autoPlay loop muted>
                         <source src="/videos/japan1940.mp4" type="video/mp4" />
-                    </video>
+                    </Video>
                 </IframeWrapper>
                 </IframeOuter>
             </IframeBottom>
