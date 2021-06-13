@@ -5,19 +5,44 @@ import { breakpoint, container } from '../utils/styles'
 const HeaderTop = styled.div`
     ${container}
     height: 40vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
+    display: grid;
+    align-items: end;
+    justify-items: start;
     margin-left: 40px;
+    background-color: var(--color-white);
 `
 
-const H1 = styled.h1`
-    font-family: 'NeueMachina';
+const HeaderContextLeft = styled.div`
+    grid-column: 1 / 6;
+    grid-row: 1 / 1;
+    margin-bottom: 20px;
 `
 
 const HeaderLink = styled.a`
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+`
+
+const HeaderSvg = styled.svg`
+    width: 22px;
+    height: 22px;
+    fill: var(--color-gray);
+    margin-top: 3px;
+    margin-left: 5px;
+`
+
+const HeaderContextRight = styled.div`
+    grid-column: 3 / 6;
+    grid-row: 1 / 1;
+    margin-bottom: 20px;
+`
+
+const H1 = styled.h1`
+    margin-top: 10px;
+`
+
+const HeaderText = styled.p`
+    margin-bottom: 0;
 `
 
 const IframeBottom = styled.div`
@@ -56,8 +81,17 @@ const Header = () => {
     return (
         <>
             <HeaderTop>
-                <H1>Maneki Space</H1>
-                <HeaderLink href="">shop</HeaderLink>
+                <HeaderContextLeft>
+                    <HeaderLink href="">shop now 
+                    <HeaderSvg x="0px" y="0px" viewBox="0 0 22 10">
+                        <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
+                    </HeaderSvg>
+                    </HeaderLink>
+                </HeaderContextLeft>
+                <HeaderContextRight>
+                    <HeaderText>japanese homewares</HeaderText>
+                    <H1>Maneki 招き猫 Space</H1>
+                </HeaderContextRight>
             </HeaderTop>
             <IframeBottom>
                 <IframeOuter>
