@@ -45,7 +45,7 @@ const Header = () => {
                 <IframeOuter>
                 <IframeWrapper>
                     <Iframe 
-                        src="https://www.youtube.com/embed/rMKpKojBxgI?autoplay=1&amp;mute=1&amp;showinfo=0&amp;modestbranding=1&amp;autohide=0&amp;branding=0&amp;cc_load_policy=0&amp;controls=0&amp;fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;quality=hd720&amp;rel=0&amp;showinfo=0&amp;wmode=opaque&amp;" 
+                        src="https://www.youtube.com/embed/rMKpKojBxgI?autoplay=1&amp;mute=1&amp;showinfo=0&amp;modestbranding=1&amp;autohide=0&amp;branding=0&amp;cc_load_policy=0&amp;controls=0&amp;fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;quality=hd720&amp;rel=0&amp;showinfo=0&amp;wmode=opaque&amp;loop=1" 
                         title="YouTube video player" 
                         frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

@@ -14,7 +14,7 @@ const CollectionItem = styled.div`
   margin-top: 80px;
 
   @media ${breakpoint.desktop} { 
-    margin-top: 70px;
+    margin-top: 0px;
   }
 
   @media ${breakpoint.tablet} { 
@@ -23,15 +23,6 @@ const CollectionItem = styled.div`
 
   @media ${breakpoint.mobile} { 
     margin-top: 40px;
-  }
-`
-
-const CollectionPicture = styled.div`
-  margin: 0 auto; 
-  display: none;
-
-  .gatsby-image-wrapper {
-    height: 100vh;
   }
 `
 
@@ -240,11 +231,6 @@ const ProductGrid = () => {
       {allShopifyCollection.nodes.map(collection => {
         const image = collection.image ? getImage(collection.image.localFile) : null;
         return <CollectionItem key={collection.id}>
-          {image && (
-            <CollectionPicture>
-              <GatsbyImage image={image} alt={collection.title} key={image.id} layout="fullWidth"/>  
-            </CollectionPicture>
-          )}
         <Context>
           <ContextWrapper>
             <H2>{collection.title}</H2>
