@@ -11,27 +11,24 @@ const Collection = styled.section`
 `
 
 const CollectionItem = styled.div`
-  margin-top: 0px;
+  margin-top: 80px;
 
-  &:not(:first-of-type) {
-    margin-top: 100px;
+  @media ${breakpoint.desktop} { 
+    margin-top: 70px;
+  }
 
-    @media ${breakpoint.desktop} { 
-      margin-top: 80px;
-    }
-  
-    @media ${breakpoint.tablet} { 
-      margin-top: 50px;
-    }
-  
-    @media ${breakpoint.mobile} { 
-      margin-top: 40px;
-    }
+  @media ${breakpoint.tablet} { 
+    margin-top: 50px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 40px;
   }
 `
 
 const CollectionPicture = styled.div`
   margin: 0 auto; 
+  display: none;
 
   .gatsby-image-wrapper {
     height: 100vh;
@@ -119,15 +116,9 @@ const Context = styled.div`
 
 const ContextWrapper = styled.div`
   max-width: 70%;
-  margin-top: 50px;
-
-  @media ${breakpoint.desktop} {
-    margin-top: 30px;
-  }
 
   @media ${breakpoint.tablet} {
     max-width: 100%;
-    margin-top: 20px;
   }
 `
 

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Seo from '~/components/seo'
-import ProductGrid from '~/components/ProductGrid'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
+import Header from '~/components/Header'
+import ProductGrid from '~/components/ProductGrid'
 
 
 const IndexPage = () => {
@@ -20,6 +21,7 @@ const IndexPage = () => {
     <Seo title="Shop" keywords={[`gatsby`, `application`, `react`]} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
+    <Header />
     <ProductGrid />
   </>
 }

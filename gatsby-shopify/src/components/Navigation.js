@@ -3,7 +3,7 @@ import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
-import { breakpoint, container, ciColor } from '~/utils/styles'
+import { breakpoint, ciColor } from '~/utils/styles'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
@@ -15,7 +15,8 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
-  ${container}
+  padding-left: 30px;
+  padding-right: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,16 +35,11 @@ const SvgWrapper = styled.div`
 `
 const Svg = styled.svg`
   fill: var(--color-blue);
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   fill: var(--color-white);
 
   @media ${breakpoint.desktop} { 
-    width: 80px;
-    height: 80px;
-  }
-
-  @media ${breakpoint.tablet} { 
     width: 70px;
     height: 70px;
   }
