@@ -112,30 +112,7 @@ const ContextWrapper = styled.div`
   }
 `
 
-const H2 = styled.h2`
-  font-size: 17px;
-  color: var(--color-gray);
-
-  @media ${breakpoint.desktop} {
-    font-size: 16px;
-  }
-  
-  @media ${breakpoint.tablet} {
-    font-size: 15px;
-  }
-`
-
 const Text = styled.div`
-  font-size: 22px;
-
-  @media ${breakpoint.desktop} {
-    font-size: 20px;
-  }
-  
-  @media ${breakpoint.tablet} {
-    font-size: 18px;
-  }
-
   p {
     margin-top: 10px;
     width: 70%;
@@ -227,13 +204,13 @@ const ProductGrid = () => {
     }).format(parseFloat(price ? price : 0));
 
   return (
-    <Collection>
+    <Collection id="shopnow">
       {allShopifyCollection.nodes.map(collection => {
         const image = collection.image ? getImage(collection.image.localFile) : null;
         return <CollectionItem key={collection.id}>
         <Context>
           <ContextWrapper>
-            <H2>{collection.title}</H2>
+            <h2>{collection.title}</h2>
             <Text
               dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
             </Text>
