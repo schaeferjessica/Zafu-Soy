@@ -1,5 +1,5 @@
 <h2>Gatsby + Shopify</h2>
-<img alt="Gatsby" src="resources/images/shopify+gatsby.png" width="250px" />
+<img alt="Gatsby" src="static/images/shopify+gatsby.png" width="250px" />
 
 <p style="text-decoration:underline">Docs:</p>
 

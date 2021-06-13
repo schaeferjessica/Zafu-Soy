@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as LinkTo } from 'gatsby'
 import styled from '@emotion/styled'
-import '../../resources/fonts.css';
+import '../../static/fonts.css';
 import { breakpoint, container } from '~/utils/styles'
 
 const FooterComponent = styled.footer`
