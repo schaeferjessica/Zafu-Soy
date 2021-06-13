@@ -30,6 +30,10 @@ const HeaderContextLeft = styled.div`
 const HeaderLink = styled.a`
     display: flex;
     align-items: center;
+
+    &:hover svg {
+        transform: translateX(5px)
+    }
 `
 
 const HeaderSvg = styled.svg`
@@ -38,6 +42,7 @@ const HeaderSvg = styled.svg`
     fill: var(--color-gray);
     margin-top: 3px;
     margin-left: 5px;
+    transition: transform 300ms ease-in-out;
 `
 
 const HeaderContextRight = styled.div`
