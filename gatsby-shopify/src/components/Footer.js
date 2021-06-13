@@ -122,45 +122,81 @@ flex-direction: column;
   }
 }
 `
-const UlCurrency = styled.ul`
-  padding: 0px;
-  margin: 0px;
-`
-const LiCurrency = styled.li`
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-  color: white;
-`
-const ButtonCurrency = styled.button`
-  color: var(--color-white);
-  font-size: 15px;
-  display: none;
-  padding: 0px;
-  margin-top: 5px;
-  margin-left: 20px;
+// const UlCurrency = styled.ul`
+//   padding: 0px;
+//   margin: 0px;
 
-  @media ${breakpoint.mobile} { 
-    font-size: 14px;
-  }
-`
-const ButtonCurrent = styled.button`
-  padding: 0px;
-  margin-top: 5px;
-  margin-left: 20px;
-  color: var(--color-white);
-  font-size: 15px;
-  display: block;
-  position: relative;
+//   &.is-hidden {
+//     display: none;
+//   }
+// `
+// const LiCurrency = styled.li`
+//   margin: 0px;
+//   padding: 0px;
+//   list-style: none;
+//   color: white;
+// `
+// const ButtonCurrency = styled.button`
+//   color: var(--color-white);
+//   font-size: 15px;
+//   padding: 0px;
+//   margin-top: 5px;
+//   margin-left: 20px;
 
-  &::before {
-    content: "↓";
-    position: absolute;
-    left: -20px;
-  }
-`
+//   @media ${breakpoint.mobile} { 
+//     font-size: 14px;
+//   }
+// `
+// const ButtonCurrent = styled.button`
+//   padding: 0px;
+//   margin-top: 5px;
+//   margin-left: 20px;
+//   color: var(--color-white);
+//   font-size: 15px;
+//   display: block;
+//   position: relative;
+
+//   &::before {
+//     content: "↓";
+//     position: absolute;
+//     left: -20px;
+//   }
+// `
 
 const Footer = () => {
+  // const [currencyVisible, setCurrencyVisible] = useState(false);
+  // const [activeCurrency, setActiveCurrency] = useState({
+  //   currency: 'EUR €',
+  //   value: 'EUR',
+  //  });
+  // const toggleCurrencyList = () => setCurrencyVisible(!currencyVisible);
+  // const currencies = [
+  //  {
+  //   currency: 'EUR €',
+  //   value: 'EUR',
+  //  },
+  //  {
+  //   currency: 'GBP £',
+  //   value: 'GBP',
+  //  },
+  //  {
+  //   currency: 'DKK kr.',
+  //   value: 'DKK',
+  //  },
+  //  {
+  //   currency: 'HUF Ft',
+  //   value: 'HUF',
+  //  },
+  //  {
+  //   currency: 'NOK kr',
+  //   value: 'NOK',
+  //  },
+  //  {
+  //   currency: 'CHF',
+  //   value: 'CHF',
+  //  }
+  // ];
+
     return (
     <FooterComponent>
         <FooterInner>
@@ -182,27 +218,18 @@ const Footer = () => {
             </FooterLinksLeft>
             <FooterLinksRight>
                 <Div>
-                <p><strong>Contact us:</strong></p>
-                <Link to="/about/">how can we help? </Link>
+                  <p><strong>Contact us:</strong></p>
+                  <Link to="/about/">how can we help? </Link>
                 </Div>
-                <ButtonCurrent value="EUR">EUR €</ButtonCurrent>
-                <UlCurrency >
-                <LiCurrency>
-                    <ButtonCurrency value="GBP">GBP £</ButtonCurrency>
-                </LiCurrency>
-                <LiCurrency>
-                    <ButtonCurrency value="DKK">DKK kr.</ButtonCurrency>
-                </LiCurrency>
-                <LiCurrency>
-                    <ButtonCurrency value="HUF">HUF Ft</ButtonCurrency>
-                </LiCurrency>
-                <LiCurrency>
-                    <ButtonCurrency value="NOK">NOK kr</ButtonCurrency>
-                </LiCurrency>
-                <LiCurrency>
-                    <ButtonCurrency value="CHF">CHF</ButtonCurrency>
-                </LiCurrency>
-                </UlCurrency>
+                {/* <ButtonCurrent value={activeCurrency.value} onClick={() => toggleCurrencyList()}>{activeCurrency.currency}</ButtonCurrent>
+                <UlCurrency className={currencyVisible ? 'is-active' : 'is-hidden'}>
+                  {currencies.filter(currency => currency.value !== activeCurrency.value).map(currency => <LiCurrency key={currency.value}>
+                      <ButtonCurrency value={currency.value} onClick={() => setActiveCurrency({
+    currency: currency.currency,
+    value: currency.value,
+   })}>{currency.currency}</ButtonCurrency>
+                  </LiCurrency>)}
+                </UlCurrency> */}
                 <Small>&#169; {new Date().getFullYear()}, built by{` `} 
                 <LinkExternSmall href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExternSmall>
                 </Small>
