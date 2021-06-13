@@ -157,9 +157,9 @@ const LegaPage = (data) => {
 
   useEffect(() => {
     if (isOpen) {
-      document.querySelector('body').classList.add('prevent-scroll');
+      document.querySelector('body').classList.add('prevent-scroll--overlay');
     } else {
-      document.querySelector('body').classList.remove('prevent-scroll');
+      document.querySelector('body').classList.remove('prevent-scroll--overlay');
     }
   }, [isOpen]);
 

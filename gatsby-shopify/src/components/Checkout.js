@@ -107,7 +107,7 @@ const Ul = styled.ul`
   overflow: auto;
 `
 
-const ButtonClose = styled.button` 
+export const ButtonClose = styled.button` 
   display: flex;
   justify-content: center;
   align-items: center;

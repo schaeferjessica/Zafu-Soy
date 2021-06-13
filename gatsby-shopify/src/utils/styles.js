@@ -202,6 +202,10 @@ export const GlobalStyle = props => (
 
       .prevent-scroll {
         overflow: hidden;
+      }
+
+      .prevent-scroll--overlay {
+        overflow: hidden;
 
         &::before {
           content: '';

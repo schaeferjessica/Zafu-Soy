@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
 import { breakpoint, ciColor } from '~/utils/styles'
 import { Link } from 'gatsby'
+import Menu from './Menu'
 
 const Wrapper = styled.div`
   z-index: 9;
@@ -71,9 +72,17 @@ const MenuLink = styled(Link)`
   color: var(--color-blue);
 `
 
+const CartButton = styled.button`
+  padding-left: 15px;
+`
+
 const MenuButton = styled.button`
-  text-decoration: none;
-  color: var(--color-blue);
+  padding-left: 15px;
+  z-index: 20;
+`
+
+const CartText = styled.span`
+  padding-left: 15px;
 `
 
 const CartCounter = styled.span`
@@ -100,7 +109,17 @@ const useQuantity = () => {
 }
 
 const Navigation = ({isTransparent, onOrderButtonClick}) => {
+  const [menuStatus, setMenuStatus] = useState(false);
   const [hasItems, quantity] = useQuantity()
+
+
+  useEffect(() => {
+    if (menuStatus) {
+      document.querySelector('body').classList.add('prevent-scroll');
+    } else {
+      document.querySelector('body').classList.remove('prevent-scroll');
+    }
+  }, [menuStatus])
 
   return (
     <Wrapper>
@@ -119,11 +138,13 @@ const Navigation = ({isTransparent, onOrderButtonClick}) => {
             </Svg>
           </SvgWrapper>
         </MenuLink>
-        <MenuButton onClick={() => onOrderButtonClick()}>
-          Your Order
-          {hasItems ? <CartCounter>{quantity}</CartCounter> : <CartCounter>0</CartCounter>}
-        </MenuButton>
+          <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> 
+          <CartButton onClick={() => onOrderButtonClick()}>
+            <CartText>Your Order</CartText>
+            {hasItems ? <CartCounter>{quantity}</CartCounter> : <CartCounter>0</CartCounter>}
+          </CartButton>
       </Inner>
+      <Menu menuStatus={menuStatus} triggerMenuStatus={() => setMenuStatus(false)}/>
     </Wrapper>
   )
 }
