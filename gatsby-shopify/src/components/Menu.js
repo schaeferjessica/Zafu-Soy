@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { breakpoint, container } from '../utils/styles'
+import { breakpoint } from '../utils/styles'
 import { ButtonClose } from '~/components/Checkout'
 
 export const Collection = styled.nav`
@@ -37,6 +37,8 @@ export const CollectionImageItem = styled.li`
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 300ms ease-in-out;
+  width: 100%;
+  max-width: 60%;
 
   &.is-active {
     opacity: 1;

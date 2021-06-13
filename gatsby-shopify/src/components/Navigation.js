@@ -79,6 +79,12 @@ const CartButton = styled.button`
 const MenuButton = styled.button`
   padding-left: 15px;
   z-index: 20;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
 `
 
 const CartText = styled.span`
@@ -86,10 +92,10 @@ const CartText = styled.span`
 `
 
 const CartCounter = styled.span`
-  border: 1px solid var(--color-blue);
+  border: 1px solid var(--color-gray);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-left: 10px;
   display: inline-flex;
   justify-content: center;
@@ -97,6 +103,10 @@ const CartCounter = styled.span`
   flex-direction: row;
   font-size: 14px;
   font-weight: 400;
+
+  &:hover {
+    border: 1px solid var(--color-blue);
+  }
 `
 
 const useQuantity = () => {

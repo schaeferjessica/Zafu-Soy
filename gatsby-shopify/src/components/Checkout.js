@@ -176,7 +176,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
         </> : <>
         <Title>Your Order</Title>
         <p>Looks like you haven’t added anthing to your order yet.</p>
-        <ButtonBack onClick={() => handleBackClick()}>Take me back to the Shop</ButtonBack> </>}
+        <ButtonBack onClick={() => handleBackClick()}>Shop all</ButtonBack> </>}
       </CheckoutInner>
     </StyledCheckout>
   )
