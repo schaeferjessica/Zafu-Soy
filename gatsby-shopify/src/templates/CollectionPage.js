@@ -7,6 +7,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
+import { CollectionCount} from '~/components/Menu'
+
 
 const Collection = styled.section`
   display: flex;
@@ -14,18 +16,18 @@ const Collection = styled.section`
 `
 
 const CollectionItem = styled.div`
-  margin-top: 80px;
+  margin-top: 200px;
 
   @media ${breakpoint.desktop} { 
-    margin-top: 0px;
+    margin-top: 150px;
   }
 
   @media ${breakpoint.tablet} { 
-    margin-top: 50px;
+    margin-top: 100px;
   }
 
   @media ${breakpoint.mobile} { 
-    margin-top: 40px;
+    margin-top: 80px;
   }
 `
 
@@ -136,6 +138,10 @@ export const H3 = styled.h3`
   margin-top: 5px;
 `
 
+const H2 = styled.h2`
+    margin-bottom: 10px;
+`
+
 export const SpanPrice = styled.span`
   display: block;
 `
@@ -151,6 +157,32 @@ export const SpanSold = styled.span`
   @media ${breakpoint.mobile} {
     font-size: 14px;
   }
+`
+const UlFilter = styled.ul`
+    ${container}
+    list-style: none;
+    display: flex;
+`
+
+const LiFilter = styled.li`
+    border-radius: 18px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid var(--color-gray);
+    line-height: 30px;
+    margin-right: 12px;
+    margin-top: 25px;
+
+    &:hover {
+        border: 1px solid var(--color-blue);
+    }
+`
+
+const LinkFilter = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
 `
 
 export const query = graphql`
@@ -195,13 +227,13 @@ const CollectionPage = ({pageContext, data}) => {
         <CollectionItem>
             <Context>
                 <ContextWrapper>
-                    <h2>{pageContext.title}</h2>
+                    <H2>{pageContext.title} <CollectionCount>{pageContext.products.length}</CollectionCount></H2>
                     <Text
                     dangerouslySetInnerHTML={{ __html: pageContext.descriptionHtml }}>
                     </Text>
                 </ContextWrapper>
             </Context>
-            {isShopAllPage ? <ul>{data.allShopifyCollection.nodes.map(node => <li key={node.handle}><Link to={`/collection/${node.handle}`}>{node.title}</Link></li>)}</ul>: ''}
+            {isShopAllPage ? <UlFilter>{data.allShopifyCollection.nodes.map(node => <LiFilter key={node.handle}><LinkFilter to={`/collection/${node.handle}`}>{node.title}</LinkFilter></LiFilter>)}</UlFilter>: ''}
             <ProductContainer>
                 <Product>
                     {pageContext.products ? (

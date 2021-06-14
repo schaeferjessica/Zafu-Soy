@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql, Link, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint } from '../utils/styles'
@@ -28,6 +28,7 @@ export const CollectionImageList = styled.ul`
   list-style: none;
   width: 47%;
   position: relative;
+  overflow: hidden;
   `
 
 export const CollectionImageItem = styled.li`
@@ -83,6 +84,12 @@ const CollectionButtonClose  = styled(ButtonClose)`
   top: 20px;
   right: 20px;
 `
+export const CollectionCount  = styled.sup`
+  color: var(--color-gray);
+  font-size: 14px;
+  margin-left: 4px;
+`
+
 
 const Menu = ({menuStatus, triggerMenuStatus}) => {
   const [activeMenu, setActiveMenu] = useState(0);
@@ -102,11 +109,17 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
           id
           title
           handle
+          products {id}
         }
       }
     }
     `
   )
+
+  const handleLinkClick = (handle) => {
+    triggerMenuStatus();
+    navigate(`/collection/${handle}`);
+  };
 
   return (
     <Collection className={menuStatus ? 'is-active' : 'is-hidden'}>
@@ -138,7 +151,8 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
         <CollectionLinkList>
           {allShopifyCollection.nodes.map((collection, index) => {
             return <CollectionItem key={collection.id}>
-              <Link to={`/collection/${collection.handle}`} onMouseEnter={() => handleMouseEnter(index)}>{collection.title}</Link>
+              <button onMouseEnter={() => handleMouseEnter(index)} onClick={() => handleLinkClick(collection.handle)}>{collection.title}</button>
+              <CollectionCount>{collection.products.length}</CollectionCount>
           </CollectionItem>
           })}
         </CollectionLinkList>
