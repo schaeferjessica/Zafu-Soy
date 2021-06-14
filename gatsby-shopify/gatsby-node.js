@@ -1,6 +1,64 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  const allShopifyCollections = await graphql(`
+    query {
+      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
+        nodes {
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          title
+          handle
+          descriptionHtml
+          products {
+            id
+            title
+            handle
+            createdAt
+            images {
+              id
+              originalSrc
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 500)
+                }
+              }
+            }
+            variants {
+              price
+              availableForSale
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (allShopifyCollections.error) {
+    reporter.panic('failed to create product pages', allShopifyCollections.errors);
+  }
+
+  allShopifyCollections.data.allShopifyCollection.nodes.forEach((node) => {
+    console.log('node.handle :>> ', node.handle);
+    actions.createPage({
+      path: `/collection/${node.handle}/`,
+      component: path.resolve(`./src/templates/CollectionPage.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        handle: node.handle,
+        title: node.title,
+        descriptionHtml: node.descriptionHtml,
+        products: node.products,
+      },
+    });
+  });
+
   const allShopifyProducts = await graphql(`
     query {
       allShopifyProduct {

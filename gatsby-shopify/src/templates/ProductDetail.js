@@ -295,7 +295,7 @@ const ProductDetail = ({ data }) => {
                       <H3>{title}</H3>
                     </Link>
                       <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                      {firstVariant.availableForSale ? '' : <SpanSold>Sold out</SpanSold>}
+                      {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
                   </ProductItem>
                 )
               }
