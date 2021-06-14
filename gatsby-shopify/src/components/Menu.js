@@ -101,6 +101,7 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
           }
           id
           title
+          handle
         }
       }
     }
@@ -137,8 +138,7 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
         <CollectionLinkList>
           {allShopifyCollection.nodes.map((collection, index) => {
             return <CollectionItem key={collection.id}>
-              {/* use GatsbyLink BUT first create collection pages */}
-              <a onMouseEnter={() => handleMouseEnter(index)}>{collection.title}</a>
+              <Link to={`/collection/${collection.handle}`} onMouseEnter={() => handleMouseEnter(index)}>{collection.title}</Link>
           </CollectionItem>
           })}
         </CollectionLinkList>
