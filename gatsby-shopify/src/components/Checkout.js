@@ -81,7 +81,7 @@ const SpanShipping = styled(Span)`
   margin-top: 5px;
 `
 
-const ButtonBack = styled.button`
+const LinkShop = styled.button`
   display: block;
   margin-top: 15px;
   text-decoration: underline;
@@ -142,7 +142,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
   }
   const handleBackClick = () => {
     handleCheckoutClose();
-    navigate('/');
+    navigate(`/collection/frontpage`);
   }
 
   const lineItems = checkout.lineItems.map(item => (
@@ -176,7 +176,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
         </> : <>
         <Title>Your Order</Title>
         <p>Looks like you haven’t added anthing to your order yet.</p>
-        <ButtonBack onClick={() => handleBackClick()}>Shop all</ButtonBack> </>}
+        <LinkShop onClick={() => handleBackClick()}>Shop all</LinkShop> </>}
       </CheckoutInner>
     </StyledCheckout>
   )
