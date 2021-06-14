@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
@@ -153,7 +153,18 @@ export const SpanSold = styled.span`
   }
 `
 
-const CollectionPage = ({pageContext}) => {
+export const query = graphql`
+    query {
+      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}, filter: { handle: { ne: "frontpage" } }) {
+        nodes {
+          title
+          handle
+        }
+      }
+    }
+`;
+ 
+const CollectionPage = ({pageContext, data}) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     store: { checkout },
@@ -173,7 +184,8 @@ const CollectionPage = ({pageContext}) => {
           document.querySelector('body').classList.remove('prevent-scroll--overlay');
         }
       }, [isOpen]);
-      
+    
+      const isShopAllPage = pageContext.handle === 'frontpage';
   return (
     <>
     <Seo title={pageContext.title} description={pageContext.descriptionHtml} />
@@ -189,6 +201,7 @@ const CollectionPage = ({pageContext}) => {
                     </Text>
                 </ContextWrapper>
             </Context>
+            {isShopAllPage ? <ul>{data.allShopifyCollection.nodes.map(node => <li key={node.handle}><Link to={`/collection/${node.handle}`}>{node.title}</Link></li>)}</ul>: ''}
             <ProductContainer>
                 <Product>
                     {pageContext.products ? (
