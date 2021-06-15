@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
 import { breakpoint, ciColor } from '~/utils/styles'
 import { Link } from 'gatsby'
-import Menu from './Menu'
+// import Menu from './Menu'
 
 const Wrapper = styled.div`
   z-index: 9;
@@ -76,16 +76,16 @@ const CartButton = styled.button`
   padding-left: 15px;
 `
 
-const MenuButton = styled.button`
-  padding-left: 15px;
-  z-index: 20;
+// const MenuButton = styled.button`
+//   padding-left: 15px;
+//   z-index: 20;
 
-  &:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 5px;
-  }
-`
+//   &:hover {
+//     text-decoration: underline;
+//     text-decoration-thickness: 1px;
+//     text-underline-offset: 5px;
+//   }
+// `
 
 const CartText = styled.span`
   padding-left: 15px;
@@ -119,17 +119,17 @@ const useQuantity = () => {
 }
 
 const Navigation = ({isTransparent, onOrderButtonClick}) => {
-  const [menuStatus, setMenuStatus] = useState(false);
   const [hasItems, quantity] = useQuantity()
+  // const [menuStatus, setMenuStatus] = useState(false);
 
 
-  useEffect(() => {
-    if (menuStatus) {
-      document.querySelector('body').classList.add('prevent-scroll');
-    } else {
-      document.querySelector('body').classList.remove('prevent-scroll');
-    }
-  }, [menuStatus])
+  // useEffect(() => {
+  //   if (menuStatus) {
+  //     document.querySelector('body').classList.add('prevent-scroll');
+  //   } else {
+  //     document.querySelector('body').classList.remove('prevent-scroll');
+  //   }
+  // }, [menuStatus])
 
   return (
     <Wrapper>
@@ -148,13 +148,13 @@ const Navigation = ({isTransparent, onOrderButtonClick}) => {
             </Svg>
           </SvgWrapper>
         </MenuLink>
-          <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> 
+          {/* <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> */}
           <CartButton onClick={() => onOrderButtonClick()}>
             <CartText>Your Order</CartText>
             {hasItems ? <CartCounter>{quantity}</CartCounter> : <CartCounter>0</CartCounter>}
           </CartButton>
       </Inner>
-      <Menu menuStatus={menuStatus} triggerMenuStatus={() => setMenuStatus(false)}/>
+      {/* <Menu menuStatus={menuStatus} triggerMenuStatus={() => setMenuStatus(false)}/> */}
     </Wrapper>
   )
 }

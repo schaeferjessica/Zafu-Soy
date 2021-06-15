@@ -104,7 +104,7 @@ const Header = () => {
         <>
             <HeaderTop>
                 <HeaderContextLeft>
-                    <HeaderLink href="#shopnow">shop now 
+                    <HeaderLink href="#shopnow">shop all 
                     <HeaderSvg x="0px" y="0px" viewBox="0 0 22 10">
                         <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
                     </HeaderSvg>

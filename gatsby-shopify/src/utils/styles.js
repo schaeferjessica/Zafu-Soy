@@ -165,6 +165,7 @@ export const GlobalStyle = props => (
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 5px;
+        text-decoration-color: var(--color-gray);
       }
 
       button {

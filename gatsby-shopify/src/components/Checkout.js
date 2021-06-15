@@ -87,12 +87,13 @@ const LinkShop = styled.button`
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
+  text-decoration-color: var(--color-gray);
   padding: 0px;
   font-size: 17px;
   align-self: flex-start;
 
   &:hover {
-    text-decoration: none;
+    text-decoration-color: var(--color-blue);
   }
 `
 

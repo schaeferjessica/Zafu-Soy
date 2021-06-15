@@ -129,6 +129,10 @@ const Text = styled.div`
   }
 `
 
+const H2 = styled.h2`
+    margin-bottom: 10px;
+`
+
 export const H3 = styled.h3`
   margin-top: 5px;
 `
@@ -150,45 +154,74 @@ export const SpanSold = styled.span`
   }
 `
 
+const UlFilter = styled.ul`
+    ${container}
+    list-style: none;
+    display: flex;
+`
+
+const LiFilter = styled.li`
+    border-radius: 18px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid var(--color-gray);
+    line-height: 30px;
+    margin-right: 12px;
+    margin-top: 25px;
+
+    &:hover {
+        border: 1px solid var(--color-blue);
+    }
+`
+
+const LinkFilter = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
+`
+
 
 const ProductGrid = () => {
   const {
     store: { checkout },
   } = useContext(StoreContext)
 
-  const { allShopifyCollection } = useStaticQuery(
+  const { allShopifyCollection, filters, allShopifyProduct} = useStaticQuery(
     graphql`
     query {
-      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
+      filters: allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}, filter: { handle: { ne: "frontpage" } }) {
         nodes {
-          image {
+          title
+          handle
+        }
+      }
+      allShopifyCollection(filter: { handle: { eq: "frontpage" } }) {
+        nodes {
+          title
+          handle
+          descriptionHtml
+          id
+        }
+      }
+      allShopifyProduct {
+        nodes {
+          id
+          title
+          handle
+          createdAt
+          images {
+            id
+            originalSrc
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(width: 500)
               }
             }
           }
-          id
-          title
-          descriptionHtml
-          products {
-            id
-            title
-            handle
-            createdAt
-            images {
-              id
-              originalSrc
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 500)
-                }
-              }
-            }
-            variants {
-              price
-              availableForSale
-            }
+          variants {
+            price
+            availableForSale
           }
         }
       }
@@ -206,21 +239,29 @@ const ProductGrid = () => {
   return (
     <Collection id="shopnow">
       {allShopifyCollection.nodes.map(collection => {
-        const image = collection.image ? getImage(collection.image.localFile) : null;
-        return <CollectionItem key={collection.id}>
+        return (
+        <CollectionItem key={collection.id}>
         <Context>
           <ContextWrapper>
-            <h2>{collection.title}</h2>
+            <H2>{collection.title}</H2>
             <Text
               dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
             </Text>
           </ContextWrapper>
         </Context>
 
+        <UlFilter>
+        {filters.nodes.map((filter) => {
+            if (filter.handle !== 'frontpage') {
+              return <LiFilter key={filter.handle}><LinkFilter to={`/collection/${filter.handle}`}>{filter.title}</LinkFilter></LiFilter>
+            }
+          })}
+        </UlFilter>
+
         <ProductContainer>
           <Product>
-          {collection.products ? (
-            collection.products.map(
+          {allShopifyProduct ? (
+            allShopifyProduct.nodes.map(
               ({
                   id,
                   handle,
@@ -243,7 +284,7 @@ const ProductGrid = () => {
                       <H3>{title}</H3>
                     </Link>
                       <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                      {firstVariant.availableForSale ? '' : <SpanSold>Sold out</SpanSold>}
+                      {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
                   </ProductItem>
                 )
               }
@@ -254,6 +295,7 @@ const ProductGrid = () => {
           </Product>
         </ProductContainer>
       </CollectionItem>
+      )
       })}
     </Collection>
   )
