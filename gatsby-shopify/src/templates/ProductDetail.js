@@ -92,6 +92,12 @@ const ProductContainer = styled.div`
   }
 `
 
+const LinkItem = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
+`
+
 export const query = graphql`
   query ($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
@@ -283,7 +289,7 @@ const ProductDetail = ({ data }) => {
               ) => {
                 return (
                   <ProductItem key={id}>
-                    <Link to={`/product/${handle}/`}>
+                    <LinkItem to={`/product/${handle}/`}>
                       <ProductImage>
                         {images.map((image, index) => {
                           const pluginImage = getImage(image.localFile)
@@ -293,7 +299,7 @@ const ProductDetail = ({ data }) => {
                         })}
                       </ProductImage>
                       <H3>{title}</H3>
-                    </Link>
+                    </LinkItem>
                       <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
                       {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
                   </ProductItem>

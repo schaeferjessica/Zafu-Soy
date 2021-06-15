@@ -175,6 +175,12 @@ const LiFilter = styled.li`
     }
 `
 
+const LinkItem = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
+`
+
 const LinkFilter = styled(Link)`
     &:hover {
         text-decoration: none;
@@ -272,7 +278,7 @@ const ProductGrid = () => {
               ) => {
                 return (
                   <ProductItem key={id}>
-                    <Link to={`/product/${handle}/`}>
+                    <LinkItem to={`/product/${handle}/`}>
                       <ProductImage>
                         {images.map((image, index) => {
                           const pluginImage = getImage(image.localFile)
@@ -282,7 +288,7 @@ const ProductGrid = () => {
                         })}
                       </ProductImage>
                       <H3>{title}</H3>
-                    </Link>
+                    </LinkItem>
                       <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
                       {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
                   </ProductItem>

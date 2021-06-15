@@ -179,6 +179,12 @@ const LiFilter = styled.li`
     }
 `
 
+const LinkItem = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
+`
+
 const LinkFilter = styled(Link)`
     &:hover {
         text-decoration: none;
@@ -187,7 +193,7 @@ const LinkFilter = styled(Link)`
 
 export const query = graphql`
     query {
-      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}, filter: { handle: { ne: "frontpage" } }) {
+      allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
         nodes {
           title
           handle
@@ -217,7 +223,6 @@ const CollectionPage = ({pageContext, data}) => {
         }
       }, [isOpen]);
     
-      const isShopAllPage = pageContext.handle === 'frontpage';
   return (
     <>
     <Seo title={pageContext.title} description={pageContext.descriptionHtml} />
@@ -233,7 +238,7 @@ const CollectionPage = ({pageContext, data}) => {
                     </Text>
                 </ContextWrapper>
             </Context>
-            {isShopAllPage ? <UlFilter>{data.allShopifyCollection.nodes.map(node => <LiFilter key={node.handle}><LinkFilter to={`/collection/${node.handle}`}>{node.title}</LinkFilter></LiFilter>)}</UlFilter>: ''}
+            <UlFilter>{data.allShopifyCollection.nodes.filter(node => node.title !== pageContext.title).map(node => <LiFilter key={node.handle}><LinkFilter to={`/collection/${node.handle}`}>{node.title}</LinkFilter></LiFilter>)}</UlFilter>
             <ProductContainer>
                 <Product>
                     {pageContext.products ? (
@@ -248,7 +253,7 @@ const CollectionPage = ({pageContext, data}) => {
                         ) => {
                             return (
                             <ProductItem key={id}>
-                                <Link to={`/product/${handle}/`}>
+                                <LinkItem to={`/product/${handle}/`}>
                                 <ProductImage>
                                     {images.map((image, index) => {
                                     const pluginImage = getImage(image.localFile)
@@ -258,7 +263,7 @@ const CollectionPage = ({pageContext, data}) => {
                                     })}
                                 </ProductImage>
                                 <H3>{title}</H3>
-                                </Link>
+                                </LinkItem>
                                 <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
                                 {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
                             </ProductItem>
