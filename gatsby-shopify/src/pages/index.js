@@ -19,7 +19,7 @@ const IndexPage = () => {
 
   return <>
     <Seo title="Shop" keywords={[`gatsby`, `application`, `react`]} />
-    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
+    <Navigation isWhite={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <Header />
     <ProductGrid />

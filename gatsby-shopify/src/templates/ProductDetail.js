@@ -219,7 +219,7 @@ const ProductDetail = ({ data }) => {
   return (
     <>
       <Seo title={product.title} description={product.description} />
-      <Navigation isTransparent={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
+      <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
       <div>
         <div>
