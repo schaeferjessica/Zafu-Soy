@@ -17,10 +17,6 @@ const HeaderTop = styled.div`
     justify-items: start;
     width: 100%;
     margin-bottom: 40px;
-
-    @media ${breakpoint.tablet} {
-        margin-bottom: 60px;
-      }
 `
 
 const HeaderContextLeft = styled.div`
@@ -30,7 +26,7 @@ const HeaderContextLeft = styled.div`
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
         grid-row: 4 / 4;
-        margin-bottom: 10px;
+        margin-bottom: 100px;
       }
 `
 
@@ -56,14 +52,16 @@ const HeaderSvg = styled.svg`
 `
 
 const HeaderContextRight = styled.div`
-    grid-column: 3 / 12;
-    grid-row: 1 / 1;
+    grid-column: 4/12;
+    grid-row: 1/1;
+    margin-left: 50px;
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
         grid-row: 3 / 4;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         margin-top: 95px;
+        margin-left: 0px;
       }
 `
 
@@ -117,8 +115,9 @@ const Header = () => {
     const jumpTo = (hash) => {
         const target = document.querySelector(hash);
         const rect = target.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-        aniScroll(rect.top, 1000, 'easeInOutQuart');
+        aniScroll(rect.top + scrollTop, 1000, 'easeInOutQuart');
       };
 
 
