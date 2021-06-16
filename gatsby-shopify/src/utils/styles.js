@@ -95,8 +95,7 @@ export const GlobalStyle = props => (
       }
 
       h1,
-      h2,
-      h3 {
+      h2 {
         font-family: 'IBM Plex Serif';
         font-weight: 300;
         margin: 0px;
@@ -138,11 +137,9 @@ export const GlobalStyle = props => (
 
 
       h3 {
-        font-size: 16px;
-    
-        @media ${breakpoint.tablet} { 
-          font-size: 15px;
-        }
+        font-family: 'IBM Plex Sans';
+        font-weight: 400;
+        font-size: 15px;
     
         @media ${breakpoint.mobile} { 
           font-size: 14px;

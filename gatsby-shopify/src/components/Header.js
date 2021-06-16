@@ -5,24 +5,22 @@ import { breakpoint, container } from '../utils/styles'
 const HeaderOuter = styled.div`
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
 `
 
 const HeaderTop = styled.div`
     ${container}
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: grid;
     align-items: end;
     justify-items: start;
-    background-color: var(--color-white);
+    width: 100%;
+    margin-bottom: 40px;
 `
 
 const HeaderContextLeft = styled.div`
     grid-column: 1 / 6;
     grid-row: 1 / 1;
-    margin-bottom: 20px;
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
@@ -34,6 +32,9 @@ const HeaderContextLeft = styled.div`
 const HeaderLink = styled.a`
     display: flex;
     align-items: center;
+    color: var(--color-white);
+    font-family: 'IBM Plex Sans';
+    font-weight: 500;
 
     &:hover svg {
         transform: translateX(5px)
@@ -52,7 +53,6 @@ const HeaderSvg = styled.svg`
 const HeaderContextRight = styled.div`
     grid-column: 3 / 12;
     grid-row: 1 / 1;
-    margin-bottom: 20px;
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
@@ -63,12 +63,18 @@ const HeaderContextRight = styled.div`
 `
 
 const H1 = styled.h1`
+    font-family: 'IBM Plex Sans';
+    font-weight: 400;
     margin-top: 10px;
     letter-spacing: 1px;
+    color: var(--color-white);
 `
 
 const HeaderText = styled.p`
     margin-bottom: 0;
+    color: var(--color-white);
+    font-family: 'IBM Plex Sans';
+    font-weight: 400;
 `
 
 const IframeWrapper = styled.div`
@@ -78,6 +84,17 @@ const IframeWrapper = styled.div`
     width: 100%;
     height: 100vh;
     overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.2);
+        z-index: 1;
+    }
 `
 const Video = styled.video`
     pointer-events: none;

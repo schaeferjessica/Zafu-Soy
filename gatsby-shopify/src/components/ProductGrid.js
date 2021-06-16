@@ -135,6 +135,7 @@ const H2 = styled.h2`
 
 export const H3 = styled.h3`
   margin-top: 5px;
+  margin-bottom: 5px;
 `
 
 export const SpanPrice = styled.span`
