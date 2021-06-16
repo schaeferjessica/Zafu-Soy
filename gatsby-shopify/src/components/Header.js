@@ -16,6 +16,10 @@ const HeaderTop = styled.div`
     justify-items: start;
     width: 100%;
     margin-bottom: 40px;
+
+    @media ${breakpoint.tablet} {
+        margin-bottom: 60px;
+      }
 `
 
 const HeaderContextLeft = styled.div`
@@ -92,7 +96,7 @@ const IframeWrapper = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.1);
         z-index: 1;
     }
 `
@@ -126,7 +130,7 @@ const Header = () => {
             </HeaderTop>
             <IframeWrapper>
                 <Video autoPlay loop muted playsInline>
-                    <source src="/videos/japan1940.mp4" type="video/mp4" />
+                    <source src="/videos/japan1940.mp4#t=108,275" type="video/mp4" />
                 </Video>
             </IframeWrapper>
         </HeaderOuter>
