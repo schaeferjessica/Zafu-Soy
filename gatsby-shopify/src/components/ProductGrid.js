@@ -36,26 +36,29 @@ export const Product = styled.ul`
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 4rem;
-  margin-top: 50px;
+  margin-top: 40px;
 
   @media ${breakpoint.desktop} {
-    margin-top: 30px;
+    margin-top: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
   }
 
   @media ${breakpoint.tablet} {
-    margin-top: 20px;
+    margin-top: 10px;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
   @media ${breakpoint.mobile} {
     gap: 1rem;
+    margin-top: 10px;
   } 
 `
 
 export const ProductItem = styled.li`
+  margin-top: 15px;
+
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;

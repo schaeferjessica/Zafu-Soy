@@ -112,6 +112,7 @@ const CartButton = styled.button`
 
 const CartText = styled.span`
   padding-left: 15px;
+  font-weight: 400;
   
   &.is-white {
     color: var(--color-white);
