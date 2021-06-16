@@ -36,7 +36,9 @@ export const container = `
   }
 `;
 
-export const ciColor = '#313942'
+export const ciBlue = '#313942'
+export const ciWhite = '#faf9f8'
+export const ciGray = '#acaba6'
 
 export const GlobalStyle = props => (
   <Global
@@ -44,10 +46,9 @@ export const GlobalStyle = props => (
     styles={css`
 
       :root {
-        --color-green: #596460;
-        --color-white: #faf9f8;
-        --color-gray: #acaba6;
-        --color-blue: ${ciColor};
+        --color-white: ${ciWhite};
+        --color-gray: ${ciGray};
+        --color-blue: ${ciBlue};
       }
 
       .sr-only {

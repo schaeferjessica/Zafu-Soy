@@ -2,17 +2,21 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
 
+const HeaderOuter = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 const HeaderTop = styled.div`
     ${container}
-    height: 40vh;
+    position: relative;
+    z-index: 1;
     display: grid;
     align-items: end;
     justify-items: start;
     background-color: var(--color-white);
-
-    @media ${breakpoint.tablet} {
-        height: 30vh;
-      }
 `
 
 const HeaderContextLeft = styled.div`
@@ -67,41 +71,29 @@ const HeaderText = styled.p`
     margin-bottom: 0;
 `
 
-const IframeBottom = styled.div`
-    position: relative;
-`
-
-const IframeOuter = styled.div`
-    padding-bottom: 56.25%;
-    overflow: hidden;
-    height: auto;
-`
 const IframeWrapper = styled.div`
     position: absolute;
     top: 0;
-    right: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
 `
 const Video = styled.video`
-    display: block;
-    height: 300%;
-    left: auto;
     pointer-events: none;
     position: absolute;
-    top: -100%;
-    transform: scale(1.2);
-    transition: opacity .2s ease-in-out;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
 `
 
 
 const Header = () => {  
     return (
-        <>
+        <HeaderOuter>
             <HeaderTop>
                 <HeaderContextLeft>
                     <HeaderLink href="#shopnow">shop all 
@@ -115,16 +107,12 @@ const Header = () => {
                     <H1>Maneki 招き猫 Space</H1>
                 </HeaderContextRight>
             </HeaderTop>
-            <IframeBottom>
-                <IframeOuter>
-                <IframeWrapper>
-                    <Video autoPlay loop muted>
-                        <source src="/videos/japan1940.mp4" type="video/mp4" />
-                    </Video>
-                </IframeWrapper>
-                </IframeOuter>
-            </IframeBottom>
-        </>
+            <IframeWrapper>
+                <Video autoPlay loop muted>
+                    <source src="/videos/japan1940.mp4" type="video/mp4" />
+                </Video>
+            </IframeWrapper>
+        </HeaderOuter>
 
     )
   }
