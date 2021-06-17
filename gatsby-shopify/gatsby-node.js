@@ -44,7 +44,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   allShopifyCollections.data.allShopifyCollection.nodes.forEach((node) => {
-    console.log('node.handle :>> ', node.handle);
     actions.createPage({
       path: `/collection/${node.handle}/`,
       component: path.resolve(`./src/templates/CollectionPage.js`),
