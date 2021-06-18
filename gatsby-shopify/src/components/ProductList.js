@@ -37,23 +37,59 @@ const Price = styled.div`
 
 const InputWrapper = styled.div`
   margin-top: 10px;
+  display: flex;
+  align-items: center;
 `
 
 const Input = styled.input`
   box-shadow: none;
   border-radius: 0;
   border: none;
-  padding: 0 0 0 10px;
-  margin: 5px 0;
-  width: 50px;
+  margin: 0px;
+  padding: 10px;
+  max-width: 10px;
   outline: none;
   font-size: 15px;
   font-family: IBM Plex Sans;
   background-color: var(--color-white);
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 `
 
 const Label = styled.label`
   font-size: 15px;
+`
+
+const InputInner = styled.div`
+  display: flex;
+  width: 100%;
+  margin-left: 20px;
+`
+
+const InputButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`
+
+const InputButtonUp = styled.button`
+  font-size: 18px;
+  padding: 0px;
+`
+
+const InputButtonDown = styled.button`
+  font-size: 22px;
+  padding: 0px;
 `
 
 const ProductList = props => {
@@ -69,12 +105,17 @@ const ProductList = props => {
     <img src={item.variant.image.src} alt={`${item.title} product shot`}/>
   ) : null
 
-  const handleQuantityChange = ({ target }) => {
-    setQuantity(target.value);
+  const handleQuantityAdd = () => {
+    if (quantity < 9) {
+      updateLineItem(client, checkout.id, item.id, quantity + 1)
+    }
   }
 
-  const handleInputBlur = ({ target }) => {
-    updateLineItem(client, checkout.id, item.id, target.value)
+  const handleQuantitySubstract = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
+      updateLineItem(client, checkout.id, item.id, quantity - 1)
+    }
   }
   
   const handleRemove = () => {
@@ -107,18 +148,20 @@ const ProductList = props => {
         </Price>
         <InputWrapper>
           <Label htmlFor="checkout-quantity">Quantity</Label>
-          <Input
-            type="number"
-            id="checkout-quantity"
-            name="checkout-quantity"
-            min="1"
-            max="10"
-            step="1"
-            onChange={handleQuantityChange}
-            onMouseUp={handleInputBlur}
-            onBlur={handleInputBlur}
-            value={quantity}
-          />
+          <InputInner>
+            <InputButtonDown onClick={handleQuantitySubstract}>-</InputButtonDown>
+            <Input
+              type="number"
+              id="checkout-quantity"
+              name="checkout-quantity"
+              min="1"
+              max="10"
+              step="1"
+              value={quantity}
+              readOnly
+            />
+              <InputButtonUp onClick={handleQuantityAdd}>+</InputButtonUp>
+          </InputInner>
         </InputWrapper>
         <ListItemRemove onClick={handleRemove}><small>Remove</small></ListItemRemove>
       </ListItemContext>

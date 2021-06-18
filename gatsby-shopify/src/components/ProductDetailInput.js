@@ -78,18 +78,39 @@ const Span = styled.span`
     }
 `
 
-const InputInner = styled.div`
+const InputOuter = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
-  width: 30%;
+  width: 20%;
   z-index: 1;
+  margin-top: 15px;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
     flex-shrink: 1;
     padding-right: 10px;
   }
+`
+
+const InputInner = styled.div`
+  border: 1px solid var(--color-blue);
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+`
+
+const InputButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`
+
+const ButtonPlus = styled.button`
+  padding: 0px 10px;
+`
+
+const ButtonMinus = styled.button`
+  padding: 0px 10px;
 `
 
 const InputWrapper = styled.div`
@@ -99,14 +120,14 @@ const InputWrapper = styled.div`
 `
 
 const Input = styled.input`
-  border: 1px solid var(--color-blue);
   padding: 0;
   padding: 15px 30px;
   background-color: transparent;
-  margin-top: 15px;
   outline: none;
   box-shadow: none;
   border-radius: 0;
+  border: none;
+  width: 100%;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
@@ -164,8 +185,12 @@ const ProductDetailInput = ({ product }) => {
     checkAvailability(product.shopifyId)
   }, [productVariant, checkAvailability, product.shopifyId])
 
-  const handleQuantityChange = ({ target }) => {
-    setQuantity(target.value)
+  const handleQuantityAdd = () => {
+    if (quantity < 9) setQuantity(quantity + 1)
+  }
+
+  const handleQuantitySubstract = () => {
+    if (quantity > 1) setQuantity(quantity - 1)
   }
 
   const handleAddToCart = () => {
@@ -180,19 +205,25 @@ const ProductDetailInput = ({ product }) => {
 
   return (
     <InputWrapper>
-      <InputInner>
+      <InputOuter>
         <label htmlFor="quantity">Quantity</label>
-        <Input
-          type="number"
-          id="quantity"
-          name="quantity"
-          min="1"
-          max="10"
-          step="1"
-          onChange={handleQuantityChange}
-          value={quantity}
-        />
-      </InputInner>
+        <InputInner>
+          <Input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            max="10"
+            step="1"
+            value={quantity}
+            readOnly
+          />
+          <InputButton>
+            <ButtonPlus onClick={handleQuantityAdd}>+</ButtonPlus>
+            <ButtonMinus onClick={handleQuantitySubstract}>-</ButtonMinus>
+          </InputButton>
+        </InputInner>
+      </InputOuter>
       <ButtonWrapper>
         <Button type="submit" disabled={!available || adding} onClick={handleAddToCart} className={!available ? 'not-available' : 'is-available'}>
           {available && <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>}
