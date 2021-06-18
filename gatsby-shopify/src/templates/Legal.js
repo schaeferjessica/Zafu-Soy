@@ -32,19 +32,6 @@ const TextWrapper = styled.div`
 
   p {
     margin-top: 10px;
-    font-size: 17px;
-
-    @media ${breakpoint.desktop} { 
-      font-size: 16px;
-    }
-
-    @media ${breakpoint.tablet} { 
-      font-size: 15px;
-    }
-
-    @media ${breakpoint.mobile} { 
-      font-size: 14px;
-    }
   }
 
   p strong {
@@ -60,19 +47,6 @@ const TextWrapper = styled.div`
   .accordion {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 17px;
-
-    @media ${breakpoint.desktop} { 
-      font-size: 16px;
-    }
-
-    @media ${breakpoint.tablet} { 
-      font-size: 15px;
-    }
-
-    @media ${breakpoint.mobile} { 
-      font-size: 14px;
-    }
   }
 
   .accordion__button {

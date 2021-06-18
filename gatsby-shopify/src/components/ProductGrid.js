@@ -141,28 +141,17 @@ export const H3 = styled.h3`
   margin-bottom: 0px;
 `
 
-export const SpanPrice = styled.span`
+export const SpanPrice = styled.small`
   display: block;
-  font-weight: 400;
-  font-size: 14px;
-
-  @media ${breakpoint.mobile} {
-    font-size: 13px;
-  }
 `
 
-export const SpanSold = styled.span`
+export const SpanSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
   display: inline-block;
   margin-top: 5px;
-  font-size: 14px;
   background-color: #b55340;
   font-weight: 400;
-
-  @media ${breakpoint.mobile} {
-    font-size: 13px;
-  }
 `
 
 const UlFilter = styled.ul`

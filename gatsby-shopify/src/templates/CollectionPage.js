@@ -142,22 +142,17 @@ const H2 = styled.h2`
     margin-bottom: 10px;
 `
 
-export const SpanPrice = styled.span`
+export const SpanPrice = styled.small`
   display: block;
 `
 
-export const SpanSold = styled.span`
+export const SpanSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
   display: inline-block;
   margin-top: 5px;
-  font-size: 14px;
   background-color: #b55340; 
   font-weight: 400;
-
-  @media ${breakpoint.mobile} {
-    font-size: 13px;
-  }
 `
 const UlFilter = styled.ul`
     ${container}

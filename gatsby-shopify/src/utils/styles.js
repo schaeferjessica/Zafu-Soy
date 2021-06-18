@@ -87,10 +87,10 @@ export const GlobalStyle = props => (
       }
 
       small {
-        font-size: 15px;
+        font-size: 14px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 14px;
+          font-size: 13px;
         }
       }
 
@@ -140,6 +140,7 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Sans';
         font-weight: 400;
         font-size: 15px;
+        margin: 0px;
     
         @media ${breakpoint.mobile} { 
           font-size: 14px;
