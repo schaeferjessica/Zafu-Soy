@@ -26,7 +26,7 @@ const StyledCheckout = styled.div`
   }
 
   @media ${breakpoint.tablet} { 
-    width: 60%;
+    width: 72%;
   }
 
   @media ${breakpoint.mobile} { 

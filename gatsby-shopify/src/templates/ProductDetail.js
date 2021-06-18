@@ -63,7 +63,7 @@ const ProductDetailInner = styled.div`
   }
 
   @media ${breakpoint.tablet} {
-    width: 60%;
+    width: 70%;
   }
 
   @media ${breakpoint.mobile} {

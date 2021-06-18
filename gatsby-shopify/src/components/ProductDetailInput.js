@@ -90,6 +90,10 @@ const InputOuter = styled.div`
     flex-shrink: 1;
     padding-right: 10px;
   }
+
+  @media ${breakpoint.tablet} { 
+    width: 30%;
+  }
 `
 
 const InputInner = styled.div`
@@ -107,10 +111,18 @@ const InputButton = styled.div`
 
 const ButtonPlus = styled.button`
   padding: 0px 10px;
+
+  @media ${breakpoint.mobile} { 
+    padding: 0px 8px;
+  }
 `
 
 const ButtonMinus = styled.button`
   padding: 0px 10px;
+
+  @media ${breakpoint.mobile} { 
+    padding: 0px 8px;
+  }
 `
 
 const InputWrapper = styled.div`
@@ -121,21 +133,13 @@ const InputWrapper = styled.div`
 
 const Input = styled.input`
   padding: 0;
-  padding: 15px 30px;
+  padding: 15px;
   background-color: transparent;
   outline: none;
   box-shadow: none;
   border-radius: 0;
   border: none;
   width: 100%;
-
-  @media ${breakpoint.desktop} { 
-    margin-top: 10px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    padding: 15px;
-  }
 
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,
