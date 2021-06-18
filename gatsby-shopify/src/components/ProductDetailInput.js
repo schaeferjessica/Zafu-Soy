@@ -21,8 +21,16 @@ const Button = styled.button`
       margin-top: 10px;
     }
 
+    @media ${breakpoint.mobile} { 
+      padding: 15px;
+    }
+
     &:hover span {
         transform: translateY(-160%);
+
+        @media ${breakpoint.mobile} { 
+          transform: translateY(-175%);
+        }
     }
 
     &.not-available {
@@ -47,6 +55,7 @@ const ButtonWrapper = styled.div`
 
   @media ${breakpoint.desktop} { 
     margin-left: 0px;
+    flex-grow: 1;
   }
 `
 
@@ -62,6 +71,10 @@ const Span = styled.span`
     top: 160%;
     transform: translate3d(0, 0, 0);
     color: var(--color-white);
+
+    @media ${breakpoint.mobile} { 
+      top: 175%;
+      }
     }
 `
 
@@ -70,10 +83,12 @@ const InputInner = styled.div`
   flex-direction: column;
   margin-top: 25px;
   width: 30%;
+  z-index: 1;
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
-    width: 100%;
+    flex-shrink: 1;
+    padding-right: 10px;
   }
 `
 
@@ -81,10 +96,6 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
-  @media ${breakpoint.desktop} { 
-    display: block;
-  }
 `
 
 const Input = styled.input`
@@ -99,6 +110,10 @@ const Input = styled.input`
 
   @media ${breakpoint.desktop} { 
     margin-top: 10px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    padding: 15px;
   }
 
   /* Chrome, Safari, Edge, Opera */

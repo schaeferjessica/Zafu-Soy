@@ -50,7 +50,7 @@ const ImageProduct = styled.div`
   }
 `
 
-const Box = styled.div`
+const ProductDetailInner = styled.div`
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -70,6 +70,15 @@ const Box = styled.div`
     width: 100%;
     position: static;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: -130px;
+  }
+`
+
+const ProductDetailContext = styled.div`
+  @media ${breakpoint.mobile} {
+    margin-top: 50px;
   }
 `
 
@@ -238,15 +247,16 @@ const ProductDetail = ({ data }) => {
               }
             })}
           </ImageHeader>
-          <Box>
-            <h1>{product.title}</h1>
-            
-            <span>{price}</span>
-            <Description
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
+          <ProductDetailInner>
+            <ProductDetailContext>
+              <h1>{product.title}</h1>
+              <span>{price}</span>
+              <Description
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              />
+            </ProductDetailContext>
             <ProductDetailInput product={product} />
-          </Box>
+          </ProductDetailInner>
           <ImageProduct ref={galleryEl}>
             {product.images.map((image, index) => {
               if (index !== 0) {
