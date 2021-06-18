@@ -147,15 +147,16 @@ export const SpanPrice = styled.span`
 `
 
 export const SpanSold = styled.span`
-  color: var(--color-gray);
-  border: 1px solid var(--color-gray);
-  padding: 0px 5px;
+  color: var(--color-white);
+  padding: 2px 5px;
   display: inline-block;
   margin-top: 5px;
-  font-size: 15px;
+  font-size: 14px;
+  background-color: #b55340; 
+  font-weight: 400;
 
   @media ${breakpoint.mobile} {
-    font-size: 14px;
+    font-size: 13px;
   }
 `
 const UlFilter = styled.ul`
