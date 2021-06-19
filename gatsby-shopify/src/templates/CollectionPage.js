@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
-import { breakpoint, container } from '../utils/styles'
+import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { CollectionCount} from '~/components/Menu'
 
 
@@ -16,19 +16,7 @@ const Collection = styled.section`
 `
 
 const CollectionItem = styled.div`
-  margin-top: 200px;
-
-  @media ${breakpoint.desktop} { 
-    margin-top: 150px;
-  }
-
-  @media ${breakpoint.tablet} { 
-    margin-top: 100px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    margin-top: 80px;
-  }
+  ${moduleSpace};
 `
 
 export const ProductContainer = styled.div`

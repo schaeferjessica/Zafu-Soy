@@ -8,6 +8,7 @@ const ListItem = styled.li`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 15px;
 `
 
 const ListItemContext = styled.div`

@@ -36,6 +36,41 @@ export const container = `
   }
 `;
 
+export const moduleSpace = `
+  margin-top: 150px;
+
+
+  @media ${breakpoint.desktop} { 
+    margin-top: 130px;
+  }
+
+  @media ${breakpoint.tablet} { 
+    margin-top: 100px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 80px;
+  }
+`;
+
+export const moduleSpaceSmall = `
+  @media ${breakpoint.desktop} { 
+    margin-top: 80px;
+  }
+
+  @media ${breakpoint.desktop} { 
+    margin-top: 70px;
+  }
+
+  @media ${breakpoint.tablet} { 
+    margin-top: 60px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 50px;
+  }
+`
+
 export const ciBlue = '#313942'
 export const ciWhite = '#faf9f8'
 export const ciGray = '#acaba6'

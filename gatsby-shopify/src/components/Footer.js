@@ -2,28 +2,19 @@ import React from 'react'
 import { Link as LinkTo } from 'gatsby'
 import styled from '@emotion/styled'
 import '../../static/fonts.css';
-import { breakpoint, container } from '~/utils/styles'
+import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
 
 const FooterComponent = styled.footer`
   background-color: var(--color-blue);
   color: var(--color-white);
   margin-top: 100px;
 
-  @media ${breakpoint.desktop} { 
-    margin-top: 80px;
-  }
 
-  @media ${breakpoint.tablet} { 
-    margin-top: 50px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    margin-top: 40px;
-  }
 `
 
 const FooterInner = styled.footer`
   ${container}
+  ${moduleSpaceSmall}
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
@@ -63,7 +54,7 @@ const FooterLinksRight = styled.div`
   justify-content: space-between;
 
   @media ${breakpoint.mobile} { 
-    margin-top: 30px;
+    margin-top: 40px;
   }
 `
 

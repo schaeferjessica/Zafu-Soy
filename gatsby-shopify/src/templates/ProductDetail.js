@@ -8,7 +8,7 @@ import ProductDetailInput from '~/components/ProductDetailInput'
 import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { breakpoint, container } from '../utils/styles'
+import { breakpoint, container, moduleSpace, moduleSpaceSmall } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
 
 const ImageInner = styled.div`
@@ -33,20 +33,15 @@ const ImageHeader = styled.div`
 
 const ImageProduct = styled.div`
   ${container}
+  ${moduleSpaceSmall}
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  margin-top: 80px;
   align-items: center;
 
   @media ${breakpoint.tablet} {
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
-  }
-
-  @media ${breakpoint.mobile} {
-    margin-top: 30px;
   }
 `
 
@@ -89,16 +84,7 @@ const Description = styled.div`
 
 const ProductContainer = styled.div`
   ${container}
-
-  margin-top: 100px;
-
-  @media ${breakpoint.tablet} {
-    margin-top: 80px;
-  }
-
-  @media ${breakpoint.mobile} {
-    margin-top: 50px;
-  }
+  ${moduleSpace}
 `
 
 const LinkItem = styled(Link)`
