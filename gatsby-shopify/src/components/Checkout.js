@@ -90,6 +90,7 @@ const LinkShop = styled.button`
   text-decoration-color: var(--color-gray);
   padding: 0px;
   align-self: flex-start;
+  padding-bottom: 2px;
 
   &:hover {
     text-decoration-color: var(--color-blue);

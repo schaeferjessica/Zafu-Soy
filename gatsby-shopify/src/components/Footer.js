@@ -7,9 +7,6 @@ import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
 const FooterComponent = styled.footer`
   background-color: var(--color-blue);
   color: var(--color-white);
-  margin-top: 100px;
-
-
 `
 
 const FooterInner = styled.footer`
