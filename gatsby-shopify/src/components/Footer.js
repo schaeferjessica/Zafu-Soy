@@ -5,13 +5,13 @@ import '../../static/fonts.css';
 import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
 
 const FooterComponent = styled.footer`
+  ${moduleSpaceSmall}
   background-color: var(--color-blue);
   color: var(--color-white);
 `
 
 const FooterInner = styled.footer`
   ${container}
-  ${moduleSpaceSmall}
   display: flex;
   justify-content: space-between;
   padding-top: 30px;

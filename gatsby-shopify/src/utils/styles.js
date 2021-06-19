@@ -54,9 +54,7 @@ export const moduleSpace = `
 `;
 
 export const moduleSpaceSmall = `
-  @media ${breakpoint.desktop} { 
-    margin-top: 80px;
-  }
+  margin-top: 80px;
 
   @media ${breakpoint.desktop} { 
     margin-top: 70px;
