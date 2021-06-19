@@ -7,6 +7,7 @@ import { breakpoint } from '../utils/styles'
 const Button = styled.button`
     font-family: 'IBM Plex Sans';
     background-color: var(--color-blue);
+    border: 1px solid var(--color-blue);
     color: var(--color-white);
     padding: 15px 30px;
     position: relative;
@@ -56,6 +57,10 @@ const ButtonWrapper = styled.div`
     margin-left: 0px;
     flex-grow: 1;
   }
+
+  @media ${breakpoint.tablet} { 
+    width: 65%;
+  }
 `
 
 const Span = styled.span`
@@ -91,7 +96,7 @@ const InputOuter = styled.div`
   }
 
   @media ${breakpoint.tablet} { 
-    width: 30%;
+    width: 35%;
   }
 `
 
@@ -152,7 +157,7 @@ const InputWrapper = styled.div`
 
 const Input = styled.input`
   padding: 0;
-  padding: 14px;
+  padding: 15px;
   background-color: transparent;
   outline: none;
   box-shadow: none;
