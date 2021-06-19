@@ -6,7 +6,6 @@ import { breakpoint } from '../utils/styles'
 
 const Button = styled.button`
     font-family: 'IBM Plex Sans';
-    border: 1px solid var(--color-blue);
     background-color: var(--color-blue);
     color: var(--color-white);
     padding: 15px 30px;
@@ -26,7 +25,7 @@ const Button = styled.button`
     }
 
     &:hover span {
-        transform: translateY(-160%);
+        transform: translateY(-165%);
 
         @media ${breakpoint.mobile} { 
           transform: translateY(-175%);
@@ -68,7 +67,7 @@ const Span = styled.span`
 &::before {
     content: attr(data-hover);
     position: absolute;
-    top: 160%;
+    top: 165%;
     transform: translate3d(0, 0, 0);
     color: var(--color-white);
 
@@ -118,8 +117,12 @@ const ButtonPlus = styled.button`
 
   svg {
     fill: var(--color-gray);
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
+
+    &:hover {
+      fill: var(--color-blue);
+    }
   }
 `
 
@@ -132,8 +135,12 @@ const ButtonMinus = styled.button`
 
   svg {
     fill: var(--color-gray);
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
+
+    &:hover {
+      fill: var(--color-blue);
+    }
   }
 `
 
@@ -145,7 +152,7 @@ const InputWrapper = styled.div`
 
 const Input = styled.input`
   padding: 0;
-  padding: 15px;
+  padding: 14px;
   background-color: transparent;
   outline: none;
   box-shadow: none;
