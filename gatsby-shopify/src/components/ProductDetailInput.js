@@ -110,18 +110,30 @@ const InputButton = styled.div`
 `
 
 const ButtonPlus = styled.button`
-  padding: 0px 10px;
+  padding-right: 10px;
 
-  @media ${breakpoint.mobile} { 
-    padding: 0px 8px;
+  @media ${breakpoint.tablet} { 
+    padding-right: 6px;
+  }
+
+  svg {
+    fill: var(--color-gray);
+    width: 11px;
+    height: 11px;
   }
 `
 
 const ButtonMinus = styled.button`
-  padding: 0px 10px;
+  padding-right: 10px;
 
-  @media ${breakpoint.mobile} { 
-    padding: 0px 8px;
+  @media ${breakpoint.tablet} { 
+    padding-right: 6px;
+  }
+
+  svg {
+    fill: var(--color-gray);
+    width: 11px;
+    height: 11px;
   }
 `
 
@@ -223,8 +235,12 @@ const ProductDetailInput = ({ product }) => {
             readOnly
           />
           <InputButton>
-            <ButtonPlus onClick={handleQuantityAdd}>+</ButtonPlus>
-            <ButtonMinus onClick={handleQuantitySubstract}>-</ButtonMinus>
+            <ButtonPlus onClick={handleQuantityAdd}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+            </ButtonPlus>
+            <ButtonMinus onClick={handleQuantitySubstract}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg>
+            </ButtonMinus>
           </InputButton>
         </InputInner>
       </InputOuter>
