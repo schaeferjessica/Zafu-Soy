@@ -17,6 +17,28 @@ const InstaTeaserInner = styled.section`
   }
 `
 
+const InstaTeaserUl = styled.ul`
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 0px;
+
+  @media ${breakpoint.tablet} {
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+`
+
+const InstaTeaserH3 = styled.h3`
+  margin-top: 20px;
+`
+
+const InstaTeaserDiv = styled.div`
+  margin-top: 20px;
+`
+
 
 const InstaTeaser = () => {
   const {contentfulInstagram} = useStaticQuery(
@@ -44,7 +66,7 @@ const InstaTeaser = () => {
     <InstaTeaserOuter>
       <InstaTeaserInner>
         <h2>{contentfulInstagram.heading}</h2>
-        <ul>
+        <InstaTeaserUl>
           {contentfulInstagram.instagramPost.map(post => {
             const pluginImage = getImage(post.image.gatsbyImageData);
 
@@ -52,13 +74,13 @@ const InstaTeaser = () => {
               <li key={post.id}>
                 <a href={post.link}>
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
-                  <h3>{post.image.title}</h3>
-                  {documentToReactComponents(JSON.parse(post.text.raw))}
+                  <InstaTeaserH3>{post.image.title}</InstaTeaserH3>
+                  <InstaTeaserDiv>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserDiv>
                 </a>
               </li>
             )
           })}
-        </ul>
+        </InstaTeaserUl>
       </InstaTeaserInner>
     </InstaTeaserOuter>
   )
