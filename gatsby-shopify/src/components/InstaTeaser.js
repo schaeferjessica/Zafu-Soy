@@ -18,9 +18,38 @@ const InstaTeaserHeader = styled.div`
 
 const InstaTeaserInner = styled.div`
   margin-top: 30px;
+  margin-left: 100px;
 
   @media ${breakpoint.desktop} {
     margin-top: 20px;
+    margin-left: 50px;
+  }
+
+  @media ${breakpoint.tablet} {
+    margin-left: 30px;
+  }
+
+  @media ${breakpoint.mobile} {
+    margin-left: 20px;
+  }
+
+  .Glide-leftArrow,
+  .Glide-rightArrow  {
+    padding: 3px;
+    color: var(--color-blue);
+
+    svg {
+      width: 40px;
+      height: 16px;
+    }
+  }
+
+  .Glide-leftArrow  {
+    left: 1rem;
+  }
+
+  .Glide-rightArrow  {
+    right: 1rem;
   }
 `
 
@@ -69,34 +98,34 @@ const InstaTeaser = () => {
           breakpoints={{
             1200: {
               perView: 3,
-              gap: 20,
+              gap: 30,
               peek: {
-                before: 35,
-                after: 55,
+                before: 0,
+                after: 160,
               }
             },
             800: {
               perView: 2,
-              gap: 20,
+              gap: 30,
               peek: {
-                before: 25,
-                after: 45,
+                before: 0,
+                after: 140,
               }
             },
             500: {
               perView: 1,
-              gap: 10,
+              gap: 20,
               peek: {
-                before: 15,
-                after: 35,
+                before: 0,
+                after: 80,
               }
             }
           }}
-          gap={30}
+          gap={40}
           bound={true}
           peek={{
-            before: 45,
-            after: 65,
+            before: 0,
+            after: 200,
           }}
           slideClassName="slider__frame"
         >

@@ -14,25 +14,23 @@ export const breakpoint = {
 };
 
 export const container = `
-  margin: 0 auto;
-  max-width: 1440px;
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-left: 100px;
+  padding-right: 100px;
 
 
   @media ${breakpoint.desktop} { 
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
   @media ${breakpoint.tablet} { 
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   @media ${breakpoint.mobile} { 
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 
