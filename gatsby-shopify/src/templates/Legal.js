@@ -168,7 +168,7 @@ const LegaPage = (data) => {
      <MDXRenderer>{data.pageContext.content}</MDXRenderer>
     </TextWrapper>
     <Link to="/">
-      <Span data-hover="Take me Back">Take me Back</Span>
+      <Span data-hover="take me back">take me back</Span>
     </Link>
   </Legal>
 }

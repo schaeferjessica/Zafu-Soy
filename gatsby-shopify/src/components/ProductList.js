@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled'
+import { breakpoint } from '../utils/styles'
 
 const ListItem = styled.li`
   display: flex;
@@ -48,6 +49,11 @@ const Input = styled.input`
   outline: none;
   font-family: IBM Plex Sans;
   background-color: var(--color-white);
+  font-size: 14px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 13px;
+  }
 
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,
@@ -146,10 +152,10 @@ const ProductList = props => {
       <ListItemContext>
         <h3>{item.title}</h3>
         <div>
-          <p>{item.variant.price} €</p>
+          <small>{item.variant.price} €</small>
         </div>
         <InputWrapper>
-          <label htmlFor="checkout-quantity">Quantity</label>
+          <label htmlFor="checkout-quantity"><small>Quantity</small></label>
           <InputInner>
             <InputButtonDown onClick={handleQuantitySubstract}>-</InputButtonDown>
             <Input

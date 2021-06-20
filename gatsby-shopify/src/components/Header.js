@@ -38,7 +38,8 @@ const HeaderLink = styled.button`
     font-weight: 500;
 
     &:hover svg {
-        transform: translateX(5px)
+        transform: translateX(5px);
+        fill: var(--color-white);
     }
 `
 
