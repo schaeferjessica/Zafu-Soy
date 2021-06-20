@@ -248,6 +248,8 @@ const ProductGrid = () => {
         {filters.nodes.map((filter) => {
             if (filter.handle !== 'frontpage') {
               return <LiFilter key={filter.handle}><LinkFilter to={`/collection/${filter.handle}`}>{filter.title}</LinkFilter></LiFilter>
+            } else {
+              return null;
             }
           })}
         </UlFilter>

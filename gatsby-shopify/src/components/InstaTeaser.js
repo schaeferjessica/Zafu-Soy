@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled'
@@ -21,14 +21,9 @@ const InstaTeaserUl = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2rem;
+  column-gap: 2rem;
   align-items: start;
   padding: 0px;
-
-  @media ${breakpoint.tablet} {
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-  }
 `
 
 const InstaTeaserH3 = styled.h3`
@@ -72,7 +67,7 @@ const InstaTeaser = () => {
 
             return (
               <li key={post.id}>
-                <a href={post.link}>
+                <a href={post.link} target="_blank" rel="noreferrer">
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
                   <InstaTeaserH3>{post.image.title}</InstaTeaserH3>
                   <InstaTeaserDiv>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserDiv>

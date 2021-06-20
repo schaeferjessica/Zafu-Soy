@@ -19,11 +19,11 @@ const CollectionItem = styled.div`
   ${moduleSpace};
 `
 
-export const ProductContainer = styled.div`
+const ProductContainer = styled.div`
   ${container}
 `
 
-export const Product = styled.ul`
+const Product = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
@@ -48,7 +48,7 @@ export const Product = styled.ul`
   } 
 `
 
-export const ProductItem = styled.li`
+const ProductItem = styled.li`
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;
@@ -74,7 +74,7 @@ export const ProductItem = styled.li`
   }
 `
 
-export const ProductImage = styled.div`
+const ProductImage = styled.div`
   position: relative;
 
   > * {
@@ -122,7 +122,7 @@ const Text = styled.div`
   }
 `
 
-export const H3 = styled.h3`
+const H3 = styled.h3`
   margin-top: 5px;
 `
 
@@ -130,11 +130,11 @@ const H2 = styled.h2`
     margin-bottom: 10px;
 `
 
-export const SpanPrice = styled.small`
+const SpanPrice = styled.small`
   display: block;
 `
 
-export const SpanSold = styled.small`
+const SpanSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
   display: inline-block;

@@ -214,7 +214,8 @@ const Navigation = ({isWhite, onOrderButtonClick}) => {
     return () => {
       if (isWhite) window.removeEventListener('scroll', handleScroll);
     }
-  }, [])
+  }, [isWhite]);
+  
   return (
     <Wrapper ref={navElement}>
       <Inner>

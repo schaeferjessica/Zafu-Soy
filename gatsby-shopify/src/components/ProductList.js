@@ -74,12 +74,6 @@ const InputInner = styled.div`
   margin-left: 20px;
 `
 
-const InputButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`
-
 const InputButtonUp = styled.button`
   font-size: 18px;
   padding: 0px;

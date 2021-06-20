@@ -230,6 +230,8 @@ const ProductDetail = ({ data }) => {
                 />
                 </ImageInner>
               )
+              } else {
+                return null;
               }
             })}
           </ImageHeader>
@@ -264,6 +266,8 @@ const ProductDetail = ({ data }) => {
                   />
                   </ImageInner>
                 )
+              } else {
+                return null;
               }
             })}
           </ImageProduct>

@@ -69,6 +69,8 @@ export default class Lightbox {
             }</span>`}`,
           imageTitle: title,
         };
+      } else {
+        return null;
       }
     });
   };
