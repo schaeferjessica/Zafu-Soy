@@ -32,10 +32,6 @@ const ListItemRemove = styled.button`
   }
 `
 
-const Price = styled.div`
-  font-size: 15px;
-`
-
 const InputWrapper = styled.div`
   margin-top: 10px;
   display: flex;
@@ -50,7 +46,6 @@ const Input = styled.input`
   padding: 10px;
   max-width: 10px;
   outline: none;
-  font-size: 15px;
   font-family: IBM Plex Sans;
   background-color: var(--color-white);
 
@@ -65,10 +60,6 @@ const Input = styled.input`
   &[type=number] {
     -moz-appearance: textfield;
   }
-`
-
-const Label = styled.label`
-  font-size: 15px;
 `
 
 const InputInner = styled.div`
@@ -86,11 +77,21 @@ const InputButton = styled.div`
 const InputButtonUp = styled.button`
   font-size: 18px;
   padding: 0px;
+  color: var(--color-gray);
+
+  &:hover {
+    color: var(--color-blue);
+  }
 `
 
 const InputButtonDown = styled.button`
   font-size: 22px;
   padding: 0px;
+  color: var(--color-gray);
+
+  &:hover {
+    color: var(--color-blue);
+  }
 `
 
 const ProductList = props => {
@@ -144,11 +145,11 @@ const ProductList = props => {
       </ListItemImage>
       <ListItemContext>
         <h3>{item.title}</h3>
-        <Price>
+        <div>
           <p>{item.variant.price} €</p>
-        </Price>
+        </div>
         <InputWrapper>
-          <Label htmlFor="checkout-quantity">Quantity</Label>
+          <label htmlFor="checkout-quantity">Quantity</label>
           <InputInner>
             <InputButtonDown onClick={handleQuantitySubstract}>-</InputButtonDown>
             <Input
