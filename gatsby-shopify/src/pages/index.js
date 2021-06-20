@@ -16,9 +16,6 @@ const IndexPage = () => {
     } else {
       document.querySelector('body').classList.remove('prevent-scroll--overlay');
     }
-    
-    fetch('https://graph.instagram.com/17895695668004550?fields=id,media_type,media_url,username,timestamp&access_token=IGQVJVMFBYLVhtZAEktWUtZAX2R6VXlnOHE4VTdxU280WFNSellsVjBEV0c2VkVOZAlU5MmxYdENuNFUyaTk3Y1J2ckIydFRhbEJ6LW45c3cwZAFBNRkwzanZAlYTJ2ajlvMkpRalY1eWFUdHlGU2xtdDhhRFl0WjBjaDdXZA0JB')
-    .then(response => console.log('response :>> ', response));
   }, [isOpen]);
 
   return <>
