@@ -51,6 +51,14 @@ const InstaTeaserInner = styled.div`
   .Glide-rightArrow  {
     right: 1rem;
   }
+
+  a:hover h3 {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 `
 
 const InstaTeaserH3 = styled.h3`
