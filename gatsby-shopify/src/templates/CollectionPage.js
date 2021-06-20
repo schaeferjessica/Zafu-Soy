@@ -9,7 +9,6 @@ import styled from '@emotion/styled'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { CollectionCount} from '~/components/Menu'
 
-
 const Collection = styled.section`
   display: flex;
   flex-direction: column;
@@ -192,6 +191,7 @@ const CollectionPage = ({pageContext, data}) => {
     store: { checkout },
   } = useContext(StoreContext);
 
+
   const getPrice = price =>
     Intl.NumberFormat(undefined, {
       currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
@@ -199,13 +199,13 @@ const CollectionPage = ({pageContext, data}) => {
       style: 'currency',
     }).format(parseFloat(price ? price : 0));
 
-    useEffect(() => {
-        if (isOpen) {
-          document.querySelector('body').classList.add('prevent-scroll--overlay');
-        } else {
-          document.querySelector('body').classList.remove('prevent-scroll--overlay');
-        }
-      }, [isOpen]);
+  useEffect(() => {
+      if (isOpen) {
+        document.querySelector('body').classList.add('prevent-scroll--overlay');
+      } else {
+        document.querySelector('body').classList.remove('prevent-scroll--overlay');
+      }
+    }, [isOpen]);
     
   return (
     <>
