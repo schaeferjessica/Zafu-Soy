@@ -45,10 +45,6 @@ export const moduleSpace = `
   @media ${breakpoint.tablet} { 
     margin-top: 100px;
   }
-
-  @media ${breakpoint.mobile} { 
-    margin-top: 80px;
-  }
 `;
 
 export const moduleSpaceSmall = `
@@ -89,7 +85,7 @@ export const GlobalStyle = props => (
       * {
         box-sizing: border-box;
       }
-      
+
       .sr-only {
         position: absolute;
         width: 1px;

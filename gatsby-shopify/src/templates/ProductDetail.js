@@ -20,10 +20,6 @@ const ImageHeader = styled.div`
   img {
     width: 100%;
     height: 100vh;
-
-    @media ${breakpoint.mobile} {
-      height: auto;
-    }
   }
 
   .gatsby-image-wrapper-constrained {
@@ -73,7 +69,7 @@ const ProductDetailInner = styled.div`
 
 const ProductDetailContext = styled.div`
   @media ${breakpoint.mobile} {
-    margin-top: 50px;
+    margin-top: 100px;
   }
 `
 

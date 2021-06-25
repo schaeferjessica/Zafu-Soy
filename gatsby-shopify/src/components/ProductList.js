@@ -45,7 +45,7 @@ const Input = styled.input`
   border: none;
   margin: 0px;
   padding: 10px;
-  max-width: 10px;
+  max-width: 35px;
   outline: none;
   font-family: IBM Plex Sans;
   background-color: var(--color-white);

@@ -67,7 +67,7 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   ${container}
   align-items: center;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
   display: grid;
   align-items: center;
@@ -80,9 +80,12 @@ const Inner = styled.div`
   }
 
   @media ${breakpoint.tablet} { 
-    padding-left: 15px;
-    padding-right: 15px;
     grid-template-columns: 1fr;
+  }
+
+  @media ${breakpoint.mobile} { 
+    padding-top: 10px;
+    padding-bottom: 5x;
   }
 `
 
@@ -106,8 +109,8 @@ const Svg = styled.svg`
   fill: none;
 
   @media ${breakpoint.tablet} { 
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
   }
 `
 
@@ -152,8 +155,8 @@ const CartCounter = styled.span`
   border: 1px solid var(--color-gray);
   color: var(--color-blue);
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   margin-left: 10px;
   display: inline-flex;
   justify-content: center;
