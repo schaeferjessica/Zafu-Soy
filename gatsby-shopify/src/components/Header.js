@@ -17,10 +17,15 @@ const HeaderTop = styled.div`
     justify-items: start;
     width: 100%;
     margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media ${breakpoint.tablet} {
+        grid-template-columns: 1fr;
+    }
 `
 
 const HeaderContextLeft = styled.div`
-    grid-column: 1 / 6;
+    grid-column: 1 / 4;
     grid-row: 1 / 1;
 
     @media ${breakpoint.tablet} {
@@ -53,9 +58,8 @@ const HeaderSvg = styled.svg`
 `
 
 const HeaderContextRight = styled.div`
-    grid-column: 4/12;
-    grid-row: 1/1;
-    margin-left: 50px;
+    grid-column: 2 / 4;
+    grid-row: 1 / 1;
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;

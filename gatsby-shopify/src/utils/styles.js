@@ -67,8 +67,12 @@ export const moduleSpaceSmall = `
   }
 `
 
-export const ciBlue = '#313942'
-export const ciWhite = '#faf9f8'
+//export const ciBlue = '#313942'
+//export const ciWhite = '#faf9f8'
+//export const ciGray = '#acaba6'
+
+export const ciBlue = '#1d1d1d'
+export const ciWhite = '#f9f9f9'
 export const ciGray = '#acaba6'
 
 export const GlobalStyle = props => (
@@ -82,6 +86,10 @@ export const GlobalStyle = props => (
         --color-blue: ${ciBlue};
       }
 
+      * {
+        box-sizing: border-box;
+      }
+      
       .sr-only {
         position: absolute;
         width: 1px;

@@ -159,7 +159,7 @@ const LegaPage = (data) => {
   
   return <Legal>
     <Seo title={data.pageContext.title} />
-    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
+    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <ImageWrapper>
       {data.pageContext.images.length ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.image)} alt={image.altText || ''}/>) : ""}

@@ -210,7 +210,7 @@ const CollectionPage = ({pageContext, data}) => {
   return (
     <>
     <Seo title={pageContext.title} description={pageContext.descriptionHtml} />
-    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
+    <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <Collection>
         <CollectionItem>
