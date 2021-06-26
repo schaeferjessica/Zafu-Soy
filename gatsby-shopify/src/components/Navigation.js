@@ -228,7 +228,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
     return () => {
       if (hasScroll) window.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [hasScroll]);
   
   return (
     <Wrapper ref={navElement} className={isWhite ? 'header--is-white' : 'header--is-blue'}>
