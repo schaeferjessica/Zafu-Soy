@@ -15,11 +15,6 @@ const Button = styled.button`
     overflow: hidden;
     cursor: pointer;
     margin-top: 20px;
-    
-
-    @media ${breakpoint.desktop} { 
-      margin-top: 15px;
-    }
 
     @media ${breakpoint.mobile} { 
       padding: 20px;

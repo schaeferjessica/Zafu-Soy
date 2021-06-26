@@ -19,19 +19,14 @@ const ProductDetailWrapper = styled.div`
   align-items: flex-end;
   justify-content: space-between;
 
-  @media ${breakpoint.desktop} {
-    height: 100%;
-  }
 
   @media ${breakpoint.tablet} {
     display: flex;
     flex-direction: column;
     height: auto;
-    height: 100%;
   }
 
   @media ${breakpoint.mobile} {
-    height: 100%;
     margin-top: 90px;
   }
 `
@@ -95,32 +90,37 @@ const ProductDetailCenter = styled.div`
 
   @media ${breakpoint.desktop} {
     width: 100%;
-    height: 30%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    margin-top: 10px;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media ${breakpoint.tablet} {
+    height: auto;
+    max-height: inherit;
   }
 `
 
 const ProductDetailCenterInner = styled.div`
   width: 100%;
-  height: 33.33%;
+  height: 32%;
+
+  @media ${breakpoint.desktop} {
+    width: 49%;
+    height: 49%;
+  }
+
+  @media ${breakpoint.tablet} {
+    height: auto;
+  }
 
   &:first-of-type {
     display: none;
-  }
 
-  @media ${breakpoint.desktop} {
-    height: 100%;
-
-    &:first-of-type {
+    @media ${breakpoint.desktop} {
       display: block;
     }
-  }
-
-  &:not(:first-of-type){
-    padding-top: 10px;
   }
 
   .gatsby-image-wrapper-constrained {
@@ -333,6 +333,7 @@ const ProductDetail = ({ data }) => {
                       <GatsbyImage
                       image={pluginImage}
                       alt={product.title}
+                      aspectRatio={1/1}
                     />
                     </ProductDetailCenterInner>
                   )
