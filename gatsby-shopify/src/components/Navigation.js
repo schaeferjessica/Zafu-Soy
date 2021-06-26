@@ -15,10 +15,13 @@ const Wrapper = styled.div`
   left: 0;
 
   &.header--is-white {
-    background-color: transparent;
-
     .path {
       stroke: ${ciWhite};
+      display: none;
+    }
+
+    .logo-text {
+      display: none;
     }
 
     .cart-button,
@@ -39,6 +42,8 @@ const Wrapper = styled.div`
 
   &.header--is-blue,
   &.content--is-blue {
+    background-color: ${ciWhite};
+
     .path {
       stroke: ${ciBlue};
     }
@@ -61,6 +66,18 @@ const Wrapper = styled.div`
 
   &.content--is-blue {
     background-color: ${ciWhite};
+
+    .path {
+      display: block;
+    }
+
+    .logo-text {
+      display: block;
+
+      @media ${breakpoint.mobile} {
+        display: none;
+      }
+    }
   }
 `
 

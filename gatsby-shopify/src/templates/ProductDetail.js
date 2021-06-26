@@ -11,17 +11,26 @@ import styled from '@emotion/styled'
 import { breakpoint, container, moduleSpace, moduleSpaceSmall } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
 
-const ImageInner = styled.div`
-  .gatsby-image-wrapper-constrained {
-    width: 100%;
-  }
-`
 const ImageHeader = styled.div`
   img {
     width: 100%;
     height: 100vh;
   }
 
+  .gatsby-image-wrapper-constrained {
+    width: 100%;
+  }
+
+  .image-heading {
+    margin-top: 110px;
+
+    @media ${breakpoint.mobile} {
+      margin-top: 90px;
+    }
+  }
+`
+
+const ImageInner = styled.div`
   .gatsby-image-wrapper-constrained {
     width: 100%;
   }

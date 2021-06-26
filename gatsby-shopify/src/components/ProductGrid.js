@@ -25,6 +25,7 @@ export const Product = styled.ul`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 4rem;
   margin-top: 40px;
+  margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     margin-top: 20px;

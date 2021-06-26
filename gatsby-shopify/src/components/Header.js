@@ -76,6 +76,7 @@ const H1 = styled.h1`
     margin-top: 10px;
     letter-spacing: 1px;
     color: var(--color-white);
+    cursor: pointer;
 `
 
 const HeaderText = styled.p`
@@ -83,6 +84,7 @@ const HeaderText = styled.p`
     color: var(--color-white);
     font-family: 'IBM Plex Sans';
     font-weight: 400;
+    cursor: pointer;
 `
 
 const IframeWrapper = styled.div`
@@ -136,7 +138,7 @@ const Header = () => {
                     </HeaderSvg>
                     </HeaderLink>
                 </HeaderContextLeft>
-                <HeaderContextRight>
+                <HeaderContextRight onClick={() => jumpTo('#shopnow')}>
                     <HeaderText>japanese homewares</HeaderText>
                     <H1>Maneki 招き猫 Space</H1>
                 </HeaderContextRight>
