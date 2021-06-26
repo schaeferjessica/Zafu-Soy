@@ -24,9 +24,6 @@ const ProductDetailWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: auto;
-  }
-
-  @media ${breakpoint.mobile} {
     margin-top: 90px;
   }
 `
@@ -43,7 +40,9 @@ const ProductDetailLeft = styled.div`
   }
 
   @media ${breakpoint.tablet} {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
   }
 `
@@ -56,6 +55,11 @@ const ImageHeaderLeft = styled.div`
     width: 100%;
     height: 68%;
     display: none;
+  }
+
+  @media ${breakpoint.tablet} {
+    display: block;
+    width: 71%;
   }
 
   img {
@@ -99,6 +103,10 @@ const ProductDetailCenter = styled.div`
   @media ${breakpoint.tablet} {
     height: auto;
     max-height: inherit;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 22%;
+    margin-left: 10px;
   }
 `
 
@@ -113,6 +121,11 @@ const ProductDetailCenterInner = styled.div`
 
   @media ${breakpoint.tablet} {
     height: auto;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
   }
 
   &:first-of-type {
@@ -120,6 +133,10 @@ const ProductDetailCenterInner = styled.div`
 
     @media ${breakpoint.desktop} {
       display: block;
+    }
+
+    @media ${breakpoint.tablet} {
+      display: none;
     }
   }
 
@@ -333,7 +350,6 @@ const ProductDetail = ({ data }) => {
                       <GatsbyImage
                       image={pluginImage}
                       alt={product.title}
-                      aspectRatio={1/1}
                     />
                     </ProductDetailCenterInner>
                   )
