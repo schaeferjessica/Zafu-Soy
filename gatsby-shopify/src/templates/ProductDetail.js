@@ -132,6 +132,14 @@ const ProductDetailCenterInner = styled.div`
       left: 50%;
       right: inherit;
       transform: translateZ(0) translateX(-50%);
+
+      @media ${breakpoint.desktop} {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        transform: translateZ(0);
+      }
     }
   }
 `
