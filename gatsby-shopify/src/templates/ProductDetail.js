@@ -107,19 +107,19 @@ const ProductDetailCenterInner = styled.div`
   width: 100%;
   height: 33.33%;
 
-  &:first-child {
+  &:first-of-type {
     display: none;
   }
 
   @media ${breakpoint.desktop} {
     height: 100%;
 
-    &:first-child {
+    &:first-of-type {
       display: block;
     }
   }
 
-  &:not(:first-child){
+  &:not(:first-of-type){
     padding-top: 10px;
   }
 
