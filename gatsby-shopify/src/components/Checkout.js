@@ -11,7 +11,7 @@ const StyledCheckout = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 30%;
+  width: 35%;
   height: 100vh;
   background-color: var(--color-white);
   z-index: 11;

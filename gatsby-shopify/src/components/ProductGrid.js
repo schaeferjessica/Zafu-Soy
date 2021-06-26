@@ -236,59 +236,59 @@ const ProductGrid = () => {
       {allShopifyCollection.nodes.map(collection => {
         return (
         <CollectionItem key={collection.id}>
-        <Context>
-          <ContextWrapper>
-            <H2>{collection.title}</H2>
-            <Text
-              dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
-            </Text>
-          </ContextWrapper>
-        </Context>
+          <Context>
+            <ContextWrapper>
+              <H2>{collection.title}</H2>
+              <Text
+                dangerouslySetInnerHTML={{ __html: collection.descriptionHtml }}>
+              </Text>
+            </ContextWrapper>
+          </Context>
 
-        <UlFilter>
-        {filters.nodes.map((filter) => {
-            if (filter.handle !== 'frontpage') {
-              return <LiFilter key={filter.handle}><LinkFilter to={`/collection/${filter.handle}`}>{filter.title}</LinkFilter></LiFilter>
-            } else {
-              return null;
-            }
-          })}
-        </UlFilter>
-
-        <ProductContainer>
-          <Product>
-          {allShopifyProduct ? (
-            allShopifyProduct.nodes.map(
-              ({
-                  id,
-                  handle,
-                  title,
-                  images,
-                  variants: [firstVariant],
-                },
-              ) => {
-                return (
-                  <ProductItem key={id}>
-                    <LinkItem to={`/product/${handle}/`}>
-                      <ProductImage>
-                        {images.map((image, index) => {
-                          const pluginImage = getImage(image.localFile)
-                          return image.localFile && (
-                            <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
-                          )
-                        })}
-                      </ProductImage>
-                      <H3>{title}</H3>
-                    </LinkItem>
-                      <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                      {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
-                  </ProductItem>
-                )
+          <UlFilter>
+          {filters.nodes.map((filter) => {
+              if (filter.handle !== 'frontpage') {
+                return <LiFilter key={filter.handle}><LinkFilter to={`/collection/${filter.handle}`}>{filter.title}</LinkFilter></LiFilter>
+              } else {
+                return null;
               }
-            )
-          ) : (
-            <p>No Products found!</p>
-          )}
+            })}
+          </UlFilter>
+
+          <ProductContainer>
+            <Product>
+            {allShopifyProduct ? (
+              allShopifyProduct.nodes.map(
+                ({
+                    id,
+                    handle,
+                    title,
+                    images,
+                    variants: [firstVariant],
+                  },
+                ) => {
+                  return (
+                    <ProductItem key={id}>
+                      <LinkItem to={`/product/${handle}/`}>
+                        <ProductImage>
+                          {images.map((image, index) => {
+                            const pluginImage = getImage(image.localFile)
+                            return image.localFile && (
+                              <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
+                            )
+                          })}
+                        </ProductImage>
+                        <H3>{title}</H3>
+                      </LinkItem>
+                        <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
+                        {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
+                    </ProductItem>
+                  )
+                }
+              )
+            ) : (
+              <p>No Products found!</p>
+            )}
           </Product>
         </ProductContainer>
       </CollectionItem>

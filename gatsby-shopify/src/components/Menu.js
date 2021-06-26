@@ -86,8 +86,7 @@ const CollectionButtonClose  = styled(ButtonClose)`
 `
 export const CollectionCount  = styled.sup`
   color: var(--color-gray);
-  font-size: 14px;
-  margin-left: 4px;
+  font-size: 13px;
 `
 
 

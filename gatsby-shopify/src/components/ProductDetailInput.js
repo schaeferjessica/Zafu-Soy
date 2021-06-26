@@ -6,30 +6,34 @@ import { breakpoint } from '../utils/styles'
 
 const Button = styled.button`
     font-family: 'IBM Plex Sans';
-    background-color: var(--color-blue);
-    border: 1px solid var(--color-blue);
-    color: var(--color-white);
-    padding: 15px 30px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    color: var(--color-blue);
+    padding: 30px;
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
     
 
     @media ${breakpoint.desktop} { 
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     @media ${breakpoint.mobile} { 
-      padding: 15px;
+      padding: 20px;
+    }
+
+    &:hover {
+      border: 1px solid var(--color-blue);
     }
 
     &:hover span {
-        transform: translateY(-165%);
+        transform: translateY(-250%);
 
         @media ${breakpoint.mobile} { 
-          transform: translateY(-175%);
+          transform: translateY(-210%);
         }
     }
 
@@ -43,7 +47,7 @@ const Button = styled.button`
     }
 
     span {
-      color: var(--color-white);
+      color: var(--color-blue);
     }
 `
 
@@ -51,41 +55,32 @@ const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  margin-left: 20px;
-
-  @media ${breakpoint.desktop} { 
-    margin-left: 0px;
-    flex-grow: 1;
-  }
-
-  @media ${breakpoint.tablet} { 
-    width: 65%;
-  }
 `
 
 const Span = styled.span`
     position: relative;
     display: inline-block;
     transition: transform .3s;
-    color: var(--color-white);
+    color: var(--color-blue);
+    font-weight: 400;
 
 &::before {
     content: attr(data-hover);
     position: absolute;
-    top: 165%;
+    top: 250%;
     transform: translate3d(0, 0, 0);
-    color: var(--color-white);
+    color: var(--color-blue);
 
     @media ${breakpoint.mobile} { 
-      top: 175%;
+      top: 210%;
       }
     }
 `
 
 const InputOuter = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
-  width: 20%;
+  width: 35%;
   z-index: 1;
   margin-top: 15px;
 
@@ -95,8 +90,9 @@ const InputOuter = styled.div`
     padding-right: 10px;
   }
 
-  @media ${breakpoint.tablet} { 
-    width: 35%;
+  @media ${breakpoint.mobile} { 
+    width: 100%;
+    padding-right: 0px;
   }
 `
 
@@ -153,6 +149,10 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media ${breakpoint.mobile} { 
+    display: block;
+  }
 `
 
 const Input = styled.input`
@@ -164,6 +164,10 @@ const Input = styled.input`
   border-radius: 0;
   border: none;
   width: 100%;
+
+  @media ${breakpoint.mobile} { 
+    padding: 14px;
+  }
 
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,

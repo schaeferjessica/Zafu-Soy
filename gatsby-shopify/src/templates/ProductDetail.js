@@ -8,77 +8,143 @@ import ProductDetailInput from '~/components/ProductDetailInput'
 import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { breakpoint, container, moduleSpace, moduleSpaceSmall } from '../utils/styles'
+import { breakpoint, container, moduleSpace } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
 
-const ImageHeader = styled.div`
+const ProductDetailWrapper = styled.div`
+  width: 100vw;
+  height: calc(100vh - 110px);
+  margin-top: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media ${breakpoint.desktop} {
+    height: 100%;
+  }
+
+  @media ${breakpoint.tablet} {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    height: 100%;
+  }
+
+  @media ${breakpoint.mobile} {
+    height: 100%;
+    margin-top: 90px;
+  }
+`
+
+const ProductDetailLeft = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  height: 100%;
+
+  @media ${breakpoint.desktop} {
+    flex-direction: column;
+    width: 55%;
+  }
+
+  @media ${breakpoint.tablet} {
+    display: block;
+    width: 100%;
+  }
+`
+
+const ImageHeaderLeft = styled.div`
+  width: 68%;
+  height: 100%;
+
+  @media ${breakpoint.desktop} {
+    width: 100%;
+    height: 68%;
+    display: none;
+  }
+
   img {
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
 
   .gatsby-image-wrapper-constrained {
     width: 100%;
+    height: 100%;
+  }
+`
+
+const ProductDetailLeftInner = styled.div`
+  height: 100%;
+
+  .gatsby-image-wrapper-constrained {
+    width: 100%;
+    height: 100%;
+  }
+`
+
+const ProductDetailCenter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  max-height: 100vh;
+  height: 100%;
+  width: 30%;
+  flex-shrink: 1;
+  align-items: center;
+
+  @media ${breakpoint.desktop} {
+    width: 100%;
+    height: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    margin-top: 10px;
+  }
+`
+
+const ProductDetailCenterInner = styled.div`
+  width: 100%;
+  height: 33.33%;
+
+  &:first-child {
+    display: none;
   }
 
-  .image-heading {
-    margin-top: 110px;
+  @media ${breakpoint.desktop} {
+    height: 100%;
 
-    @media ${breakpoint.mobile} {
-      margin-top: 90px;
+    &:first-child {
+      display: block;
+    }
+  }
+
+  &:not(:first-child){
+    padding-top: 10px;
+  }
+
+  .gatsby-image-wrapper-constrained {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: auto;
+      left: 50%;
+      right: inherit;
+      transform: translateZ(0) translateX(-50%);
     }
   }
 `
 
-const ImageInner = styled.div`
-  .gatsby-image-wrapper-constrained {
-    width: 100%;
-  }
-`
+const ProductDetailRight = styled.div`
+  width: 38%;
+  padding: 20px 20px 20px 0;
 
-const ImageProduct = styled.div`
-  ${container}
-  ${moduleSpaceSmall}
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
 
   @media ${breakpoint.tablet} {
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-  }
-`
-
-const ProductDetailInner = styled.div`
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--color-white);
-  padding: 20px;
-  width: 40%;
-
-  @media ${breakpoint.desktop} {
-    width: 50%;
-  }
-
-  @media ${breakpoint.tablet} {
-    width: 70%;
-  }
-
-  @media ${breakpoint.mobile} {
     width: 100%;
-    position: static;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: -130px;
-  }
-`
-
-const ProductDetailContext = styled.div`
-  @media ${breakpoint.mobile} {
-    margin-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 
@@ -93,9 +159,9 @@ const ProductContainer = styled.div`
 `
 
 const LinkItem = styled(Link)`
-    &:hover {
-        text-decoration: none;
-    }    
+  &:hover {
+    text-decoration: none;
+  }    
 `
 
 export const query = graphql`
@@ -136,11 +202,11 @@ export const query = graphql`
       }
       images {
         originalSrc
-        altText
+        altText 
         id
         localFile {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 900)
             original {
               width
               height
@@ -221,63 +287,61 @@ const ProductDetail = ({ data }) => {
       <Seo title={product.title} description={product.description} />
       <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
-      <div>
-        <div>
-          <ImageHeader>
-            {product.images.map((image, index) => {
-              if (index === 0) { 
-              const pluginImage = getImage(image.localFile)
-              return (
-                <ImageInner className='image-heading' key={image.id}>
-                  <GatsbyImage
-                  image={pluginImage}
-                  alt={product.title}
-                />
-                </ImageInner>
-              )
-              } else {
-                return null;
-              }
-            })}
-          </ImageHeader>
-          <ProductDetailInner>
-            <ProductDetailContext>
+      <ProductDetailWrapper>
+
+        <ProductDetailLeft>
+            <ImageHeaderLeft>
+              {product.images.map((image, index) => {
+                if (index === 0) { 
+                const pluginImage = getImage(image.localFile)
+                return (
+                  <ProductDetailLeftInner className='image-heading' key={image.id}>
+                    <GatsbyImage
+                    image={pluginImage}
+                    alt={product.title}
+                  />
+                  </ProductDetailLeftInner>
+                )
+                } else {
+                  return null;
+                }
+              })}
+            </ImageHeaderLeft>
+            
+            <ProductDetailCenter ref={galleryEl}>
+              {product.images.map((image, index) => {
+                  const pluginImage = getImage(image.localFile)
+                  return (
+                    <ProductDetailCenterInner
+                      key={image.id}
+                      className='image-product lightbox-toggle'
+                      aria-label="Bild in einem Leuchtkasten öffnen"
+                      data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
+                      data-src={image.originalSrc}
+                      data-title={image.altText || ''}
+                      data-figcaption="" 
+                      data-copyright=""
+                    >
+                      <GatsbyImage
+                      image={pluginImage}
+                      alt={product.title}
+                    />
+                    </ProductDetailCenterInner>
+                  )
+              })}
+            </ProductDetailCenter>
+          </ProductDetailLeft>
+
+          <ProductDetailRight>
               <h1>{product.title}</h1>
               <span>{price}</span>
               <Description
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               />
-            </ProductDetailContext>
             <ProductDetailInput product={product} />
-          </ProductDetailInner>
-          <ImageProduct ref={galleryEl}>
-            {product.images.map((image, index) => {
-              if (index !== 0) {
-                const pluginImage = getImage(image.localFile)
-                return (
-                  <ImageInner
-                    key={image.id}
-                    className='image-product lightbox-toggle'
-                    aria-label="Bild in einem Leuchtkasten öffnen"
-                    data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
-                    data-src={image.originalSrc}
-                    data-title={image.altText}
-                    data-figcaption=""
-                    data-copyright=""
-                  >
-                    <GatsbyImage
-                    image={pluginImage}
-                    alt={product.title}
-                  />
-                  </ImageInner>
-                )
-              } else {
-                return null;
-              }
-            })}
-          </ImageProduct>
-          </div>
-        </div>
+          </ProductDetailRight>
+
+        </ProductDetailWrapper>
 
         <ProductContainer>
           <h2>New arrivals</h2>
