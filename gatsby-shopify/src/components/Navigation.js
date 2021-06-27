@@ -245,7 +245,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
           </Svg>
         </MenuLinkLeft>
         <MenuLinkCenter to="/">
-          <SpanText className="logo-text">maneki.space</SpanText>
+          <SpanText className="logo-text">yayoi.shop</SpanText>
         </MenuLinkCenter>
         {/* <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> */}
         <CartButtonRight onClick={() => onOrderButtonClick()} className="cart-button">

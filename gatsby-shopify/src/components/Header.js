@@ -139,8 +139,8 @@ const Header = () => {
                     </HeaderLink>
                 </HeaderContextLeft>
                 <HeaderContextRight onClick={() => jumpTo('#shopnow')}>
-                    <HeaderText>japanese homewares</HeaderText>
-                    <H1>Maneki 招き猫 Space</H1>
+                    <HeaderText>asian homewares</HeaderText>
+                    <H1>yayoi.shop</H1>
                 </HeaderContextRight>
             </HeaderTop>
             <IframeWrapper>
