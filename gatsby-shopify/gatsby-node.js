@@ -96,7 +96,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           images {
             title
-            gatsbyImageData (width: 600)
+            gatsbyImageData (width: 500)
           }
         }
       }
