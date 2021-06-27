@@ -138,7 +138,7 @@ const SpanSold = styled.small`
   padding: 2px 5px;
   display: inline-block;
   margin-top: 5px;
-  background-color: #b55340; 
+  background-color: var(--color-orange); 
   font-weight: 400;
 `
 const UlFilter = styled.ul`

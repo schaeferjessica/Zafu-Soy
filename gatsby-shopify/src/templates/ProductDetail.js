@@ -8,7 +8,7 @@ import ProductDetailInput from '~/components/ProductDetailInput'
 import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { breakpoint, container, moduleSpace } from '../utils/styles'
+import { breakpoint, container, moduleSpaceSmall } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
 
 const ProductDetailWrapper = styled.div`
@@ -180,7 +180,7 @@ const Description = styled.div`
 
 const ProductContainer = styled.div`
   ${container}
-  ${moduleSpace}
+  ${moduleSpaceSmall}
 `
 
 const LinkItem = styled(Link)`

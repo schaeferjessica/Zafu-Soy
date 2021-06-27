@@ -80,7 +80,7 @@ const TextWrapper = styled.div`
 
 const Link = styled(LinkTo)`
     font-family: 'IBM Plex Sans';
-    border: 1px solid var(--color-blue);
+    border: 1px solid var(--color-gray);
     padding: 15px 30px;
     background-color: transparent;
     position: relative;
@@ -91,6 +91,10 @@ const Link = styled(LinkTo)`
 
     @media ${breakpoint.mobile} { 
       margin-top: 30px;
+    }
+
+    &:hover {
+      border: 1px solid var(--color-blue);
     }
 
     &:hover span {

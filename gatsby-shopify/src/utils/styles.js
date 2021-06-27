@@ -66,10 +66,12 @@ export const moduleSpaceSmall = `
 //export const ciBlue = '#313942'
 //export const ciWhite = '#faf9f8'
 //export const ciGray = '#acaba6'
+//export const ciOrange = '#b55340'
 
-export const ciBlue = '#1d1d1d'
+export const ciBlue = '#222225'
 export const ciWhite = '#f9f9f9'
 export const ciGray = '#acaba6'
+export const ciOrange = '#c16654'
 
 export const GlobalStyle = props => (
   <Global
@@ -80,6 +82,7 @@ export const GlobalStyle = props => (
         --color-white: ${ciWhite};
         --color-gray: ${ciGray};
         --color-blue: ${ciBlue};
+        --color-orange: ${ciOrange};
       }
 
       * {
