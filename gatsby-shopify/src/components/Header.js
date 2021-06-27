@@ -140,7 +140,7 @@ const Header = () => {
                 </HeaderContextLeft>
                 <HeaderContextRight onClick={() => jumpTo('#shopnow')}>
                     <HeaderText>asian homewares</HeaderText>
-                    <H1>yayoi.shop</H1>
+                    <H1>yayoi.shop (jaːjoˈi)</H1>
                 </HeaderContextRight>
             </HeaderTop>
             <IframeWrapper>
