@@ -120,6 +120,7 @@ export const GlobalStyle = props => (
         }
       }
 
+      b,
       strong {
         font-weight: 400;
       }

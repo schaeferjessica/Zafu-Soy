@@ -5,7 +5,7 @@ import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import styled from '@emotion/styled'
 import { breakpoint, container } from '../utils/styles'
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Shower from '../utils/shower';
 import { $$ } from '../utils/dom';
@@ -160,16 +160,16 @@ const LegaPage = (data) => {
       });
     };
   }, []);
-  
+  console.log('data :>> ', data);
   return <Legal>
-    <Seo title={data.pageContext.title} />
+    <Seo title={data.pageContext.slug} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <ImageWrapper>
-      {data.pageContext.images.length ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.image)} alt={image.altText || ''}/>) : ""}
+      {data.pageContext.images.length ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.gatsbyImageData)} alt={image.title || ''}/>) : ''}
     </ImageWrapper>
     <TextWrapper>
-     <MDXRenderer>{data.pageContext.content}</MDXRenderer>
+     {documentToReactComponents(JSON.parse(data.pageContext.text))}
     </TextWrapper>
     <Link to="/">
       <Span data-hover="take me back">take me back</Span>

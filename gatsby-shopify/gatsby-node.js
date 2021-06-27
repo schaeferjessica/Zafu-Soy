@@ -88,24 +88,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const allLegalPages = await graphql(`
     query {
-      allMdx {
+      allContentfulLegal {
         nodes {
-          body
           slug
-          frontmatter {
+          text {
+            raw
+          }
+          images {
             title
-            imageOne {
-              childImageSharp {
-                gatsbyImageData (width: 600)
-              }
-            }
-            altOne
-            imageTwo {
-              childImageSharp {
-                gatsbyImageData (width: 600)
-              }
-            }
-            altTwo
+            gatsbyImageData (width: 600)
           }
         }
       }
@@ -116,27 +107,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panic('failed to create legal pages', allLegalPages.errors);
   }
 
-  allLegalPages.data.allMdx.nodes.forEach(node => {
-    const images = [];
-    if (node.frontmatter.imageOne) images.push({
-      image: node.frontmatter.imageOne,
-      altText: node.frontmatter.altOne,
-    })
-    if (node.frontmatter.imageTwo) images.push({
-      image: node.frontmatter.imageTwo,
-      altText: node.frontmatter.altTwo,
-    })
-    
+  allLegalPages.data.allContentfulLegal.nodes.forEach(node => {
     actions.createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/Legal.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        title: node.frontmatter.title,
-        alt: node.frontmatter.alt,
-        content: node.body,
-        images: images,
+        text: node.text.raw,
+        images: node.images,
+        slug: node.slug
       },
     })
   });
