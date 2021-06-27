@@ -144,32 +144,21 @@ const ProductDetailCenterInner = styled.div`
     width: 100%;
     height: 100%;
 
-    img {
-      width: auto;
-      left: 50%;
-      right: inherit;
-      transform: translateZ(0) translateX(-50%);
 
-      @media ${breakpoint.desktop} {
-        width: 100%;
-        height: 100%;
-        left: 0;
-        right: 0;
-        transform: translateZ(0);
-      }
-    }
   }
 `
 
 const ProductDetailRight = styled.div`
-  width: 38%;
-  padding: 20px 20px 20px 0;
+  width: 40%;
+  padding: 40px;
 
+  @media ${breakpoint.desktop} {
+    width: 44%;
+    padding: 20px;
+  }
 
   @media ${breakpoint.tablet} {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 `
 

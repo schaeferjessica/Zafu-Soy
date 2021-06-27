@@ -23,25 +23,26 @@ export const Product = styled.ul`
   display: grid;
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 4rem;
+  grid-gap: 4rem;
   margin-top: 40px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     margin-top: 20px;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 3rem;
+    grid-gap: 3rem;
+
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 10px;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-gap: 2rem;
   }
 
   @media ${breakpoint.mobile} {
-    gap: 1rem;
-    margin-top: 10px;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1.5rem;
   } 
 `
 
@@ -155,7 +156,7 @@ const LiFilter = styled.li`
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid var(--color-gray);
-    line-height: 30px;
+    line-height: 28px;
     margin-right: 12px;
     margin-top: 25px;
 
