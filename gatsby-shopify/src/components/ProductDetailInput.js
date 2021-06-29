@@ -32,6 +32,22 @@ const Button = styled.button`
         }
     }
 
+    &:hover::after{
+      transform: translateY(0%);
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-blue);
+      transition: transform 400ms;
+      transform: translateY(100%);
+    }
+
     &.not-available {
       background-color: transparent;
       cursor: default;
@@ -53,23 +69,24 @@ const ButtonWrapper = styled.div`
 `
 
 const Span = styled.span`
-    position: relative;
-    display: inline-block;
-    transition: transform .3s;
-    color: var(--color-blue);
-    font-weight: 400;
+  position: relative;
+  display: inline-block;
+  transition: transform 400ms;
+  color: var(--color-blue);
+  font-weight: 400;
+  z-index: 1;
 
-&::before {
+  &::before {
     content: attr(data-hover);
     position: absolute;
     top: 250%;
     transform: translate3d(0, 0, 0);
-    color: var(--color-blue);
+    color: var(--color-white);
 
     @media ${breakpoint.mobile} { 
       top: 210%;
-      }
     }
+  }
 `
 
 const InputOuter = styled.div`
