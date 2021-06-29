@@ -27,6 +27,7 @@ const ListItemRemove = styled.button`
   color: var(--color-gray);
   text-decoration: none;
   padding: 0;
+  margin-top: 10px;
   
   &:hover {
     color: var(--color-blue);
@@ -34,18 +35,29 @@ const ListItemRemove = styled.button`
 `
 
 const InputWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+`
+
+const Label = styled.label`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
 `
 
 const Input = styled.input`
   box-shadow: none;
   border-radius: 0;
   border: none;
-  margin: 0px;
-  padding: 10px;
-  max-width: 35px;
+  margin: 0px 0px 0px 20px;
+  padding: 0px;
+  max-width: 30px;
   outline: none;
   font-family: IBM Plex Sans;
   background-color: var(--color-white);
@@ -71,12 +83,13 @@ const Input = styled.input`
 const InputInner = styled.div`
   display: flex;
   width: 100%;
-  margin-left: 20px;
 `
 
 const InputButtonUp = styled.button`
   font-size: 18px;
-  padding: 0px;
+  border: 1px solid var(--color-gray);
+  line-height: 21px;
+  padding: 0 7px 2px 7px;
   color: var(--color-gray);
 
   &:hover {
@@ -86,7 +99,9 @@ const InputButtonUp = styled.button`
 
 const InputButtonDown = styled.button`
   font-size: 22px;
-  padding: 0px;
+  border: 1px solid var(--color-gray);
+  line-height: 21px;
+  padding: 0 7px 2px 7px;
   color: var(--color-gray);
 
   &:hover {
@@ -149,7 +164,7 @@ const ProductList = props => {
           <small>{item.variant.price} €</small>
         </div>
         <InputWrapper>
-          <label htmlFor="checkout-quantity"><small>Quantity</small></label>
+          <Label htmlFor="checkout-quantity"><small>Quantity</small></Label>
           <InputInner>
             <InputButtonDown onClick={handleQuantitySubstract}>-</InputButtonDown>
             <Input

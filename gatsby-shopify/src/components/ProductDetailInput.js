@@ -274,7 +274,7 @@ const ProductDetailInput = ({ product }) => {
       <ButtonWrapper>
         <Button type="submit" disabled={!available || adding} onClick={handleAddToCart} className={!available ? 'not-available' : 'is-available'}>
           {available && <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>}
-          {!available && <span>currently out of stock</span>}
+          {!available && <Span data-hover="currently out of stock">currently out of stock</Span>}
         </Button>
       </ButtonWrapper>
     </InputWrapper>
