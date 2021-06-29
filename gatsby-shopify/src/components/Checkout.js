@@ -46,7 +46,7 @@ const CheckoutButton = styled.button`
     border: 1px solid var(--color-blue);
     background-color: var(--color-blue);
     color: var(--color-white);
-    padding: 15px 30px;
+    padding: 30px 50px;
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -56,24 +56,28 @@ const CheckoutButton = styled.button`
     left: 20px;
     width: 91%;
 
+    @media ${breakpoint.mobile} { 
+      padding: 20px;
+    }
+
     &:hover span {
-        transform: translateY(-350%);
+      transform: translateY(-400%);
     }
 `
 
 const Span = styled.span`
-    position: relative;
-    display: inline-block;
-    transition: transform .3s;
-    color: var(--color-white);
+  position: relative;
+  display: inline-block;
+  transition: transform .3s;
+  color: var(--color-white);
 
-&::before {
+  &::before {
     content: attr(data-hover);
     position: absolute;
-    top: 350%;
+    top: 400%;
     transform: translate3d(0, 0, 0);
     color: var(--color-white);
-    }
+  }
 `
 
 const SpanShipping = styled(Span)`  

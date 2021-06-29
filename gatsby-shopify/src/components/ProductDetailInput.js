@@ -9,7 +9,7 @@ const Button = styled.button`
     background-color: var(--color-white);
     border: 1px solid var(--color-gray);
     color: var(--color-blue);
-    padding: 30px;
+    padding: 30px 50px;
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -65,7 +65,6 @@ const Button = styled.button`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  width: 100%;
 `
 
 const Span = styled.span`
