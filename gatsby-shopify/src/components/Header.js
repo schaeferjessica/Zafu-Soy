@@ -117,7 +117,6 @@ const Video = styled.video`
     transform: scale(1.2);
 `
 
-
 const Header = () => {  
     const jumpTo = (hash) => {
         const target = document.querySelector(hash);
@@ -126,7 +125,6 @@ const Header = () => {
     
         aniScroll(rect.top + scrollTop, 1000, 'easeInOutQuart');
       };
-
 
     return (
         <HeaderOuter>
@@ -145,13 +143,12 @@ const Header = () => {
             </HeaderTop>
             <IframeWrapper>
                 <Video autoPlay loop muted playsInline>
-                    <source src="/videos/japan1940.mp4#t=108,275" type="video/mp4" />
+                    <source src="/videos/japan1940.mp4#t=110,275" type="video/mp4" />
                 </Video>
             </IframeWrapper>
         </HeaderOuter>
 
     )
   }
-
 
 export default Header
