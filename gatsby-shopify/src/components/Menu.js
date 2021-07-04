@@ -98,13 +98,6 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
     query {
       allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
         nodes {
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 800)
-              }
-            }
-          }
           id
           title
           handle

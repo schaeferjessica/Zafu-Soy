@@ -5,13 +5,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     query {
       allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}) {
         nodes {
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
           title
           handle
           descriptionHtml
