@@ -12,7 +12,7 @@ import { $$ } from '../utils/dom';
 
 const Legal = styled.div`
   ${container};
-  margin-top: 150px;
+  margin-top: 120px;
 
   @media ${breakpoint.tablet} { 
     margin-top: 100px;

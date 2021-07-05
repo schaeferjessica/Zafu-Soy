@@ -13,8 +13,8 @@ import Lightbox from '../utils/photoswipe/Lightbox';
 
 const ProductDetailWrapper = styled.div`
   width: 100vw;
-  height: calc(100vh - 110px);
-  margin-top: 110px;
+  height: calc(100vh - 75px);
+  margin-top: 75px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -24,7 +24,7 @@ const ProductDetailWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: auto;
-    margin-top: 90px;
+    margin-top: 65px;
   }
 `
 

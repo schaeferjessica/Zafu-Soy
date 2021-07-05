@@ -35,12 +35,8 @@ export const container = `
 `;
 
 export const moduleSpace = `
-  margin-top: 150px;
+  margin-top: 120px;
 
-
-  @media ${breakpoint.desktop} { 
-    margin-top: 130px;
-  }
 
   @media ${breakpoint.tablet} { 
     margin-top: 100px;
@@ -50,16 +46,8 @@ export const moduleSpace = `
 export const moduleSpaceSmall = `
   margin-top: 80px;
 
-  @media ${breakpoint.desktop} { 
-    margin-top: 70px;
-  }
-
   @media ${breakpoint.tablet} { 
     margin-top: 60px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    margin-top: 50px;
   }
 `
 
