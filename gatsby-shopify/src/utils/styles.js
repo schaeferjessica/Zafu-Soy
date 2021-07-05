@@ -35,7 +35,7 @@ export const container = `
 `;
 
 export const moduleSpace = `
-  margin-top: 120px;
+  margin-top: 110px;
 
 
   @media ${breakpoint.tablet} { 
