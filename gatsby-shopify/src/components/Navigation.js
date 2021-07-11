@@ -238,10 +238,10 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
     <Wrapper ref={navElement} className={isWhite ? 'header--is-white' : 'header--is-blue'}>
       <Inner>
         <MenuLinkLeft to="/">
-          <SpanText className="logo-text sr-only">yayoi.shop</SpanText>
+          <SpanText className="logo-text">yayoi</SpanText>
         </MenuLinkLeft>
-        <MenuLinkCenter to="/">
-          <SpanText className="logo-text sr-only">yayoi.shop</SpanText>
+        <MenuLinkCenter to="/collection/frontpage">
+          <SpanText className="logo-text">shop</SpanText>
         </MenuLinkCenter>
         {/* <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> */}
         <CartButtonRight onClick={() => onOrderButtonClick()} className="cart-button">

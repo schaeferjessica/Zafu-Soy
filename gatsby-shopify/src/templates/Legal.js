@@ -166,7 +166,7 @@ const LegaPage = (data) => {
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <ImageWrapper>
-      {data.pageContext.images.length ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.gatsbyImageData)} alt={image.title || ''}/>) : ''}
+      {data.pageContext.images ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.gatsbyImageData)} alt={image.title || ''}/>) : ''}
     </ImageWrapper>
     <TextWrapper>
      {documentToReactComponents(JSON.parse(data.pageContext.text))}
