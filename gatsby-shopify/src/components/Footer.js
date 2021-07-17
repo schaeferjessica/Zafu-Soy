@@ -219,7 +219,9 @@ const Footer = () => {
                   </LiCurrency>)}
                 </UlCurrency> */}
                 <Small>&#169; {new Date().getFullYear()}, built by{` `} 
-                <LinkExternSmall href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</LinkExternSmall>
+                <LinkExternSmall href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">
+                  <small>Jessica Schäfer</small>
+                </LinkExternSmall>
                 </Small>
             </FooterLinksRight>
         </FooterInner>

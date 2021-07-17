@@ -238,14 +238,14 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
     <Wrapper ref={navElement} className={isWhite ? 'header--is-white' : 'header--is-blue'}>
       <Inner>
         <MenuLinkLeft to="/">
-          <SpanText className="logo-text">yayoi</SpanText>
+          <SpanText className="logo-text">ya yo i</SpanText>
         </MenuLinkLeft>
         <MenuLinkCenter to="/collection/frontpage">
           <SpanText className="logo-text">shop</SpanText>
         </MenuLinkCenter>
         {/* <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> */}
         <CartButtonRight onClick={() => onOrderButtonClick()} className="cart-button">
-          <CartText className="cart-text">Your Order</CartText>
+          <CartText className="cart-text">your order</CartText>
           {hasItems ? <CartCounter className="cart__counter">{quantity}</CartCounter> : <CartCounter className="cart__counter">0</CartCounter>}
         </CartButtonRight>
       </Inner>
