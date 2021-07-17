@@ -31,7 +31,6 @@ const HeaderContextLeft = styled.div`
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
         grid-row: 6 / 6;
-        margin-bottom: 20px;
       }
 `
 
@@ -65,8 +64,7 @@ const HeaderContextRight = styled.div`
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
         grid-row: 5 / 6;
-        margin-bottom: 0px;
-        margin-left: 0px;
+        margin-bottom: -10px;
       }
 `
 
