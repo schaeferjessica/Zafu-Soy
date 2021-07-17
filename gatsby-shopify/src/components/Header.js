@@ -31,7 +31,7 @@ const HeaderContextLeft = styled.div`
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
         grid-row: 6 / 6;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
       }
 `
 
@@ -41,6 +41,7 @@ const HeaderLink = styled.button`
     color: var(--color-white);
     font-family: 'IBM Plex Sans';
     font-weight: 500;
+    padding: 0px;
 
     &:hover svg {
         transform: translateX(5px);
