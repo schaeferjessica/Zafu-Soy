@@ -30,8 +30,8 @@ const HeaderContextLeft = styled.div`
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
-        grid-row: 4 / 4;
-        margin-bottom: 100px;
+        grid-row: 6 / 6;
+        margin-bottom: 40px;
       }
 `
 
@@ -63,9 +63,8 @@ const HeaderContextRight = styled.div`
 
     @media ${breakpoint.tablet} {
         grid-column: 1 / 1;
-        grid-row: 3 / 4;
+        grid-row: 5 / 6;
         margin-bottom: 0px;
-        margin-top: 95px;
         margin-left: 0px;
       }
 `
