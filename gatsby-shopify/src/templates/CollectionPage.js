@@ -147,6 +147,8 @@ const UlFilter = styled.ul`
     ${container}
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
 `
 
 const LiFilter = styled.li`
@@ -157,7 +159,7 @@ const LiFilter = styled.li`
     border: 1px solid var(--color-gray);
     line-height: 28px;
     margin-right: 12px;
-    margin-top: 25px;
+    margin-top: 10px;
 
     &:hover {
         border: 1px solid var(--color-blue);
