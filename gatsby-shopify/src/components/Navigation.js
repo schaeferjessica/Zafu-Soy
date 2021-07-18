@@ -76,10 +76,6 @@ const Wrapper = styled.div`
 
     .logo-text {
       display: block;
-
-      @media ${breakpoint.mobile} {
-        display: none;
-      }
     }
   }
 `

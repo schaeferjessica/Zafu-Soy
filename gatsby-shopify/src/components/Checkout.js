@@ -195,7 +195,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           disabled={checkout.lineItems.length === 0}
           >
           <Span data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</Span>
-          <SpanShipping data-hover={`Free Shipping within 30 - 90 days`}>Free Shipping within 30 - 90 days</SpanShipping>
+          <SpanShipping data-hover={`Free Shipping within 30 - 60 days`}>Free Shipping within 30 - 60 days</SpanShipping>
         </CheckoutButton>
         </> : <>
         <Title>Your Order</Title>
