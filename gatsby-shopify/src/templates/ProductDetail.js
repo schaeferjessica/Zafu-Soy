@@ -34,11 +34,6 @@ const ProductDetailLeft = styled.div`
   width: 60%;
   height: 100%;
 
-  @media ${breakpoint.desktop} {
-    flex-direction: column;
-    width: 55%;
-  }
-
   @media ${breakpoint.tablet} {
     display: flex;
     flex-direction: row;
@@ -50,12 +45,6 @@ const ProductDetailLeft = styled.div`
 const ImageHeaderLeft = styled.div`
   width: 68%;
   height: 100%;
-
-  @media ${breakpoint.desktop} {
-    width: 100%;
-    height: 68%;
-    display: none;
-  }
 
   @media ${breakpoint.tablet} {
     display: block;
@@ -73,8 +62,10 @@ const ImageHeaderLeft = styled.div`
   }
 `
 
-const ProductDetailLeftInner = styled.div`
+const ProductDetailLeftInner = styled.button`
   height: 100%;
+  padding: 0;
+  display: block;
 
   .gatsby-image-wrapper-constrained {
     width: 100%;
@@ -92,13 +83,6 @@ const ProductDetailCenter = styled.div`
   flex-shrink: 1;
   align-items: center;
 
-  @media ${breakpoint.desktop} {
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
   
   @media ${breakpoint.tablet} {
     height: auto;
@@ -114,11 +98,6 @@ const ProductDetailCenterInner = styled.div`
   width: 100%;
   height: 32%;
 
-  @media ${breakpoint.desktop} {
-    width: 49%;
-    height: 49%;
-  }
-
   @media ${breakpoint.tablet} {
     height: auto;
     width: 100%;
@@ -130,21 +109,11 @@ const ProductDetailCenterInner = styled.div`
 
   &:first-of-type {
     display: none;
-
-    @media ${breakpoint.desktop} {
-      display: block;
-    }
-
-    @media ${breakpoint.tablet} {
-      display: none;
-    }
   }
 
   .gatsby-image-wrapper-constrained {
     width: 100%;
     height: 100%;
-
-
   }
 `
 
@@ -165,6 +134,15 @@ const ProductDetailRight = styled.div`
 const Description = styled.div`
   margin-top: 15px;
   display: block;
+`
+
+const LinkCollection = styled(Link)`
+  color: var(--color-gray);
+
+  &:hover {
+        text-decoration: none;
+        color: var(--color-blue);
+    } 
 `
 
 const ProductContainer = styled.div`
@@ -188,6 +166,7 @@ export const query = graphql`
       description
       descriptionHtml
       shopifyId
+      tags
       options {
         id
         name
@@ -303,13 +282,21 @@ const ProductDetail = ({ data }) => {
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
       <ProductDetailWrapper>
 
-        <ProductDetailLeft>
+        <ProductDetailLeft ref={galleryEl}>
             <ImageHeaderLeft>
               {product.images.map((image, index) => {
                 if (index === 0) { 
                 const pluginImage = getImage(image.localFile)
                 return (
-                  <ProductDetailLeftInner className='image-heading' key={image.id}>
+                  <ProductDetailLeftInner 
+                    className='image-heading lightbox-toggle' 
+                    key={image.id}
+                    aria-label="Bild in einem Leuchtkasten öffnen"
+                    data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
+                    data-src={image.originalSrc}
+                    data-title={image.altText || ''}
+                    data-figcaption="" 
+                    data-copyright="">
                     <GatsbyImage
                     image={pluginImage}
                     alt={product.title}
@@ -322,13 +309,13 @@ const ProductDetail = ({ data }) => {
               })}
             </ImageHeaderLeft>
             
-            <ProductDetailCenter ref={galleryEl}>
+            <ProductDetailCenter>
               {product.images.map((image, index) => {
                   const pluginImage = getImage(image.localFile)
                   return (
                     <ProductDetailCenterInner
                       key={image.id}
-                      className='image-product lightbox-toggle'
+                      className={`image-product ${index !== 0 && 'lightbox-toggle'}`}
                       aria-label="Bild in einem Leuchtkasten öffnen"
                       data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
                       data-src={image.originalSrc}
@@ -347,6 +334,9 @@ const ProductDetail = ({ data }) => {
           </ProductDetailLeft>
 
           <ProductDetailRight>
+              {product.tags.map(tag => (
+                <LinkCollection to={`/collection/${tag}`}><small>{tag}</small></LinkCollection>
+              ))}
               <h1>{product.title}</h1>
               <span>{price}</span>
               <Description
@@ -376,7 +366,7 @@ const ProductDetail = ({ data }) => {
                       <ProductImage>
                         {images.map((image, index) => {
                           const pluginImage = getImage(image.localFile)
-                          return image.localFile && (
+                          return image.localFile && index <= 1 && (
                             <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
                           )
                         })}

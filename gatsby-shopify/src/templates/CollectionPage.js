@@ -245,7 +245,7 @@ const CollectionPage = ({pageContext, data}) => {
                                 <ProductImage>
                                     {images.map((image, index) => {
                                     const pluginImage = getImage(image.localFile)
-                                    return image.localFile && (
+                                    return image.localFile && index <= 1 &&(
                                         <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
                                     )
                                     })}

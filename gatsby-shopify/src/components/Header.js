@@ -140,7 +140,7 @@ const Header = () => {
                 </HeaderContextRight>
             </HeaderTop>
             <IframeWrapper>
-                <Video autoPlay loop muted playsInline>
+                <Video autoPlay loop muted playsInline preload="none" poster="/images/poster.jpg">
                     <source src="/videos/japan1940.mp4#t=115,275" type="video/mp4" />
                 </Video>
             </IframeWrapper>

@@ -61,6 +61,10 @@ const Wrapper = styled.div`
     .cart__counter {
       color: ${ciBlue};
     }
+
+    .logo-text {
+      display: block;
+    }
     
     .cart__counter {
       border-color: ${ciGray};
