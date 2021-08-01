@@ -136,8 +136,9 @@ const Description = styled.div`
   display: block;
 `
 
-const LinkCollection = styled(Link)`
+const CollectionTag = styled(Link)`
   color: var(--color-gray);
+  margin-right: 5px;
 
   &:hover {
         text-decoration: none;
@@ -335,7 +336,7 @@ const ProductDetail = ({ data }) => {
 
           <ProductDetailRight>
               {product.tags.map(tag => (
-                <LinkCollection to={`/collection/${tag}`}><small>{tag}</small></LinkCollection>
+                <CollectionTag to={`/collection/${tag}`}><small>{tag}</small></CollectionTag>
               ))}
               <h1>{product.title}</h1>
               <span>{price}</span>
