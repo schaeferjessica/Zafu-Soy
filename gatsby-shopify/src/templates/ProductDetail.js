@@ -5,7 +5,7 @@ import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ProductDetailInput from '~/components/ProductDetailInput'
-import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold} from '~/components/ProductGrid'
+import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold, UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { breakpoint, container, moduleSpaceSmall } from '../utils/styles'
@@ -91,12 +91,20 @@ const ProductDetailCenter = styled.div`
     flex-direction: column;
     width: 22%;
     margin-left: 10px;
+
+    &.img-col-two {
+      width: 32%;
+    }
   }
 `
 
 const ProductDetailCenterInner = styled.div`
   width: 100%;
   height: 32%;
+
+  &.img-col-two {
+    height: 48%;
+    }
 
   @media ${breakpoint.tablet} {
     height: auto;
@@ -129,21 +137,16 @@ const ProductDetailRight = styled.div`
   @media ${breakpoint.tablet} {
     width: 100%;
   }
+
+  .filter-tag {
+    padding-left: 0;
+    padding-right: 20px;
+  }
 `
 
 const Description = styled.div`
   margin-top: 15px;
   display: block;
-`
-
-const CollectionTag = styled(Link)`
-  color: var(--color-gray);
-  margin-right: 5px;
-
-  &:hover {
-        text-decoration: none;
-        color: var(--color-blue);
-    } 
 `
 
 const ProductContainer = styled.div`
@@ -310,13 +313,13 @@ const ProductDetail = ({ data }) => {
               })}
             </ImageHeaderLeft>
             
-            <ProductDetailCenter>
+            <ProductDetailCenter className={`${product.images.length === 3 && 'img-col-two'}`}>
               {product.images.map((image, index) => {
                   const pluginImage = getImage(image.localFile)
                   return (
                     <ProductDetailCenterInner
                       key={image.id}
-                      className={`image-product ${index !== 0 && 'lightbox-toggle'}`}
+                      className={`image-product ${index !== 0 && 'lightbox-toggle'} ${product.images.length === 3 && 'img-col-two'}`}
                       aria-label="Bild in einem Leuchtkasten öffnen"
                       data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
                       data-src={image.originalSrc}
@@ -335,9 +338,13 @@ const ProductDetail = ({ data }) => {
           </ProductDetailLeft>
 
           <ProductDetailRight>
-              {product.tags.map(tag => (
-                <CollectionTag to={`/collection/${tag}`}><small>{tag}</small></CollectionTag>
-              ))}
+              <UlFilter className="filter-tag">
+                {product.tags.map(tag => (
+                  <LiFilter>
+                    <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
+                  </LiFilter>
+                ))}
+              </UlFilter>
               <h1>{product.title}</h1>
               <span>{price}</span>
               <Description

@@ -144,7 +144,7 @@ export const SpanSold = styled.small`
   font-weight: 400;
 `
 
-const UlFilter = styled.ul`
+export const UlFilter = styled.ul`
     ${container}
     list-style: none;
     display: flex;
@@ -152,7 +152,7 @@ const UlFilter = styled.ul`
     margin-top: 20px;
 `
 
-const LiFilter = styled.li`
+export const LiFilter = styled.li`
     border-radius: 18px;
     height: 30px;
     padding-left: 10px;
@@ -167,13 +167,13 @@ const LiFilter = styled.li`
     }
 `
 
-const LinkItem = styled(Link)`
+export const LinkItem = styled(Link)`
     &:hover {
         text-decoration: none;
     }    
 `
 
-const LinkFilter = styled(Link)`
+export const LinkFilter = styled(Link)`
     &:hover {
         text-decoration: none;
     }    
