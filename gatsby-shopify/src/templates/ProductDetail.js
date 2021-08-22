@@ -185,6 +185,7 @@ const DetailWrapper = styled.div`
 const DetailText = styled.div` 
   width: 30%;
   padding-left: 100px;
+  margin-bottom: 20px;
 
   @media ${breakpoint.desktop} {
     width: 40%;
@@ -204,6 +205,7 @@ const DetailText = styled.div`
       margin-top: 8px;
     }
   }
+}
 `
 
 const DetailSlider = styled.div` 
@@ -427,12 +429,13 @@ const ProductDetail = ({ data }) => {
 
         </ProductDetailWrapper>
 
-        <DetailWrapper>
+        {detailInfo ? <DetailWrapper>
           <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw))}</DetailText>
           <DetailSlider>
             <ImageSlider images={detailInfo.images} />
           </DetailSlider>
-        </DetailWrapper>
+        </DetailWrapper> : ''}
+        
 
         <ProductContainer>
           <h2>You might also like</h2>

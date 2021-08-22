@@ -1,7 +1,6 @@
 import React, {useRef} from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled';
-import { breakpoint, container, moduleSpace } from '../utils/styles';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 
@@ -28,6 +27,10 @@ const InstaTeaserInner = styled.div`
 
   .glide__slides {
     margin-top: 0px;
+  }
+
+  button {
+    top: 45%;
   }
 `
 
