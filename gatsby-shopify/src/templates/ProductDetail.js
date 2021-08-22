@@ -4,12 +4,14 @@ import { graphql, Link } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
+import ImageSlider from '~/components/ImageSlider'
 import ProductDetailInput from '~/components/ProductDetailInput'
 import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold, UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
-import { breakpoint, container, moduleSpaceSmall } from '../utils/styles'
+import { breakpoint, container, moduleSpace } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const ProductDetailWrapper = styled.div`
   width: 100vw;
@@ -159,7 +161,7 @@ const Description = styled.div`
 
 const ProductContainer = styled.div`
   ${container}
-  ${moduleSpaceSmall}
+  ${moduleSpace}
 `
 
 const LinkItem = styled(Link)`
@@ -168,8 +170,58 @@ const LinkItem = styled(Link)`
   }    
 `
 
+const DetailWrapper = styled.div` 
+  ${moduleSpace}
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;  
+
+  @media ${breakpoint.tablet} {
+    ${container}
+    display: block;
+  }
+`
+
+const DetailText = styled.div` 
+  width: 30%;
+  padding-left: 100px;
+
+  @media ${breakpoint.desktop} {
+    width: 40%;
+    padding-left: 50px;
+  }
+
+  @media ${breakpoint.tablet} {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-left: 0px;
+  }
+
+  p {
+    margin-top: 12px;
+
+    @media ${breakpoint.tablet} {
+      margin-top: 8px;
+    }
+  }
+`
+
+const DetailSlider = styled.div` 
+  width: 59%;
+
+  @media ${breakpoint.desktop} {
+    width: 50%;
+  }
+
+  @media ${breakpoint.tablet} {
+    width: 100%;
+  }
+`
+
+
+
 export const query = graphql`
-  query ($handle: String!) {
+  query ($handle: String!, $sku: String) {
     shopifyProduct(handle: { eq: $handle }) {
       id
       title
@@ -186,6 +238,7 @@ export const query = graphql`
       }
       variants {
         id
+        sku
         title
         price
         availableForSale
@@ -245,6 +298,16 @@ export const query = graphql`
         }
       }
     }
+    contentfulDetail(contentfulid: { eq: $sku }) {
+      contentfulid
+      text {
+        raw
+      }
+      images {
+        description
+        gatsbyImageData(width: 500)
+      }
+    }
   }
 `
  
@@ -253,6 +316,7 @@ const ProductDetail = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const product = data.shopifyProduct
   const newestProducts = data.allShopifyProduct.nodes;
+  const detailInfo = data.contentfulDetail;
 
   const {
     store: { checkout },
@@ -362,6 +426,13 @@ const ProductDetail = ({ data }) => {
           </ProductDetailRight>
 
         </ProductDetailWrapper>
+
+        <DetailWrapper>
+          <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw))}</DetailText>
+          <DetailSlider>
+            <ImageSlider images={detailInfo.images} />
+          </DetailSlider>
+        </DetailWrapper>
 
         <ProductContainer>
           <h2>You might also like</h2>
