@@ -42,6 +42,14 @@ const ProductDetailLeft = styled.div`
   }
 `
 
+const ProductTest = styled(Product)`
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media ${breakpoint.tablet} {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 const ImageHeaderLeft = styled.div`
   width: 68%;
   height: 100%;
@@ -340,7 +348,7 @@ const ProductDetail = ({ data }) => {
           <ProductDetailRight>
               <UlFilter className="filter-tag">
                 {product.tags.map(tag => (
-                  <LiFilter>
+                  <LiFilter key={tag}>
                     <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
                   </LiFilter>
                 ))}
@@ -356,8 +364,8 @@ const ProductDetail = ({ data }) => {
         </ProductDetailWrapper>
 
         <ProductContainer>
-          <h2>New arrivals</h2>
-          <Product>
+          <h2>You might also like</h2>
+          <ProductTest>
           {newestProducts.length ? (
             newestProducts.map(
               ({
@@ -390,7 +398,7 @@ const ProductDetail = ({ data }) => {
           ) : (
             <p>No Products found!</p>
           )}
-          </Product>
+          </ProductTest>
         </ProductContainer>
     </>
   )

@@ -22,22 +22,21 @@ export const Product = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4rem;
   margin-top: 40px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     margin-top: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem;
 
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 10px;
-    grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
@@ -185,7 +184,7 @@ const ProductGrid = () => {
     store: { checkout },
   } = useContext(StoreContext)
 
-  const { allShopifyCollection, filters, allShopifyProduct} = useStaticQuery(
+  const { allShopifyCollection, filters, shopifyCollection} = useStaticQuery(
     graphql`
     query {
       filters: allShopifyCollection(sort: { fields: [updatedAt], order:  ASC}, filter: { handle: { ne: "frontpage" } }) {
@@ -202,8 +201,8 @@ const ProductGrid = () => {
           id
         }
       }
-      allShopifyProduct {
-        nodes {
+      shopifyCollection(title: {eq: "shop all"}) {
+        products {
           id
           title
           handle
@@ -260,8 +259,8 @@ const ProductGrid = () => {
 
           <ProductContainer>
             <Product>
-            {allShopifyProduct ? (
-              allShopifyProduct.nodes.map(
+            {shopifyCollection ? (
+              shopifyCollection.products.map(
                 ({
                     id,
                     handle,

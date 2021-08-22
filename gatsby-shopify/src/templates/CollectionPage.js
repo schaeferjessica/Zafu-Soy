@@ -26,21 +26,20 @@ const Product = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4rem;
   margin-top: 50px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     margin-top: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem;
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 20px;
-    grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
@@ -169,13 +168,13 @@ const LiFilter = styled.li`
 const LinkItem = styled(Link)`
     &:hover {
         text-decoration: none;
-    }    
+    }
 `
 
 const LinkFilter = styled(Link)`
     &:hover {
         text-decoration: none;
-    }    
+    }
 `
 
 export const query = graphql`
