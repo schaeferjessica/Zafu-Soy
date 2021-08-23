@@ -45,7 +45,7 @@ const ImageSlider = ({images}) => {
           perView={2}
           breakpoints={{
             1200: {
-              perView: 1,
+              perView: 2,
               gap: 30,
               peek: {
                 before: 0,

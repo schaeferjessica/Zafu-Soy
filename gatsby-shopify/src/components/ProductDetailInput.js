@@ -160,10 +160,6 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
-  @media ${breakpoint.mobile} { 
-    display: block;
-  }
 `
 
 const Input = styled.input`

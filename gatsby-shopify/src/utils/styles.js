@@ -41,6 +41,10 @@ export const moduleSpace = `
   @media ${breakpoint.tablet} { 
     margin-top: 130px;
   }
+
+  @media ${breakpoint.mobile} { 
+    margin-top: 80px;
+  }
 `;
 
 export const moduleSpaceSmall = `

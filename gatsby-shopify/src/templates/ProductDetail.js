@@ -23,7 +23,7 @@ const ProductDetailWrapper = styled.div`
   justify-content: flex-start;
 
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.desktop} {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -37,7 +37,7 @@ const ProductDetailLeft = styled.div`
   width: 60%;
   height: 100%;
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.desktop} {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -49,7 +49,7 @@ const ProductImageItem = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.desktop} {
     width: 100%;
   }
 
@@ -57,6 +57,11 @@ const ProductImageItem = styled.div`
     width: 60%;
     padding-bottom: 40px;
     margin-right: 40px;
+
+    @media ${breakpoint.mobile} {
+      padding-bottom: 10px;
+    margin-right: 10px;
+    }
   }
   
   &:last-of-type {
@@ -87,8 +92,10 @@ const ProductDetailRight = styled.div`
   padding-left: 80px;
   padding-bottom: 80px;
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.desktop} {
     width: 100%;
+    padding-left: 0px;
+    padding-bottom: 0px;
   }
 
   .filter-tag {
@@ -115,6 +122,11 @@ const DiscoverButton = styled.button`
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid var(--color-gray);
+
+  @media ${breakpoint.mobile} {
+    right: -20px;
+    bottom: 120px;
+  }
 
     &:hover {
         border: 1px solid var(--color-blue);
