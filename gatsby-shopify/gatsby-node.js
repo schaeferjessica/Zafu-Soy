@@ -59,6 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             handle
             title
             variants {sku}
+            tags
           }
         }
       }
@@ -78,6 +79,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // in page queries as GraphQL variables.
         handle: node.handle,
         sku: node.variants[0].sku,
+        collection: node.tags[0],
       },
     });
   });

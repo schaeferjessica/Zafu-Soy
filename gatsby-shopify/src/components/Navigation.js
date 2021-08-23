@@ -119,21 +119,6 @@ const SpanText = styled.span`
   }
 `
 
-const Path = styled.path`
-  fill: var(--color-blue);
-`
-
-const Svg = styled.svg`
-  width: 45px;
-  height: 45px;
-  fill: none;
-
-  @media ${breakpoint.tablet} { 
-    width: 40px;
-    height: 40px;
-  }
-`
-
 const MenuLinkLeft = styled(Link)`
   text-decoration: none;
   color: var(--color-blue);

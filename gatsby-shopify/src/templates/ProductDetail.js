@@ -12,14 +12,15 @@ import styled from '@emotion/styled'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
 import Lightbox from '../utils/photoswipe/Lightbox';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import aniScroll from '../utils/ani-scroll';
 
 const ProductDetailWrapper = styled.div`
-  width: 100vw;
+  ${container}
   height: calc(100vh - 70px);
   margin-top: 70px;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: flex-start;
 
 
   @media ${breakpoint.tablet} {
@@ -32,7 +33,7 @@ const ProductDetailWrapper = styled.div`
 
 const ProductDetailLeft = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: flex-end;
   width: 60%;
   height: 100%;
 
@@ -44,106 +45,47 @@ const ProductDetailLeft = styled.div`
   }
 `
 
-const ProductTest = styled(Product)`
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+const ProductImageItem = styled.div`
+  position: relative;
+  overflow: hidden;
 
   @media ${breakpoint.tablet} {
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  &:first-of-type{
+    width: 60%;
+    padding-bottom: 40px;
+    margin-right: 40px;
+  }
+  
+  &:last-of-type {
+    width: 35%;
   }
 `;
 
-const ImageHeaderLeft = styled.div`
-  width: 68%;
+const ProductImageButton = styled.button`
+  width: 100%;
   height: 100%;
-
-  @media ${breakpoint.tablet} {
-    display: block;
-    width: 71%;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .gatsby-image-wrapper-constrained {
-    width: 100%;
-    height: 100%;
-  }
-`
-
-const ProductDetailLeftInner = styled.button`
-  height: 100%;
+  position: relative;
+  overflow: hidden;
   padding: 0;
   display: block;
 
-  .gatsby-image-wrapper-constrained {
-    width: 100%;
+  .gatsby-image-wrapper {
     height: 100%;
-  }
-`
 
-const ProductDetailCenter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  max-height: 100vh;
-  height: 100%;
-  width: 30%;
-  flex-shrink: 1;
-  align-items: center;
-
-  
-  @media ${breakpoint.tablet} {
-    height: auto;
-    max-height: inherit;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 22%;
-    margin-left: 10px;
-
-    &.img-col-two {
-      width: 32%;
-    }
-  }
-`
-
-const ProductDetailCenterInner = styled.div`
-  width: 100%;
-  height: 32%;
-  cursor: pointer;
-
-  &.img-col-two {
-    height: 48%;
-    }
-
-  @media ${breakpoint.tablet} {
-    height: auto;
-    width: 100%;
-
-    &:not(:last-child) {
-      margin-bottom: 5px;
+    img {
+      object-fit: contain !important;
     }
   }
 
-  &:first-of-type {
-    display: none;
-  }
-
-  .gatsby-image-wrapper-constrained {
-    width: 100%;
-    height: 100%;
-  }
 `
 
 const ProductDetailRight = styled.div`
-  width: 40%;
-  padding: 40px;
-
-  @media ${breakpoint.desktop} {
-    width: 44%;
-    padding: 20px;
-  }
+  position: relative;
+  padding-left: 80px;
+  padding-bottom: 80px;
 
   @media ${breakpoint.tablet} {
     width: 100%;
@@ -159,6 +101,33 @@ const Description = styled.div`
   margin-top: 15px;
   display: block;
 `
+
+const DiscoverButton = styled.button`
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+  transform: rotate(90deg);
+  font-size: 12px;
+  border-radius: 20px;
+  text-align: center;
+  border-radius: 18px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid var(--color-gray);
+
+    &:hover {
+        border: 1px solid var(--color-blue);
+    }
+`;
+
+const ProductTest = styled(Product)`
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media ${breakpoint.tablet} {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
 
 const ProductContainer = styled.div`
   ${container}
@@ -221,7 +190,7 @@ const DetailSlider = styled.div`
 
 
 export const query = graphql`
-  query ($handle: String!, $sku: String) {
+  query ($handle: String!, $sku: String, $collection: String) {
     shopifyProduct(handle: { eq: $handle }) {
       id
       title
@@ -273,12 +242,8 @@ export const query = graphql`
         }
       }
     }
-    allShopifyProduct(
-      sort: { fields: createdAt, order: DESC }
-      limit: 4
-      filter: { handle: { ne: $handle } }
-    ) {
-      nodes {
+    shopifyCollection(handle: {eq: $collection}) {
+      products {
         id
         title
         handle
@@ -315,7 +280,9 @@ const ProductDetail = ({ data }) => {
   const galleryEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const product = data.shopifyProduct
-  const newestProducts = data.allShopifyProduct.nodes;
+  const collectionProducts = data.shopifyCollection.products;
+  collectionProducts.length = 4; // only keep the first 4 items in the array
+  const filteredCollectionProducts = collectionProducts.filter(collectionProduct => collectionProduct.handle !== product.handle);
   const detailInfo = data.contentfulDetail;
   const options  = {
     renderText: text => {
@@ -335,6 +302,14 @@ const ProductDetail = ({ data }) => {
     minimumFractionDigits: 2,
     style: 'currency',
   }).format(parseFloat(price ? price : 0));
+
+  const jumpTo = (hash) => {
+    const target = document.querySelector(hash);
+    const rect = target.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    aniScroll(rect.top + scrollTop, 1000, 'easeInOutQuart');
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -363,90 +338,68 @@ const ProductDetail = ({ data }) => {
       <Seo title={product.title} description={product.description} />
       <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
-      <ProductDetailWrapper>
 
+      <ProductDetailWrapper>
         <ProductDetailLeft ref={galleryEl}>
-            <ImageHeaderLeft>
-              {product.images.map((image, index) => {
-                if (index === 0) { 
+              {product.images.reverse().map((image, index) => {
+                if (index <= 1) { 
                 const pluginImage = getImage(image.localFile)
                 return (
-                  <ProductDetailLeftInner 
-                    className='image-heading lightbox-toggle' 
-                    key={image.id}
-                    aria-label="Bild in einem Leuchtkasten öffnen"
-                    data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
-                    data-src={image.originalSrc}
-                    data-title={image.altText || ''}
-                    data-figcaption="" 
-                    data-copyright="">
-                    <GatsbyImage
-                    image={pluginImage}
-                    alt={product.title}
-                  />
-                  </ProductDetailLeftInner>
-                )
-                } else {
-                  return null;
-                }
-              })}
-            </ImageHeaderLeft>
-            
-            <ProductDetailCenter className={`${product.images.length === 3 && 'img-col-two'}`}>
-              {product.images.map((image, index) => {
-                  const pluginImage = getImage(image.localFile)
-                  return (
-                    <ProductDetailCenterInner
-                      key={image.id}
-                      className={`image-product ${index !== 0 && 'lightbox-toggle'} ${product.images.length === 3 && 'img-col-two'}`}
+                  <ProductImageItem key={image.id}>
+                    <ProductImageButton 
+                      className='image-heading lightbox-toggle' 
                       aria-label="Bild in einem Leuchtkasten öffnen"
                       data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
                       data-src={image.originalSrc}
                       data-title={image.altText || ''}
                       data-figcaption="" 
                       data-copyright=""
-                    >
-                      <GatsbyImage
-                      image={pluginImage}
-                      alt={product.title}
-                    />
-                    </ProductDetailCenterInner>
-                  )
+                      >
+                        <GatsbyImage
+                        image={pluginImage}
+                        alt={product.title}
+                      />
+                    </ProductImageButton>
+                  </ProductImageItem>
+                )
+                } else {
+                  return null;
+                }
               })}
-            </ProductDetailCenter>
-          </ProductDetailLeft>
+        </ProductDetailLeft>
+        <ProductDetailRight>
+            <UlFilter className="filter-tag">
+              {product.tags.map(tag => (
+                <LiFilter key={tag}>
+                  <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
+                </LiFilter>
+              ))}
+            </UlFilter>
+            <h1>{product.title}</h1>
+            <span>{price}</span>
+            <Description
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            />
+          <ProductDetailInput product={product} />
+        </ProductDetailRight>
+        <DiscoverButton onClick={() => jumpTo('#discoverTarget')}>Discover more</DiscoverButton>
+      </ProductDetailWrapper>
 
-          <ProductDetailRight>
-              <UlFilter className="filter-tag">
-                {product.tags.map(tag => (
-                  <LiFilter key={tag}>
-                    <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
-                  </LiFilter>
-                ))}
-              </UlFilter>
-              <h1>{product.title}</h1>
-              <span>{price}</span>
-              <Description
-                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              />
-            <ProductDetailInput product={product} />
-          </ProductDetailRight>
+      <div id="discoverTarget"></div>
 
-        </ProductDetailWrapper>
-
-        {detailInfo ? <DetailWrapper>
-          <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</DetailText>
-          <DetailSlider>
-            <ImageSlider images={detailInfo.images} />
-          </DetailSlider>
-        </DetailWrapper> : ''}
+      {detailInfo ? <DetailWrapper>
+        <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</DetailText>
+        <DetailSlider>
+          <ImageSlider images={detailInfo.images} />
+        </DetailSlider>
+      </DetailWrapper> : ''}
         
 
         <ProductContainer>
           <h2>You might also like</h2>
           <ProductTest>
-          {newestProducts.length ? (
-            newestProducts.map(
+          {filteredCollectionProducts.length ? (
+            filteredCollectionProducts.map(
               ({
                   id,
                   handle,

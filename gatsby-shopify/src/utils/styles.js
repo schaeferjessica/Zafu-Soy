@@ -35,11 +35,11 @@ export const container = `
 `;
 
 export const moduleSpace = `
-  margin-top: 110px;
+  margin-top: 160px;
 
 
   @media ${breakpoint.tablet} { 
-    margin-top: 100px;
+    margin-top: 130px;
   }
 `;
 
