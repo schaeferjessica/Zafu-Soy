@@ -131,18 +131,18 @@ export const GlobalStyle = props => (
       }
 
       h1 {
-        font-size: 26px;
+        font-size: 32px;
 
         @media ${breakpoint.desktop} { 
-          font-size: 24px;
+          font-size: 26px;
         }
     
         @media ${breakpoint.tablet} { 
-          font-size: 22px;
+          font-size: 24px;
         }
     
         @media ${breakpoint.mobile} { 
-          font-size: 20px;
+          font-size: 22px;
         }
       }
 
