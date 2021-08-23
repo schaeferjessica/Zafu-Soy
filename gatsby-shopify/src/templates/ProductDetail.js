@@ -199,14 +199,11 @@ const DetailText = styled.div`
     padding-left: 0px;
   }
 
-  p {
-    margin-top: 12px;
-
-    @media ${breakpoint.tablet} {
-      margin-top: 8px;
-    }
+  b {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    display: block;
   }
-}
 `
 
 const DetailSlider = styled.div` 
@@ -320,6 +317,13 @@ const ProductDetail = ({ data }) => {
   const product = data.shopifyProduct
   const newestProducts = data.allShopifyProduct.nodes;
   const detailInfo = data.contentfulDetail;
+  const options  = {
+    renderText: text => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
+  };
 
   const {
     store: { checkout },
@@ -431,7 +435,7 @@ const ProductDetail = ({ data }) => {
         </ProductDetailWrapper>
 
         {detailInfo ? <DetailWrapper>
-          <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw))}</DetailText>
+          <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</DetailText>
           <DetailSlider>
             <ImageSlider images={detailInfo.images} />
           </DetailSlider>
