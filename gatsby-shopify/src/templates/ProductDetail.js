@@ -111,6 +111,7 @@ const ProductDetailCenter = styled.div`
 const ProductDetailCenterInner = styled.div`
   width: 100%;
   height: 32%;
+  cursor: pointer;
 
   &.img-col-two {
     height: 48%;
