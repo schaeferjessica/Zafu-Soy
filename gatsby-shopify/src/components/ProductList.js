@@ -87,9 +87,8 @@ const InputInner = styled.div`
 
 const InputButtonUp = styled.button`
   font-size: 18px;
-  border: 1px solid var(--color-gray);
   line-height: 21px;
-  padding: 0 7px 2px 7px;
+  padding: 10px;
   color: var(--color-gray);
 
   &:hover {
@@ -99,9 +98,8 @@ const InputButtonUp = styled.button`
 
 const InputButtonDown = styled.button`
   font-size: 22px;
-  border: 1px solid var(--color-gray);
   line-height: 21px;
-  padding: 0 7px 2px 7px;
+  padding: 10px;
   color: var(--color-gray);
 
   &:hover {
