@@ -8,9 +8,8 @@ import ImageSlider from '~/components/ImageSlider'
 import ProductDetailInput from '~/components/ProductDetailInput'
 import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold, UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
-import Lightbox from '../utils/photoswipe/Lightbox';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import aniScroll from '../utils/ani-scroll';
 
@@ -20,24 +19,28 @@ const ProductDetailWrapper = styled.div`
   margin-top: 70px;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
 
 
-  @media ${breakpoint.desktop} {
+  @media ${breakpoint.mobile} {
     display: flex;
     flex-direction: column;
     height: auto;
     margin-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 
 const ProductDetailLeft = styled.div`
+  position: relative;
   display: flex;
   align-items: flex-end;
-  width: 60%;
+  width: 100%;
   height: 100%;
+  width: 48%;
 
-  @media ${breakpoint.desktop} {
+  @media ${breakpoint.mobile} {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -49,23 +52,8 @@ const ProductImageItem = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media ${breakpoint.desktop} {
+  @media ${breakpoint.mobile} {
     width: 100%;
-  }
-
-  &:first-of-type{
-    width: 60%;
-    padding-bottom: 40px;
-    margin-right: 40px;
-
-    @media ${breakpoint.mobile} {
-      padding-bottom: 10px;
-    margin-right: 10px;
-    }
-  }
-  
-  &:last-of-type {
-    width: 35%;
   }
 `;
 
@@ -77,6 +65,10 @@ const ProductImageButton = styled.button`
   padding: 0;
   display: block;
 
+  @media ${breakpoint.mobile} {
+    height: 75vh;
+  }
+  
   .gatsby-image-wrapper {
     height: 100%;
 
@@ -89,29 +81,46 @@ const ProductImageButton = styled.button`
 
 const ProductDetailRight = styled.div`
   position: relative;
-  padding-left: 80px;
-  padding-bottom: 80px;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 
-  @media ${breakpoint.desktop} {
+  @media ${breakpoint.mobile} {
+    align-items: flex-start;
     width: 100%;
-    padding-left: 0px;
-    padding-bottom: 0px;
+    height: 100%;
   }
 
   .filter-tag {
     padding-left: 0;
-    padding-right: 20px;
   }
 `
 
+const ProductDetailRightContext = styled.div`
+  position: relative;
+  top: 50%;
+  width: 80%;
+
+  @media ${breakpoint.mobile} {
+    position: static;
+    width: 100%;
+  }
+`;
+
+const H1 = styled.h1`
+  margin-top: 30px;
+  margin-bottom: 5px;
+`;
+
 const Description = styled.div`
-  margin-top: 15px;
-  display: block;
+  display: none;
 `
 
 const DiscoverButton = styled.button`
   position: absolute;
-  right: 20px;
+  right: -80px;
   bottom: 50px;
   transform: rotate(90deg);
   font-size: 12px;
@@ -123,20 +132,27 @@ const DiscoverButton = styled.button`
   padding-right: 10px;
   border: 1px solid var(--color-gray);
 
-  @media ${breakpoint.mobile} {
-    right: -20px;
-    bottom: 120px;
-  }
-
-    &:hover {
+  &:hover {
         border: 1px solid var(--color-blue);
     }
+
+  @media ${breakpoint.mobile} {
+    right: -20px;
+    bottom: 50px;
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+    font-weight: 500;
+
+    &:hover {
+        border: 1px solid var(--color-gray);
+    }
+  }
 `;
 
 const ProductTest = styled(Product)`
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.mobile} {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -158,9 +174,14 @@ const DetailWrapper = styled.div`
   align-items: flex-end;
   justify-content: space-between;  
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.mobile} {
     ${container}
-    display: block;
+
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `
 
@@ -174,7 +195,7 @@ const DetailText = styled.div`
     padding-left: 50px;
   }
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.mobile} {
     width: 100%;
     margin-bottom: 30px;
     padding-left: 0px;
@@ -194,7 +215,7 @@ const DetailSlider = styled.div`
     width: 50%;
   }
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.mobile} {
     width: 100%;
   }
 `
@@ -282,6 +303,15 @@ export const query = graphql`
       }
       images {
         description
+        file {
+          url
+          details {
+            image {
+              width
+              height
+            }
+          }
+        }
         gatsbyImageData(width: 500)
       }
     }
@@ -330,14 +360,6 @@ const ProductDetail = ({ data }) => {
       document.querySelector('body').classList.remove('prevent-scroll--overlay');
     }
   }, [isOpen]);
-  
-  useEffect(() => {
-    if (galleryEl) {
-      new Lightbox(galleryEl.current, {
-        selector: '.lightbox-toggle',
-      }).init();
-    }
-  }, [isOpen]);
 
   const price = Intl.NumberFormat(undefined, {
     currency: product.priceRange.minVariantPrice.currencyCode,
@@ -353,19 +375,14 @@ const ProductDetail = ({ data }) => {
 
       <ProductDetailWrapper>
         <ProductDetailLeft ref={galleryEl}>
-              {product.images.reverse().map((image, index) => {
-                if (index <= 1) { 
+              {product.images.map((image, index) => {
+                if (index === 1) { 
                 const pluginImage = getImage(image.localFile)
                 return (
                   <ProductImageItem key={image.id}>
                     <ProductImageButton 
-                      className='image-heading lightbox-toggle' 
-                      aria-label="Bild in einem Leuchtkasten öffnen"
-                      data-size={`${image.localFile.childImageSharp.original.width}x${image.localFile.childImageSharp.original.height}`}
-                      data-src={image.originalSrc}
-                      data-title={image.altText || ''}
-                      data-figcaption="" 
-                      data-copyright=""
+                      className='image-heading'
+                      onClick={() => jumpTo('#discoverTarget')}
                       >
                         <GatsbyImage
                         image={pluginImage}
@@ -378,23 +395,28 @@ const ProductDetail = ({ data }) => {
                   return null;
                 }
               })}
+            <DiscoverButton onClick={() => jumpTo('#discoverTarget')}>Discover more</DiscoverButton> 
         </ProductDetailLeft>
         <ProductDetailRight>
-            <UlFilter className="filter-tag">
-              {product.tags.map(tag => (
-                <LiFilter key={tag}>
-                  <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
-                </LiFilter>
-              ))}
-            </UlFilter>
-            <h1>{product.title}</h1>
-            <span>{price}</span>
-            <Description
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
-          <ProductDetailInput product={product} />
+            <ProductDetailRightContext>
+              <ProductDetailInput product={product} />
+              
+              <UlFilter className="filter-tag">
+                {product.tags.map(tag => (
+                  <LiFilter key={tag}>
+                    <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
+                  </LiFilter>
+                ))}
+              </UlFilter>
+
+              <H1>{product.title}</H1>
+              <span>{price}</span>
+
+              <Description
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              />
+            </ProductDetailRightContext>
         </ProductDetailRight>
-        <DiscoverButton onClick={() => jumpTo('#discoverTarget')}>Discover more</DiscoverButton>
       </ProductDetailWrapper>
 
       <div id="discoverTarget"></div>
@@ -404,7 +426,7 @@ const ProductDetail = ({ data }) => {
         <DetailSlider>
           <ImageSlider images={detailInfo.images} />
         </DetailSlider>
-      </DetailWrapper> : ''}
+      </DetailWrapper> : ''} 
         
 
         <ProductContainer>

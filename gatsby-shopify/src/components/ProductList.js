@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
 
 const ListItem = styled.li`

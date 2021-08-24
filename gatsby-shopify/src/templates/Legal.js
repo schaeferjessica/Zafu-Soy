@@ -3,7 +3,7 @@ import { Link as LinkTo } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint, container } from '../utils/styles'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';

@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { breakpoint, container, moduleSpace } from '../utils/styles';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useStaticQuery, graphql, Link, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
 import { ButtonClose } from '~/components/Checkout'
 

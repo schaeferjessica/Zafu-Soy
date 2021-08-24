@@ -2,9 +2,9 @@ import React from 'react'
 import { Global, css } from '@emotion/react'
 
 const device = {
-  mobile: 500,
-  tablet: 800,
-  desktop: 1200,
+  mobile: 768,
+  tablet: 1200,
+  desktop: 1440,
 };
 
 export const breakpoint = {
@@ -43,7 +43,7 @@ export const moduleSpace = `
   }
 
   @media ${breakpoint.mobile} { 
-    margin-top: 80px;
+    margin-top: 60px;
   }
 `;
 
@@ -138,15 +138,15 @@ export const GlobalStyle = props => (
         font-size: 32px;
 
         @media ${breakpoint.desktop} { 
-          font-size: 26px;
+          font-size: 28px;
         }
     
         @media ${breakpoint.tablet} { 
-          font-size: 24px;
+          font-size: 26px;
         }
     
         @media ${breakpoint.mobile} { 
-          font-size: 22px;
+          font-size: 24px;
         }
       }
 

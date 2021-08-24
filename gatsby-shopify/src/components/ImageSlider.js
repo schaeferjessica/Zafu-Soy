@@ -1,9 +1,9 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
-
+import Lightbox from '../utils/photoswipe/Lightbox';
 
 const InstaTeaserInner = styled.div`
   .Glide-leftArrow,
@@ -31,21 +31,29 @@ const InstaTeaserInner = styled.div`
 
   button {
     top: 45%;
+    text-align: left;
   }
 `
 
 const ImageSlider = ({images}) => {
   const gliderRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    new Lightbox(containerRef.current, {
+      selector: '.lightbox-toggle',
+    }).init();
+  }, []);
 
   return (
-      <InstaTeaserInner>
+      <InstaTeaserInner ref={containerRef}>
         <Glide
           ref={gliderRef}
           type="slider"
           perView={2}
           breakpoints={{
             1200: {
-              perView: 2,
+              perView: 1,
               gap: 30,
               peek: {
                 before: 0,
@@ -72,10 +80,19 @@ const ImageSlider = ({images}) => {
           {images.map((image, index) => {
             const pluginImage = getImage(image.gatsbyImageData);
             return (
-              <div key={`image-${index}`}>
+              <button
+                key={`image-${index}`}
+                className='image-heading lightbox-toggle' 
+                aria-label="Bild in einem Leuchtkasten öffnen"
+                data-size={`${image.file.details.image.width}x${image.file.details.image.height}`}
+                data-src={image.file.url}
+                data-title={image.altText || ''}
+                data-figcaption="" 
+                data-copyright=""
+              >
                 <GatsbyImage image={pluginImage} alt="" />
                 <p>{image.description}</p>
-              </div>
+              </button>
             )
           })}
         </Glide>

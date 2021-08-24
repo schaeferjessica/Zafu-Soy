@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
 
 const Button = styled.button`
@@ -15,10 +15,6 @@ const Button = styled.button`
     overflow: hidden;
     cursor: pointer;
     margin-top: 20px;
-
-    @media ${breakpoint.mobile} { 
-      padding: 20px;
-    }
 
     &:hover {
       border: 1px solid var(--color-blue);
@@ -65,6 +61,11 @@ const Button = styled.button`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
+
+  @media ${breakpoint.mobile} { 
+    height: 15vh;
+  }
 `
 
 const Span = styled.span`

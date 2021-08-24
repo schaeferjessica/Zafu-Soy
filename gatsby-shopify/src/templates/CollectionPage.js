@@ -5,7 +5,7 @@ import Checkout from '~/components/Checkout'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { CollectionCount} from '~/components/Menu'
 

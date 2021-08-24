@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
 import { navigate } from 'gatsby'
 import { closest } from '../utils/dom';

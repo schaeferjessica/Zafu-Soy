@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as LinkTo } from 'gatsby'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import '../../static/fonts.css';
 import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
 
