@@ -66,14 +66,14 @@ const ProductImageButton = styled.button`
   display: block;
 
   @media ${breakpoint.mobile} {
-    height: 75vh;
+    height: 70vh;
   }
   
   .gatsby-image-wrapper {
     height: 100%;
 
     img {
-      object-fit: contain !important;
+      object-fit: cover !important;
     }
   }
 
@@ -109,6 +109,12 @@ const ProductDetailRightContext = styled.div`
   }
 `;
 
+const ProductDetailTitle = styled.div`
+   @media ${breakpoint.mobile} {
+    display: none;
+  }
+`;
+
 const H1 = styled.h1`
   margin-top: 30px;
   margin-bottom: 5px;
@@ -138,7 +144,7 @@ const DiscoverButton = styled.button`
 
   @media ${breakpoint.mobile} {
     right: -20px;
-    bottom: 50px;
+    bottom: 100px;
     border: 1px solid var(--color-white);
     color: var(--color-white);
     font-weight: 500;
@@ -175,13 +181,13 @@ const DetailWrapper = styled.div`
   justify-content: space-between;  
 
   @media ${breakpoint.mobile} {
-    ${container}
 
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-top: 0px;
   }
 `
 
@@ -197,8 +203,9 @@ const DetailText = styled.div`
 
   @media ${breakpoint.mobile} {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     padding-left: 0px;
+    padding-right: 20px;
   }
 
   b {
@@ -409,9 +416,11 @@ const ProductDetail = ({ data }) => {
                 ))}
               </UlFilter>
 
-              <H1>{product.title}</H1>
-              <span>{price}</span>
-
+              <ProductDetailTitle>
+                <H1>{product.title}</H1>
+                <span>{price}</span>
+              </ProductDetailTitle>
+              
               <Description
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               />

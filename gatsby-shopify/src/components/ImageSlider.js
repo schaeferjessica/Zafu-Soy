@@ -54,22 +54,22 @@ const ImageSlider = ({images}) => {
           breakpoints={{
             1200: {
               perView: 1,
-              gap: 30,
+              gap: 20,
               peek: {
                 before: 0,
                 after: 200,
               }
             },
-            500: {
+            768: {
               perView: 1,
-              gap: 20,
+              gap: 10,
               peek: {
                 before: 0,
                 after: 100,
               }
             }
           }}
-          gap={40}
+          gap={30}
           bound={true}
           peek={{
             before: 0,
@@ -91,7 +91,7 @@ const ImageSlider = ({images}) => {
                 data-copyright=""
               >
                 <GatsbyImage image={pluginImage} alt="" />
-                <p>{image.description}</p>
+                <small>{image.description}</small>
               </button>
             )
           })}

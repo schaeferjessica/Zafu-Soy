@@ -100,7 +100,7 @@ export const GlobalStyle = props => (
 
       html {
         font-weight: 300;
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -108,7 +108,7 @@ export const GlobalStyle = props => (
         -moz-osx-font-smoothing: grayscale;
     
         @media ${breakpoint.tablet} { 
-          font-size: 14px;
+          font-size: 15px;
         }
       }
 

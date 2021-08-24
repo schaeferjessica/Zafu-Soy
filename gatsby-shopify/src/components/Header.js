@@ -56,7 +56,7 @@ const HeaderLink = styled.button`
 
     @media ${breakpoint.tablet} {
         right: -20px;
-        bottom: 100px;
+        bottom: 200px;
       }
 
     &:hover {
