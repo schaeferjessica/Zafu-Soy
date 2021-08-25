@@ -34,7 +34,7 @@ const HeaderContextLeft = styled.div`
       }
 `
 
-const HeaderLink = styled.button`
+const DiscoverButton = styled.button`
     position: absolute;
     right: 20px;
     bottom: 50px;
@@ -69,11 +69,11 @@ const HeaderLink = styled.button`
     }
 `
 
-const HeaderSvg = styled.svg`
+ const ArrowSvg = styled.svg`
     width: 22px;
     height: 22px;
     fill: var(--color-gray);
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 5px;
     transition: transform 300ms ease-in-out;
 
@@ -153,11 +153,11 @@ const Header = () => {
         <HeaderOuter>
             <HeaderTop>
                 <HeaderContextLeft>
-                    <HeaderLink onClick={() => jumpTo('#shopnow')}>Discover more
-                        <HeaderSvg x="0px" y="0px" viewBox="0 0 22 10">
+                    <DiscoverButton onClick={() => jumpTo('#shopnow')}><small>Discover more</small>
+                        <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
                             <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
-                        </HeaderSvg>
-                    </HeaderLink>
+                        </ArrowSvg>
+                    </DiscoverButton>
                 </HeaderContextLeft>
                 <HeaderContextRight onClick={() => jumpTo('#shopnow')}>
                     <HeaderText>asian homewares</HeaderText>

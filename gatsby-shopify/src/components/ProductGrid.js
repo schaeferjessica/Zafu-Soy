@@ -149,10 +149,6 @@ export const UlFilter = styled.ul`
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-
-    @media ${breakpoint.mobile} {
-      margin-top: 40px;
-    }
 `
 
 export const LiFilter = styled.li`

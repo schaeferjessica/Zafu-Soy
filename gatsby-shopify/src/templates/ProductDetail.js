@@ -66,7 +66,7 @@ const ProductImageButton = styled.button`
   display: block;
 
   @media ${breakpoint.mobile} {
-    height: 70vh;
+    height: 65vh;
   }
   
   .gatsby-image-wrapper {
@@ -109,7 +109,21 @@ const ProductDetailRightContext = styled.div`
   }
 `;
 
-const ProductDetailTitle = styled.div`
+const ProductDetailLeftTitle = styled.div`
+    display: none;
+
+    @media ${breakpoint.mobile} {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    width: 65%;
+  }
+`;
+
+const ProductDetailRightTitle = styled.div`
+  display: block;
+
    @media ${breakpoint.mobile} {
     display: none;
   }
@@ -118,6 +132,18 @@ const ProductDetailTitle = styled.div`
 const H1 = styled.h1`
   margin-top: 30px;
   margin-bottom: 5px;
+
+  @media ${breakpoint.mobile} {
+    color: var(--color-white);
+    font-weight: 400;
+  }
+`;
+
+const Price = styled.span`
+  @media ${breakpoint.mobile} {
+    color: var(--color-white);
+    font-weight: 400;
+  }
 `;
 
 const Description = styled.div`
@@ -126,10 +152,9 @@ const Description = styled.div`
 
 const DiscoverButton = styled.button`
   position: absolute;
-  right: -80px;
-  bottom: 50px;
+  right: -100px;
+  bottom: 100px;
   transform: rotate(90deg);
-  font-size: 12px;
   border-radius: 20px;
   text-align: center;
   border-radius: 18px;
@@ -137,10 +162,18 @@ const DiscoverButton = styled.button`
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
-        border: 1px solid var(--color-blue);
+      border: 1px solid var(--color-blue);
     }
+
+  &:hover svg {
+    fill: var(--color-blue);
+    transform: translateX(5px);
+  }
 
   @media ${breakpoint.mobile} {
     right: -20px;
@@ -154,6 +187,19 @@ const DiscoverButton = styled.button`
     }
   }
 `;
+
+const ArrowSvg = styled.svg`
+  width: 22px;
+  height: 22px;
+  fill: var(--color-gray);
+  margin-top: 2px;
+  margin-left: 5px;
+  transition: transform 300ms ease-in-out;
+
+  @media ${breakpoint.mobile} {
+      fill: var(--color-white);
+    }
+  `
 
 const ProductTest = styled(Product)`
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -402,7 +448,18 @@ const ProductDetail = ({ data }) => {
                   return null;
                 }
               })}
-            <DiscoverButton onClick={() => jumpTo('#discoverTarget')}>Discover more</DiscoverButton> 
+
+            <ProductDetailLeftTitle>
+                <H1>{product.title}</H1>
+                <Price>{price}</Price>
+              </ProductDetailLeftTitle>
+
+            <DiscoverButton onClick={() => jumpTo('#discoverTarget')}><small>Discover more</small>
+              <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
+                <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
+              </ArrowSvg>
+            </DiscoverButton> 
+
         </ProductDetailLeft>
         <ProductDetailRight>
             <ProductDetailRightContext>
@@ -416,10 +473,10 @@ const ProductDetail = ({ data }) => {
                 ))}
               </UlFilter>
 
-              <ProductDetailTitle>
+              <ProductDetailRightTitle>
                 <H1>{product.title}</H1>
                 <span>{price}</span>
-              </ProductDetailTitle>
+              </ProductDetailRightTitle>
               
               <Description
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
