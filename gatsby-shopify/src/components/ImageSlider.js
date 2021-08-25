@@ -10,6 +10,7 @@ const InstaTeaserInner = styled.div`
   .Glide-rightArrow  {
     padding: 3px;
     color: var(--color-blue);
+    top: 45%;
 
     svg {
       width: 40px;
@@ -28,11 +29,11 @@ const InstaTeaserInner = styled.div`
   .glide__slides {
     margin-top: 0px;
   }
+`
 
-  button {
-    top: 45%;
-    text-align: left;
-  }
+const LightboxButton = styled.div`
+  text-align: left;
+  width: 100%;
 `
 
 const ImageSlider = ({images}) => {
@@ -62,7 +63,7 @@ const ImageSlider = ({images}) => {
             },
             768: {
               perView: 1,
-              gap: 10,
+              gap: 20,
               peek: {
                 before: 0,
                 after: 100,
@@ -80,7 +81,7 @@ const ImageSlider = ({images}) => {
           {images.map((image, index) => {
             const pluginImage = getImage(image.gatsbyImageData);
             return (
-              <button
+              <LightboxButton
                 key={`image-${index}`}
                 className='image-heading lightbox-toggle' 
                 aria-label="Bild in einem Leuchtkasten öffnen"
@@ -92,7 +93,7 @@ const ImageSlider = ({images}) => {
               >
                 <GatsbyImage image={pluginImage} alt="" />
                 <small>{image.description}</small>
-              </button>
+              </LightboxButton>
             )
           })}
         </Glide>

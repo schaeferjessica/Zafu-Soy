@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext, useRef } from 'react'
-import StoreContext from '~/context/StoreContext'
-import { graphql, Link } from 'gatsby'
+import React, { useState, useEffect, useRef } from 'react'
+import { graphql  } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ImageSlider from '~/components/ImageSlider'
+import ProductSlider from '~/components/ProductSlider'
 import ProductDetailInput from '~/components/ProductDetailInput'
-import { Product, ProductItem, ProductImage, H3, SpanPrice, SpanSold, UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
+import {UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
@@ -185,6 +185,10 @@ const DiscoverButton = styled.button`
     &:hover {
         border: 1px solid var(--color-gray);
     }
+
+    &:hover svg {
+        fill: var(--color-white);
+    }
   }
 `;
 
@@ -200,25 +204,6 @@ const ArrowSvg = styled.svg`
       fill: var(--color-white);
     }
   `
-
-const ProductTest = styled(Product)`
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  @media ${breakpoint.mobile} {
-    grid-template-columns: 1fr 1fr;
-  }
-`;
-
-const ProductContainer = styled.div`
-  ${container}
-  ${moduleSpace}
-`
-
-const LinkItem = styled(Link)`
-  &:hover {
-    text-decoration: none;
-  }    
-`
 
 const DetailWrapper = styled.div` 
   ${moduleSpace}
@@ -273,7 +258,25 @@ const DetailSlider = styled.div`
   }
 `
 
+const ProductContainer = styled.div`
+  ${container}
+  ${moduleSpace}
 
+  padding-right: 0px;
+
+
+  @media ${breakpoint.desktop} { 
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.tablet} { 
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    padding-right: 0px;
+  }
+`
 
 export const query = graphql`
   query ($handle: String!, $sku: String, $collection: String) {
@@ -387,16 +390,6 @@ const ProductDetail = ({ data }) => {
     },
   };
 
-  const {
-    store: { checkout },
-  } = useContext(StoreContext)
-
-  const getPrice = price =>
-  Intl.NumberFormat(undefined, {
-    currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
-    minimumFractionDigits: 2,
-    style: 'currency',
-  }).format(parseFloat(price ? price : 0));
 
   const jumpTo = (hash) => {
     const target = document.querySelector(hash);
@@ -428,6 +421,9 @@ const ProductDetail = ({ data }) => {
 
       <ProductDetailWrapper>
         <ProductDetailLeft ref={galleryEl}>
+
+             {/* IMAGE HEADER */}
+
               {product.images.map((image, index) => {
                 if (index === 1) { 
                 const pluginImage = getImage(image.localFile)
@@ -449,10 +445,14 @@ const ProductDetail = ({ data }) => {
                 }
               })}
 
+            {/* TITLE H2 */}
+
             <ProductDetailLeftTitle>
                 <H1>{product.title}</H1>
                 <Price>{price}</Price>
               </ProductDetailLeftTitle>
+
+            {/* BUTTON MORE */}
 
             <DiscoverButton onClick={() => jumpTo('#discoverTarget')}><small>Discover more</small>
               <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
@@ -461,10 +461,13 @@ const ProductDetail = ({ data }) => {
             </DiscoverButton> 
 
         </ProductDetailLeft>
+
         <ProductDetailRight>
             <ProductDetailRightContext>
               <ProductDetailInput product={product} />
               
+              {/* FILTER */}
+
               <UlFilter className="filter-tag">
                 {product.tags.map(tag => (
                   <LiFilter key={tag}>
@@ -473,19 +476,26 @@ const ProductDetail = ({ data }) => {
                 ))}
               </UlFilter>
 
+              {/* TITLE H2 */}
+
               <ProductDetailRightTitle>
                 <H1>{product.title}</H1>
                 <span>{price}</span>
               </ProductDetailRightTitle>
+
+              {/* TEXT DETAIL */}
               
               <Description
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               />
+
             </ProductDetailRightContext>
         </ProductDetailRight>
       </ProductDetailWrapper>
 
       <div id="discoverTarget"></div>
+
+      {/* SLIDER CONTENTFUL */}
 
       {detailInfo ? <DetailWrapper>
         <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</DetailText>
@@ -493,44 +503,12 @@ const ProductDetail = ({ data }) => {
           <ImageSlider images={detailInfo.images} />
         </DetailSlider>
       </DetailWrapper> : ''} 
-        
 
+        {/* SLIDER PRODUCTS*/}
+        
         <ProductContainer>
           <h2>You might also like</h2>
-          <ProductTest>
-          {filteredCollectionProducts.length ? (
-            filteredCollectionProducts.map(
-              ({
-                  id,
-                  handle,
-                  title,
-                  images,
-                  variants: [firstVariant],
-                },
-              ) => {
-                return (
-                  <ProductItem key={id}>
-                    <LinkItem to={`/product/${handle}/`}>
-                      <ProductImage>
-                        {images.map((image, index) => {
-                          const pluginImage = getImage(image.localFile)
-                          return image.localFile && index <= 1 && (
-                            <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
-                          )
-                        })}
-                      </ProductImage>
-                      <H3>{title}</H3>
-                    </LinkItem>
-                      <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                      {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
-                  </ProductItem>
-                )
-              }
-            )
-          ) : (
-            <p>No Products found!</p>
-          )}
-          </ProductTest>
+          {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}
         </ProductContainer>
     </>
   )
