@@ -61,7 +61,7 @@ const ImageSlider = ({images}) => {
                 after: 200,
               }
             },
-            768: {
+            500: {
               perView: 1,
               gap: 20,
               peek: {

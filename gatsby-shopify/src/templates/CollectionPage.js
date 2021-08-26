@@ -49,6 +49,8 @@ const Product = styled.ul`
 `
 
 const ProductItem = styled.li`
+  margin-top: 20px;
+
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;

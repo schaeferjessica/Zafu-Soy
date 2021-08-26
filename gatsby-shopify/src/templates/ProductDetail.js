@@ -22,13 +22,13 @@ const ProductDetailWrapper = styled.div`
   justify-content: space-between;
 
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     display: flex;
     flex-direction: column;
     height: auto;
     margin-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 `
 
@@ -39,8 +39,9 @@ const ProductDetailLeft = styled.div`
   width: 100%;
   height: 100%;
   width: 48%;
+  flex-grow: 1;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -52,7 +53,7 @@ const ProductImageItem = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     width: 100%;
   }
 `;
@@ -65,7 +66,7 @@ const ProductImageButton = styled.button`
   padding: 0;
   display: block;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     height: 65vh;
   }
   
@@ -87,7 +88,7 @@ const ProductDetailRight = styled.div`
   align-items: center;
   height: 100vh;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     align-items: flex-start;
     width: 100%;
     height: 100%;
@@ -103,16 +104,18 @@ const ProductDetailRightContext = styled.div`
   top: 50%;
   width: 80%;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     position: static;
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 
 const ProductDetailLeftTitle = styled.div`
     display: none;
 
-    @media ${breakpoint.mobile} {
+    @media ${breakpoint.tablet} {
     display: block;
     position: absolute;
     bottom: 40px;
@@ -124,7 +127,7 @@ const ProductDetailLeftTitle = styled.div`
 const ProductDetailRightTitle = styled.div`
   display: block;
 
-   @media ${breakpoint.mobile} {
+   @media ${breakpoint.tablet} {
     display: none;
   }
 `;
@@ -133,14 +136,14 @@ const H1 = styled.h1`
   margin-top: 30px;
   margin-bottom: 5px;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     color: var(--color-white);
     font-weight: 400;
   }
 `;
 
 const Price = styled.span`
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     color: var(--color-white);
     font-weight: 400;
   }
@@ -175,8 +178,8 @@ const DiscoverButton = styled.button`
     transform: translateX(5px);
   }
 
-  @media ${breakpoint.mobile} {
-    right: -20px;
+  @media ${breakpoint.tablet} {
+    right: -30px;
     bottom: 100px;
     border: 1px solid var(--color-white);
     color: var(--color-white);
@@ -223,12 +226,11 @@ const DetailWrapper = styled.div`
 `
 
 const DetailText = styled.div` 
-  width: 30%;
+  width: 40%;
   padding-left: 100px;
   margin-bottom: 20px;
 
   @media ${breakpoint.desktop} {
-    width: 40%;
     padding-left: 50px;
   }
 
@@ -247,11 +249,7 @@ const DetailText = styled.div`
 `
 
 const DetailSlider = styled.div` 
-  width: 59%;
-
-  @media ${breakpoint.desktop} {
-    width: 50%;
-  }
+  width: 55%;
 
   @media ${breakpoint.mobile} {
     width: 100%;
@@ -448,9 +446,9 @@ const ProductDetail = ({ data }) => {
             {/* TITLE H2 */}
 
             <ProductDetailLeftTitle>
-                <H1>{product.title}</H1>
-                <Price>{price}</Price>
-              </ProductDetailLeftTitle>
+              <H1>{product.title}</H1>
+              <Price>{price}</Price>
+            </ProductDetailLeftTitle>
 
             {/* BUTTON MORE */}
 

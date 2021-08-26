@@ -55,7 +55,7 @@ const DiscoverButton = styled.button`
     align-items: center;
 
     @media ${breakpoint.tablet} {
-        right: -20px;
+        right: -30px;
         bottom: 200px;
       }
 

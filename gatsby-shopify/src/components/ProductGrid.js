@@ -46,7 +46,7 @@ export const Product = styled.ul`
 `
 
 export const ProductItem = styled.li`
-  margin-top: 15px;
+  margin-top: 20px;
 
   a:hover {
     .image-product:not(:only-child) {
@@ -149,6 +149,7 @@ export const UlFilter = styled.ul`
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 export const LiFilter = styled.li`

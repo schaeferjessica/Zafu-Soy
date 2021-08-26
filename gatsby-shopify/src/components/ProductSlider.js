@@ -39,7 +39,7 @@ const ProductsSlider = styled.div`
 `
 
 const ProductItem = styled.div`
-  margin-top: 15px;
+  margin-top: 20px;
 
   a:hover {
     .image-product:not(:only-child) {
@@ -101,15 +101,23 @@ const ProductSlider = ({products}) => {
                 after: 200,
               }
             },
-            768: {
+            700: {
+              perView: 1,
+              gap: 20,
+              peek: {
+                before: 0,
+                after: 200,
+              },
+            },
+            500: {
               perView: 1,
               gap: 20,
               peek: {
                 before: 0,
                 after: 100,
-              }
-            }
-          }}
+              },
+            },
+          }} 
           gap={30}
           bound={true}
           peek={{
