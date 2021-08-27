@@ -7,14 +7,19 @@ import { breakpoint, container, moduleSpace } from '../utils/styles';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 
+// INSTA TEASER
 
-const InstaTeaserOuter = styled.section`
+const InstaTeaserContainer = styled.section`
   ${moduleSpace}
 `
+
+// INSTA TEASER HEADER
 
 const InstaTeaserHeader = styled.div`
   ${container}
 `
+
+// INSTA TEASER INNER
 
 const InstaTeaserInner = styled.div`
   margin-top: 30px;
@@ -61,14 +66,20 @@ const InstaTeaserInner = styled.div`
   }
 `
 
-const InstaTeaserH3 = styled.h3`
+// INSTA TEASER TITLE
+
+const InstaTeaserTitle = styled.h3`
   margin-top: 20px;
 `
 
-const InstaTeaserDiv = styled.div`
+// INSTA TEASER TEXT
+
+const InstaTeaserText = styled.div`
   margin-top: 20px;
 `
 
+
+{/* INSTA TEASER */}
 
 const InstaTeaser = () => {
   const gliderRef = useRef(null);
@@ -94,10 +105,16 @@ const InstaTeaser = () => {
   )
 
   return (
-    <InstaTeaserOuter>
+    <InstaTeaserContainer>
+
+      {/* INSTA TEASER HEADER */}
+
       <InstaTeaserHeader>
         <h2>{contentfulInstagram.heading}</h2>
       </InstaTeaserHeader>
+
+      {/* INSTA TEASER INNER */}
+
       <InstaTeaserInner>
         <Glide
           ref={gliderRef}
@@ -144,15 +161,17 @@ const InstaTeaser = () => {
               <div key={post.id}>
                 <a href={post.link} target="_blank" rel="noreferrer">
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
-                  <InstaTeaserH3>{post.image.title}</InstaTeaserH3>
-                  <InstaTeaserDiv>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserDiv>
+                  {/* INSTA TEASER TITLE */}
+                  <InstaTeaserTitle>{post.image.title}</InstaTeaserTitle>
+                  {/* INSTA TEASER TEXT */}
+                  <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText>
                 </a>
               </div>
             )
           })}
         </Glide>
       </InstaTeaserInner>
-    </InstaTeaserOuter>
+    </InstaTeaserContainer>
   )
 }
 

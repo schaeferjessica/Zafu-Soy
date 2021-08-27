@@ -5,7 +5,10 @@ import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 import Lightbox from '../utils/photoswipe/Lightbox';
 
-const InstaTeaserInner = styled.div`
+
+// IMAGE SLIDER 
+
+const ImageSliderContainer = styled.div`
   .Glide-leftArrow,
   .Glide-rightArrow  {
     padding: 3px;
@@ -31,10 +34,16 @@ const InstaTeaserInner = styled.div`
   }
 `
 
+
+// LIGHTBOX
+
 const LightboxButton = styled.div`
   text-align: left;
   width: 100%;
 `
+
+
+{/* IMAGE SLIDER */}
 
 const ImageSlider = ({images}) => {
   const gliderRef = useRef(null);
@@ -47,7 +56,7 @@ const ImageSlider = ({images}) => {
   }, []);
 
   return (
-      <InstaTeaserInner ref={containerRef}>
+      <ImageSliderContainer ref={containerRef}>
         <Glide
           ref={gliderRef}
           type="slider"
@@ -78,6 +87,9 @@ const ImageSlider = ({images}) => {
           }}
           slideClassName="slider__frame"
         >
+
+          {/* LIGHTBOX */}
+
           {images.map((image, index) => {
             const pluginImage = getImage(image.gatsbyImageData);
             return (
@@ -97,7 +109,7 @@ const ImageSlider = ({images}) => {
             )
           })}
         </Glide>
-      </InstaTeaserInner>
+      </ImageSliderContainer>
   )
 }
 

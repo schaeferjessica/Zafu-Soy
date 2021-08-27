@@ -5,9 +5,11 @@ import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled/macro'
 import { container, breakpoint, ciWhite, ciBlue, ciGray } from '~/utils/styles'
 import { Link } from 'gatsby'
-// import Menu from './Menu'
 
-const Wrapper = styled.div`
+
+// NAVIGATION
+
+const NavigationContainer = styled.div`
   z-index: 9;
   position: fixed;
   width: 100%;
@@ -84,7 +86,10 @@ const Wrapper = styled.div`
   }
 `
 
-const Inner = styled.div`
+
+// NAVIGATION INNER
+
+const NavigationInner = styled.div`
   ${container}
   align-items: center;
   padding-top: 15px;
@@ -119,7 +124,10 @@ const SpanText = styled.span`
   }
 `
 
-const MenuLinkLeft = styled(Link)`
+
+// NAVIGATION LINK LEFT
+
+const NavigationLinkLeft = styled(Link)`
   text-decoration: none;
   color: var(--color-blue);
   grid-column: 1 / 4;
@@ -127,30 +135,25 @@ const MenuLinkLeft = styled(Link)`
   line-height: 0.7;
 `
 
-const MenuLinkCenter = styled(Link)`
+
+// NAVIGATION LINK CENTER
+
+const NavigationLinkCenter = styled(Link)`
   text-decoration: none;
   color: var(--color-blue);
   grid-column: 2 / 4;
   grid-row: 1 / 1;
 `
 
-const CartButtonRight = styled.button`
+
+// NAVIGATION BUTTON RIGHT
+
+const NavigationButtonRight = styled.button`
   padding-left: 15px;
   grid-column: 4 / 4;
   grid-row: 1 / 1;
   justify-self: end;
 `
-
-// const MenuButton = styled.button`
-//   padding-left: 15px;
-//   z-index: 20;
-
-//   &:hover {
-//     text-decoration: underline;
-//     text-decoration-thickness: 1px;
-//     text-underline-offset: 5px;
-//   }
-// `
 
 const CartText = styled.span`
   padding-left: 15px;
@@ -185,19 +188,12 @@ const useQuantity = () => {
   return [total !== 0, total]
 }
 
+
+{/* NAVIGATION */}
+
 const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
   const [hasItems, quantity] = useQuantity()
   const navElement = useRef(null);
-  // const [menuStatus, setMenuStatus] = useState(false);
-
-
-  // useEffect(() => {
-  //   if (menuStatus) {
-  //     document.querySelector('body').classList.add('prevent-scroll');
-  //   } else {
-  //     document.querySelector('body').classList.remove('prevent-scroll');
-  //   }
-  // }, [menuStatus])
 
   function handleScroll() {
     const scrollTopPosition = document.documentElement.scrollTop || document.body.scrollTop;
@@ -220,22 +216,30 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
   }, [hasScroll]);
   
   return (
-    <Wrapper ref={navElement} className={isWhite ? 'header--is-white' : 'header--is-blue'}>
-      <Inner>
-        <MenuLinkLeft to="/">
+    <NavigationContainer ref={navElement} className={isWhite ? 'header--is-white' : 'header--is-blue'}>
+
+      {/* NAVIGATION INNER*/}
+
+      <NavigationInner>
+
+        {/* NAVIGATION LINK LEFT*/}
+        <NavigationLinkLeft to="/">
           <SpanText className="logo-text">ya yo i</SpanText>
-        </MenuLinkLeft>
-        <MenuLinkCenter to="/collection/frontpage">
+        </NavigationLinkLeft>
+
+        {/* NAVIGATION LINK CENTER*/}
+        <NavigationLinkCenter to="/collection/frontpage">
           <SpanText className="logo-text">shop</SpanText>
-        </MenuLinkCenter>
-        {/* <MenuButton onClick={() => setMenuStatus(!menuStatus)}>Shop</MenuButton> */}
-        <CartButtonRight onClick={() => onOrderButtonClick()} className="cart-button">
+        </NavigationLinkCenter>
+
+        {/* NAVIGATION BUTTON RIGHT*/}
+        <NavigationButtonRight onClick={() => onOrderButtonClick()} className="cart-button">
           <CartText className="cart-text">your order</CartText>
           {hasItems ? <CartCounter className="cart__counter">{quantity}</CartCounter> : <CartCounter className="cart__counter">0</CartCounter>}
-        </CartButtonRight>
-      </Inner>
-      {/* <Menu menuStatus={menuStatus} triggerMenuStatus={() => setMenuStatus(false)}/> */}
-    </Wrapper>
+        </NavigationButtonRight>
+
+      </NavigationInner>
+    </NavigationContainer>
   )
 }
 

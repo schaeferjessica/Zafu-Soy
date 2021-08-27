@@ -1,13 +1,14 @@
 import React, { useContext, useRef } from 'react'
 import StoreContext from '~/context/StoreContext'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { breakpoint } from '../utils/styles'
 import styled from '@emotion/styled/macro';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 import { Link } from 'gatsby'
 
-const ProductsSlider = styled.div`
+// PRODUCT SLIDER
+
+const ProductSliderContainer = styled.div`
   .Glide-leftArrow,
   .Glide-rightArrow  {
     padding: 3px;
@@ -37,7 +38,10 @@ const ProductsSlider = styled.div`
   }
 `
 
-const ProductItem = styled.div`
+
+// PRODUCT SLIDER ITEM
+
+const ProductSliderItem = styled.div`
   margin-top: 20px;
 
   a:hover {
@@ -65,13 +69,13 @@ const ProductItem = styled.div`
   }
 `
 
-const LinkItem = styled(Link)`
+const ProductSliderLink = styled(Link)`
   &:hover {
     text-decoration: none;
   }    
 `
 
-const ProductImage = styled.div`
+const ProductSliderImage = styled.div`
   position: relative;
 
   > * {
@@ -90,16 +94,19 @@ const ProductImage = styled.div`
   }
 `
 
-const H3 = styled.h3`
+const ProductSliderTitle = styled.h3`
   margin-top: 5px;
   margin-bottom: 0px;
 `
 
-const SpanPrice = styled.small`
+
+// PRODUCT SLIDER PRICE
+
+const ProductSliderPrice = styled.small`
   display: block;
 `
 
-const SpanSold = styled.small`
+const ProductSliderSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
   display: inline-block;
@@ -108,8 +115,9 @@ const SpanSold = styled.small`
   font-weight: 400;
 `
 
+
 const ProductSlider = ({products}) => {
-  const gliderRef = useRef(null);
+  const sliderRef = useRef(null);
   const containerRef = useRef(null);
   const {
     store: { checkout },
@@ -122,10 +130,11 @@ const ProductSlider = ({products}) => {
     style: 'currency',
   }).format(parseFloat(price ? price : 0));
 
+
   return (
-      <ProductsSlider ref={containerRef}>
+      <ProductSliderContainer ref={containerRef}>
         <Glide
-          ref={gliderRef}
+          ref={sliderRef}
           type="slider"
           perView={3}
           breakpoints={{
@@ -172,31 +181,34 @@ const ProductSlider = ({products}) => {
                 },
               ) => {
                 return (
-                  <ProductItem key={id}>
-                    <LinkItem to={`/product/${handle}/`}>
-                      <ProductImage>
-                      
+                  <ProductSliderItem key={id}>
+
+                  {/* PRODUCT SLIDER ITEM*/}
+
+                    <ProductSliderLink to={`/product/${handle}/`}>
+
+                      <ProductSliderImage>
                         {images.map((image, index) => {
                           const pluginImage = getImage(image.localFile)
                           return image.localFile && index <= 1 && (
                             <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
                           )
                         })}
-                      </ProductImage>
+                      </ProductSliderImage>
 
-                      <H3>{title}</H3>
-                    </LinkItem>
+                      <ProductSliderTitle>{title}</ProductSliderTitle>
+                    </ProductSliderLink>
 
-                    {/* SLIDER PRODUCTS PRICE*/}
+                    {/* PRODUCT SLIDER PRICE*/}
 
-                    <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                    {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
-                  </ProductItem>
+                    <ProductSliderPrice>{getPrice(firstVariant.price)}</ProductSliderPrice>
+                    {firstVariant.availableForSale ? '' : <ProductSliderSold>will be back soon</ProductSliderSold>}
+                  </ProductSliderItem>
                 )
               }
             )}
         </Glide>
-      </ProductsSlider>
+      </ProductSliderContainer>
   )
 }
 
