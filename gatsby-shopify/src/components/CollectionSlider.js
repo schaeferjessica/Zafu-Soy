@@ -1,42 +1,120 @@
-import React, { useContext } from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import StoreContext from '~/context/StoreContext'
+import React, {useRef} from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled/macro'
-// import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
+import Glide from 'react-glidejs';
+import 'react-glidejs/dist/index.css';
 
 
-// const CollectionSliderHeader =styled.div`
-//   ${moduleSpace}
-//   ${headerSpace}
-//   ${container}
-// `
+const CollectionSliderComponent = styled.div`
+  ${moduleSpace}
+  ${container}
+`
+
+const CollectionSliderHeader = styled.h2`
+  ${headerSpace}
+`
+
+const CollectionSliderInner = styled.div`
+  margin-top: 5px;
+`
+
+const CollectionSliderTitle = styled.h3`
+  margin-top: 5px;
+`
 
 
+
+{/* COLLECTION SLIDER */}
 
 const CollectionSlider = () => {
+  const sliderRef = useRef(null);
+  const {contentfulCollectionSlider} = useStaticQuery(
+    graphql`
+    query {
+      contentfulCollectionSlider {
+        header
+          sliderItems {
+            title
+            link
+            image {
+              gatsbyImageData
+              title
+            }
+          }
+        }
+      }
+    `
+  )
 
-  // const { allShopifyCollection, filters, shopifyCollection} = useStaticQuery(
-  //   graphql`
-  //   query {}
-  //   `
-  // )
+  return (
+    <CollectionSliderComponent>
 
-  return 'CollectionSlider'
+      {/* COLLECTION SLIDER HEADER */}
 
-  // return (
-  //   <CollectionSlider id="collections">
-  //     {allShopifyCollection.nodes.map(collection => {
-  //       return (
-  //       <CollectionSliderItem key={collection.id}>
-  //         <CollectionSliderHeader>
-  //             <h2>{collection.title}</h2>
-  //         </CollectionSliderHeader>
-  //     </CollectionSliderItem>
-  //     )
-  //     })}
-  //   </CollectionSlider>
-  // )
+      <CollectionSliderHeader>
+        <h2>{contentfulCollectionSlider.header}</h2>
+      </CollectionSliderHeader>
+
+      {/* COLLECTION SLIDER INNER */}
+
+      <CollectionSliderInner>
+        <Glide
+          ref={sliderRef}
+          type="slider"
+          perView={4}
+          breakpoints={{
+            1200: {
+              perView: 3,
+              gap: 30,
+              peek: {
+                before: 0,
+                after: 160,
+              }
+            },
+            800: {
+              perView: 2,
+              gap: 30,
+              peek: {
+                before: 0,
+                after: 140,
+              }
+            },
+            500: {
+              perView: 1,
+              gap: 20,
+              peek: {
+                before: 0,
+                after: 80,
+              }
+            }
+          }}
+          gap={40}
+          bound={true}
+          peek={{
+            before: 0,
+            after: 200,
+          }}
+          slideClassName="slider__frame"
+        >
+          {contentfulCollectionSlider.sliderItems.map(post => {
+            const pluginImage = getImage(post.image.gatsbyImageData);
+
+            return (
+              <div key={post.id}>
+                <a href={post.link} rel="noreferrer">
+                  <GatsbyImage image={pluginImage} alt={post.image.title} />
+                  {/* COLLECTION SLIDER TITLE */}
+                  <CollectionSliderTitle>{post.title}</CollectionSliderTitle>
+                </a>
+              </div>
+            )
+          })}
+        </Glide>
+      </CollectionSliderInner>
+    </CollectionSliderComponent>
+  )
 }
 
 export default CollectionSlider

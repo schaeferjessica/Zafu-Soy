@@ -3,7 +3,9 @@ import styled from '@emotion/styled/macro'
 import { breakpoint, container } from '../utils/styles'
 import aniScroll from '../utils/ani-scroll';
 
-const HeaderOuter = styled.div`
+// HEADER
+
+const HeaderComponent = styled.div`
     height: 100vh;
     display: flex;
 `
@@ -24,6 +26,9 @@ const HeaderTop = styled.div`
     }
 `
 
+
+// HEADER CONTEXT LEFT
+
 const HeaderContextLeft = styled.div`
     grid-column: 1 / 4;
     grid-row: 1 / 1;
@@ -34,7 +39,7 @@ const HeaderContextLeft = styled.div`
       }
 `
 
-const DiscoverButton = styled.button`
+const HeaderDiscoverButton = styled.button`
     position: absolute;
     right: 20px;
     bottom: 50px;
@@ -69,7 +74,7 @@ const DiscoverButton = styled.button`
     }
 `
 
- const ArrowSvg = styled.svg`
+ const HeaderArrowSvg = styled.svg`
     width: 22px;
     height: 22px;
     fill: var(--color-gray);
@@ -82,6 +87,9 @@ const DiscoverButton = styled.button`
       }
 `
 
+
+//  HEADER CONTEXT RIGHT
+
 const HeaderContextRight = styled.div`
     grid-column: 2 / 4;
     grid-row: 1 / 1;
@@ -93,7 +101,7 @@ const HeaderContextRight = styled.div`
       }
 `
 
-const H1 = styled.h1`
+const HeaderTitle = styled.h1`
     font-family: 'IBM Plex Sans';
     font-weight: 400;
     margin-top: 10px;
@@ -110,7 +118,10 @@ const HeaderText = styled.p`
     cursor: pointer;
 `
 
-const IframeWrapper = styled.div`
+
+{/* HEADER IFRAME */}
+
+const HeaderIframe = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -129,7 +140,7 @@ const IframeWrapper = styled.div`
         z-index: 1;
     }
 `
-const Video = styled.video`
+const HeaderVideo = styled.video`
     pointer-events: none;
     position: absolute;
     top: 0;
@@ -139,6 +150,9 @@ const Video = styled.video`
     object-fit: cover;
     transform: scale(1.2);
 `
+
+
+{/* HEADER */}
 
 const Header = () => {  
     const jumpTo = (hash) => {
@@ -150,27 +164,36 @@ const Header = () => {
       };
 
     return (
-        <HeaderOuter>
+        <HeaderComponent>
             <HeaderTop>
+
+                {/* HEADER CONTEXT LEFT */}
+                
                 <HeaderContextLeft>
-                    <DiscoverButton onClick={() => jumpTo('#collections')}><small>Discover more</small>
-                        <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
+                    <HeaderDiscoverButton onClick={() => jumpTo('#collections')}><small>Discover more</small>
+                        <HeaderArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
                             <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
-                        </ArrowSvg>
-                    </DiscoverButton>
+                        </HeaderArrowSvg>
+                    </HeaderDiscoverButton>
                 </HeaderContextLeft>
+
+                {/* HEADER CONTEXT RIGHT */}
+
                 <HeaderContextRight onClick={() => jumpTo('#collections')}>
                     <HeaderText>asian homewares</HeaderText>
-                    <H1>yayoi.shop (jaːjoˈi)</H1>
+                    <HeaderTitle>yayoi.shop (jaːjoˈi)</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>
-            <IframeWrapper>
-                <Video autoPlay loop muted playsInline preload="none" poster="/images/poster.jpg">
-                    <source src="/videos/japan1940.mp4#t=115,275" type="video/mp4" />
-                </Video>
-            </IframeWrapper>
-        </HeaderOuter>
 
+            {/* HEADER IFRAME */}
+
+            <HeaderIframe>
+                <HeaderVideo autoPlay loop muted playsInline preload="none" poster="/images/poster.jpg">
+                    <source src="/videos/japan1940.mp4#t=115,275" type="video/mp4" />
+                </HeaderVideo>
+            </HeaderIframe>
+
+        </HeaderComponent>
     )
   }
 
