@@ -70,7 +70,7 @@ export const headerSpace = `
 
 export const ciBlue = '#222225'
 export const ciWhite = '#f9f9f9'
-export const ciGray = '#acaba6'
+export const ciGray = '#8d9092'
 export const ciOrange = '#c16654'
 
 export const GlobalStyle = props => (
@@ -169,12 +169,12 @@ export const GlobalStyle = props => (
 
       h3 {
         font-family: 'IBM Plex Sans';
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 300;
         margin: 0px;
     
         @media ${breakpoint.mobile} { 
-          font-size: 16px;
+          font-size: 18px;
         }
       }
 

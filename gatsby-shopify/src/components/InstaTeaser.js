@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled/macro';
-import { breakpoint, container, moduleSpace } from '../utils/styles';
+import { breakpoint, container, headerSpace, moduleSpace } from '../utils/styles';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 
@@ -11,33 +11,32 @@ import 'react-glidejs/dist/index.css';
 
 const InstaTeaserContainer = styled.section`
   ${moduleSpace}
+  ${container}
+
+  padding-right: 0px;
+
+  @media ${breakpoint.desktop} {
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.tablet} {
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.mobile} {
+    padding-right: 0px;
+  }
 `
 
 // INSTA TEASER HEADER
 
 const InstaTeaserHeader = styled.div`
-  ${container}
+  ${headerSpace}
 `
 
 // INSTA TEASER INNER
 
 const InstaTeaserInner = styled.div`
-  margin-top: 30px;
-  margin-left: 100px;
-
-  @media ${breakpoint.desktop} {
-    margin-top: 20px;
-    margin-left: 50px;
-  }
-
-  @media ${breakpoint.tablet} {
-    margin-left: 30px;
-  }
-
-  @media ${breakpoint.mobile} {
-    margin-left: 20px;
-  }
-
   .Glide-leftArrow,
   .Glide-rightArrow  {
     padding: 3px;
@@ -50,11 +49,11 @@ const InstaTeaserInner = styled.div`
   }
 
   .Glide-leftArrow  {
-    left: 1rem;
+    left: 1%;
   }
 
   .Glide-rightArrow  {
-    right: 1rem;
+    right: 8%;
   }
 
   a:hover h3 {

@@ -5,11 +5,26 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
+import { Link } from 'gatsby'
 
 
 const CollectionSliderComponent = styled.div`
   ${moduleSpace}
   ${container}
+
+  padding-right: 0px;
+
+  @media ${breakpoint.desktop} {
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.tablet} {
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.mobile} {
+    padding-right: 0px;
+  }
 `
 
 const CollectionSliderHeader = styled.h2`
@@ -17,11 +32,48 @@ const CollectionSliderHeader = styled.h2`
 `
 
 const CollectionSliderInner = styled.div`
-  margin-top: 5px;
+  .Glide-leftArrow,
+  .Glide-rightArrow  {
+    padding: 3px;
+    color: var(--color-blue);
+
+    svg {
+      width: 40px;
+      height: 16px;
+    }
+  }
+
+  .Glide-leftArrow  {
+    left: 1%;
+  }
+
+  .Glide-rightArrow  {
+    right: 8%;
+  }
+
+  .glide__slides {
+    margin-top: 0px;
+  }
+
+  button {
+    top: 45%;
+    text-align: left;
+  }
 `
 
 const CollectionSliderTitle = styled.h3`
   margin-top: 5px;
+`
+
+const CollectionSliderLink = styled(Link)`
+  &:hover {
+    text-decoration: none;
+  }
+`
+
+const CollectionSliderText = styled.p`
+  margin-top: 5px;
+  color: var(--color-gray);
 `
 
 
@@ -41,6 +93,7 @@ const CollectionSlider = () => {
             image {
               gatsbyImageData
               title
+              description
             }
           }
         }
@@ -49,7 +102,7 @@ const CollectionSlider = () => {
   )
 
   return (
-    <CollectionSliderComponent>
+    <CollectionSliderComponent id="collections">
 
       {/* COLLECTION SLIDER HEADER */}
 
@@ -103,11 +156,15 @@ const CollectionSlider = () => {
 
             return (
               <div key={post.id}>
-                <a href={post.link} rel="noreferrer">
+                {/* COLLECTION SLIDER LINK */}
+                <CollectionSliderLink href={post.link} rel="noreferrer">
+                  {/* COLLECTION SLIDER IMAGE */}
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
                   {/* COLLECTION SLIDER TITLE */}
                   <CollectionSliderTitle>{post.title}</CollectionSliderTitle>
-                </a>
+                  {/* COLLECTION SLIDER TEXT */}
+                  <CollectionSliderText>{post.image.description}</CollectionSliderText>
+                </CollectionSliderLink>
               </div>
             )
           })}
