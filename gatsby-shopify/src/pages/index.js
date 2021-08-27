@@ -3,7 +3,7 @@ import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import Header from '~/components/Header'
-import ProductGrid from '~/components/ProductGrid'
+import CollectionSlider from '~/components/CollectionSlider'
 import InstaTeaser from '~/components/InstaTeaser'
 
 
@@ -23,7 +23,7 @@ const IndexPage = () => {
     <Navigation isWhite={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <Header />
-    <ProductGrid />
+    <CollectionSlider />
     <InstaTeaser />
   </>
 }

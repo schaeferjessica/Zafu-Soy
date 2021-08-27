@@ -153,13 +153,13 @@ const Header = () => {
         <HeaderOuter>
             <HeaderTop>
                 <HeaderContextLeft>
-                    <DiscoverButton onClick={() => jumpTo('#shopnow')}><small>Discover more</small>
+                    <DiscoverButton onClick={() => jumpTo('#collections')}><small>Discover more</small>
                         <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
                             <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
                         </ArrowSvg>
                     </DiscoverButton>
                 </HeaderContextLeft>
-                <HeaderContextRight onClick={() => jumpTo('#shopnow')}>
+                <HeaderContextRight onClick={() => jumpTo('#collections')}>
                     <HeaderText>asian homewares</HeaderText>
                     <H1>yayoi.shop (jaːjoˈi)</H1>
                 </HeaderContextRight>

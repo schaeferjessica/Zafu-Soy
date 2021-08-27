@@ -6,7 +6,6 @@ import styled from '@emotion/styled/macro';
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 import { Link } from 'gatsby'
-import { ProductImage, H3, SpanPrice, SpanSold } from '~/components/ProductGrid'
 
 const ProductsSlider = styled.div`
   .Glide-leftArrow,
@@ -70,6 +69,43 @@ const LinkItem = styled(Link)`
   &:hover {
     text-decoration: none;
   }    
+`
+
+const ProductImage = styled.div`
+  position: relative;
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+    padding-bottom: 133.3333333333%;
+  }
+`
+
+const H3 = styled.h3`
+  margin-top: 5px;
+  margin-bottom: 0px;
+`
+
+const SpanPrice = styled.small`
+  display: block;
+`
+
+const SpanSold = styled.small`
+  color: var(--color-white);
+  padding: 2px 5px;
+  display: inline-block;
+  margin-top: 5px;
+  background-color: var(--color-orange);
+  font-weight: 400;
 `
 
 const ProductSlider = ({products}) => {

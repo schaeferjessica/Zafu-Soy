@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { graphql  } from 'gatsby'
+import { graphql, Link   } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ImageSlider from '~/components/ImageSlider'
 import ProductSlider from '~/components/ProductSlider'
 import ProductDetailInput from '~/components/ProductDetailInput'
-import {UlFilter, LiFilter, LinkFilter} from '~/components/ProductGrid'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
@@ -111,6 +110,36 @@ const ProductDetailRightContext = styled.div`
     padding-right: 20px;
   }
 `;
+
+const UlFilter = styled.ul`
+    ${container}
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+`
+
+const LiFilter = styled.li`
+    border-radius: 18px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid var(--color-gray);
+    line-height: 28px;
+    margin-right: 12px;
+    margin-top: 10px;
+
+    &:hover {
+        border: 1px solid var(--color-blue);
+    }
+`
+
+const LinkFilter = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }    
+`
 
 const ProductDetailLeftTitle = styled.div`
     display: none;

@@ -55,6 +55,14 @@ export const moduleSpaceSmall = `
   }
 `
 
+export const headerSpace = `
+  margin-bottom: 30px;
+
+  @media ${breakpoint.mobile} { 
+    margin-bottom: 20px;
+  }
+`;
+
 //export const ciBlue = '#313942'
 //export const ciWhite = '#faf9f8'
 //export const ciGray = '#acaba6'
@@ -151,18 +159,18 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-size: 24px;
+        font-size: 26px;
 
         @media ${breakpoint.desktop} { 
-          font-size: 22px;
+          font-size: 24px;
         }
     
         @media ${breakpoint.tablet} { 
-          font-size: 20px;
+          font-size: 22px;
         }
     
         @media ${breakpoint.mobile} { 
-          font-size: 18px;
+          font-size: 20px;
         }
       }
 

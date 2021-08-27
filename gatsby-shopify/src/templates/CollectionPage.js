@@ -9,6 +9,8 @@ import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { CollectionCount} from '~/components/Menu'
 
+// COLLECTION
+
 const Collection = styled.section`
   display: flex;
   flex-direction: column;
@@ -18,11 +20,82 @@ const CollectionItem = styled.div`
   ${moduleSpace};
 `
 
-const ProductContainer = styled.div`
+
+// COLLECTION CONTEXT
+
+const CollectionContext = styled.div`
   ${container}
 `
 
-const Product = styled.ul`
+const CollectionContextInner = styled.div`
+  max-width: 70%;
+
+  @media ${breakpoint.tablet} {
+    max-width: 100%;
+  }
+`
+
+const CollectionTitle = styled.h2`
+    margin-bottom: 10px;
+`
+
+const CollectionText = styled.div`
+  p {
+    margin-top: 10px;
+    width: 70%;
+  
+    @media ${breakpoint.desktop} {
+      margin-top: 5px;
+      width: 65%;
+    }
+    
+    @media ${breakpoint.tablet} {
+      margin-top: 0px;
+      width: 100%;
+    }
+  }
+`
+
+
+// COLLECTION FILTER
+
+const CollectionFilterList = styled.ul`
+    ${container}
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+`
+
+const CollectionFilterItem = styled.li`
+    border-radius: 18px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid var(--color-gray);
+    line-height: 28px;
+    margin-right: 12px;
+    margin-top: 10px;
+
+    &:hover {
+        border: 1px solid var(--color-blue);
+    }
+`
+
+const CollectionFilterLink = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }
+`
+
+
+// COLLECTION GRID
+
+const CollectionGrid = styled.div`
+  ${container}
+`
+
+const CollectionGridList = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
@@ -48,7 +121,7 @@ const Product = styled.ul`
   } 
 `
 
-const ProductItem = styled.li`
+const CollectionGridListItem = styled.li`
   margin-top: 20px;
 
   a:hover {
@@ -76,7 +149,13 @@ const ProductItem = styled.li`
   }
 `
 
-const ProductImage = styled.div`
+const CollectionGridLink = styled(Link)`
+  &:hover {
+      text-decoration: none;
+  }
+`
+
+const CollectionGridImage = styled.div`
   position: relative;
 
   > * {
@@ -95,48 +174,15 @@ const ProductImage = styled.div`
   }
 `
 
-const Context = styled.div`
-  ${container}
-`
-
-const ContextWrapper = styled.div`
-  max-width: 70%;
-
-  @media ${breakpoint.tablet} {
-    max-width: 100%;
-  }
-`
-
-const Text = styled.div`
-  p {
-    margin-top: 10px;
-    width: 70%;
-  
-    @media ${breakpoint.desktop} {
-      margin-top: 5px;
-      width: 65%;
-    }
-    
-    @media ${breakpoint.tablet} {
-      margin-top: 0px;
-      width: 100%;
-    }
-  }
-`
-
-const H3 = styled.h3`
+const CollectionGridTitle = styled.h3`
   margin-top: 5px;
 `
 
-const H2 = styled.h2`
-    margin-bottom: 10px;
-`
-
-const SpanPrice = styled.small`
+const CollectionGridPrice = styled.small`
   display: block;
 `
 
-const SpanSold = styled.small`
+const CollectionGridSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
   display: inline-block;
@@ -144,40 +190,8 @@ const SpanSold = styled.small`
   background-color: var(--color-orange); 
   font-weight: 400;
 `
-const UlFilter = styled.ul`
-    ${container}
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-`
 
-const LiFilter = styled.li`
-    border-radius: 18px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid var(--color-gray);
-    line-height: 28px;
-    margin-right: 12px;
-    margin-top: 10px;
 
-    &:hover {
-        border: 1px solid var(--color-blue);
-    }
-`
-
-const LinkItem = styled(Link)`
-    &:hover {
-        text-decoration: none;
-    }
-`
-
-const LinkFilter = styled(Link)`
-    &:hover {
-        text-decoration: none;
-    }
-`
 
 export const query = graphql`
     query {
@@ -217,19 +231,35 @@ const CollectionPage = ({pageContext, data}) => {
     <Seo title={pageContext.title} description={pageContext.descriptionHtml} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
+
+    {/* COLLECTION */}
+
     <Collection>
         <CollectionItem>
-            <Context>
-                <ContextWrapper>
-                    <H2>{pageContext.title} <CollectionCount>{pageContext.products.length}</CollectionCount></H2>
-                    <Text
-                    dangerouslySetInnerHTML={{ __html: pageContext.descriptionHtml }}>
-                    </Text>
-                </ContextWrapper>
-            </Context>
-            <UlFilter>{data.allShopifyCollection.nodes.filter(node => node.title !== pageContext.title).map(node => <LiFilter key={node.handle}><LinkFilter to={`/collection/${node.handle}`}>{node.title}</LinkFilter></LiFilter>)}</UlFilter>
-            <ProductContainer>
-                <Product>
+
+            {/* COLLECTION CONTEXT */}
+
+            <CollectionContext>
+                <CollectionContextInner>
+
+                    <CollectionTitle>{pageContext.title} <CollectionCount>{pageContext.products.length}</CollectionCount></CollectionTitle>
+                    <CollectionText dangerouslySetInnerHTML={{ __html: pageContext.descriptionHtml }}></CollectionText>
+                    
+                </CollectionContextInner>
+            </CollectionContext>
+
+            {/* COLLECTION FILTER */}
+
+            <CollectionFilterList>{data.allShopifyCollection.nodes.filter(node => node.title !== pageContext.title).map(node => 
+              <CollectionFilterItem key={node.handle}>
+                <CollectionFilterLink to={`/collection/${node.handle}`}>{node.title}</CollectionFilterLink>
+              </CollectionFilterItem>)}
+            </CollectionFilterList>
+            
+            {/* COLLECTION GRID */}
+
+            <CollectionGrid>
+                <CollectionGridList>
                     {pageContext.products ? (
                         pageContext.products.map(
                         ({
@@ -241,29 +271,35 @@ const CollectionPage = ({pageContext, data}) => {
                             },
                         ) => {
                             return (
-                            <ProductItem key={id}>
-                                <LinkItem to={`/product/${handle}/`}>
-                                <ProductImage>
+                            <CollectionGridListItem key={id}>
+
+                                 {/* COLLECTION GRID ITEM */}
+                                <CollectionGridLink to={`/product/${handle}/`}>
+                                
+                                <CollectionGridImage>
                                     {images.map((image, index) => {
                                     const pluginImage = getImage(image.localFile)
                                     return image.localFile && index <= 1 &&(
                                         <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
                                     )
                                     })}
-                                </ProductImage>
-                                <H3>{title}</H3>
-                                </LinkItem>
-                                <SpanPrice>{getPrice(firstVariant.price)}</SpanPrice>
-                                {firstVariant.availableForSale ? '' : <SpanSold>will be back soon</SpanSold>}
-                            </ProductItem>
+                                </CollectionGridImage>
+
+                                <CollectionGridTitle>{title}</CollectionGridTitle>
+
+                                </CollectionGridLink>
+                                <CollectionGridPrice>{getPrice(firstVariant.price)}</CollectionGridPrice>
+                                {firstVariant.availableForSale ? '' : <CollectionGridSold>will be back soon</CollectionGridSold>}
+                            </CollectionGridListItem>
                             )
                         }
                         )
                     ) : (
                         <p>No Products found!</p>
                     )}
-                </Product>
-            </ProductContainer>
+                </CollectionGridList>
+
+            </CollectionGrid>
         </CollectionItem>
     </Collection>
     </>
