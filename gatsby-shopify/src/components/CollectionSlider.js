@@ -78,7 +78,7 @@ const CollectionSliderText = styled.p`
 
 
 
-{/* COLLECTION SLIDER */}
+/* COLLECTION SLIDER */
 
 const CollectionSlider = () => {
   const sliderRef = useRef(null);

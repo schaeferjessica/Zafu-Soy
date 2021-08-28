@@ -194,7 +194,7 @@ const useQuantity = () => {
 }
 
 
-{/* NAVIGATION */}
+/* NAVIGATION */
 
 const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
   const [hasItems, quantity] = useQuantity()

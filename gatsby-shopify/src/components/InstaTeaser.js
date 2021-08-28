@@ -78,7 +78,7 @@ const InstaTeaserText = styled.div`
 `
 
 
-{/* INSTA TEASER */}
+/* INSTA TEASER */
 
 const InstaTeaser = () => {
   const gliderRef = useRef(null);

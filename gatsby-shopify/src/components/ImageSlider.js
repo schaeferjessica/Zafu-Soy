@@ -43,7 +43,7 @@ const LightboxButton = styled.div`
 `
 
 
-{/* IMAGE SLIDER */}
+/* IMAGE SLIDER */
 
 const ImageSlider = ({images}) => {
   const gliderRef = useRef(null);

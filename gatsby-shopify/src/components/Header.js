@@ -113,7 +113,7 @@ const HeaderText = styled.p`
 `
 
 
-{/* HEADER IFRAME */}
+/* HEADER IFRAME */
 
 const HeaderIframe = styled.div`
     position: absolute;
@@ -146,7 +146,7 @@ const HeaderVideo = styled.video`
 `
 
 
-{/* HEADER */}
+/* HEADER */
 
 const Header = () => {  
     const jumpTo = (hash) => {
