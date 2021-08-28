@@ -41,7 +41,7 @@ const HeaderContextLeft = styled.div`
 
 const HeaderDiscoverButton = styled.button`
     position: absolute;
-    right: 20px;
+    right: 10px;
     bottom: 50px;
     transform: rotate(90deg);
     font-size: 12px;
@@ -53,8 +53,7 @@ const HeaderDiscoverButton = styled.button`
     padding-right: 10px;
     border: 1px solid var(--color-gray);
     color: var(--color-white);
-    font-family: 'IBM Plex Sans';
-    font-weight: 500;
+    font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,8 +101,7 @@ const HeaderContextRight = styled.div`
 `
 
 const HeaderTitle = styled.h1`
-    font-family: 'IBM Plex Sans';
-    font-weight: 400;
+    font-weight: 300;
     margin-top: 10px;
     letter-spacing: 1px;
     color: var(--color-white);
@@ -113,8 +111,6 @@ const HeaderTitle = styled.h1`
 const HeaderText = styled.p`
     margin-bottom: 0;
     color: var(--color-white);
-    font-family: 'IBM Plex Sans';
-    font-weight: 400;
     cursor: pointer;
 `
 

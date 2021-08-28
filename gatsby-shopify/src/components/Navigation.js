@@ -25,19 +25,21 @@ const NavigationContainer = styled.div`
       fill: ${ciWhite};
     }
 
-    .logo-text {
+    .navigation__span {
       display: none;
     }
 
-    .cart-button,
-    .cart-text,
-    .logo-text,
-    .cart__counter {
+    .navigation__span,
+    .navigation__cart-button,
+    .navigation__cart-span,
+    .navigation__cart-counter {
       color: ${ciWhite};
+      font-weight: 400;
     }
     
-    .cart__counter {
+    .navigation__cart-counter {
       border-color: ${ciWhite};
+      font-family: 'IBM Plex Sans';
 
       &:hover {
         border-color: ${ciWhite};
@@ -57,18 +59,19 @@ const NavigationContainer = styled.div`
       fill: ${ciBlue};
     }
 
-    .cart-button,
-    .cart-text,
-    .logo-text,
-    .cart__counter {
+    .navigation__span,
+    .navigation__cart-button,
+    .navigation__cart-span,
+    .navigation__cart-counter {
       color: ${ciBlue};
+      font-weight: 300;
     }
 
-    .logo-text {
+    .navigation-span {
       display: block;
     }
     
-    .cart__counter {
+    .navigation__cart-counter {
       border-color: ${ciGray};
 
       &:hover {
@@ -80,7 +83,7 @@ const NavigationContainer = styled.div`
   &.content--is-blue {
     background-color: ${ciWhite};
 
-    .logo-text {
+    .navigation__span {
       display: block;
     }
   }
@@ -93,7 +96,7 @@ const NavigationInner = styled.div`
   ${container}
   align-items: center;
   padding-top: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   display: grid;
   align-items: center;
   justify-items: start;
@@ -110,17 +113,16 @@ const NavigationInner = styled.div`
 
   @media ${breakpoint.mobile} { 
     padding-top: 10px;
-    padding-bottom: 5x;
+    padding-bottom: 10px;
   }
 `
 
-const SpanText = styled.span`
-  font-family: 'IBM Plex Sans';
+const NavigationSpan = styled.span`
+  font-size: 17px;
   color: var(--color-blue);
-  font-weight: 400;
 
-  @media ${breakpoint.tablet} { 
-    display: none;
+  @media ${breakpoint.mobile} { 
+    font-size: 16px;
   }
 `
 
@@ -149,18 +151,25 @@ const NavigationLinkCenter = styled(Link)`
 // NAVIGATION BUTTON RIGHT
 
 const NavigationButtonRight = styled.button`
+  font-size: 17px;
   padding-left: 15px;
   grid-column: 4 / 4;
   grid-row: 1 / 1;
   justify-self: end;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 16px;
+  }
 `
 
-const CartText = styled.span`
+
+// NAVIGATION CARD
+
+const NavigationCartText = styled.span`
   padding-left: 15px;
-  font-weight: 400;
 `
 
-const CartCounter = styled.span`
+const NavigationCartCounter = styled.span`
   border: 1px solid var(--color-gray);
   color: var(--color-blue);
   border-radius: 50%;
@@ -170,9 +179,6 @@ const CartCounter = styled.span`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  font-size: 14px;
-  font-weight: 400;
 
   &:hover {
     border: 1px solid var(--color-blue);
@@ -224,18 +230,18 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
 
         {/* NAVIGATION LINK LEFT*/}
         <NavigationLinkLeft to="/">
-          <SpanText className="logo-text">ya yo i</SpanText>
+          <NavigationSpan className="navigation__span">ya yo i</NavigationSpan>
         </NavigationLinkLeft>
 
         {/* NAVIGATION LINK CENTER*/}
         <NavigationLinkCenter to="/collection/frontpage">
-          <SpanText className="logo-text">shop</SpanText>
+          <NavigationSpan className="navigation__span">shop</NavigationSpan>
         </NavigationLinkCenter>
 
         {/* NAVIGATION BUTTON RIGHT*/}
-        <NavigationButtonRight onClick={() => onOrderButtonClick()} className="cart-button">
-          <CartText className="cart-text">your order</CartText>
-          {hasItems ? <CartCounter className="cart__counter">{quantity}</CartCounter> : <CartCounter className="cart__counter">0</CartCounter>}
+        <NavigationButtonRight onClick={() => onOrderButtonClick()} className="navigation__cart-button">
+          <NavigationCartText className="navigation__cart-span">your order</NavigationCartText>
+          {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter-span">0</NavigationCartCounter>}
         </NavigationButtonRight>
 
       </NavigationInner>

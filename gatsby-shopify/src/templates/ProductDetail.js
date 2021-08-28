@@ -102,6 +102,7 @@ const ProductDetailRightContext = styled.div`
   position: relative;
   top: 50%;
   width: 80%;
+  padding-left: 40px;
 
   @media ${breakpoint.tablet} {
     position: static;
@@ -212,7 +213,7 @@ const DiscoverButton = styled.button`
     bottom: 100px;
     border: 1px solid var(--color-white);
     color: var(--color-white);
-    font-weight: 500;
+    font-weight: 400;
 
     &:hover {
         border: 1px solid var(--color-gray);

@@ -60,7 +60,7 @@ const ImageSlider = ({images}) => {
         <Glide
           ref={gliderRef}
           type="slider"
-          perView={2}
+          perView={1}
           breakpoints={{
             1200: {
               perView: 1,
@@ -83,7 +83,7 @@ const ImageSlider = ({images}) => {
           bound={true}
           peek={{
             before: 0,
-            after: 200,
+            after: 300,
           }}
           slideClassName="slider__frame"
         >

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
 
+
 const device = {
   mobile: 768,
   tablet: 1200,
@@ -43,7 +44,7 @@ export const moduleSpace = `
   }
 
   @media ${breakpoint.mobile} { 
-    margin-top: 60px;
+    margin-top: 80px;
   }
 `;
 
@@ -108,12 +109,15 @@ export const GlobalStyle = props => (
 
       html {
         font-weight: 300;
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        
+        @media ${breakpoint.mobile} { 
+          font-size: 15px;
+        }
       }
 
       b,
@@ -122,17 +126,18 @@ export const GlobalStyle = props => (
       }
 
       small {
-        font-size: 14px;
+        font-size: 15px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 13px;
+          font-size: 14px;
         }
       }
 
       h1,
-      h2 {
+      h2,
+      h3 {
         font-family: 'IBM Plex Serif';
-        font-weight: 300;
+        font-weight: 200;
         margin: 0px;
         padding: 0px;
         color: var(--color-blue);
@@ -168,10 +173,7 @@ export const GlobalStyle = props => (
 
 
       h3 {
-        font-family: 'IBM Plex Sans';
         font-size: 20px;
-        font-weight: 300;
-        margin: 0px;
     
         @media ${breakpoint.mobile} { 
           font-size: 18px;
@@ -208,10 +210,10 @@ export const GlobalStyle = props => (
       input {
         font-family: 'IBM Plex Sans';
         font-weight: 300;
-        font-size: 15px;
+        font-size: 16px;
     
-        @media ${breakpoint.tablet} { 
-          font-size: 14px;
+        @media ${breakpoint.mobile} { 
+          font-size: 15px;
         }
       }
 

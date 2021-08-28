@@ -118,6 +118,7 @@ const CollectionGridList = styled.ul`
   @media ${breakpoint.mobile} {
     grid-column-gap: 1rem;
     grid-row-gap: 1.5rem;
+    grid-template-columns: 1fr;
   } 
 `
 
