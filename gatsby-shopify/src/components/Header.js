@@ -101,9 +101,7 @@ const HeaderContextRight = styled.div`
 `
 
 const HeaderTitle = styled.h1`
-    font-weight: 300;
     margin-top: 10px;
-    letter-spacing: 1px;
     color: var(--color-white);
     cursor: pointer;
 `

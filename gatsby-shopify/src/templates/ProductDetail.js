@@ -168,14 +168,12 @@ const H1 = styled.h1`
 
   @media ${breakpoint.tablet} {
     color: var(--color-white);
-    font-weight: 400;
   }
 `;
 
 const Price = styled.span`
   @media ${breakpoint.tablet} {
     color: var(--color-white);
-    font-weight: 400;
   }
 `;
 
@@ -213,7 +211,6 @@ const DiscoverButton = styled.button`
     bottom: 100px;
     border: 1px solid var(--color-white);
     color: var(--color-white);
-    font-weight: 400;
 
     &:hover {
         border: 1px solid var(--color-gray);

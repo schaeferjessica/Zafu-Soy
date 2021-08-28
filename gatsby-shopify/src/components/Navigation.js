@@ -152,7 +152,10 @@ const NavigationLinkCenter = styled(Link)`
 
 const NavigationButtonRight = styled.button`
   font-size: 17px;
-  padding-left: 15px;
+  padding-left: 40px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   grid-column: 4 / 4;
   grid-row: 1 / 1;
   justify-self: end;
@@ -164,10 +167,6 @@ const NavigationButtonRight = styled.button`
 
 
 // NAVIGATION CARD
-
-const NavigationCartText = styled.span`
-  padding-left: 15px;
-`
 
 const NavigationCartCounter = styled.small`
   border: 1px solid var(--color-gray);
@@ -240,7 +239,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
 
         {/* NAVIGATION BUTTON RIGHT*/}
         <NavigationButtonRight onClick={() => onOrderButtonClick()} className="navigation__cart-button">
-          <NavigationCartText className="navigation__cart-span">your order</NavigationCartText>
+          <span className="navigation__cart-span">your order</span>
           {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter-span">0</NavigationCartCounter>}
         </NavigationButtonRight>
 

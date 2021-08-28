@@ -150,12 +150,8 @@ export const GlobalStyle = props => (
           font-size: 28px;
         }
     
-        @media ${breakpoint.tablet} { 
-          font-size: 26px;
-        }
-    
         @media ${breakpoint.mobile} { 
-          font-size: 24px;
+          font-size: 26px;
         }
       }
 
