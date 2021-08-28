@@ -136,14 +136,14 @@ export const GlobalStyle = props => (
       h1,
       h2,
       h3 {
-        font-family: 'IBM Plex Serif';
-        font-weight: 200;
+        font-weight: 300;
         margin: 0px;
         padding: 0px;
         color: var(--color-blue);
       }
 
       h1 {
+        font-family: 'IBM Plex Sans';
         font-size: 32px;
 
         @media ${breakpoint.desktop} { 
@@ -160,6 +160,7 @@ export const GlobalStyle = props => (
       }
 
       h2 {
+        font-family: 'IBM Plex Serif';
         font-size: 26px;
 
         @media ${breakpoint.desktop} { 
@@ -173,6 +174,7 @@ export const GlobalStyle = props => (
 
 
       h3 {
+        font-family: 'IBM Plex Serif';
         font-size: 20px;
     
         @media ${breakpoint.mobile} { 

@@ -169,7 +169,7 @@ const NavigationCartText = styled.span`
   padding-left: 15px;
 `
 
-const NavigationCartCounter = styled.span`
+const NavigationCartCounter = styled.small`
   border: 1px solid var(--color-gray);
   color: var(--color-blue);
   border-radius: 50%;
