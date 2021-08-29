@@ -160,8 +160,8 @@ const LegaPage = (data) => {
       });
     };
   }, []);
-  console.log('data :>> ', data);
-  return <Legal>
+
+return <Legal>
     <Seo title={data.pageContext.slug} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
