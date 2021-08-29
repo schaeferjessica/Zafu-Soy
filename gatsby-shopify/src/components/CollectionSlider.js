@@ -107,7 +107,7 @@ const CollectionSlider = () => {
       {/* COLLECTION SLIDER HEADER */}
 
       <CollectionSliderHeader>
-        <h2>{contentfulCollectionSlider.header}</h2>
+        {contentfulCollectionSlider.header}
       </CollectionSliderHeader>
 
       {/* COLLECTION SLIDER INNER */}
@@ -151,13 +151,13 @@ const CollectionSlider = () => {
           }}
           slideClassName="slider__frame"
         >
-          {contentfulCollectionSlider.sliderItems.map(post => {
+          {contentfulCollectionSlider.sliderItems.map((post, index) => {
             const pluginImage = getImage(post.image.gatsbyImageData);
 
             return (
-              <div key={post.id}>
+              <div key={`ccollectionslider-${index}`}>
                 {/* COLLECTION SLIDER LINK */}
-                <CollectionSliderLink href={post.link} rel="noreferrer">
+                <CollectionSliderLink to={post.link} rel="noreferrer">
                   {/* COLLECTION SLIDER IMAGE */}
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
                   {/* COLLECTION SLIDER TITLE */}

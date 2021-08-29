@@ -11,10 +11,11 @@ const IndexPage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    const body = document.querySelector('body');
     if (isOpen) {
-      document.querySelector('body').classList.add('prevent-scroll--overlay');
+      body.classList.add('prevent-scroll--overlay');
     } else {
-      document.querySelector('body').classList.remove('prevent-scroll--overlay');
+      body.classList.remove('prevent-scroll--overlay');
     }
   }, [isOpen]);
 
