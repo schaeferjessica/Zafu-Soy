@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
 import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
 import { navigate } from 'gatsby'
-import { closest } from '../utils/dom';
 
 const StyledCheckout = styled.div`
   transform: translateX(100%);
@@ -151,25 +150,9 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
     navigate(`/collection/frontpage`);
   }
 
-  const handleWindowClick = (event) => {
-    if(isOpen){
-      const isInsideCheckout = closest(event.target, '.checkout, .cart-button', true);
-      if(!isInsideCheckout){
-        handleCheckoutClose();
-      }
-    }
-  }
-
   const lineItems = checkout.lineItems.map(item => (
     <ProductList key={item.id.toString()} item={item} />
   ))
-
-  useEffect(() => {
-    window.addEventListener('click', handleWindowClick);
-    return () => {
-      window.removeEventListener('click', handleWindowClick);
-    }
-  },)
 
   return (
     <StyledCheckout className={`checkout ${isOpen ? 'is-active' : ''}`}>
