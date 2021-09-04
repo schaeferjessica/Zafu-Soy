@@ -175,7 +175,7 @@ const Header = () => {
 
                 <HeaderContextRight onClick={() => jumpTo('#headermarker')}>
                     <HeaderText><strong>asian homewares</strong></HeaderText>
-                    <HeaderTitle>yayoi.shop (jaːjoˈi)</HeaderTitle>
+                    <HeaderTitle>yayoi.shop</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>
 

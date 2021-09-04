@@ -48,7 +48,7 @@ const CollectionSliderInner = styled.div`
   }
 
   .Glide-rightArrow  {
-    right: 8%;
+    right: 3%;
   }
 
   .glide__slides {
@@ -62,7 +62,7 @@ const CollectionSliderInner = styled.div`
 `
 
 const CollectionSliderTitle = styled.h3`
-  margin-top: 5px;
+  margin-top: 20px;
 `
 
 const CollectionSliderLink = styled(Link)`

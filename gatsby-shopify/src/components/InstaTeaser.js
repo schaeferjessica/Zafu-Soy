@@ -48,12 +48,16 @@ const InstaTeaserInner = styled.div`
     }
   }
 
+  .glide__slides {
+    margin-top: 0px;
+  }
+
   .Glide-leftArrow  {
     left: 1%;
   }
 
   .Glide-rightArrow  {
-    right: 8%;
+    right: 3%;
   }
 
   a:hover h3 {
@@ -74,7 +78,7 @@ const InstaTeaserTitle = styled.h3`
 // INSTA TEASER TEXT
 
 const InstaTeaserText = styled.div`
-  margin-top: 20px;
+  margin-top: 5px;
 `
 
 

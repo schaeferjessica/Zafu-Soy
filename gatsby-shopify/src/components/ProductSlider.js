@@ -25,7 +25,7 @@ const ProductSliderContainer = styled.div`
   }
 
   .Glide-rightArrow  {
-    right: 8%;
+    right: 3%;
   }
 
   .glide__slides {
