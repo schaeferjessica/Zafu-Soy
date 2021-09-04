@@ -108,7 +108,7 @@ export const GlobalStyle = props => (
       }
 
       html {
-        font-weight: 300;
+        font-weight: 200;
         font-size: 16px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',

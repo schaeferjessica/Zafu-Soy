@@ -66,7 +66,7 @@ const ProductImageButton = styled.button`
   display: block;
 
   @media ${breakpoint.tablet} {
-    height: 65vh;
+    height: 100vh;
   }
   
   .gatsby-image-wrapper {
@@ -148,7 +148,7 @@ const ProductDetailLeftTitle = styled.div`
     @media ${breakpoint.tablet} {
     display: block;
     position: absolute;
-    bottom: 40px;
+    bottom: 150px;
     left: 20px;
     width: 65%;
   }
@@ -208,7 +208,7 @@ const DiscoverButton = styled.button`
 
   @media ${breakpoint.tablet} {
     right: -30px;
-    bottom: 100px;
+    bottom: 250px;
     border: 1px solid var(--color-white);
     color: var(--color-white);
 

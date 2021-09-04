@@ -18,7 +18,7 @@ const HeaderTop = styled.div`
     align-items: end;
     justify-items: start;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
     @media ${breakpoint.tablet} {
@@ -174,7 +174,7 @@ const Header = () => {
                 {/* HEADER CONTEXT RIGHT */}
 
                 <HeaderContextRight onClick={() => jumpTo('#collections')}>
-                    <HeaderText>asian homewares</HeaderText>
+                    <HeaderText><strong>asian homewares</strong></HeaderText>
                     <HeaderTitle>yayoi.shop (jaːjoˈi)</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>

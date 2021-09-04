@@ -16,10 +16,6 @@ const Button = styled.button`
     cursor: pointer;
     margin-top: 20px;
 
-    @media ${breakpoint.mobile} { 
-      margin-top: 15px;
-    }
-
     &:hover {
       border: 1px solid var(--color-blue);
     }
