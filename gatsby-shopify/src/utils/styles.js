@@ -147,7 +147,7 @@ export const GlobalStyle = props => (
         font-size: 70px;
 
         @media ${breakpoint.tablet} { 
-          font-size: 42px;
+          font-size: 32px;
         }
       }
 

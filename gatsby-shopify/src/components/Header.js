@@ -60,7 +60,7 @@ const HeaderDiscoverButton = styled.button`
 
     @media ${breakpoint.tablet} {
         right: -30px;
-        bottom: 200px;
+        bottom: 250px;
       }
 
     &:hover {
