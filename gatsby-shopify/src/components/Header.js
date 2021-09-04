@@ -164,7 +164,7 @@ const Header = () => {
                 {/* HEADER CONTEXT LEFT */}
                 
                 <HeaderContextLeft>
-                    <HeaderDiscoverButton onClick={() => jumpTo('#collections')}><small>Discover more</small>
+                    <HeaderDiscoverButton onClick={() => jumpTo('#headermarker')}><small>Discover more</small>
                         <HeaderArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
                             <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
                         </HeaderArrowSvg>
@@ -173,7 +173,7 @@ const Header = () => {
 
                 {/* HEADER CONTEXT RIGHT */}
 
-                <HeaderContextRight onClick={() => jumpTo('#collections')}>
+                <HeaderContextRight onClick={() => jumpTo('#headermarker')}>
                     <HeaderText><strong>asian homewares</strong></HeaderText>
                     <HeaderTitle>yayoi.shop (jaːjoˈi)</HeaderTitle>
                 </HeaderContextRight>
@@ -186,7 +186,6 @@ const Header = () => {
                     <source src="/videos/japan1940.mp4#t=115,275" type="video/mp4" />
                 </HeaderVideo>
             </HeaderIframe>
-
         </HeaderComponent>
     )
   }

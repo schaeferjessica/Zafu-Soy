@@ -73,7 +73,6 @@ const CollectionSliderLink = styled(Link)`
 
 const CollectionSliderText = styled.p`
   margin-top: 5px;
-  color: var(--color-gray);
 `
 
 

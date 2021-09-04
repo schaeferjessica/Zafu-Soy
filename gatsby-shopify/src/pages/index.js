@@ -25,6 +25,7 @@ const IndexPage = () => {
     <Navigation isWhite={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
     <Header />
+    <div id="headermarker"></div>
     <TextTeaser />
     <CollectionSlider />
     <InstaTeaser />

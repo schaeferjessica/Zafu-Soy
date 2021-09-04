@@ -240,7 +240,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
         {/* NAVIGATION BUTTON RIGHT*/}
         <NavigationButtonRight onClick={() => onOrderButtonClick()} className="navigation__cart-button">
           <span className="navigation__cart-span">your order</span>
-          {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter-span">0</NavigationCartCounter>}
+          {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter">0</NavigationCartCounter>}
         </NavigationButtonRight>
 
       </NavigationInner>
