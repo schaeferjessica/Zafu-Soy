@@ -144,7 +144,7 @@ export const GlobalStyle = props => (
       h1 {
         font-weight: 300;
         font-family: 'IBM Plex Sans';
-        font-size: 70px;
+        font-size: 57px;
 
         @media ${breakpoint.tablet} { 
           font-size: 32px;

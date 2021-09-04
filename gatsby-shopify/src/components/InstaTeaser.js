@@ -60,10 +60,6 @@ const InstaTeaserInner = styled.div`
     right: 3%;
   }
 
-  a:hover h3 {
-    text-decoration: underline;
-  }
-
   a:hover {
     text-decoration: none;
   }
