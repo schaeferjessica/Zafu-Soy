@@ -58,13 +58,9 @@ const StyledBackgroundSection = styled(BackgroundImage)`
   height: 100%;
   background-attachment: fixed;
 
-  @media not all and (min-resolution: 0.001dpcm) {
-      @media not all {
-        @media ${breakpoint.mobile} {
-          background-attachment: unset;
-        }
-      }
-    }
+  @media ${breakpoint.mobile} {
+    background-attachment: unset;
+  }
 `
 
 // PRODUCT DETAIL BUTTON
