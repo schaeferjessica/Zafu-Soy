@@ -71,12 +71,6 @@ const ProductSliderItem = styled.div`
   }
 `
 
-const ProductSliderLink = styled(Link)`
-  &:hover {
-    text-decoration: none;
-  }    
-`
-
 const ProductSliderImage = styled.div`
   position: relative;
 
@@ -96,8 +90,10 @@ const ProductSliderImage = styled.div`
   }
 `
 
+// PRODUCT SLIDER TITLE
+
 const ProductSliderTitle = styled.h3`
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 0px;
 `
 
@@ -187,7 +183,7 @@ const ProductSlider = ({products}) => {
 
                   {/* PRODUCT SLIDER ITEM*/}
 
-                    <ProductSliderLink to={`/product/${handle}/`}>
+                    <Link to={`/product/${handle}/`}>
 
                       <ProductSliderImage>
                         {images.map((image, index) => {
@@ -198,8 +194,15 @@ const ProductSlider = ({products}) => {
                         })}
                       </ProductSliderImage>
 
-                      <ProductSliderTitle>{title}</ProductSliderTitle>
-                    </ProductSliderLink>
+                    </Link>
+
+                    {/* PRODUCT SLIDER TITLE */}
+
+                    <ProductSliderTitle>
+                      <Link to={`/product/${handle}/`} className="link-hover">
+                        <span>{title}</span>
+                      </Link>
+                    </ProductSliderTitle>
 
                     {/* PRODUCT SLIDER PRICE*/}
 

@@ -150,12 +150,6 @@ const CollectionGridListItem = styled.li`
   }
 `
 
-const CollectionGridLink = styled(Link)`
-  &:hover {
-      text-decoration: none;
-  }
-`
-
 const CollectionGridImage = styled.div`
   position: relative;
 
@@ -175,8 +169,10 @@ const CollectionGridImage = styled.div`
   }
 `
 
+// COLLECTION GRID TITLE
+
 const CollectionGridTitle = styled.h3`
-  margin-top: 5px;
+  margin-top: 10px;
 `
 
 const CollectionGridPrice = styled.small`
@@ -274,21 +270,25 @@ const CollectionPage = ({pageContext, data}) => {
                             return (
                             <CollectionGridListItem key={id}>
 
-                                 {/* COLLECTION GRID ITEM */}
-                                <CollectionGridLink to={`/product/${handle}/`}>
-                                
-                                <CollectionGridImage>
-                                    {images.map((image, index) => {
-                                    const pluginImage = getImage(image.localFile)
-                                    return image.localFile && index <= 1 &&(
-                                        <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
-                                    )
-                                    })}
-                                </CollectionGridImage>
+                                {/* COLLECTION GRID ITEM */}
+                                <Link to={`/product/${handle}/`}>
+                                  <CollectionGridImage>
+                                      {images.map((image, index) => {
+                                      const pluginImage = getImage(image.localFile)
+                                      return image.localFile && index <= 1 &&(
+                                          <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
+                                      )
+                                      })}
+                                  </CollectionGridImage>
+                                </Link>
 
-                                <CollectionGridTitle>{title}</CollectionGridTitle>
+                                {/* COLLECTION GRID TITLE */}
+                                <CollectionGridTitle>
+                                  <Link to={`/product/${handle}/`} className="link-hover">
+                                    <span>{title}</span>
+                                  </Link>
+                                </CollectionGridTitle>
 
-                                </CollectionGridLink>
                                 <CollectionGridPrice>{getPrice(firstVariant.price)}</CollectionGridPrice>
                                 {firstVariant.availableForSale ? '' : <CollectionGridSold>will be back soon</CollectionGridSold>}
                             </CollectionGridListItem>
