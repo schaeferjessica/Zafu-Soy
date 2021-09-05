@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
 import styled from '@emotion/styled/macro'
-import { breakpoint } from '../utils/styles'
+import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { navigate } from 'gatsby'
 
-const StyledCheckout = styled.div`
+// CHECKOUT COMPONENT
+
+const CheckoutComponent = styled.div`
   transform: translateX(100%);
   transition: transform 300ms ease-in-out;
   position: fixed;
@@ -34,8 +36,13 @@ const StyledCheckout = styled.div`
   }
 `;
 
+
+// CHECKOUT INNER
+
 const CheckoutInner = styled.div`
-  padding: 20px;
+  ${container}
+  ${moduleSpace}
+
   display: flex;
   flex-direction: column;
 `
@@ -64,7 +71,9 @@ const CheckoutButton = styled.button`
     }
 `
 
-const Span = styled.span`
+// CHECKOUT PRICE
+
+const CheckoutPrice = styled.span`
   position: relative;
   display: inline-block;
   transition: transform .3s;
@@ -79,40 +88,44 @@ const Span = styled.span`
   }
 `
 
-const SpanShipping = styled(Span)`  
+
+// CHECKOUT SHIPPING
+
+const CheckoutShipping = styled.span`  
   display: block;
   font-size: 14px;
   margin-top: 5px;
 `
 
-const LinkShop = styled.button`
+// CHECKOUT LINK
+
+const CheckoutLink = styled.button`
   display: block;
   margin-top: 15px;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-  text-decoration-color: var(--color-gray);
-  padding: 0px;
   align-self: flex-start;
-  padding-bottom: 2px;
-
-  &:hover {
-    text-decoration-color: var(--color-blue);
-  }
 `
 
-const Title = styled.h2`
+// CHECKOUT TITLE
+
+const CheckoutTitle = styled.h2`
   margin-top: 25%;
   margin-bottom: 5%;
 `
-const Ul = styled.ul`
+
+
+// CHECKOUT LIST 
+
+const CheckoutList = styled.ul`
   padding: 0;
   height: calc(100vh - 220px);
   position: relative;
   overflow: auto;
 `
 
-export const ButtonClose = styled.button` 
+
+// CHECKOUT CLOSE
+
+export const CheckoutClose = styled.button` 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,9 +168,13 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
   ))
 
   return (
-    <StyledCheckout className={`checkout ${isOpen ? 'is-active' : ''}`}>
+    <CheckoutComponent className={`checkout ${isOpen ? 'is-active' : ''}`}>
+      
+      {/* CHECKOUT INNER */}
       <CheckoutInner>
-        <ButtonClose onClick={() => handleCheckoutClose()}>
+
+        {/* CHECKOUT CLOSE */}
+        <CheckoutClose onClick={() => handleCheckoutClose()}>
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" 
@@ -167,25 +184,36 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
           </svg>
           <span className="sr-only">close</span>
-        </ButtonClose>
+        </CheckoutClose>
         {lineItems.length ? <>
         <h2>Your Order</h2>
-        <Ul>
+
+        {/* CHECKOUT LIST */}
+        <CheckoutList>
           {lineItems}
-        </Ul>
+        </CheckoutList>
+
+        {/* CHECKOUT BUTTON */}
         <CheckoutButton 
           onClick={handleCheckout}
           disabled={checkout.lineItems.length === 0}
           >
-          <Span data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</Span>
-          <SpanShipping data-hover={`Free Shipping within 30 - 60 days`}>Free Shipping within 30 - 60 days</SpanShipping>
+          <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
+          <CheckoutShipping data-hover={`Free Shipping within 30 - 60 days`}>Free Shipping within 30 - 60 days</CheckoutShipping>
         </CheckoutButton>
         </> : <>
-        <Title>Your Order</Title>
+
+        {/* CHECKOUT TITLE */}
+        <CheckoutTitle>Your Order</CheckoutTitle>
+
         <p>Looks like you haven’t added anthing to your order yet.</p>
-        <LinkShop onClick={() => handleBackClick()}>Shop all</LinkShop> </>}
+        
+        {/* CHECKOUT LINK */}
+        <CheckoutLink className="link-hover" onClick={() => handleBackClick()}>
+          <span>Shop all</span>
+        </CheckoutLink> </>}
       </CheckoutInner>
-    </StyledCheckout>
+    </CheckoutComponent>
   )
 }
 

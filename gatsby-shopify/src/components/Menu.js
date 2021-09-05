@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled/macro'
 import { breakpoint } from '../utils/styles'
-import { ButtonClose } from '~/components/Checkout'
+import { CheckoutClose } from '~/components/Checkout'
 
 export const Collection = styled.nav`
   position: absolute;
@@ -79,7 +79,7 @@ const LinkExtern  = styled.a`
   }
 `
 
-const CollectionButtonClose  = styled(ButtonClose)`
+const CollectionCheckoutClose  = styled(CheckoutClose)`
   position: absolute;
   top: 20px;
   right: 20px;
@@ -131,7 +131,7 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
 
       {/* col right */}
       <CollectionLinkContainer>
-       <CollectionButtonClose onClick={() => triggerMenuStatus()}>
+       <CollectionCheckoutClose onClick={() => triggerMenuStatus()}>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="10" 
@@ -139,7 +139,7 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
             viewBox="0 0 24 24">
             <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
           </svg>
-        </CollectionButtonClose>
+        </CollectionCheckoutClose>
         <CollectionLinkList>
           {allShopifyCollection.nodes.map((collection, index) => {
             return <CollectionItem key={collection.id}>
