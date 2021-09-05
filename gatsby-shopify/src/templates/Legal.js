@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link as LinkTo } from 'gatsby'
+import { Link } from 'gatsby'
 import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
@@ -10,6 +10,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Shower from '../utils/shower';
 import { $$ } from '../utils/dom';
 
+// LEGAL
+
 const Legal = styled.div`
   ${container};
   margin-top: 120px;
@@ -18,7 +20,27 @@ const Legal = styled.div`
     margin-top: 100px;
   }
 `
-const TextWrapper = styled.div`
+
+// LEGAL IMAGE
+
+const LegalImage = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    column-gap: 20px;
+
+    @media ${breakpoint.tablet} { 
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media ${breakpoint.mobile} { 
+      grid-template-columns: 1fr 1fr;
+    }
+`
+
+// LEGAL TEXT
+
+const LegalText = styled.div`
   margin-top: 50px;
   width: 70%;
 
@@ -78,57 +100,14 @@ const TextWrapper = styled.div`
   }
 `
 
-const Link = styled(LinkTo)`
-    font-family: 'IBM Plex Sans';
-    border: 1px solid var(--color-gray);
-    padding: 15px 30px;
-    background-color: transparent;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    cursor: pointer;
-    margin-top: 50px;
+// LEGAL LINK
 
-    @media ${breakpoint.mobile} { 
-      margin-top: 30px;
-    }
-
-    &:hover {
-      border: 1px solid var(--color-blue);
-    }
-
-    &:hover span {
-        transform: translateY(-160%);
-    }
+const LegalLink = styled(Link)`
+  margin-top: 50px;
+  display: inline-block;
 `
 
-const Span = styled.span`
-    position: relative;
-    display: inline-block;
-    transition: transform .3s;
 
-    &::before {
-      content: attr(data-hover);
-      position: absolute;
-      top: 160%;
-      transform: translate3d(0, 0, 0);
-    }
-`
-
-const ImageWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    column-gap: 20px;
-
-    @media ${breakpoint.tablet} { 
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    @media ${breakpoint.mobile} { 
-      grid-template-columns: 1fr 1fr;
-    }
-`
 
 const LegaPage = (data) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -165,15 +144,21 @@ return <Legal>
     <Seo title={data.pageContext.slug} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
-    <ImageWrapper>
+
+    {/* LEGAL IMAGE */}
+    <LegalImage>
       {data.pageContext.images ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.gatsbyImageData)} alt={image.title || ''}/>) : ''}
-    </ImageWrapper>
-    <TextWrapper>
+    </LegalImage>
+
+    {/* LEGAL TEXT*/}
+    <LegalText>
      {documentToReactComponents(JSON.parse(data.pageContext.text))}
-    </TextWrapper>
-    <Link to="/">
-      <Span data-hover="take me back">take me back</Span>
-    </Link>
+    </LegalText>
+
+    {/* LEGAL LINK*/}
+    <LegalLink to="/" className="link-hover">
+      <span>Take me Back</span>
+    </LegalLink>
   </Legal>
 }
 
