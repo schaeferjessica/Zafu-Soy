@@ -150,8 +150,8 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
         </CollectionLinkList>
 
         <Link to="/about/">about</Link>
-        <LinkExtern href="https://www.instagram.com/maneki.space/" target="_blank" rel="noopener">Instagram</LinkExtern>
-        <LinkExtern href="https://www.facebook.com/maneki.space" target="_blank" rel="noopener">Facebook</LinkExtern>
+        <LinkExtern href="https://www.instagram.com/maneki.space/" target="_blank" rel="noopener noreferrer">Instagram</LinkExtern>
+        <LinkExtern href="https://www.facebook.com/maneki.space" target="_blank" rel="noopener noreferrer">Facebook</LinkExtern>
       </CollectionLinkContainer>
     </Collection>
   )

@@ -111,7 +111,7 @@ const InstaTeaser = () => {
       {/* INSTA TEASER HEADER */}
 
       <InstaTeaserHeader>
-        <Link to="https://www.instagram.com/yayoi.shop/" target="_blank" className="link-hover">
+        <Link to="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="link-hover">
           <span>{contentfulInstagram.heading}</span>
         </Link>
       </InstaTeaserHeader>
@@ -162,7 +162,7 @@ const InstaTeaser = () => {
 
             return (
               <div key={post.id}>
-                <a href={post.link} target="_blank" rel="noreferrer">
+                <a href={post.link} target="_blank" rel="noopener noreferrer">
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
                   {/* INSTA TEASER TITLE */}
                   <InstaTeaserTitle>{post.image.title}</InstaTeaserTitle>
