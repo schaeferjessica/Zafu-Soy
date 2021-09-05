@@ -60,7 +60,7 @@ const StyledBackgroundSection = styled(BackgroundImage)`
 
   @media not all and (min-resolution: 0.001dpcm) {
       @media not all {
-        @include mq(small) {
+        @media ${breakpoint.mobile} {
           background-attachment: unset;
         }
       }
