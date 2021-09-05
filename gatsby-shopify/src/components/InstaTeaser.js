@@ -42,6 +42,7 @@ const InstaTeaserInner = styled.div`
     padding: 3px;
     color: var(--color-gray);
     background-color: #EEEEEE5C;
+    display: none;
 
     svg {
       width: 40px;

@@ -15,6 +15,7 @@ const ImageSliderContainer = styled.div`
     color: var(--color-gray);
     background-color: #EEEEEE5C;
     top: 45%;
+    display: none;
 
     svg {
       width: 40px;
