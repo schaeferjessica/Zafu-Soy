@@ -57,6 +57,14 @@ const StyledBackgroundSection = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
   background-attachment: fixed;
+
+  @media not all and (min-resolution: 0.001dpcm) {
+      @media not all {
+        @include mq(small) {
+          background-attachment: unset;
+        }
+      }
+    }
 `
 
 // PRODUCT DETAIL BUTTON
