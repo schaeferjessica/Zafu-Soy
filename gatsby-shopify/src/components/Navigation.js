@@ -86,10 +86,6 @@ const NavigationContainer = styled.div`
         border-color: ${ciBlue};
       }
     }
-  }
-
-  &.content--is-blue {
-    background-color: ${ciWhite};
 
     .navigation__link {
       display: block;
@@ -98,6 +94,10 @@ const NavigationContainer = styled.div`
           display: none;
       }
     }
+  }
+
+  &.content--is-blue {
+    background-color: ${ciWhite};
   }
 `
 
