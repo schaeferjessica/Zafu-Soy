@@ -164,11 +164,20 @@ const InstaTeaser = () => {
               <div key={post.id}>
                 <a href={post.link} target="_blank" rel="noopener noreferrer">
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
-                  {/* INSTA TEASER TITLE */}
-                  <InstaTeaserTitle>{post.image.title}</InstaTeaserTitle>
-                  {/* INSTA TEASER TEXT */}
-                  <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText>
                 </a>
+
+                
+                {/* INSTA TEASER TITLE */}
+                <InstaTeaserTitle>
+                  <a href={post.link} className="link-hover" target="_blank" rel="noopener noreferrer">
+                    <span>{post.image.title}</span>
+                  </a>
+                </InstaTeaserTitle>
+                
+
+                {/* INSTA TEASER TEXT */}
+                <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText>
+                
               </div>
             )
           })}

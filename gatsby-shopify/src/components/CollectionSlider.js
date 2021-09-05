@@ -67,12 +67,6 @@ const CollectionSliderTitle = styled.h3`
   margin-top: 20px;
 `
 
-const CollectionSliderLink = styled(Link)`
-  &:hover {
-    text-decoration: none;
-  }
-`
-
 const CollectionSliderText = styled.p`
   margin-top: 5px;
 `
@@ -159,15 +153,23 @@ const CollectionSlider = () => {
 
             return (
               <div key={`ccollectionslider-${index}`}>
-                {/* COLLECTION SLIDER LINK */}
-                <CollectionSliderLink to={post.link} rel="noreferrer">
+                
+                <Link to={post.link} rel="noreferrer">
                   {/* COLLECTION SLIDER IMAGE */}
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
-                  {/* COLLECTION SLIDER TITLE */}
-                  <CollectionSliderTitle>{post.title}</CollectionSliderTitle>
-                  {/* COLLECTION SLIDER TEXT */}
-                  <CollectionSliderText>{post.image.description}</CollectionSliderText>
-                </CollectionSliderLink>
+                </Link>
+
+                
+                {/* COLLECTION SLIDER TITLE */}
+                <CollectionSliderTitle>
+                  <Link to={post.link} className="link-hover" rel="noreferrer">
+                    <span>{post.title}</span>
+                  </Link>
+                </CollectionSliderTitle>
+
+                {/* COLLECTION SLIDER TEXT */}
+                <CollectionSliderText>{post.image.description}</CollectionSliderText>
+                
               </div>
             )
           })}

@@ -17,6 +17,10 @@ const NavigationContainer = styled.div`
   left: 0;
 
   &.header--is-white {
+    .link-hover::after {
+      background-color: ${ciWhite};
+    }
+
     .stroke {
       stroke: ${ciWhite};
     }
@@ -25,7 +29,7 @@ const NavigationContainer = styled.div`
       fill: ${ciWhite};
     }
 
-    .navigation__span {
+    .navigation__link {
       display: none;
     }
 
@@ -50,6 +54,10 @@ const NavigationContainer = styled.div`
   &.header--is-blue,
   &.content--is-blue {
     background-color: ${ciWhite};
+
+    .link-hover::after {
+      background-color: ${ciBlue};
+    }
 
     .stroke {
       stroke: ${ciBlue};
@@ -83,8 +91,12 @@ const NavigationContainer = styled.div`
   &.content--is-blue {
     background-color: ${ciWhite};
 
-    .navigation__span {
+    .navigation__link {
       display: block;
+
+      @media ${breakpoint.mobile} { 
+          display: none;
+      }
     }
   }
 `
@@ -130,39 +142,33 @@ const NavigationSpan = styled.span`
 // NAVIGATION LINK LEFT
 
 const NavigationLinkLeft = styled(Link)`
-  text-decoration: none;
   color: var(--color-blue);
   grid-column: 1 / 4;
   grid-row: 1 / 1;
-  line-height: 0.7;
 `
 
 
 // NAVIGATION LINK CENTER
 
 const NavigationLinkCenter = styled(Link)`
-  text-decoration: none;
   color: var(--color-blue);
   grid-column: 2 / 4;
   grid-row: 1 / 1;
-`
+  `
+
 
 
 // NAVIGATION BUTTON RIGHT
 
-const NavigationButtonRight = styled.button`
-  font-size: 17px;
-  padding-left: 40px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+const NavigationButtonRight = styled.div`
   grid-column: 4 / 4;
   grid-row: 1 / 1;
   justify-self: end;
+`;
 
-  @media ${breakpoint.mobile} { 
-    font-size: 16px;
-  }
+const NavigationButtonLink = styled.button`
+  padding-left: 0px;
+  margin-left: 10px;  
 `
 
 
@@ -171,7 +177,6 @@ const NavigationButtonRight = styled.button`
 const NavigationCartCounter = styled.small`
   border: 1px solid var(--color-gray);
   color: var(--color-blue);
-  border-radius: 50%;
   width: 30px;
   height: 30px;
   margin-left: 10px;
@@ -228,19 +233,23 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
       <NavigationInner>
 
         {/* NAVIGATION LINK LEFT*/}
-        <NavigationLinkLeft to="/">
-          <NavigationSpan className="navigation__span">ya yo i</NavigationSpan>
+        <NavigationLinkLeft to="/" className="link-hover navigation__link">
+          <NavigationSpan className="navigation__span">yayoi</NavigationSpan>
         </NavigationLinkLeft>
 
         {/* NAVIGATION LINK CENTER*/}
-        <NavigationLinkCenter to="/collection/frontpage">
+        <NavigationLinkCenter to="/collection/frontpage" className="link-hover navigation__link">
           <NavigationSpan className="navigation__span">shop</NavigationSpan>
         </NavigationLinkCenter>
 
         {/* NAVIGATION BUTTON RIGHT*/}
-        <NavigationButtonRight onClick={() => onOrderButtonClick()} className="navigation__cart-button">
-          <span className="navigation__cart-span">your order</span>
-          {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter">0</NavigationCartCounter>}
+        <NavigationButtonRight>
+          <NavigationButtonLink onClick={() => onOrderButtonClick()} className="navigation__cart-button link-hover">
+            <span className="navigation__cart-span">your order</span>
+          </NavigationButtonLink>
+          <NavigationButtonLink onClick={() => onOrderButtonClick()} className="navigation__cart-button">
+            {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter">0</NavigationCartCounter>}
+          </NavigationButtonLink>
         </NavigationButtonRight>
 
       </NavigationInner>

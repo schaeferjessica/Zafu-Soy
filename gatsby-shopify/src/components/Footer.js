@@ -61,11 +61,19 @@ flex-direction: column;
 const FooterLinkExtern  = styled.a`
   margin-top: 5px;
   color: var(--color-white);
+
+    span {
+    color: var(--color-white);
+  }
 `
 
 const FooterLink = styled(LinkTo)`
   margin-top: 5px;
   color: var(--color-white);
+
+  span {
+    color: var(--color-white);
+  }
 `
 
 
@@ -108,18 +116,18 @@ const Footer = () => {
             <FooterLinksLeft>
                 <FooterLinksWrapper>
                   <FooterLinksTitle>Social</FooterLinksTitle>
-                  <FooterLink to="/about/">about</FooterLink>
-                  <FooterLink to="/faq/">FAQ</FooterLink>
-                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer">Instagram</FooterLinkExtern>
-                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer">Facebook</FooterLinkExtern>
+                  <FooterLink to="/about/"><span>about</span></FooterLink>
+                  <FooterLink to="/faq/"><span>FAQ</span></FooterLink>
+                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer"><span>Instagram</span></FooterLinkExtern>
+                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer"><span>Facebook</span></FooterLinkExtern>
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
                   <FooterLinksTitle>Orders & Support</FooterLinksTitle>
-                  <FooterLink to="/shipping/">Shipping & Returns</FooterLink>
-                  <FooterLink to="/impressum/">Impressum</FooterLink>
-                  <FooterLink to="/terms/">Terms</FooterLink>
-                  <FooterLink to="/privacy/">Privacy</FooterLink>
+                  <FooterLink to="/shipping/"><span>Shipping & Returns</span></FooterLink>
+                  <FooterLink to="/impressum/"><span>Impressum</span></FooterLink>
+                  <FooterLink to="/terms/"><span>Terms</span></FooterLink>
+                  <FooterLink to="/privacy/"><span>Privacy</span></FooterLink>
                 </FooterLinksWrapper>
             </FooterLinksLeft>
 
@@ -128,7 +136,7 @@ const Footer = () => {
             <FooterLinksRight>
                 <FooterLinksWrapper>
                   <FooterLinksTitle>Contact us:</FooterLinksTitle>
-                  <FooterLink to="/about/">how can we help? </FooterLink>
+                  <FooterLink to="/about/"><span>how can we help?</span></FooterLink>
                 </FooterLinksWrapper>
 
                 <FooterSmall>&#169; {new Date().getFullYear()}, built by{` `} 

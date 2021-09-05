@@ -130,7 +130,6 @@ export const CheckoutClose = styled.button`
   justify-content: center;
   align-items: center;
   border: 1px solid var(--color-gray);
-  border-radius: 50%;
   font-size: 14px;
   color: var(--color-blue);
   font-weight: 400;

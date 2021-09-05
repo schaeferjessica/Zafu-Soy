@@ -155,11 +155,11 @@ export const GlobalStyle = props => (
       h2 {
         font-weight: 400;
         font-family: 'IBM Plex Sans';
-        font-size: 18px;
+        font-size: 17px;
         text-transform: uppercase;
 
         @media ${breakpoint.tablet} { 
-          font-size: 17px;
+          font-size: 15px;
         }
       }
 
@@ -239,16 +239,16 @@ export const GlobalStyle = props => (
           display: inline-block;
           transition: transform .5s cubic-bezier(.23,1,.32,1);
           font-weight: 300;
+          text-transform: uppercase;
         }
 
         &::after {
           content: '';
           position: absolute;
-          top: .5rem;
+          top: calc(50% - .15rem);
           right: 0;
-          width: 1.3rem;
-          height: .55rem;
-          font-size: 0;
+          width: 1rem;
+          height: .30rem;
           background-color: var(--color-blue);
           transform: scale(1);
           transition: .5s cubic-bezier(.23,1,.32,1);
