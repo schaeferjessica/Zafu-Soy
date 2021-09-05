@@ -59,7 +59,7 @@ const StyledBackgroundSection = styled(BackgroundImage)`
   background-attachment: fixed;
 
   @media ${breakpoint.mobile} {
-    background-attachment: unset;
+    background-attachment: unset !important;
   }
 `
 
