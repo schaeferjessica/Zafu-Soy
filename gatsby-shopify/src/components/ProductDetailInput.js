@@ -7,18 +7,13 @@ import { breakpoint } from '../utils/styles'
 const Button = styled.button`
     font-family: 'IBM Plex Sans';
     background-color: var(--color-white);
-    border: 1px solid var(--color-gray);
     color: var(--color-blue);
     padding: 30px 50px;
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    margin-top: 20px;
-
-    &:hover {
-      border: 1px solid var(--color-blue);
-    }
+    margin-top: 50px;
 
     &:hover span {
         transform: translateY(-250%);
@@ -61,10 +56,10 @@ const Button = styled.button`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  width: 100%;
+  width: 60%;
 
   @media ${breakpoint.mobile} { 
-    height: 14vh;
+    width: 100%;
   }
 `
 

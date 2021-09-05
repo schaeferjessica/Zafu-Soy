@@ -6,184 +6,148 @@ import Checkout from '~/components/Checkout'
 import ImageSlider from '~/components/ImageSlider'
 import ProductSlider from '~/components/ProductSlider'
 import ProductDetailInput from '~/components/ProductDetailInput'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from 'gatsby-background-image'
 import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import aniScroll from '../utils/ani-scroll';
 
-const ProductDetailWrapper = styled.div`
-  ${container}
-  height: calc(100vh - 70px);
-  margin-top: 70px;
-  display: flex;
+// PRODUCT DETAIL COMPONENT
+
+const ProductDetailComponent = styled.div`
   align-items: flex-end;
   justify-content: space-between;
-
-
-  @media ${breakpoint.tablet} {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    margin-top: 60px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
 `
 
-const ProductDetailLeft = styled.div`
+// PRODUCT DETAIL INNER
+
+const ProductDetailInner = styled.div`
   position: relative;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  width: 48%;
+  width: 100%;
   flex-grow: 1;
-
-  @media ${breakpoint.tablet} {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-  }
 `
 
-const ProductImageItem = styled.div`
+// PRODUCT DETAIL IMAGE
+
+const ProductDetailImage = styled.div`
   position: relative;
   overflow: hidden;
-
-  @media ${breakpoint.tablet} {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
-const ProductImageButton = styled.button`
+const StyledBackgroundSection = styled(BackgroundImage)`
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-attachment: fixed;
+`
+
+// PRODUCT DETAIL BUTTON
+
+const ProductDetailButton = styled.button`
+  width: 100%;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   padding: 0;
   display: block;
 
-  @media ${breakpoint.tablet} {
-    height: 100vh;
-  }
-  
-  .gatsby-image-wrapper {
-    height: 100%;
-
-    img {
-      object-fit: cover !important;
-    }
-  }
-
 `
 
-const ProductDetailRight = styled.div`
-  position: relative;
-  width: 48%;
+
+// PRODUCT DETAIL FILTER
+
+const ProductDetailFilter = styled.ul`
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+`
 
-  @media ${breakpoint.tablet} {
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-  }
+const ProductDetailFilterList = styled.li`
+  border-radius: 18px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid var(--color-white);
+  line-height: 28px;
+  margin-right: 12px;
+  margin-top: 10px;
 
-  .filter-tag {
-    padding-left: 0;
+  &:hover {
+      border: 1px solid var(--color-gray);
   }
 `
 
-const ProductDetailRightContext = styled.div`
-  position: relative;
-  top: 50%;
-  width: 80%;
+const ProductDetailFilterLink = styled(Link)`
+  color: var(--color-white);
 
-  @media ${breakpoint.tablet} {
-    ${container}
-
-    position: static;
-    width: 100%;
-  }
-`;
-
-const UlFilter = styled.ul`
-    ${container}
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  &:hover {
+      text-decoration: none;
+  }    
 `
 
-const LiFilter = styled.li`
-    border-radius: 18px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid var(--color-gray);
-    line-height: 28px;
-    margin-right: 12px;
-    margin-top: 10px;
-
-    &:hover {
-        border: 1px solid var(--color-blue);
-    }
-`
-
-const LinkFilter = styled(Link)`
-    &:hover {
-        text-decoration: none;
-    }    
-`
-
-const ProductDetailLeftTitle = styled.div`
-    display: none;
-
-    @media ${breakpoint.tablet} {
-    display: block;
-    position: absolute;
-    bottom: 150px;
-    left: 20px;
-    width: 65%;
-  }
-`;
-
-const ProductDetailRightTitle = styled.div`
+const ProductDetailContext = styled.div`
   display: block;
+  position: absolute;
+  bottom: 150px;
+  left: 160px;
+  width: 65%;
 
-   @media ${breakpoint.tablet} {
-    display: none;
+  @media ${breakpoint.desktop} {
+    left: 100px;
+  }
+
+  @media ${breakpoint.tablet} {
+    left: 80px;
+  }
+
+  @media ${breakpoint.mobile} {
+    left: 30px;
   }
 `;
 
-const H1 = styled.h1`
+// PRODUCT DETAIL TITLE H1
+
+const ProductDetailTitle = styled.h1`
   margin-top: 30px;
   margin-bottom: 5px;
-
-  @media ${breakpoint.tablet} {
-    color: var(--color-white);
-  }
+  color: var(--color-white);
 `;
 
-const Price = styled.span`
-  @media ${breakpoint.tablet} {
-    color: var(--color-white);
-  }
+// PRODUCT DETAIL PRICE
+
+const ProductDetailPrice = styled.span`
+  color: var(--color-white);
 `;
 
-const Description = styled.div`
-  display: none;
-`
 
-const DiscoverButton = styled.button`
+
+// PRODUCT DETAIL SCROLL BUTTON
+
+const ProductDetailScroll = styled.button`
   position: absolute;
-  right: -100px;
-  bottom: 100px;
+  right: 0px;
+  bottom: 250px;
   transform: rotate(90deg);
   border-radius: 20px;
   text-align: center;
@@ -191,51 +155,42 @@ const DiscoverButton = styled.button`
   height: 30px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 1px solid var(--color-gray);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
 
   &:hover {
-      border: 1px solid var(--color-blue);
+    border: 1px solid var(--color-gray);
     }
 
   &:hover svg {
-    fill: var(--color-blue);
+    fill: var(--color-white);
     transform: translateX(5px);
   }
 
-  @media ${breakpoint.tablet} {
+  @media ${breakpoint.mobile} {
     right: -30px;
-    bottom: 250px;
-    border: 1px solid var(--color-white);
-    color: var(--color-white);
-
-    &:hover {
-        border: 1px solid var(--color-gray);
-    }
-
-    &:hover svg {
-        fill: var(--color-white);
-    }
   }
 `;
 
-const ArrowSvg = styled.svg`
+
+// PRODUCT DETAIL SCROLL SVG
+
+const ProductDetailScrollSvg = styled.svg`
   width: 22px;
   height: 22px;
-  fill: var(--color-gray);
+  fill: var(--color-white);
   margin-top: 2px;
   margin-left: 5px;
   transition: transform 300ms ease-in-out;
-
-  @media ${breakpoint.mobile} {
-      fill: var(--color-white);
-    }
   `
 
-const DetailWrapper = styled.div` 
-  ${moduleSpace}
+
+// PRODUCT DETAIL SLIDER
+
+const ProductDetailSlider = styled.div` 
   display: flex;
   align-items: flex-end;
   justify-content: space-between;  
@@ -249,7 +204,7 @@ const DetailWrapper = styled.div`
   }
 `
 
-const DetailText = styled.div` 
+const ProductDetailSliderText = styled.div` 
   width: 40%;
   padding-left: 160px;
   margin-bottom: 20px;
@@ -272,7 +227,9 @@ const DetailText = styled.div`
   }
 `
 
-const DetailSlider = styled.div` 
+const ProductDetailSliderInner = styled.div` 
+  ${moduleSpace}
+
   width: 55%;
 
   @media ${breakpoint.mobile} {
@@ -280,7 +237,7 @@ const DetailSlider = styled.div`
   }
 `
 
-const ProductContainer = styled.div`
+const ProductDetailProductSlider = styled.div`
   ${container}
   ${moduleSpace}
 
@@ -307,8 +264,6 @@ export const query = graphql`
       title
       handle
       productType
-      description
-      descriptionHtml
       shopifyId
       tags
       options {
@@ -344,7 +299,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            gatsbyImageData(width: 850)
+            gatsbyImageData(width: 1920)
             original {
               width
               height
@@ -364,7 +319,7 @@ export const query = graphql`
           originalSrc
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 500)
+              gatsbyImageData(width: 700)
             }
           }
         }
@@ -441,97 +396,87 @@ const ProductDetail = ({ data }) => {
       <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} />
       <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
 
-      <ProductDetailWrapper>
-        <ProductDetailLeft ref={galleryEl}>
+      {/* PRODUCT DETAIL COMPONENT */}
+      <ProductDetailComponent>
 
-             {/* IMAGE HEADER */}
+        {/* PRODUCT DETAIL INNER */}
+        <ProductDetailInner ref={galleryEl}>
 
+              {/* PRODUCT DETAIL IMAGE */}
               {product.images.map((image, index) => {
                 if (index === 1) { 
                 const pluginImage = getImage(image.localFile)
+                const bgImage = convertToBgImage(pluginImage)
                 return (
-                  <ProductImageItem key={image.id}>
-                    <ProductImageButton 
+                  <ProductDetailImage key={image.id}>
+                    <ProductDetailButton 
                       className='image-heading'
                       onClick={() => jumpTo('#discoverTarget')}
                       >
-                        <GatsbyImage
-                        image={pluginImage}
-                        alt={product.title}
-                      />
-                    </ProductImageButton>
-                  </ProductImageItem>
+                        <StyledBackgroundSection
+                          Tag="div"
+                          // Spread bgImage into BackgroundImage:
+                          {...bgImage}
+                          preserveStackingContext
+                        />
+                    </ProductDetailButton>
+                  </ProductDetailImage>
                 )
                 } else {
                   return null;
                 }
               })}
 
-            {/* TITLE H2 */}
-
-            <ProductDetailLeftTitle>
-              <H1>{product.title}</H1>
-              <Price>{price}</Price>
-            </ProductDetailLeftTitle>
-
-            {/* BUTTON MORE */}
-
-            <DiscoverButton onClick={() => jumpTo('#discoverTarget')}><small>Discover more</small>
-              <ArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
-                <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
-              </ArrowSvg>
-            </DiscoverButton> 
-
-        </ProductDetailLeft>
-
-        <ProductDetailRight>
-            <ProductDetailRightContext>
-              <ProductDetailInput product={product} />
-              
-              {/* FILTER */}
-
-              <UlFilter className="filter-tag">
+            <ProductDetailContext>
+              {/* PRODUCT DETAIL FILTER */}
+             <ProductDetailFilter className="filter-tag">
                 {product.tags.map(tag => (
-                  <LiFilter key={tag}>
-                    <LinkFilter to={`/collection/${tag}`}><small>{tag}</small></LinkFilter>
-                  </LiFilter>
+                  <ProductDetailFilterList key={tag}>
+                    <ProductDetailFilterLink to={`/collection/${tag}`}><small>{tag}</small></ProductDetailFilterLink>
+                  </ProductDetailFilterList>
                 ))}
-              </UlFilter>
+              </ProductDetailFilter>
 
-              {/* TITLE H2 */}
+              {/* PRODUCT DETAIL TITLE H1 */}
+              <ProductDetailTitle>{product.title}</ProductDetailTitle>
+              {/* PRODUCT DETAIL PRICE*/}
+              <ProductDetailPrice>{price}</ProductDetailPrice>
 
-              <ProductDetailRightTitle>
-                <H1>{product.title}</H1>
-                <span>{price}</span>
-              </ProductDetailRightTitle>
+              <ProductDetailInput product={product} />
+            </ProductDetailContext>
 
-              {/* TEXT DETAIL */}
-              
-              <Description
-                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              />
+            {/* PRODUCT DETAIL SCROLL BUTTON */}
+            <ProductDetailScroll onClick={() => jumpTo('#discoverTarget')}><small>Discover more</small>
+              {/* PRODUCT DETAIL SCROLL SVG */}
+              <ProductDetailScrollSvg x="0px" y="0px" viewBox="0 0 22 10">
+                <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
+              </ProductDetailScrollSvg>
+            </ProductDetailScroll>
 
-            </ProductDetailRightContext>
-        </ProductDetailRight>
-      </ProductDetailWrapper>
+        </ProductDetailInner>
+      </ProductDetailComponent>
 
       <div id="discoverTarget"></div>
 
-      {/* SLIDER CONTENTFUL */}
-
-      {detailInfo ? <DetailWrapper>
-        <DetailText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</DetailText>
-        <DetailSlider>
+      
+      {/* PRODUCT DETAIL SLIDER */}
+      {detailInfo ? <ProductDetailSlider>
+        {/* PRODUCT DETAIL SLIDER TEXT */}
+        <ProductDetailSliderText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</ProductDetailSliderText>
+        {/* PRODUCT DETAIL SLIDER INNER */}
+        <ProductDetailSliderInner>
+          {/* SLIDER CONTENTFUL */}
           <ImageSlider images={detailInfo.images} />
-        </DetailSlider>
-      </DetailWrapper> : ''} 
+        </ProductDetailSliderInner>
+      </ProductDetailSlider> : ''} 
 
-        {/* SLIDER PRODUCTS*/}
-        
-        <ProductContainer>
-          <h2>You might also like</h2>
-          {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}
-        </ProductContainer>
+
+      {/* PRODUCT DETAIL PRODUCT SLIDER */}
+      <ProductDetailProductSlider>
+        <h2>You might also like</h2>
+        {/* PRODUCT SLIDER */}
+        {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}
+      </ProductDetailProductSlider>
     </>
   )
 }
