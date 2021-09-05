@@ -155,7 +155,12 @@ export const GlobalStyle = props => (
       h2 {
         font-weight: 400;
         font-family: 'IBM Plex Sans';
-        font-size: 17px;
+        font-size: 18px;
+        text-transform: uppercase;
+
+        @media ${breakpoint.tablet} { 
+          font-size: 17px;
+        }
       }
 
 
@@ -176,13 +181,6 @@ export const GlobalStyle = props => (
 
       a {
         text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 5px;
-        text-decoration-color: var(--color-gray);
       }
 
       button {
@@ -232,6 +230,49 @@ export const GlobalStyle = props => (
           background-color: rgba(0,0,0,0.7);
         } 
       }
+
+      .link-hover {
+        position: relative;
+        padding-right: 2.45rem;
+
+        span {
+          display: inline-block;
+          transition: transform .5s cubic-bezier(.23,1,.32,1);
+          font-weight: 300;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: .5rem;
+          right: 0;
+          width: 1.3rem;
+          height: .55rem;
+          font-size: 0;
+          background-color: var(--color-blue);
+          transform: scale(1);
+          transition: .5s cubic-bezier(.23,1,.32,1);
+              transition-property: all;
+          will-change: transform;
+          transition-property: transform,width,height;
+        }
+
+        &:hover span {
+          transform: translateX(-1.0416666667vw);
+        }
+        
+        &:hover::after {
+          transform: scale(2.5,.5) translateX(-.2604166667vw);
+        }
+      }
+
+      .link-hover--white {
+        &::after {
+          background-color: var(--color-white);
+        }
+      }
+
+
     `}
   />
 )

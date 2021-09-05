@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled/macro'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
 
@@ -54,9 +54,12 @@ const {contentfulTextTeaser} = useStaticQuery(
 
   return (
     <TextTeaserComponent>
-
-        {/* TEXT TEASER TITLE H2 */}
-        <TextTeaserTitle>{contentfulTextTeaser.title}</TextTeaserTitle>
+      {/* TEXT TEASER TITLE H2 */}
+      <TextTeaserTitle>
+        <Link to="/about" className="link-hover">
+          <span>{contentfulTextTeaser.title}</span>
+        </Link>
+      </TextTeaserTitle>
 
         {/* TEXT TEASER TEXT */}
         <TextTeaserText>{documentToReactComponents(JSON.parse(contentfulTextTeaser.text.raw))}</TextTeaserText>

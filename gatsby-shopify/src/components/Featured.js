@@ -64,23 +64,10 @@ const FeaturedText = styled.div`
     }
 `
 
-//  FEATURED SMALL
+//  FEATURED SPAN
 
-const FeaturedSmall = styled.small`
-  border-radius: 18px;
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid var(--color-gray);
-  line-height: 28px;
-  margin-right: 12px;
-  margin-top: 10px;
-  display: inline-block;
+const FeaturedSpan = styled.span`
   margin-top: 15px;
-
-  &:hover {
-    border: 1px solid var(--color-blue);
-  }
 `
 
 
@@ -110,7 +97,12 @@ const {contentfulFeatured} = useStaticQuery(
   return (
     <FeaturedComponent>
         {/* FEATURED HEADING H2 */}
-        <FeaturedHeading>{contentfulFeatured.heading}</FeaturedHeading>
+        
+        <FeaturedHeading>
+          <Link to={contentfulFeatured.link} className="link-hover">
+            <span>{contentfulFeatured.heading}</span>
+          </Link>
+        </FeaturedHeading>
 
         {/* FEATURED INNER */}
         <FeaturedInner>
@@ -133,8 +125,8 @@ const {contentfulFeatured} = useStaticQuery(
             <FeaturedText>{contentfulFeatured.text.text}</FeaturedText>
 
             {/* FEATURED LINK */}
-            <FeaturedLink to={contentfulFeatured.link}>
-              <FeaturedSmall>Shop now</FeaturedSmall>
+            <FeaturedLink to={contentfulFeatured.link} className="link-hover">
+              <FeaturedSpan>Shop now</FeaturedSpan>
             </FeaturedLink>
           </FeaturedContext>
 

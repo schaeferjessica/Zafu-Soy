@@ -110,8 +110,8 @@ const Footer = () => {
                   <FooterLinksTitle>Social</FooterLinksTitle>
                   <FooterLink to="/about/">about</FooterLink>
                   <FooterLink to="/faq/">FAQ</FooterLink>
-                  <FooterLinkExtern href="https://www.instagram.com/maneki.space/" target="_blank" rel="noopener">Instagram</FooterLinkExtern>
-                  <FooterLinkExtern href="https://www.facebook.com/maneki.space" target="_blank" rel="noopener">Facebook</FooterLinkExtern>
+                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener">Instagram</FooterLinkExtern>
+                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener">Facebook</FooterLinkExtern>
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>

@@ -35,7 +35,7 @@ const CollectionContextInner = styled.div`
   }
 `
 
-const CollectionTitle = styled.h2`
+const CollectionTitle = styled.h1`
     margin-bottom: 10px;
 `
 

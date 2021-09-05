@@ -145,47 +145,20 @@ const ProductDetailPrice = styled.span`
 // PRODUCT DETAIL SCROLL BUTTON
 
 const ProductDetailScroll = styled.button`
-  position: absolute;
-  right: 0px;
-  bottom: 250px;
-  transform: rotate(90deg);
-  border-radius: 20px;
-  text-align: center;
-  border-radius: 18px;
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   position: absolute;
+    transform: rotate(90deg);
+    right: 10px;
+    bottom: 250px;
 
-  &:hover {
-    border: 1px solid var(--color-gray);
+    @media ${breakpoint.tablet} {
+        right: -30px;
+      }
+
+    span {
+        font-weight: 400;
+        color: var(--color-white);
     }
-
-  &:hover svg {
-    fill: var(--color-white);
-    transform: translateX(5px);
-  }
-
-  @media ${breakpoint.mobile} {
-    right: -30px;
-  }
 `;
-
-
-// PRODUCT DETAIL SCROLL SVG
-
-const ProductDetailScrollSvg = styled.svg`
-  width: 22px;
-  height: 22px;
-  fill: var(--color-white);
-  margin-top: 2px;
-  margin-left: 5px;
-  transition: transform 300ms ease-in-out;
-  `
 
 
 // PRODUCT DETAIL SLIDER
@@ -446,11 +419,8 @@ const ProductDetail = ({ data }) => {
             </ProductDetailContext>
 
             {/* PRODUCT DETAIL SCROLL BUTTON */}
-            <ProductDetailScroll onClick={() => jumpTo('#discoverTarget')}><small>Discover more</small>
-              {/* PRODUCT DETAIL SCROLL SVG */}
-              <ProductDetailScrollSvg x="0px" y="0px" viewBox="0 0 22 10">
-                <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
-              </ProductDetailScrollSvg>
+            <ProductDetailScroll className="link-hover link-hover--white" onClick={() => jumpTo('#discoverTarget')}>
+              <span>Discover more</span>
             </ProductDetailScroll>
 
         </ProductDetailInner>
@@ -473,7 +443,12 @@ const ProductDetail = ({ data }) => {
 
       {/* PRODUCT DETAIL PRODUCT SLIDER */}
       <ProductDetailProductSlider>
-        <h2>You might also like</h2>
+        <h2>
+          <Link to="/collection/frontpage" className="link-hover">
+              <span>You might also like</span>
+          </Link>
+        </h2>
+        
         {/* PRODUCT SLIDER */}
         {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}
       </ProductDetailProductSlider>

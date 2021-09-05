@@ -41,49 +41,18 @@ const HeaderContextLeft = styled.div`
 
 const HeaderDiscoverButton = styled.button`
     position: absolute;
-    right: 10px;
-    bottom: 50px;
     transform: rotate(90deg);
-    font-size: 12px;
-    border-radius: 20px;
-    text-align: center;
-    border-radius: 18px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid var(--color-gray);
-    color: var(--color-white);
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    right: 10px;
+    bottom: 250px;
 
     @media ${breakpoint.tablet} {
         right: -30px;
-        bottom: 250px;
       }
 
-    &:hover {
-        border: 1px solid var(--color-white);
+    span {
+        font-weight: 400;
+        color: var(--color-white);
     }
-
-    &:hover svg {
-        transform: translateX(5px);
-        fill: var(--color-white);
-    }
-`
-
- const HeaderArrowSvg = styled.svg`
-    width: 22px;
-    height: 22px;
-    fill: var(--color-gray);
-    margin-top: 2px;
-    margin-left: 5px;
-    transition: transform 300ms ease-in-out;
-
-    @media ${breakpoint.tablet} {
-        fill: var(--color-white);
-      }
 `
 
 
@@ -164,10 +133,8 @@ const Header = () => {
                 {/* HEADER CONTEXT LEFT */}
                 
                 <HeaderContextLeft>
-                    <HeaderDiscoverButton onClick={() => jumpTo('#headermarker')}><small>Discover more</small>
-                        <HeaderArrowSvg x="0px" y="0px" viewBox="0 0 22 10">
-                            <polygon points="17,0.65 16.29,1.35 19.44,4.5 0.65,4.5 0.65,5.5 19.44,5.5 16.29,8.65 17,9.35 21.35,5 "></polygon>
-                        </HeaderArrowSvg>
+                    <HeaderDiscoverButton className="link-hover link-hover--white" onClick={() => jumpTo('#headermarker')}>
+                        <span>Discover more</span>
                     </HeaderDiscoverButton>
                 </HeaderContextLeft>
 

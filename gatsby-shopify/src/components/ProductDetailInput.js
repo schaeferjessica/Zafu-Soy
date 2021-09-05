@@ -39,15 +39,6 @@ const Button = styled.button`
       transform: translateY(100%);
     }
 
-    &.not-available {
-      background-color: transparent;
-      cursor: default;
-
-      span {
-        color: var(--color-blue);
-      }
-    }
-
     span {
       color: var(--color-blue);
     }
@@ -264,7 +255,7 @@ const ProductDetailInput = ({ product }) => {
         </InputInner>
       </InputOuter>
       <ButtonWrapper>
-        <Button type="submit" disabled={!available || adding} onClick={handleAddToCart} className={!available ? 'not-available' : 'is-available'}>
+        <Button type="submit" disabled={!available || adding} onClick={handleAddToCart}>
           {available && <Span data-hover={`Add to your order — ${price}`}>Add to your order — {price}</Span>}
           {!available && <Span data-hover="currently out of stock">currently out of stock</Span>}
         </Button>

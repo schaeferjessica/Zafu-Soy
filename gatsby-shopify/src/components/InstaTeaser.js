@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled/macro';
@@ -30,7 +30,7 @@ const InstaTeaserContainer = styled.section`
 
 // INSTA TEASER HEADER
 
-const InstaTeaserHeader = styled.div`
+const InstaTeaserHeader = styled.h2`
   ${headerSpace}
 `
 
@@ -110,7 +110,9 @@ const InstaTeaser = () => {
       {/* INSTA TEASER HEADER */}
 
       <InstaTeaserHeader>
-        <h2>{contentfulInstagram.heading}</h2>
+        <Link to="https://www.instagram.com/yayoi.shop/" target="_blank" className="link-hover">
+          <span>{contentfulInstagram.heading}</span>
+        </Link>
       </InstaTeaserHeader>
 
       {/* INSTA TEASER INNER */}
