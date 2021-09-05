@@ -116,10 +116,10 @@ const Footer = () => {
             <FooterLinksLeft>
                 <FooterLinksWrapper>
                   <FooterLinksTitle>Social</FooterLinksTitle>
+                  <FooterLink to="/collection/frontpage/"><span>shop</span></FooterLink>
                   <FooterLink to="/about/"><span>about</span></FooterLink>
                   <FooterLink to="/faq/"><span>FAQ</span></FooterLink>
                   <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer"><span>Instagram</span></FooterLinkExtern>
-                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer"><span>Facebook</span></FooterLinkExtern>
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
