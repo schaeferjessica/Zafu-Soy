@@ -15,23 +15,23 @@ export const breakpoint = {
 };
 
 export const container = `
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
 
 
   @media ${breakpoint.desktop} { 
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   @media ${breakpoint.tablet} { 
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 
   @media ${breakpoint.mobile} { 
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 `;
 
@@ -64,12 +64,12 @@ export const headerSpace = `
   }
 `;
 
-//export const ciBlue = '#313942'
+//export const ciBlue = '#222225'
 //export const ciWhite = '#faf9f8'
 //export const ciGray = '#acaba6'
 //export const ciOrange = '#b55340'
 
-export const ciBlue = '#222225'
+export const ciBlue = '#313942'
 export const ciWhite = '#f9f9f9'
 export const ciGray = '#8d9092'
 export const ciOrange = '#c16654'
@@ -126,6 +126,7 @@ export const GlobalStyle = props => (
       }
 
       small {
+        font-weight: 300;
         font-size: 15px;
 
         @media ${breakpoint.mobile} { 

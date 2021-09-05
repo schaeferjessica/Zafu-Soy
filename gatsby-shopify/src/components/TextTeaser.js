@@ -9,7 +9,7 @@ const TextTeaserComponent = styled.div`
   ${container}
 `
 
-// PRODUCT SLIDER PRICE
+// TEXT TEASER TITLE
 
 const TextTeaserTitle = styled.h2 `
     ${headerSpace}

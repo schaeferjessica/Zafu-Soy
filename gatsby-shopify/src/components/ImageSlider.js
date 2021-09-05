@@ -12,7 +12,8 @@ const ImageSliderContainer = styled.div`
   .Glide-leftArrow,
   .Glide-rightArrow  {
     padding: 3px;
-    color: var(--color-blue);
+    color: var(--color-gray);
+    background-color: #EEEEEE5C;
     top: 45%;
 
     svg {

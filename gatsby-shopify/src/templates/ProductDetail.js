@@ -102,13 +102,12 @@ const ProductDetailRightContext = styled.div`
   position: relative;
   top: 50%;
   width: 80%;
-  padding-left: 40px;
 
   @media ${breakpoint.tablet} {
+    ${container}
+
     position: static;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 `;
 
@@ -242,19 +241,17 @@ const DetailWrapper = styled.div`
   justify-content: space-between;  
 
   @media ${breakpoint.mobile} {
-
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 0px;
+    padding-left: 30px;
     margin-top: 0px;
   }
 `
 
 const DetailText = styled.div` 
   width: 40%;
-  padding-left: 100px;
+  padding-left: 160px;
   margin-bottom: 20px;
 
   @media ${breakpoint.desktop} {
@@ -265,7 +262,7 @@ const DetailText = styled.div`
     width: 100%;
     margin-bottom: 0px;
     padding-left: 0px;
-    padding-right: 20px;
+    padding-right: 30px;
   }
 
   b {

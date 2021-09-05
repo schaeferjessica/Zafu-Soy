@@ -35,7 +35,8 @@ const CollectionSliderInner = styled.div`
   .Glide-leftArrow,
   .Glide-rightArrow  {
     padding: 3px;
-    color: var(--color-blue);
+    color: var(--color-gray);
+    background-color: #EEEEEE5C;
 
     svg {
       width: 40px;
@@ -115,7 +116,7 @@ const CollectionSlider = () => {
         <Glide
           ref={sliderRef}
           type="slider"
-          perView={4}
+          perView={3}
           breakpoints={{
             1200: {
               perView: 3,

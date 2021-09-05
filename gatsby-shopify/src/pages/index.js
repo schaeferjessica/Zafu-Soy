@@ -6,6 +6,7 @@ import Header from '~/components/Header'
 import TextTeaser from '~/components/TextTeaser'
 import CollectionSlider from '~/components/CollectionSlider'
 import InstaTeaser from '~/components/InstaTeaser'
+import Featured from '../components/Featured'
 
 
 const IndexPage = () => {
@@ -28,6 +29,7 @@ const IndexPage = () => {
     <div id="headermarker"></div>
     <TextTeaser />
     <CollectionSlider />
+    <Featured />
     <InstaTeaser />
   </>
 }
