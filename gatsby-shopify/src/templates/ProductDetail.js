@@ -42,9 +42,12 @@ const ProductDetailInner = styled.div`
 // PRODUCT DETAIL IMAGE
 
 const ProductDetailImage = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
   width: 100%;
+  height: 100%;
 `;
 
 const StyledBackgroundSection = styled(BackgroundImage)`
@@ -79,6 +82,20 @@ const ProductDetailButton = styled.button`
   display: block;
 
 `
+
+// PRODUCT DETAIL CONTEXT
+
+const ProductDetailContext = styled.div`
+  ${container}
+  ${moduleSpace}
+
+  width: 65%;
+  padding-bottom: 70px;
+
+  @media ${breakpoint.mobile} {
+    width: 100%;
+  }
+`;
 
 
 // PRODUCT DETAIL FILTER
@@ -115,26 +132,6 @@ const ProductDetailFilterLink = styled(Link)`
   }    
 `
 
-const ProductDetailContext = styled.div`
-  display: block;
-  position: absolute;
-  bottom: 150px;
-  left: 160px;
-  width: 65%;
-
-  @media ${breakpoint.desktop} {
-    left: 100px;
-  }
-
-  @media ${breakpoint.tablet} {
-    left: 80px;
-  }
-
-  @media ${breakpoint.mobile} {
-    left: 30px;
-  }
-`;
-
 // PRODUCT DETAIL TITLE H1
 
 const ProductDetailTitle = styled.h1`
@@ -147,8 +144,8 @@ const ProductDetailTitle = styled.h1`
 
 const ProductDetailPrice = styled.span`
   color: var(--color-white);
+  font-weight: 400;
 `;
-
 
 
 // PRODUCT DETAIL SCROLL BUTTON
@@ -408,6 +405,8 @@ const ProductDetail = ({ data }) => {
                   return null;
                 }
               })}
+
+            {/* PRODUCT DETAIL CONTEXT */}
 
             <ProductDetailContext>
               {/* PRODUCT DETAIL FILTER */}
