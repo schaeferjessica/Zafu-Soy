@@ -27,11 +27,10 @@ const FooterInner = styled.footer`
   }
 `
 
-const FooterLinksTitle = styled.p`
+const FooterLinksTitle = styled.h3`
     padding-bottom: 5px;
     display: block;
     color: var(--color-white);
-    font-weight: 400;
 `
 
 

@@ -140,12 +140,13 @@ export const GlobalStyle = props => (
         margin: 0px;
         padding: 0px;
         color: var(--color-blue);
+        font-family: 'IBM Plex Mono';
+        text-transform: uppercase;
       }
 
       h1 {
-        font-weight: 300;
-        font-family: 'IBM Plex Sans';
         font-size: 57px;
+        font-weight: 400;
 
         @media ${breakpoint.tablet} { 
           font-size: 32px;
@@ -153,10 +154,8 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-weight: 400;
-        font-family: 'IBM Plex Sans';
         font-size: 17px;
-        text-transform: uppercase;
+        font-weight: 300;
 
         @media ${breakpoint.tablet} { 
           font-size: 15px;
@@ -165,9 +164,12 @@ export const GlobalStyle = props => (
 
 
       h3 {
+        font-size: 16px;
         font-weight: 300;
-        font-family: 'IBM Plex Sans';
-        font-size: 17px;
+
+        @media ${breakpoint.tablet} { 
+          font-size: 15px;
+        }
       }
 
       a,
