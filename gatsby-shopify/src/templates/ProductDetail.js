@@ -5,7 +5,7 @@ import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ImageSlider from '~/components/ImageSlider'
 import ProductSlider from '~/components/ProductSlider'
-import ProductDetailInput from '~/components/ProductDetailInput'
+import DetailInput from '~/components/DetailInput'
 import { getImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from 'gatsby-background-image'
@@ -86,13 +86,15 @@ const ProductDetailButton = styled.button`
 // PRODUCT DETAIL CONTEXT
 
 const ProductDetailContext = styled.div`
-  ${container}
-  ${moduleSpace}
+  ${container};
+  ${moduleSpace};
 
   width: 65%;
   padding-bottom: 70px;
+  margin-bottom: 43px;
 
   @media ${breakpoint.mobile} {
+    margin-bottom: 0px;
     width: 100%;
   }
 `;
@@ -170,35 +172,31 @@ const ProductDetailScroll = styled.button`
 // PRODUCT DETAIL SLIDER
 
 const ProductDetailSlider = styled.div` 
+  ${moduleSpace};
+
   display: flex;
   align-items: flex-end;
   justify-content: space-between;  
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.desktop} {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
-    padding-left: 30px;
-    margin-top: 0px;
+  }
+`
+
+const ProductDetailSliderContext = styled.div` 
+  ${container};
+
+  width: 40%;
+  padding-right: 0px;
+
+  @media ${breakpoint.desktop} {
+    width: 100%;
   }
 `
 
 const ProductDetailSliderText = styled.div` 
-  width: 40%;
-  padding-left: 160px;
-  margin-bottom: 20px;
-
-  @media ${breakpoint.desktop} {
-    padding-left: 50px;
-  }
-
-  @media ${breakpoint.mobile} {
-    width: 100%;
-    margin-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 30px;
-  }
-
   b {
     margin-top: 25px;
     margin-bottom: 5px;
@@ -206,22 +204,31 @@ const ProductDetailSliderText = styled.div`
   }
 `
 
-const ProductDetailSliderInner = styled.div` 
-  ${moduleSpace}
+const ProductDetailSliderInner = styled.div`
+  ${container}
 
   width: 55%;
+  padding-right: 0px;
+
+  @media ${breakpoint.desktop} {
+    width: 100%;
+    padding-right: 0px;
+  }
+
+  @media ${breakpoint.tablet} {
+    padding-right: 0px;
+  }
 
   @media ${breakpoint.mobile} {
-    width: 100%;
+    padding-right: 0px;
   }
 `
 
 const ProductDetailProductSlider = styled.div`
-  ${container}
-  ${moduleSpace}
+  ${moduleSpace};
+  ${container};
 
   padding-right: 0px;
-
 
   @media ${breakpoint.desktop} { 
     padding-right: 0px;
@@ -422,8 +429,6 @@ const ProductDetail = ({ data }) => {
               <ProductDetailTitle>{product.title}</ProductDetailTitle>
               {/* PRODUCT DETAIL PRICE*/}
               <ProductDetailPrice>{price}</ProductDetailPrice>
-
-              <ProductDetailInput product={product} />
             </ProductDetailContext>
 
             {/* PRODUCT DETAIL SCROLL BUTTON */}
@@ -439,8 +444,14 @@ const ProductDetail = ({ data }) => {
       
       {/* PRODUCT DETAIL SLIDER */}
       {detailInfo ? <ProductDetailSlider>
-        {/* PRODUCT DETAIL SLIDER TEXT */}
-        <ProductDetailSliderText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</ProductDetailSliderText>
+        <ProductDetailSliderContext>
+          {/* PRODUCT DETAIL SLIDER TEXT */}
+          <ProductDetailSliderText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</ProductDetailSliderText>
+
+          {/* DETAIL INPUT */}
+          <DetailInput product={product} />
+        </ProductDetailSliderContext>
+
         {/* PRODUCT DETAIL SLIDER INNER */}
         <ProductDetailSliderInner>
           {/* SLIDER CONTENTFUL */}
