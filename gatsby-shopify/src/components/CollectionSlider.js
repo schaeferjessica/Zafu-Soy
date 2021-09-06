@@ -84,6 +84,10 @@ const CollectionSliderButton = styled.div`
 const CollectionSliderInner = styled.div`
   text-align: center;
 
+  .glide__slides {
+    margin: 0;
+  }
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
     display: none;

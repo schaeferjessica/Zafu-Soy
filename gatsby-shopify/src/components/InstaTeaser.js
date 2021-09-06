@@ -87,6 +87,10 @@ const InstaTeaserButton = styled.div`
 const InstaTeaserInner = styled.div`
   text-align: center;
 
+  .glide__slides {
+    margin: 0;
+  }
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
     display: none;

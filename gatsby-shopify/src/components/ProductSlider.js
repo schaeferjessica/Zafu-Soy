@@ -12,6 +12,10 @@ import { Link } from 'gatsby'
 const ProductSliderContainer = styled.div`
   text-align: center;
 
+  .glide__slides {
+    margin: 0;
+  }
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
     display: none;
@@ -75,8 +79,6 @@ const ProductSliderButton = styled.div`
 // PRODUCT SLIDER ITEM
 
 const ProductSliderItem = styled.div`
-  margin-top: 20px;
-
   a:hover {
     .image-product:not(:only-child) {
       opacity: 0;
