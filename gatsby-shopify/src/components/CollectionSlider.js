@@ -27,39 +27,65 @@ const CollectionSliderComponent = styled.div`
   }
 `
 
+// COLLECTION SLIDER TOP
+
+const CollectionSliderTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+`
+
+// COLLECTION SLIDER HEADER
+
 const CollectionSliderHeader = styled.h2`
   ${headerSpace}
 `
 
+// COLLECTION SLIDER NAVI
+
+const CollectionSliderNavi = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-right: 30px;
+`
+
+const CollectionSliderButton = styled.div`
+  height: 25px;
+  width: 25px;
+  margin-left: 15px;
+  border: 1px solid var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0%);
+  transition: .5s ease-in-out;
+
+  &:hover {
+    transform: translate(0%) scale(1.3);
+    border: 1px solid var(--color-blue);
+  }
+
+  svg.left {
+    transform: translateX(-3px);
+  }
+
+  svg.right {
+    transform: rotate(180deg) translateX(-3px);
+  }
+
+  path {
+    fill: var(--color-blue);
+  }
+`
+
+
 const CollectionSliderInner = styled.div`
+  text-align: center;
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
-    padding: 3px;
-    color: var(--color-gray);
-    background-color: #EEEEEE5C;
     display: none;
-
-    svg {
-      width: 40px;
-      height: 16px;
-    }
-  }
-
-  .Glide-leftArrow  {
-    left: 1%;
-  }
-
-  .Glide-rightArrow  {
-    right: 3%;
-  }
-
-  .glide__slides {
-    margin-top: 0px;
-  }
-
-  button {
-    top: 45%;
-    text-align: left;
   }
 `
 
@@ -94,21 +120,35 @@ const CollectionSlider = () => {
         }
       }
     `
-  )
+  );
+
+
 
   return (
     <CollectionSliderComponent id="collections">
 
-      {/* COLLECTION SLIDER HEADER */}
+      {/* COLLECTION SLIDER TOP */}
+      <CollectionSliderTop>
 
-      <CollectionSliderHeader>
-        <Link to="/collection/frontpage" className="link-hover">
-          <span>{contentfulCollectionSlider.header}</span>
-        </Link>
-      </CollectionSliderHeader>
+       {/* COLLECTION SLIDER HEADER */}
+        <CollectionSliderHeader>
+          <Link to="/collection/frontpage" className="link-hover">
+            <span>{contentfulCollectionSlider.header}</span>
+          </Link>
+        </CollectionSliderHeader>
+
+        {/* COLLECTION SLIDER NAVI */}
+        <CollectionSliderNavi>
+          <CollectionSliderButton onClick={() => sliderRef.current.go('>')}>
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="right"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+          </CollectionSliderButton>
+          <CollectionSliderButton onClick={() => sliderRef.current.go('<')}>
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="left"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+          </CollectionSliderButton>
+        </CollectionSliderNavi>
+      </CollectionSliderTop>
 
       {/* COLLECTION SLIDER INNER */}
-
       <CollectionSliderInner>
         <Glide
           ref={sliderRef}
@@ -152,7 +192,7 @@ const CollectionSlider = () => {
             const pluginImage = getImage(post.image.gatsbyImageData);
 
             return (
-              <div key={`ccollectionslider-${index}`}>
+              <div key={`collectionslider-${index}`}>
                 
                 <Link to={post.link} rel="noreferrer">
                   {/* COLLECTION SLIDER IMAGE */}

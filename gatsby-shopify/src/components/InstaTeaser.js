@@ -28,42 +28,67 @@ const InstaTeaserContainer = styled.section`
   }
 `
 
+
+// INSTA TEASER TOP
+
+const InstaTeaserTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+`
+
 // INSTA TEASER HEADER
 
 const InstaTeaserHeader = styled.h2`
   ${headerSpace}
 `
 
+// INSTA TEASER NAVI
+
+const InstaTeaserNavi = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-right: 30px;
+`
+
+const InstaTeaserButton = styled.div`
+  height: 25px;
+  width: 25px;
+  margin-left: 15px;
+  border: 1px solid var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0%);
+  transition: .5s ease-in-out;
+
+  &:hover {
+    transform: translate(0%) scale(1.3);
+    border: 1px solid var(--color-blue);
+  }
+
+  svg.left {
+    transform: translateX(-3px);
+  }
+
+  svg.right {
+    transform: rotate(180deg) translateX(-3px);
+  }
+
+  path {
+    fill: var(--color-blue);
+  }
+`
+
 // INSTA TEASER INNER
 
 const InstaTeaserInner = styled.div`
+  text-align: center;
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
-    padding: 3px;
-    color: var(--color-gray);
-    background-color: #EEEEEE5C;
     display: none;
-
-    svg {
-      width: 40px;
-      height: 16px;
-    }
-  }
-
-  .glide__slides {
-    margin-top: 0px;
-  }
-
-  .Glide-leftArrow  {
-    left: 1%;
-  }
-
-  .Glide-rightArrow  {
-    right: 3%;
-  }
-
-  a:hover {
-    text-decoration: none;
   }
 `
 
@@ -83,7 +108,7 @@ const InstaTeaserText = styled.div`
 /* INSTA TEASER */
 
 const InstaTeaser = () => {
-  const gliderRef = useRef(null);
+  const sliderRef = useRef(null);
   const {contentfulInstagram} = useStaticQuery(
     graphql`
     query {
@@ -108,19 +133,31 @@ const InstaTeaser = () => {
   return (
     <InstaTeaserContainer>
 
+    {/* INSTA TEASER TOP */}
+    <InstaTeaserTop>
       {/* INSTA TEASER HEADER */}
-
       <InstaTeaserHeader>
         <Link to="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="link-hover">
           <span>{contentfulInstagram.heading}</span>
         </Link>
       </InstaTeaserHeader>
 
+      {/* INSTA TEASER NAVI */}
+      <InstaTeaserNavi>
+        <InstaTeaserButton onClick={() => sliderRef.current.go('>')}>
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="right"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+        </InstaTeaserButton>
+        <InstaTeaserButton onClick={() => sliderRef.current.go('<')}>
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="left"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+        </InstaTeaserButton>
+      </InstaTeaserNavi>
+    </InstaTeaserTop>
+
       {/* INSTA TEASER INNER */}
 
       <InstaTeaserInner>
         <Glide
-          ref={gliderRef}
+          ref={sliderRef}
           type="slider"
           perView={3}
           breakpoints={{

@@ -9,34 +9,11 @@ import { Link } from 'gatsby'
 // PRODUCT SLIDER
 
 const ProductSliderContainer = styled.div`
+  text-align: center;
+
   .Glide-leftArrow,
   .Glide-rightArrow  {
-    padding: 3px;
-    color: var(--color-gray);
-    background-color: #EEEEEE5C;
     display: none;
-
-    svg {
-      width: 40px;
-      height: 16px;
-    }
-  }
-
-  .Glide-leftArrow  {
-    left: 1%;
-  }
-
-  .Glide-rightArrow  {
-    right: 3%;
-  }
-
-  .glide__slides {
-    margin-top: 0px;
-  }
-
-  button {
-    top: 45%;
-    text-align: left;
   }
 `
 
@@ -98,12 +75,6 @@ const ProductSliderTitle = styled.h3`
 `
 
 
-// PRODUCT SLIDER PRICE
-
-const ProductSliderPrice = styled.small`
-  display: block;
-`
-
 const ProductSliderSold = styled.small`
   color: var(--color-white);
   padding: 2px 5px;
@@ -120,13 +91,6 @@ const ProductSlider = ({products}) => {
   const {
     store: { checkout },
   } = useContext(StoreContext)
-
-  const getPrice = price =>
-  Intl.NumberFormat(undefined, {
-    currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
-    minimumFractionDigits: 2,
-    style: 'currency',
-  }).format(parseFloat(price ? price : 0));
 
 
   return (
@@ -204,9 +168,6 @@ const ProductSlider = ({products}) => {
                       </Link>
                     </ProductSliderTitle>
 
-                    {/* PRODUCT SLIDER PRICE*/}
-
-                    <ProductSliderPrice>{getPrice(firstVariant.price)}</ProductSliderPrice>
                     {firstVariant.availableForSale ? '' : <ProductSliderSold>will be back soon</ProductSliderSold>}
                   </ProductSliderItem>
                 )

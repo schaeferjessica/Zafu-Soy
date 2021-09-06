@@ -111,6 +111,7 @@ const {contentfulFeatured} = useStaticQuery(
             {/* FEATURED IMAGE */}
               <GatsbyImage
                 image={image}
+                alt={contentfulFeatured.heading}
               />
           </FeaturedLink>
 
