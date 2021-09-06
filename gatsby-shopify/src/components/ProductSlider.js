@@ -93,7 +93,7 @@ const ProductSliderImage = styled.div`
 // PRODUCT SLIDER TITLE
 
 const ProductSliderTitle = styled.h3`
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 0px;
 `
 

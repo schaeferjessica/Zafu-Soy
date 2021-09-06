@@ -100,24 +100,24 @@ const CollectionGridList = styled.ul`
   display: grid;
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4rem;
+  grid-gap: 8rem;
   margin-top: 50px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     margin-top: 30px;
-    grid-gap: 3rem;
+    grid-gap: 5rem;
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 20px;
-    grid-gap: 2rem;
+    grid-gap: 4rem;
     grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
     grid-column-gap: 1rem;
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 3rem;
     grid-template-columns: 1fr;
   } 
 `

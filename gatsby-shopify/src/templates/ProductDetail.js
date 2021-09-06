@@ -48,6 +48,7 @@ const ProductDetailImage = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  z-index: -1;
 `;
 
 const StyledBackgroundSection = styled(BackgroundImage)`
@@ -74,10 +75,7 @@ const StyledBackgroundSection = styled(BackgroundImage)`
 // PRODUCT DETAIL BUTTON
 
 const ProductDetailButton = styled.button`
-  width: 100%;
-  height: 100vh;
   position: relative;
-  overflow: hidden;
   padding: 0;
   display: block;
 
@@ -87,16 +85,8 @@ const ProductDetailButton = styled.button`
 
 const ProductDetailContext = styled.div`
   ${container};
-  ${moduleSpace};
 
-  width: 65%;
   padding-bottom: 70px;
-  margin-bottom: 43px;
-
-  @media ${breakpoint.mobile} {
-    margin-bottom: 0px;
-    width: 100%;
-  }
 `;
 
 
@@ -119,7 +109,6 @@ const ProductDetailFilterList = styled.li`
   border: 1px solid var(--color-white);
   line-height: 28px;
   margin-right: 12px;
-  margin-top: 10px;
 
   &:hover {
       border: 1px solid var(--color-gray);
@@ -395,17 +384,13 @@ const ProductDetail = ({ data }) => {
                 const bgImage = convertToBgImage(pluginImage)
                 return (
                   <ProductDetailImage key={image.id}>
-                    <ProductDetailButton 
-                      className='image-heading'
-                      onClick={() => jumpTo('#discoverTarget')}
-                      >
+                    
                         <StyledBackgroundSection
                           Tag="div"
-                          // Spread bgImage into BackgroundImage:
                           {...bgImage}
                           preserveStackingContext
                         />
-                    </ProductDetailButton>
+                    
                   </ProductDetailImage>
                 )
                 } else {
@@ -425,8 +410,13 @@ const ProductDetail = ({ data }) => {
                 ))}
               </ProductDetailFilter>
 
-              {/* PRODUCT DETAIL TITLE H1 */}
-              <ProductDetailTitle>{product.title}</ProductDetailTitle>
+              <ProductDetailButton 
+                  onClick={() => jumpTo('#discoverTarget')}
+                  >
+                {/* PRODUCT DETAIL TITLE H1 */}
+                <ProductDetailTitle>{product.title}</ProductDetailTitle>
+              </ProductDetailButton>
+
               {/* PRODUCT DETAIL PRICE*/}
               <ProductDetailPrice>{price}</ProductDetailPrice>
             </ProductDetailContext>
