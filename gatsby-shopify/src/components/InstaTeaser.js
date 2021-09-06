@@ -62,6 +62,7 @@ const InstaTeaserButton = styled.div`
   align-items: center;
   transform: translate(0%);
   transition: .5s ease-in-out;
+  padding: 4px;
 
   &:hover {
     transform: translate(0%) scale(1.3);
@@ -145,10 +146,14 @@ const InstaTeaser = () => {
       {/* INSTA TEASER NAVI */}
       <InstaTeaserNavi>
         <InstaTeaserButton onClick={() => sliderRef.current.go('<')}>
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="right"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+          <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+            <path d="M10.24 486.4c0 2.56 0 2.56 0 0-15.36 15.36-15.36 38.4 0 51.2l325.12 325.12c0 0 0 0 0 0 15.36 15.36 35.84 15.36 51.2 0 12.8-15.36 12.8-35.84 0-51.2l-261.12-261.12h865.28c17.92 0 33.28-15.36 33.28-33.28 0-20.48-15.36-38.4-33.28-38.4h-865.28l261.12-263.68c2.56-2.56 2.56-2.56 5.12-5.12 12.8-15.36 10.24-38.4-5.12-51.2s-38.4-10.24-51.2 5.12l-325.12 322.56z"></path>
+          </svg>
         </InstaTeaserButton>
         <InstaTeaserButton onClick={() => sliderRef.current.go('>')}>
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="left"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
+          <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+            <path d="M688.64 163.84c-12.8-15.36-35.84-17.92-51.2-5.12s-17.92 35.84-5.12 51.2c2.56 2.56 2.56 2.56 5.12 5.12l261.12 261.12h-862.72c-20.48 0-35.84 17.92-33.28 38.4 0 17.92 15.36 33.28 33.28 33.28h865.28l-263.68 263.68c-12.8 15.36-12.8 35.84 0 51.2 15.36 15.36 35.84 15.36 51.2 0 0 0 0 0 0 0l325.12-325.12c15.36-12.8 15.36-35.84 0-51.2 0 0 0 0 0 0l-325.12-322.56z"></path>
+          </svg>
         </InstaTeaserButton>
       </InstaTeaserNavi>
     </InstaTeaserTop>

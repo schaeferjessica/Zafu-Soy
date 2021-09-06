@@ -452,12 +452,6 @@ const ProductDetail = ({ data }) => {
 
       {/* PRODUCT DETAIL PRODUCT SLIDER */}
       <ProductDetailProductSlider>
-        <h2>
-          <Link to="/collection/frontpage" className="link-hover">
-              <span>You might also like</span>
-          </Link>
-        </h2>
-        
         {/* PRODUCT SLIDER */}
         {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}
       </ProductDetailProductSlider>
