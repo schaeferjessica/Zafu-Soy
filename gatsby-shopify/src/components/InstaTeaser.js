@@ -144,10 +144,10 @@ const InstaTeaser = () => {
 
       {/* INSTA TEASER NAVI */}
       <InstaTeaserNavi>
-        <InstaTeaserButton onClick={() => sliderRef.current.go('>')}>
+        <InstaTeaserButton onClick={() => sliderRef.current.go('<')}>
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="right"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
         </InstaTeaserButton>
-        <InstaTeaserButton onClick={() => sliderRef.current.go('<')}>
+        <InstaTeaserButton onClick={() => sliderRef.current.go('>')}>
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" class="left"><path data-v-63491422="" d="M7.85906 1.44416L16.6979 8.42432L7.85906 15.4045V1.44416Z"></path></svg>
         </InstaTeaserButton>
       </InstaTeaserNavi>
