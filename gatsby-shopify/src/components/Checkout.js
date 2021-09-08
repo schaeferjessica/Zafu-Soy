@@ -3,7 +3,7 @@ import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
 import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 
 // CHECKOUT COMPONENT
 
@@ -13,7 +13,7 @@ const CheckoutComponent = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 35%;
+  width: 45%;
   height: 100vh;
   background-color: var(--color-white);
   z-index: 11;
@@ -40,35 +40,30 @@ const CheckoutComponent = styled.div`
 // CHECKOUT INNER
 
 const CheckoutInner = styled.div`
-  ${container}
-  ${moduleSpace}
-
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  margin-left: 50px;
 `
 
 const CheckoutButton = styled.button`
-    font-family: 'IBM Plex Sans';
-    border: 1px solid var(--color-blue);
-    background-color: var(--color-blue);
-    color: var(--color-white);
-    padding: 30px 50px;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    cursor: pointer;
-    position: absolute;
-    bottom: 30px;
-    left: 20px;
-    width: 91%;
+  font-family: 'IBM Plex Mono';
+  border: 3px solid var(--color-blue);
+  padding: 30px 50px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  width: 80%;
 
-    @media ${breakpoint.mobile} { 
-      padding: 20px;
-    }
+  @media ${breakpoint.mobile} { 
+    padding: 20px;
+  }
 
-    &:hover span {
-      transform: translateY(-400%);
-    }
+  &:hover span {
+    transform: translateY(-400%);
+  }
 `
 
 // CHECKOUT PRICE
@@ -77,27 +72,17 @@ const CheckoutPrice = styled.span`
   position: relative;
   display: inline-block;
   transition: transform .3s;
-  color: var(--color-white);
 
   &::before {
     content: attr(data-hover);
     position: absolute;
     top: 400%;
     transform: translate3d(0, 0, 0);
-    color: var(--color-white);
   }
 `
 
 
 // CHECKOUT SHIPPING
-
-const CheckoutShipping = styled.span`  
-  display: block;
-  font-size: 14px;
-  margin-top: 5px;
-`
-
-// CHECKOUT LINK
 
 const CheckoutLink = styled.button`
   display: block;
@@ -117,7 +102,7 @@ const CheckoutTitle = styled.h2`
 
 const CheckoutList = styled.ul`
   padding: 0;
-  height: calc(100vh - 220px);
+  height: calc(100vh - 285px);
   position: relative;
   overflow: auto;
 `
@@ -192,13 +177,16 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           {lineItems}
         </CheckoutList>
 
+        <Link to="/shipping/" className="link-hover">
+          <span>Free Shipping within 30 - 60 days</span>
+        </Link>
+
         {/* CHECKOUT BUTTON */}
         <CheckoutButton 
           onClick={handleCheckout}
           disabled={checkout.lineItems.length === 0}
           >
           <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
-          <CheckoutShipping data-hover={`Free Shipping within 30 - 60 days`}>Free Shipping within 30 - 60 days</CheckoutShipping>
         </CheckoutButton>
         </> : <>
 
