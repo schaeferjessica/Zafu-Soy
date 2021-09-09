@@ -97,16 +97,10 @@ const InstaTeaserInner = styled.div`
   }
 `
 
-// INSTA TEASER TITLE
-
-const InstaTeaserTitle = styled.h3`
-  margin-top: 20px;
-`
-
 // INSTA TEASER TEXT
 
 const InstaTeaserText = styled.div`
-  margin-top: 5px;
+  margin-top: 20px;
 `
 
 
@@ -212,18 +206,8 @@ const InstaTeaser = () => {
                   <GatsbyImage image={pluginImage} alt={post.image.title} />
                 </a>
 
-                
-                {/* INSTA TEASER TITLE */}
-                <InstaTeaserTitle>
-                  <a href={post.link} className="link-hover" target="_blank" rel="noopener noreferrer">
-                    <span>{post.image.title}</span>
-                  </a>
-                </InstaTeaserTitle>
-                
-
                 {/* INSTA TEASER TEXT */}
-                <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText>
-                
+                <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText> 
               </div>
             )
           })}
