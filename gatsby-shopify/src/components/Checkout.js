@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
 import styled from '@emotion/styled/macro'
-import { breakpoint, container, moduleSpace } from '../utils/styles'
+import { breakpoint, container } from '../utils/styles'
 import { Link, navigate } from 'gatsby'
 
 // CHECKOUT COMPONENT
@@ -60,9 +60,31 @@ const CheckboxHeader = styled.div`
   }
 `;
 
-// CHECKOUT INNER
+// CHECKOUT SHIPPING
 
-const CheckoutInner = styled.div`
+const CheckoutShipping = styled(Link)`
+  ${container};
+
+  padding-right: 150px; 
+  padding-left: 50px; 
+
+  @media ${breakpoint.desktop} {
+    padding-left: 50px; 
+  }
+
+  @media ${breakpoint.tablet} { 
+    padding-left: 50px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    padding-left: 30px;
+  }
+`
+
+
+// CHECKOUT TEXT
+
+const CheckoutText = styled.div`
   ${container};
 
   position: absolute;
@@ -80,6 +102,7 @@ const CheckoutInner = styled.div`
   }
 
   @media ${breakpoint.mobile} { 
+    transform: translateY(-70%);
     padding-left: 30px;
   }
 `
@@ -112,6 +135,7 @@ const CheckoutPrice = styled.span`
   position: relative;
   display: inline-block;
   transition: transform .3s;
+  text-transform: uppercase;
 
   &::before {
     content: attr(data-hover);
@@ -137,7 +161,7 @@ const CheckoutLink = styled.button`
 
 const CheckoutList = styled.ul`
   padding: 0;
-  height: calc(100vh - 285px);
+  height: calc(100vh - 270px);
   position: relative;
   overflow: auto;
 `
@@ -204,35 +228,38 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           </CheckoutClose>
         </CheckboxHeader>
 
-        {/* CHECKOUT INNER */}
-        <CheckoutInner>
-          {lineItems.length ? <>
-            {/* CHECKOUT LIST */}
-            <CheckoutList>
-              {lineItems}
-            </CheckoutList>
+        {lineItems.length ? <>
+          {/* CHECKOUT LIST */}
+          <CheckoutList>
+            {lineItems}
+          </CheckoutList>
 
-            <Link to="/shipping/" className="link-hover">
-              <span>Free Shipping within 30 - 60 days</span>
-            </Link>
+          {/* CHECKOUT SHIPPING */}
+          <CheckoutShipping to="/shipping/" className="link-hover">
+            <span>Free Shipping within 30 - 60 days</span>
+          </CheckoutShipping>
 
-            {/* CHECKOUT BUTTON */}
-            <CheckoutButton 
-              onClick={handleCheckout}
-              disabled={checkout.lineItems.length === 0}
-              >
-              <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
-            </CheckoutButton>
-            </> : <>
+          {/* CHECKOUT BUTTON */}
+          <CheckoutButton 
+            onClick={handleCheckout}
+            disabled={checkout.lineItems.length === 0}
+            >
+            <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
+          </CheckoutButton>
 
+          </> : <>
+
+          {/* CHECKOUT TEXT */}
+          <CheckoutText>
             <p>Looks like you haven’t added anthing to your order yet.</p>
             
             {/* CHECKOUT LINK */}
             <CheckoutLink className="link-hover" onClick={() => handleBackClick()}>
               <span>Shop all</span>
             </CheckoutLink> 
-          </>}
-        </CheckoutInner>
+          </CheckoutText>
+        </>}
+
     </CheckoutComponent>
   )
 }

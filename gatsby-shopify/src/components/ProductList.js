@@ -2,15 +2,34 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled/macro'
-import { breakpoint } from '../utils/styles'
+import { breakpoint, container } from '../utils/styles'
 
 const ListItem = styled.li`
+  ${container};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   font-family: 'IBM Plex Mono';
   font-weight: 300;
+  border-bottom: 1px solid var(--color-blue);
+  padding-top: 25px;
+  padding-bottom: 25px;  
+  padding-right: 150px; 
+  padding-left: 50px; 
+
+  @media ${breakpoint.desktop} {
+    padding-left: 50px; 
+  }
+
+  @media ${breakpoint.tablet} { 
+    padding-left: 50px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    transform: translateY(-70%);
+    padding-left: 30px;
+  }
 `
 
 

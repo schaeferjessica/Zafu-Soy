@@ -238,6 +238,7 @@ export const GlobalStyle = props => (
         padding-right: 2.45rem;
 
         span {
+          font-family: 'IBM Plex Mono';
           display: inline-block;
           transition: transform .5s cubic-bezier(.23,1,.32,1);
           font-weight: 300;
