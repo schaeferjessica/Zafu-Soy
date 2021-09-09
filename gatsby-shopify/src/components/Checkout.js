@@ -10,6 +10,7 @@ import { Link, navigate } from 'gatsby'
 const CheckoutComponent = styled.div`
   transform: translateX(100%);
   transition: transform 300ms ease-in-out;
+  border: 1px solid black;
   position: fixed;
   top: 0;
   right: 0;
@@ -43,7 +44,7 @@ const CheckboxHeader = styled.div`
   padding-left: 50px;
   padding-right: 150px;
   padding-bottom: 15px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 
   @media ${breakpoint.desktop} {
     padding-right: 100px; 
@@ -62,22 +63,24 @@ const CheckboxHeader = styled.div`
 // CHECKOUT INNER
 
 const CheckoutInner = styled.div`
-  margin-top: 25%;
-  margin-bottom: 5%;
+  ${container};
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   padding-right: 150px; 
   padding-left: 50px; 
 
   @media ${breakpoint.desktop} {
-    padding-right: 100px; 
+    padding-left: 50px; 
   }
 
   @media ${breakpoint.tablet} { 
-    padding-right: 80px;
+    padding-left: 50px;
   }
 
   @media ${breakpoint.mobile} { 
     padding-left: 30px;
-    padding-right: 30px;
   }
 `
 
@@ -123,8 +126,10 @@ const CheckoutPrice = styled.span`
 
 const CheckoutLink = styled.button`
   display: block;
-  margin-top: 15px;
-  align-self: flex-start;
+  margin-top: 20px;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 `
 
 
@@ -202,30 +207,31 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
         {/* CHECKOUT INNER */}
         <CheckoutInner>
           {lineItems.length ? <>
-          {/* CHECKOUT LIST */}
-          <CheckoutList>
-            {lineItems}
-          </CheckoutList>
+            {/* CHECKOUT LIST */}
+            <CheckoutList>
+              {lineItems}
+            </CheckoutList>
 
-          <Link to="/shipping/" className="link-hover">
-            <span>Free Shipping within 30 - 60 days</span>
-          </Link>
+            <Link to="/shipping/" className="link-hover">
+              <span>Free Shipping within 30 - 60 days</span>
+            </Link>
 
-          {/* CHECKOUT BUTTON */}
-          <CheckoutButton 
-            onClick={handleCheckout}
-            disabled={checkout.lineItems.length === 0}
-            >
-            <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
-          </CheckoutButton>
-          </> : <>
+            {/* CHECKOUT BUTTON */}
+            <CheckoutButton 
+              onClick={handleCheckout}
+              disabled={checkout.lineItems.length === 0}
+              >
+              <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
+            </CheckoutButton>
+            </> : <>
 
-          <p>Looks like you haven’t added anthing to your order yet.</p>
-          
-          {/* CHECKOUT LINK */}
-          <CheckoutLink className="link-hover" onClick={() => handleBackClick()}>
-            <span>Shop all</span>
-          </CheckoutLink> </>}
+            <p>Looks like you haven’t added anthing to your order yet.</p>
+            
+            {/* CHECKOUT LINK */}
+            <CheckoutLink className="link-hover" onClick={() => handleBackClick()}>
+              <span>Shop all</span>
+            </CheckoutLink> 
+          </>}
         </CheckoutInner>
     </CheckoutComponent>
   )
