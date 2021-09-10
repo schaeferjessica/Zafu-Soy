@@ -7,7 +7,7 @@ import { breakpoint, container } from '../utils/styles'
 const ListItem = styled.li`
   ${container};
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   font-family: 'IBM Plex Mono';
@@ -27,8 +27,38 @@ const ListItem = styled.li`
   }
 
   @media ${breakpoint.mobile} { 
-    transform: translateY(-70%);
+    transform: translateY(-25%);
     padding-left: 30px;
+  }
+`
+
+// LIST ITEM TITLE
+
+const ListItemTitle = styled.span`
+  @media ${breakpoint.mobile} { 
+    font-size: 13px;
+  }
+`
+
+// LIST ITEM CONTEXT
+
+const ListItemContext = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr;
+  gap: 0px 30px;
+
+  @media ${breakpoint.mobile} { 
+    gap: 0px 10px;
+    font-size: 13px;
+  }
+`
+
+// LIST ITEM REMOVE
+
+const ListItemRemove = styled.span`
+   @media ${breakpoint.mobile} { 
+    font-size: 13px;
   }
 `
 
@@ -55,18 +85,21 @@ const ProductList = props => {
       {/* LIST ITEM TITLE */}
       <h3>
         <Link to={`/product/${item.variant.product.handle}/`} className="link-hover">
-          <span>{item.title}</span>
+          <ListItemTitle>{item.title}</ListItemTitle>
         </Link>
       </h3>
 
-      {/* LIST ITEM PRICE */}
-      <p>{item.variant.price} €</p>
+      {/* LIST ITEM CONTEXT */}
+      <ListItemContext>
+        {/* LIST ITEM PRICE */}
+        <p>{item.variant.price} €</p>
 
-      {/* LIST ITEM QUANTITY */}
-      <p>Quantity {quantity}</p>
+        {/* LIST ITEM QUANTITY */}
+        <p>Quantity {quantity}</p>
 
-      {/* LIST ITEM REMOVE */}
-      <button onClick={handleRemove} className="link-hover"><span>Remove</span></button>
+        {/* LIST ITEM REMOVE */}
+        <button onClick={handleRemove} className="link-hover"><ListItemRemove>Remove</ListItemRemove></button>
+      </ListItemContext>
     </ListItem>
   )
 }

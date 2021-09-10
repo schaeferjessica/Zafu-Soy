@@ -14,7 +14,7 @@ const CheckoutComponent = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 45%;
+  width: 60%;
   height: 100vh;
   background-color: var(--color-white);
   z-index: 11;
@@ -24,15 +24,7 @@ const CheckoutComponent = styled.div`
     transform: translateX(0%);
   } 
 
-  @media ${breakpoint.desktop} {
-    width: 50%;
-  }
-
   @media ${breakpoint.tablet} { 
-    width: 72%;
-  }
-
-  @media ${breakpoint.mobile} { 
     width: 100%;
   }
 `;
@@ -62,7 +54,7 @@ const CheckboxHeader = styled.div`
 
 // CHECKOUT SHIPPING
 
-const CheckoutShipping = styled(Link)`
+const CheckoutShipping = styled.div`
   ${container};
 
   padding-right: 150px; 
@@ -78,6 +70,7 @@ const CheckoutShipping = styled(Link)`
 
   @media ${breakpoint.mobile} { 
     padding-left: 30px;
+    font-size: 13px;
   }
 `
 
@@ -107,6 +100,8 @@ const CheckoutText = styled.div`
   }
 `
 
+// CHECKOUT BUTTON
+
 const CheckoutButton = styled.button`
   font-family: 'IBM Plex Mono';
   border: 3px solid var(--color-blue);
@@ -120,8 +115,13 @@ const CheckoutButton = styled.button`
   left: 50px;
   width: 80%;
 
+  @media ${breakpoint.tablet} { 
+    width: 90%;
+  }
+
   @media ${breakpoint.mobile} { 
-    padding: 20px;
+    width: 85%;
+    left: 30px;
   }
 
   &:hover span {
@@ -146,7 +146,7 @@ const CheckoutPrice = styled.span`
 `
 
 
-// CHECKOUT SHIPPING
+// CHECKOUT LINK
 
 const CheckoutLink = styled.button`
   display: block;
@@ -161,9 +161,15 @@ const CheckoutLink = styled.button`
 
 const CheckoutList = styled.ul`
   padding: 0;
-  height: calc(100vh - 270px);
+  height: calc(100vh - 305px);
   position: relative;
   overflow: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  @media ${breakpoint.tablet} { 
+    height: calc(100vh - 260px);
+  }
 `
 
 
@@ -182,6 +188,7 @@ export const CheckoutClose = styled.button`
   width: 30px;
   height: 30px;
   min-height: 30px;
+  
 
   &:hover {
     border: 1px solid var(--color-blue);
@@ -235,8 +242,10 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           </CheckoutList>
 
           {/* CHECKOUT SHIPPING */}
-          <CheckoutShipping to="/shipping/" className="link-hover">
-            <span>Free Shipping within 30 - 60 days</span>
+          <CheckoutShipping>
+            <Link to="/shipping/" className="link-hover">
+              <span>Free Shipping within 30 - 60 days</span>
+            </Link>
           </CheckoutShipping>
 
           {/* CHECKOUT BUTTON */}
