@@ -49,6 +49,17 @@ const ProductDetailImage = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+    z-index: 1;
+  }
 `;
 
 const StyledBackgroundSection = styled(BackgroundImage)`
@@ -86,7 +97,7 @@ const ProductDetailButton = styled.button`
 const ProductDetailContext = styled.div`
   ${container};
 
-  padding-bottom: 70px;
+  padding-bottom: 120px;
 `;
 
 
@@ -126,7 +137,6 @@ const ProductDetailFilterLink = styled(Link)`
 // PRODUCT DETAIL TITLE H1
 
 const ProductDetailTitle = styled.h1`
-  margin-top: 30px;
   margin-bottom: 5px;
   color: var(--color-white);
 `;
@@ -149,6 +159,7 @@ const ProductDetailScroll = styled.button`
 
     @media ${breakpoint.tablet} {
         right: -30px;
+        top: 250px;
       }
 
     span {
