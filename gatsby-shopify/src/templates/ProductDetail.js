@@ -22,7 +22,11 @@ const ProductDetailComponent = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 60px);
-  margin-top: 60px;
+  margin-top: 62px;
+
+  @media ${breakpoint.mobile} {
+    margin-top: 52px;
+  }
 `
 
 // PRODUCT DETAIL INNER
