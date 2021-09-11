@@ -160,6 +160,7 @@ const ProductDetailScroll = styled.button`
   @media ${breakpoint.tablet} {
     right: -30px;
     top: 200px;
+    bottom: inherit;
   }
 
   span {
@@ -347,7 +348,7 @@ const ProductDetail = ({ data }) => {
     const rect = target.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    aniScroll(rect.top + scrollTop, 1000, 'easeInOutQuart');
+    aniScroll(rect.top + scrollTop - 52, 1000, 'easeInOutQuart');
   };
 
   useEffect(() => {
