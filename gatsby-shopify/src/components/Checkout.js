@@ -157,7 +157,7 @@ const CheckoutList = styled.ul`
   margin-bottom: 25px;
 
   @media ${breakpoint.tablet} { 
-    height: calc(100vh - 260px);
+    height: calc(100vh - 280px);
   }
 `
 
