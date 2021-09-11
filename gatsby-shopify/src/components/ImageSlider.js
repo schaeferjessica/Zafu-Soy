@@ -2,8 +2,8 @@ import React, {useRef, useEffect} from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled/macro';
 import Glide from 'react-glidejs';
-import { headerSpace } from '../utils/styles'
-import { Link } from 'gatsby'
+import { breakpoint, headerSpace } from '../utils/styles'
+import { Link, } from 'gatsby'
 import 'react-glidejs/dist/index.css';
 import Lightbox from '../utils/photoswipe/Lightbox';
 
@@ -41,7 +41,19 @@ const ImageSliderNavi = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-right: 30px;
+  margin-right: 150px;
+
+  @media ${breakpoint.desktop} { 
+    margin-right: 100px;
+  }
+
+  @media ${breakpoint.tablet} { 
+    margin-right: 80px;
+  }
+
+  @media ${breakpoint.mobile} { 
+    margin-right: 30px;
+  }
 `
 
 const ImageSliderButton = styled.div`
@@ -57,7 +69,7 @@ const ImageSliderButton = styled.div`
   padding: 4px;
 
   &:hover {
-    transform: translate(0%) scale(1.3);
+    transform: translate(0%) scale(1.2);
     border: 1px solid var(--color-blue);
   }
 
