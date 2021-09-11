@@ -275,6 +275,16 @@ export const GlobalStyle = props => (
         }
       }
 
+      .button-hover {
+        font-family: 'IBM Plex Mono';
+        text-transform: uppercase;
+        border: 3px solid var(--color-blue);
+        padding: 30px 50px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+      }
 
     `}
   />

@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled/macro';
 import Glide from 'react-glidejs';
-import { breakpoint, headerSpace } from '../utils/styles'
+import { breakpoint, moduleSpace, headerSpace } from '../utils/styles'
 import { Link, } from 'gatsby'
 import 'react-glidejs/dist/index.css';
 import Lightbox from '../utils/photoswipe/Lightbox';
@@ -11,7 +11,9 @@ import Lightbox from '../utils/photoswipe/Lightbox';
 // IMAGE SLIDER 
 
 const ImageSliderContainer = styled.div`
-    .glide__slides {
+  ${moduleSpace}
+
+  .glide__slides {
     margin: 0;
   }
 
@@ -137,10 +139,10 @@ const ImageSlider = ({images}) => {
         <Glide
           ref={sliderRef}
           type="slider"
-          perView={1}
+          perView={3}
           breakpoints={{
             1200: {
-              perView: 1,
+              perView: 2,
               gap: 20,
               peek: {
                 before: 0,

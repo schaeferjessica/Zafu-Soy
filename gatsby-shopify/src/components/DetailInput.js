@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled/macro'
-import { breakpoint } from '../utils/styles'
+import { breakpoint, container } from '../utils/styles'
 
 
 // DETAIL INPUT COMPONENT
@@ -79,24 +79,7 @@ const DetailInputInfo = styled.input`
 // DETAIL INPUT PRICE
 
 const DetailInputPrice = styled.span`
-  position: relative;
   display: inline-block;
-  transition: transform 400ms;
-  color: var(--color-blue);
-  font-weight: 400;
-  z-index: 1;
-
-  &::before {
-    content: attr(data-hover);
-    position: absolute;
-    top: 250%;
-    transform: translate3d(0, 0, 0);
-    color: var(--color-white);
-
-    @media ${breakpoint.mobile} { 
-      top: 210%;
-    }
-  }
 `
 
 // DETAIL INPUT BUTTON
@@ -152,6 +135,8 @@ const DetailInputButtonMinus = styled.button`
 // DETAIL INPUT BUTTON ORDER
 
 const DetailInputButtonOrder = styled.div`
+  ${container};
+
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
@@ -161,44 +146,11 @@ const DetailInputButtonOrder = styled.div`
 // DETAIL INPUT BUTTON ORDER INNER
 
 const DetailInputButtonOrderInner = styled.button`
-    font-family: 'IBM Plex Sans';
-    background-color: var(--color-white);
-    color: var(--color-blue);
-    border: 1px solid var(--color-blue);
-    padding: 30px 50px;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    cursor: pointer;
-    margin-top: 50px;
+    margin-top: 100px;
 
-    &:hover span {
-        transform: translateY(-250%);
-
-        @media ${breakpoint.mobile} { 
-          transform: translateY(-210%);
-        }
-    }
-
-    &:hover::after{
-      transform: translateY(0%);
-    }
-  
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--color-blue);
-      transition: transform 400ms;
-      transform: translateY(100%);
-    }
-
-    span {
-      color: var(--color-blue);
-    }
+    @media ${breakpoint.tablet} { 
+      margin-top: 50px;
+  }
 `
 
 
@@ -302,9 +254,9 @@ const DetailInput = ({ product }) => {
       {/* DETAIL INPUT BUTTON ORDER */}
       <DetailInputButtonOrder>
         {/* DETAIL INPUT BUTTON ORDER INNER */}
-        <DetailInputButtonOrderInner type="submit" disabled={!available || adding} onClick={handleAddToCart}>
-          {available && <DetailInputPrice data-hover={`Add to your order — ${price}`}>Add to your order — {price}</DetailInputPrice>}
-          {!available && <DetailInputPrice data-hover="currently out of stock">currently out of stock</DetailInputPrice>}
+        <DetailInputButtonOrderInner type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
+          {available && <DetailInputPrice>Add to your order — {price}</DetailInputPrice>}
+          {!available && <DetailInputPrice>currently out of stock</DetailInputPrice>}
         </DetailInputButtonOrderInner>
       </DetailInputButtonOrder>
 

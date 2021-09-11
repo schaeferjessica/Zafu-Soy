@@ -97,7 +97,7 @@ const ProductDetailButton = styled.button`
 const ProductDetailContext = styled.div`
   ${container};
 
-  padding-bottom: 120px;
+  padding-bottom: 140px;
 `;
 
 
@@ -154,18 +154,18 @@ const ProductDetailPrice = styled.span`
 const ProductDetailScroll = styled.button`
    position: absolute;
     transform: rotate(90deg);
-    right: 10px;
+    right: 20px;
     bottom: 250px;
 
-    @media ${breakpoint.tablet} {
-        right: -30px;
-        top: 250px;
-      }
+  @media ${breakpoint.tablet} {
+    right: -30px;
+    top: 200px;
+  }
 
-    span {
-        font-weight: 400;
-        color: var(--color-white);
-    }
+  span {
+    font-weight: 400;
+    color: var(--color-white);
+  }
 `;
 
 
@@ -173,16 +173,6 @@ const ProductDetailScroll = styled.button`
 
 const ProductDetailSlider = styled.div` 
   ${moduleSpace};
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;  
-
-  @media ${breakpoint.desktop} {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
-  }
 `
 
 const ProductDetailSliderContext = styled.div` 
@@ -207,11 +197,9 @@ const ProductDetailSliderText = styled.div`
 const ProductDetailSliderInner = styled.div`
   ${container}
 
-  width: 55%;
   padding-right: 0px;
 
   @media ${breakpoint.desktop} {
-    width: 100%;
     padding-right: 0px;
   }
 
@@ -442,15 +430,15 @@ const ProductDetail = ({ data }) => {
 
       <div id="discoverTarget"></div>
 
+      {/* DETAIL INPUT */}
+      <DetailInput product={product} />
+
       
       {/* PRODUCT DETAIL SLIDER */}
       {detailInfo ? <ProductDetailSlider>
         <ProductDetailSliderContext>
           {/* PRODUCT DETAIL SLIDER TEXT */}
           <ProductDetailSliderText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</ProductDetailSliderText>
-
-          {/* DETAIL INPUT */}
-          <DetailInput product={product} />
         </ProductDetailSliderContext>
 
         {/* PRODUCT DETAIL SLIDER INNER */}

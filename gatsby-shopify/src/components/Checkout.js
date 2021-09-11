@@ -103,13 +103,6 @@ const CheckoutText = styled.div`
 // CHECKOUT BUTTON
 
 const CheckoutButton = styled.button`
-  font-family: 'IBM Plex Mono';
-  border: 3px solid var(--color-blue);
-  padding: 30px 50px;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  cursor: pointer;
   position: absolute;
   bottom: 30px;
   left: 50px;
@@ -122,10 +115,6 @@ const CheckoutButton = styled.button`
   @media ${breakpoint.mobile} { 
     width: 85%;
     left: 30px;
-  }
-
-  &:hover span {
-    transform: translateY(-400%);
   }
 `
 
@@ -252,8 +241,9 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           <CheckoutButton 
             onClick={handleCheckout}
             disabled={checkout.lineItems.length === 0}
+            className="button-hover"
             >
-            <CheckoutPrice data-hover={`Check out — € ${checkout.totalPrice}`}>Check out — € {checkout.totalPrice}</CheckoutPrice>
+            <CheckoutPrice>Check out — € {checkout.totalPrice}</CheckoutPrice>
           </CheckoutButton>
 
           </> : <>
