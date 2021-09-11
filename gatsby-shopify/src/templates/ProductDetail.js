@@ -92,6 +92,7 @@ const StyledBackgroundSection = styled(BackgroundImage)`
 const ProductDetailButton = styled.button`
   position: relative;
   padding: 0;
+  text-align: left;
   display: block;
 
 `
