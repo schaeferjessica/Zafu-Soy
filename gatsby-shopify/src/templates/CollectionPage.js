@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import StoreContext from '~/context/StoreContext'
 import styled from '@emotion/styled/macro'
 import { breakpoint, container, moduleSpace } from '../utils/styles'
-import { CollectionCount} from '~/components/Menu'
 
 // COLLECTION
 
@@ -99,25 +98,26 @@ const CollectionGridList = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 3rem;
   margin-top: 50px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
-    grid-gap: 5rem;
+    grid-gap: 2rem;
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 20px;
-    grid-gap: 4rem;
+    grid-gap: 2rem;
     grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
     grid-column-gap: 1rem;
-    grid-row-gap: 3rem;
+    grid-row-gap: 2rem;
     grid-template-columns: 1fr;
   } 
 `
@@ -239,7 +239,7 @@ const CollectionPage = ({pageContext, data}) => {
             <CollectionContext>
                 <CollectionContextInner>
 
-                    <CollectionTitle>{pageContext.title} <CollectionCount>{pageContext.products.length}</CollectionCount></CollectionTitle>
+                    <CollectionTitle>{pageContext.title}</CollectionTitle>
                     <CollectionText dangerouslySetInnerHTML={{ __html: pageContext.descriptionHtml }}></CollectionText>
                     
                 </CollectionContextInner>
