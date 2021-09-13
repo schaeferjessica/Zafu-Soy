@@ -99,31 +99,32 @@ const CollectionGridList = styled.ul`
   display: grid;
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 3rem;
+  grid-gap: 3.2rem;
   margin-top: 50px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
-    grid-gap: 2rem;
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 20px;
-    grid-gap: 2rem;
     grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
+    grid-gap: 2rem;
     grid-column-gap: 1rem;
-    grid-row-gap: 2rem;
     grid-template-columns: 1fr;
+    padding-left: 15px;
+    padding-right: 15px;
   } 
 `
 
 const CollectionGridListItem = styled.li`
   margin-top: 20px;
+  position: relative;
 
   a:hover {
     .image-product:not(:only-child) {
@@ -172,20 +173,21 @@ const CollectionGridImage = styled.div`
 // COLLECTION GRID TITLE
 
 const CollectionGridTitle = styled.h3`
-  margin-top: 10px;
+  margin-bottom: 10px;
 `
+
+// COLLECTION GRID PRICE
 
 const CollectionGridPrice = styled.small`
   display: block;
+  margin-top: 10px;
 `
 
 const CollectionGridSold = styled.small`
-  color: var(--color-white);
-  padding: 2px 5px;
-  display: inline-block;
-  margin-top: 5px;
-  background-color: var(--color-orange); 
-  font-weight: 400;
+  transform: rotate(270deg) translateX(80px);
+  position: absolute;
+  bottom: 0;
+  right: -67px;
 `
 
 
@@ -270,6 +272,13 @@ const CollectionPage = ({pageContext, data}) => {
                             return (
                             <CollectionGridListItem key={id}>
 
+                              {/* COLLECTION GRID TITLE */}
+                              <CollectionGridTitle>
+                                  <Link to={`/product/${handle}/`} className="link-hover">
+                                    <span>{title}</span>
+                                  </Link>
+                                </CollectionGridTitle>
+
                                 {/* COLLECTION GRID ITEM */}
                                 <Link to={`/product/${handle}/`}>
                                   <CollectionGridImage>
@@ -282,13 +291,7 @@ const CollectionPage = ({pageContext, data}) => {
                                   </CollectionGridImage>
                                 </Link>
 
-                                {/* COLLECTION GRID TITLE */}
-                                <CollectionGridTitle>
-                                  <Link to={`/product/${handle}/`} className="link-hover">
-                                    <span>{title}</span>
-                                  </Link>
-                                </CollectionGridTitle>
-
+                                {/* COLLECTION GRID PRICE */}
                                 <CollectionGridPrice>{getPrice(firstVariant.price)}</CollectionGridPrice>
                                 {firstVariant.availableForSale ? '' : <CollectionGridSold>will be back soon</CollectionGridSold>}
                             </CollectionGridListItem>

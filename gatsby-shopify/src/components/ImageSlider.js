@@ -58,7 +58,7 @@ const ImageSliderNavi = styled.div`
   }
 `
 
-const ImageSliderButton = styled.div`
+const ImageSliderButton = styled.button`
   height: 25px;
   width: 25px;
   margin-left: 15px;
@@ -100,7 +100,7 @@ const LightboxButton = styled.div`
 /* IMAGE SLIDER */
 
 const ImageSlider = ({images}) => {
-  const sliderRef = useRef(null);
+  const ImageSliderRef = useRef(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -123,13 +123,13 @@ const ImageSlider = ({images}) => {
 
           {/* IMAGE SLIDER NAVI */}
           <ImageSliderNavi>
-            <ImageSliderButton onClick={() => sliderRef.current.go('<')}>
-              <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+            <ImageSliderButton onClick={() => ImageSliderRef.current.go('<')}>
+              <svg width="25" height="25" viewBox="0 0 1024 1024">
                 <path d="M10.24 486.4c0 2.56 0 2.56 0 0-15.36 15.36-15.36 38.4 0 51.2l325.12 325.12c0 0 0 0 0 0 15.36 15.36 35.84 15.36 51.2 0 12.8-15.36 12.8-35.84 0-51.2l-261.12-261.12h865.28c17.92 0 33.28-15.36 33.28-33.28 0-20.48-15.36-38.4-33.28-38.4h-865.28l261.12-263.68c2.56-2.56 2.56-2.56 5.12-5.12 12.8-15.36 10.24-38.4-5.12-51.2s-38.4-10.24-51.2 5.12l-325.12 322.56z"></path>
               </svg>
             </ImageSliderButton>
-            <ImageSliderButton onClick={() => sliderRef.current.go('>')}>
-              <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+            <ImageSliderButton onClick={() => ImageSliderRef.current.go('>')}>
+              <svg width="25" height="25" viewBox="0 0 1024 1024">
                 <path d="M688.64 163.84c-12.8-15.36-35.84-17.92-51.2-5.12s-17.92 35.84-5.12 51.2c2.56 2.56 2.56 2.56 5.12 5.12l261.12 261.12h-862.72c-20.48 0-35.84 17.92-33.28 38.4 0 17.92 15.36 33.28 33.28 33.28h865.28l-263.68 263.68c-12.8 15.36-12.8 35.84 0 51.2 15.36 15.36 35.84 15.36 51.2 0 0 0 0 0 0 0l325.12-325.12c15.36-12.8 15.36-35.84 0-51.2 0 0 0 0 0 0l-325.12-322.56z"></path>
               </svg>
             </ImageSliderButton>
@@ -137,7 +137,7 @@ const ImageSlider = ({images}) => {
         </ImageSliderTop>
         
         <Glide
-          ref={sliderRef}
+          ref={ImageSliderRef}
           type="slider"
           perView={3}
           breakpoints={{

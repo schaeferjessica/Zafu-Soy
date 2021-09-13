@@ -21,7 +21,7 @@ const ProductDetailComponent = styled.div`
   justify-content: space-between;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 52px);
   margin-top: 62px;
 
   @media ${breakpoint.mobile} {
