@@ -116,7 +116,16 @@ const ProductSliderItem = styled.div`
   }
 `
 
+// PRODUCT SLIDER LINK
+
+const ProductSliderLink = styled(Link)`
+  position: relative;
+  padding-right: 25px;
+  display: block;
+`
+
 const ProductSliderImage = styled.div`
+  width: 100%;
   position: relative;
 
   > * {
@@ -135,21 +144,22 @@ const ProductSliderImage = styled.div`
   }
 `
 
+// PRODUCT SLIDER SOLD
+
+const ProductSliderSold = styled.small`
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  transform-origin: left bottom;
+  white-space: nowrap;
+`
+
 // PRODUCT SLIDER TITLE
 
 const ProductSliderTitle = styled.h3`
   margin-top: 20px;
   margin-bottom: 0px;
-`
-
-
-const ProductSliderSold = styled.small`
-  color: var(--color-white);
-  padding: 2px 5px;
-  display: inline-block;
-  margin-top: 5px;
-  background-color: var(--color-orange);
-  font-weight: 400;
 `
 
 
@@ -241,7 +251,7 @@ const ProductSlider = ({products}) => {
 
                   {/* PRODUCT SLIDER ITEM*/}
 
-                    <Link to={`/product/${handle}/`}>
+                    <ProductSliderLink to={`/product/${handle}/`}>
 
                       <ProductSliderImage>
                         {images.map((image, index) => {
@@ -252,7 +262,10 @@ const ProductSlider = ({products}) => {
                         })}
                       </ProductSliderImage>
 
-                    </Link>
+                      {/* PRODUCT SLIDER SOLD */}
+                      {firstVariant.availableForSale ? '' : <ProductSliderSold>will be back soon</ProductSliderSold>}
+
+                    </ProductSliderLink>
 
                     {/* PRODUCT SLIDER TITLE */}
 
@@ -262,7 +275,6 @@ const ProductSlider = ({products}) => {
                       </Link>
                     </ProductSliderTitle>
 
-                    {firstVariant.availableForSale ? '' : <ProductSliderSold>will be back soon</ProductSliderSold>}
                   </ProductSliderItem>
                 )
               }
