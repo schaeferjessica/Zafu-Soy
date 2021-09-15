@@ -8,8 +8,7 @@ import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
 
 const FooterComponent = styled.footer`
   ${moduleSpaceSmall}
-  background-color: var(--color-blue);
-  color: var(--color-white);
+  background-color: var(--color-beige);
 `
 
 const FooterInner = styled.footer`
@@ -30,7 +29,6 @@ const FooterInner = styled.footer`
 const FooterLinksTitle = styled.h3`
     padding-bottom: 5px;
     display: block;
-    color: var(--color-white);
 `
 
 
@@ -59,20 +57,10 @@ flex-direction: column;
 
 const FooterLinkExtern  = styled.a`
   margin-top: 5px;
-  color: var(--color-white);
-
-    span {
-    color: var(--color-white);
-  }
 `
 
 const FooterLink = styled(LinkTo)`
   margin-top: 5px;
-  color: var(--color-white);
-
-  span {
-    color: var(--color-white);
-  }
 `
 
 
@@ -97,10 +85,6 @@ const FooterSmall  = styled.small`
 const FooterLinkExternSmall  = styled.a`
   margin-top: 5px;
   color: var(--color-gray);
-
-  &:hover {
-    color: var(--color-white);
-  }
 `
 
 

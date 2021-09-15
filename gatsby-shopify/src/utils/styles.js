@@ -72,7 +72,7 @@ export const headerSpace = `
 export const ciBlue = '#313942'
 export const ciWhite = '#f9f9f9'
 export const ciGray = '#8d9092'
-export const ciOrange = '#c16654'
+export const ciBeige = '#efeee7'
 
 export const GlobalStyle = props => (
   <Global
@@ -83,7 +83,7 @@ export const GlobalStyle = props => (
         --color-white: ${ciWhite};
         --color-gray: ${ciGray};
         --color-blue: ${ciBlue};
-        --color-orange: ${ciOrange};
+        --color-beige: ${ciBeige};
       }
 
       * {
