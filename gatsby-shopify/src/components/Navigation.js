@@ -1,10 +1,20 @@
+// react
 import React, { useContext, useEffect, useRef } from 'react'
+
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
-import styled from '@emotion/styled/macro'
-import { container, breakpoint, ciWhite, ciBlue, ciGray } from '~/utils/styles'
+
+// gatsby
 import { Link } from 'gatsby'
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container } from '../styles/containers'
+import { ciWhite, ciBlue, ciGray } from '../styles/colors'
 
 
 // NAVIGATION

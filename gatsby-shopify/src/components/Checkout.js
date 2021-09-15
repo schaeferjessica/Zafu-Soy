@@ -1,9 +1,20 @@
+// react
 import React, { useContext } from 'react'
+
+// gatsby
+import { Link, navigate } from 'gatsby'
+
+// components
 import StoreContext from '~/context/StoreContext'
 import ProductList from './ProductList'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container } from '../utils/styles'
-import { Link, navigate } from 'gatsby'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import {container} from '../styles/containers'
+
 
 // CHECKOUT COMPONENT
 

@@ -1,18 +1,33 @@
+// react
 import React, { useState, useEffect, useRef } from 'react'
-import { graphql, Link   } from 'gatsby'
 import Seo from '~/components/seo'
+
+// gatsby
+import { graphql, Link   } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
+import BackgroundImage from 'gatsby-background-image'
+import { convertToBgImage } from "gbimage-bridge"
+
+// contentful
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+// components
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import ImageSlider from '~/components/ImageSlider'
 import ProductSlider from '~/components/ProductSlider'
 import DetailInput from '~/components/DetailInput'
-import { getImage } from 'gatsby-plugin-image'
-import { convertToBgImage } from "gbimage-bridge"
-import BackgroundImage from 'gatsby-background-image'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container, moduleSpace } from '../utils/styles'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace } from '../styles/containers'
+
+// utils
 import aniScroll from '../utils/ani-scroll';
+
 
 // PRODUCT DETAIL COMPONENT
 

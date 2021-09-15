@@ -1,8 +1,16 @@
+// react
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
+
+// components
 import StoreContext from '~/context/StoreContext'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container } from '../utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import  {container}  from '../styles/containers'
 
 
 // DETAIL INPUT COMPONENT

@@ -1,8 +1,19 @@
+// react
 import React, { useContext, useState, useEffect } from 'react'
+
+// gatsby
 import { Link } from 'gatsby'
+
+// contentful
 import StoreContext from '~/context/StoreContext'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container } from '../utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container } from '../styles/containers'
+
 
 const ListItem = styled.li`
   ${container};

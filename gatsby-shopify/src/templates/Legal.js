@@ -1,14 +1,27 @@
+// react
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
 import Seo from '~/components/seo'
+
+// gatsby
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+// components
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
-import styled from '@emotion/styled/macro'
-import { breakpoint, container } from '../utils/styles'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Shower from '../utils/shower';
 import { $$ } from '../utils/dom';
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// contentful
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import {container} from '../styles/containers'
+
 
 // LEGAL
 

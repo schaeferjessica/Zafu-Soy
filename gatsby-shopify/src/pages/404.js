@@ -1,5 +1,8 @@
+// react
 import React from 'react'
 import Seo from '~/components/seo'
+
+// components
 import Navigation from '~/components/Navigation'
 
 const NotFoundPage = () => (

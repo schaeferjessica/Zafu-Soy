@@ -1,8 +1,17 @@
+// react
 import React from 'react'
-import styled from '@emotion/styled/macro'
+
+// gatsby
 import { useStaticQuery, graphql, Link  } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace, headerSpace }  from '../styles/containers'
+
 
 const FeaturedComponent = styled.div`
   ${moduleSpace}

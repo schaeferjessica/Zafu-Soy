@@ -1,8 +1,16 @@
+// react
 import React from 'react'
+
+// gatsby
 import { Link as LinkTo } from 'gatsby'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import '../../static/fonts.css';
-import { breakpoint, container, moduleSpaceSmall } from '~/utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpaceSmall }  from '../styles/containers'
+
 
 // FOOTER
 

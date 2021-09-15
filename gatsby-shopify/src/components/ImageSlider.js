@@ -1,11 +1,21 @@
+// react
 import React, {useRef, useEffect} from 'react'
+
+// gatsby
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled/macro';
-import Glide from 'react-glidejs';
-import { breakpoint, moduleSpace, headerSpace } from '../utils/styles'
 import { Link, } from 'gatsby'
+
+// emotion
+import styled from '@emotion/styled/macro';
+
+// components
+import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 import Lightbox from '../utils/photoswipe/Lightbox';
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { moduleSpace, headerSpace } from '../styles/containers'
 
 
 // IMAGE SLIDER 

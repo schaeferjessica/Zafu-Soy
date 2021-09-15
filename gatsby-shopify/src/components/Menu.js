@@ -1,9 +1,19 @@
+// react
 import React, {useState} from 'react'
+
+// gatsby
 import { useStaticQuery, graphql, Link, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled/macro'
-import { breakpoint } from '../utils/styles'
+
+// components
 import { CheckoutClose } from '~/components/Checkout'
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+
 
 export const Collection = styled.nav`
   position: absolute;

@@ -1,8 +1,20 @@
+// react
 import React from 'react'
-import styled from '@emotion/styled/macro'
+
+// gatsby
 import { useStaticQuery, graphql, Link } from 'gatsby'
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// contentful
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace, headerSpace } from '../styles/containers'
+
+
 
 const TextTeaserComponent = styled.div`
   ${moduleSpace}

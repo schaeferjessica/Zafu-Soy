@@ -1,7 +1,16 @@
+// react
 import React from 'react'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container } from '../utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import {container} from '../styles/containers'
+
+// components
 import aniScroll from '../utils/ani-scroll';
+
 
 // HEADER
 

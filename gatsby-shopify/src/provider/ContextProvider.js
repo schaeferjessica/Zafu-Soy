@@ -1,7 +1,11 @@
-import fetch from 'isomorphic-fetch'
+// react
 import React, { useState, useEffect, useRef } from 'react'
+
+// shopify
+import fetch from 'isomorphic-fetch'
 import Client from 'shopify-buy'
 
+// components
 import Context from '~/context/StoreContext'
 
 const client = Client.buildClient(

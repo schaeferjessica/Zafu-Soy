@@ -1,10 +1,22 @@
+// react
 import React from 'react'
 import PropTypes from 'prop-types'
+
+// gatsby
 import { StaticQuery, graphql } from 'gatsby'
-import '../../static/fonts.css';
+
+// contentful
 import ContextProvider from '~/provider/ContextProvider'
-import { GlobalStyle } from '~/utils/styles'
+
+// components
 import Footer from '~/components/Footer'
+
+// styles
+import { GlobalStyle } from '~/styles/main'
+
+// font
+import '../../static/fonts.css';
+
 
 const Layout = ({ children }) => {
   return (

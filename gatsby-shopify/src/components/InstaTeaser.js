@@ -1,11 +1,24 @@
+// react
 import React, {useRef} from 'react'
+
+// gatsby
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
+// contentful
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import styled from '@emotion/styled/macro';
-import { breakpoint, container, headerSpace, moduleSpace } from '../utils/styles';
+
+// components
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
+
+// emotion
+import styled from '@emotion/styled/macro';
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace, headerSpace }  from '../styles/containers'
+
 
 // INSTA TEASER
 

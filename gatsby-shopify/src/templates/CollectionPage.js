@@ -1,12 +1,22 @@
+// react
 import React, { useState, useEffect, useContext } from 'react'
 import Seo from '~/components/seo'
-import Navigation from '~/components/Navigation'
-import Checkout from '~/components/Checkout'
+
+// gatsby
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
+// components
+import Navigation from '~/components/Navigation'
+import Checkout from '~/components/Checkout'
 import StoreContext from '~/context/StoreContext'
+
+// emotion
 import styled from '@emotion/styled/macro'
-import { breakpoint, container, moduleSpace } from '../utils/styles'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace } from '../styles/containers'
 
 // COLLECTION
 

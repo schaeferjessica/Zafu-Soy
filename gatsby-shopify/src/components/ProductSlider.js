@@ -1,11 +1,22 @@
+// react
 import React, { useContext, useRef } from 'react'
+
+// components
 import StoreContext from '~/context/StoreContext'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled/macro';
-import { headerSpace, breakpoint } from '../utils/styles'
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
+
+// gatsby
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
+
+// emotion
+import styled from '@emotion/styled/macro';
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { headerSpace } from '../styles/containers'
+
 
 // PRODUCT SLIDER
 

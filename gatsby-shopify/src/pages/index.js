@@ -1,5 +1,8 @@
+// react
 import React, { useState, useEffect } from 'react'
 import Seo from '~/components/seo'
+
+// components
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import Header from '~/components/Header'

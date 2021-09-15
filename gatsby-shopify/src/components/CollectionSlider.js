@@ -1,11 +1,21 @@
+// react
 import React, {useRef} from 'react'
+
+// gatsby
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from '@emotion/styled/macro'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { breakpoint, container, moduleSpace, headerSpace } from '../utils/styles'
+import { Link } from 'gatsby'
+
+// components
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
-import { Link } from 'gatsby'
+
+// emotion
+import styled from '@emotion/styled/macro'
+
+// styles
+import breakpoint from '../styles/breakpoints'
+import { container, moduleSpace, headerSpace }  from '../styles/containers'
 
 
 const CollectionSliderComponent = styled.div`
