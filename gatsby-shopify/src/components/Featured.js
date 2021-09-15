@@ -55,13 +55,12 @@ const FeaturedTitle = styled.h3 `
 //  FEATURED TEXT 
 
 const FeaturedText = styled.div`
-    margin-top: 5px;
-    font-size: 26px;
+  font-size: 26px;
+  margin-top: 10px;
 
-    @media ${breakpoint.mobile} {
-        width : 100%;
-        font-size: 18px;
-    }
+  @media ${breakpoint.mobile} {
+    font-size: 18px;
+  }
 `
 
 //  FEATURED SPAN

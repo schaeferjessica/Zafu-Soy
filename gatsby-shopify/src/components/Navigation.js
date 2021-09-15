@@ -145,6 +145,13 @@ const NavigationLinkLeft = styled(Link)`
   color: var(--color-blue);
   grid-column: 1 / 4;
   grid-row: 1 / 1;
+
+  span {
+    font-family: 'Kobe Regular';
+    text-transform: lowercase;
+    font-size: 22px;
+    line-height: 23px;
+  }
 `
 
 

@@ -25,16 +25,12 @@ const TextTeaserText = styled.div`
     }
 
     p {
-        font-weight: 200;
-        font-family: 'IBM Plex Serif';
-        font-size: 40px;
-        line-height: 60px;
+      font-size: 26px;
 
-        @media ${breakpoint.tablet} {
-            font-size: 22px;
-            line-height: 34px;
-        }
+    @media ${breakpoint.mobile} {
+      font-size: 18px;
     }
+  }
 `
 
 

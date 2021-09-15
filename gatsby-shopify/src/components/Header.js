@@ -70,15 +70,30 @@ const HeaderContextRight = styled.div`
 `
 
 const HeaderTitle = styled.h1`
-    margin-top: 10px;
+    font-family: 'Kobe Regular';
+    text-transform: lowercase;
     color: var(--color-white);
     cursor: pointer;
+    font-size: 80px;
+    line-height: 86px;
+
+    @media ${breakpoint.tablet} {
+        font-size: 60px;
+        line-height: 67px;
+    }
 `
 
 const HeaderText = styled.p`
-    margin-bottom: 0;
-    color: var(--color-white);
-    cursor: pointer;
+  margin-bottom: 0;
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 23px;
+
+  @media ${breakpoint.tablet} {
+    font-size: 17px;
+    line-height: 18px;
+  }
 `
 
 
