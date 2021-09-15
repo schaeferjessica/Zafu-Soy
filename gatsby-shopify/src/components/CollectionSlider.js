@@ -217,7 +217,11 @@ const CollectionSlider = () => {
                 
                 <Link to={post.link} rel="noreferrer">
                   {/* COLLECTION SLIDER IMAGE */}
-                  <GatsbyImage image={pluginImage} alt={post.image.title} />
+                  <GatsbyImage 
+                    image={pluginImage} 
+                    alt={post.image.title}
+                    className="image-hover"
+                   />
                 </Link>
 
                 

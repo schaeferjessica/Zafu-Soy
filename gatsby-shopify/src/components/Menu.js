@@ -122,7 +122,12 @@ const Menu = ({menuStatus, triggerMenuStatus}) => {
           return <CollectionImageItem key={collection.id} className={`${index === activeMenu ? 'is-active' : 'is-hidden' }`}>
           {image && (
             <MenuImage>
-              <GatsbyImage image={image} alt={collection.title} key={image.id}/>  
+              <GatsbyImage 
+                image={image} 
+                alt={collection.title} 
+                key={image.id}
+                className="image-hover"
+              />  
             </MenuImage>
           )}
         </CollectionImageItem>

@@ -145,13 +145,6 @@ const NavigationLinkLeft = styled(Link)`
   color: var(--color-blue);
   grid-column: 1 / 4;
   grid-row: 1 / 1;
-
-  span {
-    font-family: 'Kobe Regular';
-    text-transform: lowercase;
-    font-size: 22px;
-    line-height: 23px;
-  }
 `
 
 
@@ -241,7 +234,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
 
         {/* NAVIGATION LINK LEFT*/}
         <NavigationLinkLeft to="/" className="link-hover navigation__link">
-          <NavigationSpan className="navigation__span">yayoi</NavigationSpan>
+          <NavigationSpan className="navigation__span">home</NavigationSpan>
         </NavigationLinkLeft>
 
         {/* NAVIGATION LINK CENTER*/}

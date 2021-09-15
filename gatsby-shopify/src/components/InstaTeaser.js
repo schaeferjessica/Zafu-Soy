@@ -215,7 +215,11 @@ const InstaTeaser = () => {
             return (
               <div key={post.id}>
                 <a href={post.link} target="_blank" rel="noopener noreferrer">
-                  <GatsbyImage image={pluginImage} alt={post.image.title} />
+                  <GatsbyImage 
+                    image={pluginImage} 
+                    alt={post.image.title}
+                    className="image-hover" 
+                  />
                 </a>
 
                 {/* INSTA TEASER TEXT */}

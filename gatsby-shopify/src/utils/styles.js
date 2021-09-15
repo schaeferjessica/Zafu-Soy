@@ -284,6 +284,18 @@ export const GlobalStyle = props => (
         cursor: pointer;
       }
 
+      .image-hover.gatsby-image-wrapper [data-main-image] {
+        will-change: transform;
+        transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1) 0s;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+
+      .image-hover.gatsby-image-wrapper [data-main-image]:hover {
+        transform: scale(1.1);
+      }
+
     `}
   />
 )

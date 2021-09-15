@@ -29,9 +29,9 @@ const FeaturedInner = styled.div `
 // FEATURED LINK
 
 const FeaturedLink = styled(Link)`
-    &:hover {
-        text-decoration: none;
-    }    
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 // FEATURED CONTEXT
@@ -111,6 +111,7 @@ const {contentfulFeatured} = useStaticQuery(
               <GatsbyImage
                 image={image}
                 alt={contentfulFeatured.heading}
+                className="image-hover"
               />
           </FeaturedLink>
 

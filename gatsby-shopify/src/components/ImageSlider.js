@@ -182,7 +182,11 @@ const ImageSlider = ({images}) => {
                 data-figcaption="" 
                 data-copyright=""
               >
-                <GatsbyImage image={pluginImage} alt="" />
+                <GatsbyImage 
+                  image={pluginImage} 
+                  alt=""
+                  className="image-hover" 
+                />
                 <small>{image.description}</small>
               </LightboxButton>
             )
