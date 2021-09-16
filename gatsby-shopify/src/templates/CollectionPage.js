@@ -127,8 +127,6 @@ const CollectionGridList = styled.ul`
     grid-gap: 2rem;
     grid-column-gap: 1rem;
     grid-template-columns: 1fr;
-    padding-left: 15px;
-    padding-right: 15px;
   } 
 `
 
@@ -146,6 +144,10 @@ const CollectionGridImage = styled.div`
 const CollectionGridTitle = styled.h3`
   margin-bottom: 10px;
   max-width: 90%;
+
+  @media ${breakpoint.mobile} {
+    max-width: 87%;
+  }
 `
 
 // COLLECTION GRID PRICE
