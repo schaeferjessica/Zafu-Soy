@@ -81,6 +81,7 @@ const NavigationContainer = styled.div`
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciBlue};
+      font-weight: 300;
     }
 
     .navigation-span {
@@ -172,6 +173,7 @@ const NavigationButtonRight = styled.div`
   grid-column: 4 / 4;
   grid-row: 1 / 1;
   justify-self: end;
+  margin-left: 20px;
 `;
 
 const NavigationButtonOrder = styled.button`

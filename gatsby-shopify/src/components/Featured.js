@@ -31,7 +31,7 @@ const FeaturedInner = styled.div `
     align-items: center;
     justify-content: space-between;
 
-    @media ${breakpoint.mobile} {
+    @media ${breakpoint.tablet} {
       display: block;
     }
 `
@@ -50,7 +50,7 @@ const FeaturedContext = styled.div`
     width: 60%;
     margin-left: 5%;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     width: 100%;
     margin-left: 0;
     margin-top: 20px;
@@ -62,7 +62,7 @@ const FeaturedContext = styled.div`
 const FeaturedText = styled.div`
   font-size: 26px;
 
-  @media ${breakpoint.mobile} {
+  @media ${breakpoint.tablet} {
     font-size: 18px;
   }
 `

@@ -25,7 +25,7 @@ export const GlobalStyle = props => (
           content: '';
           position: absolute;
           top: calc(50% - .15rem);
-          right: 0;
+          right: 5px;
           width: 1rem;
           height: .30rem;
           background-color: var(--color-blue);

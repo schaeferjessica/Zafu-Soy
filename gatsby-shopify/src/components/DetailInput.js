@@ -154,6 +154,7 @@ const DetailInputButtonOrder = styled.div`
 // DETAIL INPUT BUTTON ORDER INNER
 
 const DetailInputButtonOrderInner = styled.button`
+    max-width: 500px;
     margin-top: 100px;
 
     @media ${breakpoint.tablet} { 
