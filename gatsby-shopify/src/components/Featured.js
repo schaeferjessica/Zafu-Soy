@@ -29,6 +29,7 @@ const FeaturedHeading = styled.h2 `
 const FeaturedInner = styled.div `
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     @media ${breakpoint.mobile} {
       display: block;
@@ -46,7 +47,7 @@ const FeaturedLink = styled(Link)`
 // FEATURED CONTEXT
 
 const FeaturedContext = styled.div`
-    width: 50%;
+    width: 60%;
     margin-left: 5%;
 
   @media ${breakpoint.mobile} {
@@ -85,7 +86,7 @@ const {contentfulFeatured} = useStaticQuery(
           text
         }
         image {
-          gatsbyImageData (width: 500)
+          gatsbyImageData (width: 1000)
         }
       }
     }
