@@ -173,7 +173,7 @@ const ProductSlider = ({products}) => {
         <ProductSliderTop>
           {/* PRODUCT SLIDER HEADER */}
           <ProductSliderHeader>
-            <Link to="/product/frontpage" className="link-hover">
+            <Link to="/collection/frontpage" className="link-hover">
               <span>discover more</span>
             </Link>
           </ProductSliderHeader>
