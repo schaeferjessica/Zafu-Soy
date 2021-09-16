@@ -53,7 +53,6 @@ const NavigationContainer = styled.div`
     
     .navigation__cart-counter {
       border-color: ${ciWhite};
-      font-family: 'IBM Plex Sans';
 
       &:hover {
         border-color: ${ciWhite};
@@ -82,7 +81,6 @@ const NavigationContainer = styled.div`
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciBlue};
-      font-weight: 300;
     }
 
     .navigation-span {
@@ -176,9 +174,13 @@ const NavigationButtonRight = styled.div`
   justify-self: end;
 `;
 
-const NavigationButtonLink = styled.button`
-  padding-left: 0px;
-  margin-left: 10px;  
+const NavigationButtonOrder = styled.button`
+  margin-right: 5px;  
+`
+
+const NavigationButtonCounter = styled.button`
+  padding: 0px;
+  margin-left: 5px;  
 `
 
 
@@ -254,12 +256,12 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
 
         {/* NAVIGATION BUTTON RIGHT*/}
         <NavigationButtonRight>
-          <NavigationButtonLink onClick={() => onOrderButtonClick()} className="navigation__cart-button link-hover">
+          <NavigationButtonOrder onClick={() => onOrderButtonClick()} className="navigation__cart-button link-hover">
             <span className="navigation__cart-span">your order</span>
-          </NavigationButtonLink>
-          <NavigationButtonLink onClick={() => onOrderButtonClick()} className="navigation__cart-button">
+          </NavigationButtonOrder>
+          <NavigationButtonCounter onClick={() => onOrderButtonClick()} className="navigation__cart-button">
             {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter">0</NavigationCartCounter>}
-          </NavigationButtonLink>
+          </NavigationButtonCounter>
         </NavigationButtonRight>
 
       </NavigationInner>
