@@ -137,22 +137,6 @@ const ProductSliderLink = styled(Link)`
 
 const ProductSliderImage = styled.div`
   width: 100%;
-  position: relative;
-
-  > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    height: 0;
-    padding-bottom: 133.3333333333%;
-  }
 `
 
 // PRODUCT SLIDER SOLD
@@ -265,14 +249,14 @@ const ProductSlider = ({products}) => {
                     <ProductSliderLink to={`/product/${handle}/`}>
 
                       <ProductSliderImage>
-                        {images.map((image, index) => {
+                        {images.map((image) => {
                           const pluginImage = getImage(image.localFile)
-                          return image.localFile && index <= 1 && (
+                          return image.localFile && (
                             <GatsbyImage 
                               image={pluginImage} 
                               alt={handle} 
                               key={image.id} 
-                              className={index === 0 ? 'image-product' : 'image-detail'}
+                              className="image-hover"
                             />
                           )
                         })}

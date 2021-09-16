@@ -160,7 +160,14 @@ return <Legal>
 
     {/* LEGAL IMAGE */}
     <LegalImage>
-      {data.pageContext.images ? data.pageContext.images.map((image, index) => <GatsbyImage key={`image-${index}`} image={getImage(image.gatsbyImageData)} alt={image.title || ''}/>) : ''}
+      {data.pageContext.images ? data.pageContext.images.map((image, index) => 
+        <GatsbyImage 
+          key={`image-${index}`} 
+          image={getImage(image.gatsbyImageData)} 
+          alt={image.title || ''}
+          className="image-hover"
+        />
+      ) : ''}
     </LegalImage>
 
     {/* LEGAL TEXT*/}

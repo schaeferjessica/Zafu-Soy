@@ -290,7 +290,6 @@ export const query = graphql`
       }
       images {
         originalSrc
-        altText 
         id
         localFile {
           childImageSharp {
@@ -399,7 +398,6 @@ const ProductDetail = ({ data }) => {
 
               {/* PRODUCT DETAIL IMAGE */}
               {product.images.map((image, index) => {
-                if (index === 1) { 
                 const pluginImage = getImage(image.localFile)
                 const bgImage = convertToBgImage(pluginImage)
                 return (
@@ -413,9 +411,6 @@ const ProductDetail = ({ data }) => {
                     
                   </ProductDetailImage>
                 )
-                } else {
-                  return null;
-                }
               })}
 
             {/* PRODUCT DETAIL CONTEXT */}

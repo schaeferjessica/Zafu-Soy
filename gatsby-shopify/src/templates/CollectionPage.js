@@ -108,7 +108,7 @@ const CollectionGridList = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 3.2rem;
   margin-top: 50px;
   margin-bottom: 0px;
@@ -135,55 +135,17 @@ const CollectionGridList = styled.ul`
 const CollectionGridListItem = styled.li`
   margin-top: 20px;
   position: relative;
-
-  a:hover {
-    .image-product:not(:only-child) {
-      opacity: 0;
-    }
-
-    .image-detail {
-      opacity: 1;
-    }
-  }
-
-  .image-detail {
-    opacity: 0;
-  }
-
-  .image-product,
-  .image-detail {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 200ms ease-in-out;
-  }
 `
 
 const CollectionGridImage = styled.div`
   position: relative;
-
-  > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    height: 0;
-    padding-bottom: 133.3333333333%;
-  }
 `
 
 // COLLECTION GRID TITLE
 
 const CollectionGridTitle = styled.h3`
   margin-bottom: 10px;
+  max-width: 90%;
 `
 
 // COLLECTION GRID PRICE
@@ -191,6 +153,7 @@ const CollectionGridTitle = styled.h3`
 const CollectionGridPrice = styled.small`
   display: block;
   margin-top: 10px;
+  text-align: end;
 `
 
 const CollectionGridSold = styled.small`
@@ -292,10 +255,15 @@ const CollectionPage = ({pageContext, data}) => {
                                 {/* COLLECTION GRID ITEM */}
                                 <Link to={`/product/${handle}/`}>
                                   <CollectionGridImage>
-                                      {images.map((image, index) => {
+                                      {images.map((image) => {
                                       const pluginImage = getImage(image.localFile)
-                                      return image.localFile && index <= 1 &&(
-                                          <GatsbyImage image={pluginImage} alt={handle} key={image.id} className={index === 0 ? 'image-product' : 'image-detail'}/>
+                                      return image.localFile && (
+                                          <GatsbyImage 
+                                          image={pluginImage} 
+                                          alt={handle} 
+                                          key={image.id} 
+                                          className="image-hover"
+                                        />
                                       )
                                       })}
                                   </CollectionGridImage>

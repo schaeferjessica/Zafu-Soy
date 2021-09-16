@@ -49,23 +49,17 @@ const FeaturedContext = styled.div`
     width: 50%;
     margin-left: 5%;
 
-    @media ${breakpoint.mobile} {
-      width: 100%;
-      margin-left: 0;
-    }
-`
-
-// FEATURED TITLE
-
-const FeaturedTitle = styled.h3 `
+  @media ${breakpoint.mobile} {
+    width: 100%;
+    margin-left: 0;
     margin-top: 20px;
+  }
 `
 
 //  FEATURED TEXT 
 
 const FeaturedText = styled.div`
   font-size: 26px;
-  margin-top: 10px;
 
   @media ${breakpoint.mobile} {
     font-size: 18px;
@@ -85,7 +79,6 @@ const {contentfulFeatured} = useStaticQuery(
     graphql`
     query {
       contentfulFeatured {
-        title
         heading
         link
         text {
@@ -126,10 +119,6 @@ const {contentfulFeatured} = useStaticQuery(
 
           {/* FEATURED CONTEXT */}
           <FeaturedContext>
-            {/* FEATURED TITLE H3 */}
-            <FeaturedLink to={contentfulFeatured.link}>
-              <FeaturedTitle>{contentfulFeatured.title}</FeaturedTitle>
-            </FeaturedLink>
 
             {/* FEATURED TEXT */}
             <FeaturedText>{contentfulFeatured.text.text}</FeaturedText>
