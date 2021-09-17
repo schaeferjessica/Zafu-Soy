@@ -30,15 +30,21 @@ export const GlobalStyle = props => (
       // BULLET BUTTON
 
       .bullet-button {
+        padding: 5px;
+      }
+
+      .bullet-button::after {
+        content: '';
         width: 1rem;
         height: .30rem;
         background-color: var(--color-blue);
         padding: 0px;
-        margin: 0px 0px 0px 10px;
+        margin: 0px;
         transition: all .5s cubic-bezier(.23,1,.32,1);
+        display: inherit;
       }
       
-      .bullet-button.is-active {
+      .bullet-button.is-active::after {
         height: 1rem;
       }
 

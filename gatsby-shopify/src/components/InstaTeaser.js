@@ -154,32 +154,32 @@ const InstaTeaser = () => {
               perView: 2,
               gap: 40,
               peek: {
-                before: 160,
-                after: 160,
+                before: 75,
+                after: 75,
               }
             },
             800: {
               perView: 2,
               gap: 30,
               peek: {
-                before: 140,
-                after: 140,
+                before: 70,
+                after: 70,
               }
             },
             500: {
               perView: 1,
               gap: 20,
               peek: {
-                before: 80,
-                after: 80,
+                before: 30,
+                after: 30,
               }
             }
           }}
           gap={50}
           bound={true}
           peek={{
-            before: 200,
-            after: 200,
+            before: 150,
+            after: 150,
           }}
           slideClassName="slider__frame"
         >
