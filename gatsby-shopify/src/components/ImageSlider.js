@@ -14,8 +14,7 @@ import 'react-glidejs/dist/index.css';
 import Lightbox from '../utils/photoswipe/Lightbox';
 
 // styles
-import breakpoint from '../styles/breakpoints'
-import { moduleSpace, headerSpace } from '../styles/containers'
+import { container, moduleSpace, headerSpace } from '../styles/containers'
 
 
 // IMAGE SLIDER 
@@ -36,66 +35,12 @@ const ImageSliderContainer = styled.div`
 // IMAGE SLIDER TOP
 
 const ImageSliderTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-`
-
-// IMAGE SLIDER HEADER
-
-const ImageSliderHeader = styled.h2`
   ${headerSpace}
-`
-
-// IMAGE SLIDER NAVI
-
-const ImageSliderNavi = styled.div`
+  ${container}
+  
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-right: 150px;
-
-  @media ${breakpoint.desktop} { 
-    margin-right: 100px;
-  }
-
-  @media ${breakpoint.tablet} { 
-    margin-right: 80px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    margin-right: 30px;
-  }
-`
-
-const ImageSliderButton = styled.button`
-  height: 30px;
-  width: 30px;
-  margin-left: 15px;
-  border: 1px solid var(--color-gray);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate(0%);
-  transition: .5s ease-in-out;
-  padding: 4px;
-
-  &:hover {
-    transform: translate(0%) scale(1.2);
-    border: 1px solid var(--color-blue);
-  }
-
-  svg.left {
-    transform: translateX(-3px);
-  }
-
-  svg.right {
-    transform: rotate(180deg) translateX(-3px);
-  }
-
-  path {
-    fill: var(--color-blue);
-  }
 `
 
 
@@ -110,7 +55,10 @@ const LightboxButton = styled.div`
 /* IMAGE SLIDER */
 
 const ImageSlider = ({images}) => {
-  const ImageSliderRef = useRef(null);
+  const $$ = (selector, root = document) => [
+    ...root.querySelectorAll(selector),
+  ];
+  const sliderRef = useRef(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -119,60 +67,96 @@ const ImageSlider = ({images}) => {
     }).init();
   }, []);
 
+
+  const handleBulletClick = (event, index) => {
+    const bullets = $$('.bullet-button', containerRef.current);
+
+    // reset bullets
+    bullets.forEach(bullet => bullet.classList.remove('is-active'));
+
+    // set clicked bullet to active
+    event.target.classList.add('is-active');
+
+    // let slider jump to bullet target
+    sliderRef.current.go(`=${index}`);
+  };
+  
+  useEffect(() => {
+    const bullets = $$('.bullet-button', containerRef.current);
+    
+    // reset bullets
+    bullets.forEach(bullet => bullet.classList.remove('is-active'));
+
+    // set active default bullet
+    bullets[0].classList.add('is-active');
+
+    sliderRef.current.on('run', function() {
+      // reset bullets
+      bullets.forEach(bullet => bullet.classList.remove('is-active'));
+
+      // set active clicked bullet
+      bullets[sliderRef.current.index].classList.add('is-active');
+    })
+  }, [])
+
   return (
       <ImageSliderContainer ref={containerRef}>
 
           {/* IMAGE SLIDER TOP */}
           <ImageSliderTop>
           {/* IMAGE SLIDER HEADER */}
-          <ImageSliderHeader>
+          <h2>
             <Link to="">
               <span>Detail Images</span>
             </Link>
-          </ImageSliderHeader>
+          </h2>
 
-          {/* IMAGE SLIDER NAVI */}
-          <ImageSliderNavi>
-            <ImageSliderButton onClick={() => ImageSliderRef.current.go('<')}>
-              <svg width="16" height="16" viewBox="0 0 1024 1024">
-                <path d="M10.24 486.4c0 2.56 0 2.56 0 0-15.36 15.36-15.36 38.4 0 51.2l325.12 325.12c0 0 0 0 0 0 15.36 15.36 35.84 15.36 51.2 0 12.8-15.36 12.8-35.84 0-51.2l-261.12-261.12h865.28c17.92 0 33.28-15.36 33.28-33.28 0-20.48-15.36-38.4-33.28-38.4h-865.28l261.12-263.68c2.56-2.56 2.56-2.56 5.12-5.12 12.8-15.36 10.24-38.4-5.12-51.2s-38.4-10.24-51.2 5.12l-325.12 322.56z"></path>
-              </svg>
-            </ImageSliderButton>
-            <ImageSliderButton onClick={() => ImageSliderRef.current.go('>')}>
-              <svg width="16" height="16" viewBox="0 0 1024 1024">
-                <path d="M688.64 163.84c-12.8-15.36-35.84-17.92-51.2-5.12s-17.92 35.84-5.12 51.2c2.56 2.56 2.56 2.56 5.12 5.12l261.12 261.12h-862.72c-20.48 0-35.84 17.92-33.28 38.4 0 17.92 15.36 33.28 33.28 33.28h865.28l-263.68 263.68c-12.8 15.36-12.8 35.84 0 51.2 15.36 15.36 35.84 15.36 51.2 0 0 0 0 0 0 0l325.12-325.12c15.36-12.8 15.36-35.84 0-51.2 0 0 0 0 0 0l-325.12-322.56z"></path>
-              </svg>
-            </ImageSliderButton>
-          </ImageSliderNavi>
+          {/* IMAGE SLIDER BULLETS */}
+          <ol className="bullets">
+          {images.map((_, index) => (
+            <li key={`bullet-${index}`} className="bullet">
+              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}></button>
+            </li>
+          ))}
+          </ol>
         </ImageSliderTop>
         
         <Glide
-          ref={ImageSliderRef}
+          ref={sliderRef}
           type="slider"
           perView={3}
+          startAt={0}
           breakpoints={{
             1200: {
               perView: 2,
-              gap: 20,
+              gap: 40,
               peek: {
-                before: 0,
-                after: 200,
+                before: 75,
+                after: 75,
+              }
+            },
+            800: {
+              perView: 2,
+              gap: 30,
+              peek: {
+                before: 70,
+                after: 70,
               }
             },
             500: {
               perView: 1,
               gap: 20,
               peek: {
-                before: 0,
-                after: 100,
+                before: 30,
+                after: 30,
               }
             }
           }}
-          gap={30}
+          gap={50}
           bound={true}
           peek={{
-            before: 0,
-            after: 300,
+            before: 150,
+            after: 150,
           }}
           slideClassName="slider__frame"
         >

@@ -215,24 +215,6 @@ const ProductDetailSliderText = styled.div`
   }
 `
 
-const ProductDetailSliderInner = styled.div`
-  ${container}
-
-  padding-right: 0px;
-
-  @media ${breakpoint.desktop} {
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.tablet} {
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.mobile} {
-    padding-right: 0px;
-  }
-`
-
 const ProductDetailProductSlider = styled.div`
   ${moduleSpace};
 `
@@ -442,13 +424,10 @@ const ProductDetail = ({ data }) => {
           <ProductDetailSliderText>{documentToReactComponents(JSON.parse(detailInfo.text.raw), options)}</ProductDetailSliderText>
         </ProductDetailSliderContext>
 
-        {/* PRODUCT DETAIL SLIDER INNER */}
-        <ProductDetailSliderInner>
+
           {/* SLIDER CONTENTFUL */}
           <ImageSlider images={detailInfo.images} />
-        </ProductDetailSliderInner>
       </ProductDetailSlider> : ''} 
-
 
       {/* PRODUCT DETAIL PRODUCT SLIDER */}
       <ProductDetailProductSlider>
