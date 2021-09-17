@@ -1,5 +1,5 @@
 // react
-import React, {useRef, useState, useEffect} from 'react'
+import React, {useRef, useEffect} from 'react'
 
 // gatsby
 import { useStaticQuery, graphql, Link } from 'gatsby'
@@ -65,7 +65,7 @@ const InstaTeaser = () => {
   const $$ = (selector, root = document) => [
     ...root.querySelectorAll(selector),
   ];
-  const containerEl = useRef(null);
+  const containerRef = useRef(null);
   const sliderRef = useRef(null);
   const {contentfulInstagram} = useStaticQuery(
     graphql`
@@ -89,7 +89,7 @@ const InstaTeaser = () => {
   )
 
   const handleBulletClick = (event, index) => {
-    const bullets = $$('.bullet-button', containerEl.current);
+    const bullets = $$('.bullet-button', containerRef.current);
 
     // reset bullets
     bullets.forEach(bullet => bullet.classList.remove('is-active'));
@@ -102,7 +102,7 @@ const InstaTeaser = () => {
   };
   
   useEffect(() => {
-    const bullets = $$('.bullet-button', containerEl.current);
+    const bullets = $$('.bullet-button', containerRef.current);
     
     // reset bullets
     bullets.forEach(bullet => bullet.classList.remove('is-active'));
@@ -120,7 +120,7 @@ const InstaTeaser = () => {
   }, [])
 
   return (
-    <InstaTeaserContainer ref={containerEl}>
+    <InstaTeaserContainer ref={containerRef}>
 
     {/* INSTA TEASER TOP */}
     <InstaTeaserTop>

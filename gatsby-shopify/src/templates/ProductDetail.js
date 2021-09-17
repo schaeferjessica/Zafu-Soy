@@ -235,21 +235,6 @@ const ProductDetailSliderInner = styled.div`
 
 const ProductDetailProductSlider = styled.div`
   ${moduleSpace};
-  ${container};
-
-  padding-right: 0px;
-
-  @media ${breakpoint.desktop} { 
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.tablet} { 
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    padding-right: 0px;
-  }
 `
 
 export const query = graphql`
