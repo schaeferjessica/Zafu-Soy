@@ -8,6 +8,9 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 // emotion
 import styled from '@emotion/styled/macro'
 
+// contentful
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 // styles
 import breakpoint from '../styles/breakpoints'
 import { container, moduleSpace, headerSpace }  from '../styles/containers'
@@ -82,9 +85,7 @@ const {contentfulFeatured} = useStaticQuery(
       contentfulFeatured {
         heading
         link
-        text {
-          text
-        }
+        text {raw}
         image {
           gatsbyImageData (width: 1000)
         }
@@ -122,7 +123,7 @@ const {contentfulFeatured} = useStaticQuery(
           <FeaturedContext>
 
             {/* FEATURED TEXT */}
-            <FeaturedText>{contentfulFeatured.text.text}</FeaturedText>
+            <FeaturedText>{documentToReactComponents(JSON.parse(contentfulFeatured.text.raw))}</FeaturedText>
 
             {/* FEATURED LINK */}
             <FeaturedLink to={contentfulFeatured.link} className="link-hover">
