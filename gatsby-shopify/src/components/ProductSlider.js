@@ -1,8 +1,7 @@
 // react
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 // components
-import StoreContext from '~/context/StoreContext'
 import Glide from 'react-glidejs';
 import 'react-glidejs/dist/index.css';
 
@@ -106,9 +105,6 @@ const ProductSlider = ({products}) => {
   ];
   const sliderRef = useRef(null);
   const containerRef = useRef(null);
-  const {
-    store: { checkout },
-  } = useContext(StoreContext)
 
 
   const handleBulletClick = (event, index) => {
@@ -131,7 +127,7 @@ const ProductSlider = ({products}) => {
     bullets.forEach(bullet => bullet.classList.remove('is-active'));
 
     // set active default bullet
-    bullets[0].classList.add('is-active');
+    bullets[1].classList.add('is-active');
 
     sliderRef.current.on('run', function() {
       // reset bullets
@@ -159,7 +155,9 @@ const ProductSlider = ({products}) => {
           <ol className="bullets">
           {products.map((_, index) => (
             <li key={`bullet-${index}`} className="bullet">
-              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}></button>
+              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
+              <span className="sr-only">jump to slide {index}</span>
+              </button>
             </li>
           ))}
           </ol>
@@ -169,7 +167,7 @@ const ProductSlider = ({products}) => {
           ref={sliderRef}
           type="slider"
           perView={3}
-          startAt={0}
+          startAt={1}
           breakpoints={{
             1200: {
               perView: 2,

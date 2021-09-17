@@ -115,7 +115,9 @@ const ImageSlider = ({images}) => {
           <ol className="bullets">
           {images.map((_, index) => (
             <li key={`bullet-${index}`} className="bullet">
-              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}></button>
+              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
+                <span className="sr-only">jump to slide {index}</span>
+              </button>
             </li>
           ))}
           </ol>

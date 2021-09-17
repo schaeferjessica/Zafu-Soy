@@ -16,7 +16,6 @@ import 'react-glidejs/dist/index.css';
 import styled from '@emotion/styled/macro';
 
 // styles
-import breakpoint from '../styles/breakpoints'
 import { container, moduleSpace, headerSpace }  from '../styles/containers'
 
 
@@ -135,7 +134,9 @@ const InstaTeaser = () => {
       <ol className="bullets">
       {contentfulInstagram.instagramPost.map((_, index) => (
         <li key={`bullet-${index}`} className="bullet">
-          <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}></button>
+          <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
+            <span className="sr-only">jump to slide {index}</span>
+          </button>
         </li>
       ))}
       </ol>
