@@ -70,7 +70,7 @@ export const GlobalStyle = props => (
 
       .image-hover.gatsby-image-wrapper [data-main-image] {
         will-change: transform;
-        transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1) 0s;
+        transition: transform 1s cubic-bezier(0.33, 1, 0.68, 1) 0s;
         object-fit: contain;
         width: 100%;
         height: 100%;

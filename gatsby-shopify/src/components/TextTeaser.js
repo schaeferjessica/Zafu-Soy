@@ -30,18 +30,10 @@ const TextTeaserTitle = styled.h2 `
 //  TEXT TEASER TEXT 
 
 const TextTeaserText = styled.div`
-    max-width : 80%;
+  max-width : 80%;
 
-    @media ${breakpoint.tablet} {
-        max-width : 100%;
-    }
-
-    p {
-      font-size: 26px;
-
-    @media ${breakpoint.mobile} {
-      font-size: 18px;
-    }
+  @media ${breakpoint.tablet} {
+    max-width : 100%;
   }
 `
 

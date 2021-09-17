@@ -34,11 +34,6 @@ const FooterInner = styled.footer`
   }
 `
 
-const FooterLinksTitle = styled.h3`
-    padding-bottom: 5px;
-    display: block;
-`
-
 
 // FOOTER LINKS LEFT
 
@@ -106,7 +101,6 @@ const Footer = () => {
 
             <FooterLinksLeft>
                 <FooterLinksWrapper>
-                  <FooterLinksTitle>Social</FooterLinksTitle>
                   <FooterLink to="/collection/frontpage/"><span>shop</span></FooterLink>
                   <FooterLink to="/about/"><span>about</span></FooterLink>
                   <FooterLink to="/faq/"><span>FAQ</span></FooterLink>
@@ -114,7 +108,6 @@ const Footer = () => {
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
-                  <FooterLinksTitle>Orders & Support</FooterLinksTitle>
                   <FooterLink to="/shipping/"><span>Shipping & Returns</span></FooterLink>
                   <FooterLink to="/impressum/"><span>Impressum</span></FooterLink>
                   <FooterLink to="/terms/"><span>Terms</span></FooterLink>
@@ -126,7 +119,6 @@ const Footer = () => {
 
             <FooterLinksRight>
                 <FooterLinksWrapper>
-                  <FooterLinksTitle>Contact us:</FooterLinksTitle>
                   <FooterLink to="/about/"><span>how can we help?</span></FooterLink>
                 </FooterLinksWrapper>
 

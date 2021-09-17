@@ -13,9 +13,10 @@ import Footer from '~/components/Footer'
 
 // styles
 import { GlobalStyle } from '../styles/main'
-import { GlobalStyle as ColorStyle } from '../styles/colors'
-import { GlobalStyle as HoverStyle } from '../styles/hover'
-import { GlobalStyle as ScrollStyle } from '../styles/scroll'
+import { GlobalStyle as ColorsStyle } from '../styles/colors'
+import { GlobalStyle as HoversStyle } from '../styles/hovers'
+import { GlobalStyle as ScrollsStyle } from '../styles/scrolls'
+import { GlobalStyle as BulletsStyle } from '../styles/bullets'
 
 // font
 import '../../static/fonts.css';
@@ -25,9 +26,10 @@ const Layout = ({ children }) => {
   return (
     <ContextProvider>
       <GlobalStyle />
-      <ColorStyle />
-      <HoverStyle />
-      <ScrollStyle />
+      <ColorsStyle />
+      <HoversStyle />
+      <ScrollsStyle />
+      <BulletsStyle />
       <StaticQuery
         query={graphql`
           query SiteTitleQuery {

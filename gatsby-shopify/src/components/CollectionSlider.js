@@ -20,26 +20,13 @@ import { container, moduleSpace, headerSpace }  from '../styles/containers'
 
 const CollectionSliderComponent = styled.div`
   ${moduleSpace}
-  ${container}
-
-  padding-right: 0px;
-
-  @media ${breakpoint.desktop} {
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.tablet} {
-    padding-right: 0px;
-  }
-
-  @media ${breakpoint.mobile} {
-    padding-right: 0px;
-  }
 `
 
 // COLLECTION SLIDER TOP
 
 const CollectionSliderTop = styled.div`
+  ${container}
+
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -104,8 +91,6 @@ const CollectionSliderButton = styled.div`
 
 
 const CollectionSliderInner = styled.div`
-  text-align: center;
-
   .glide__slides {
     margin: 0;
   }
@@ -114,6 +99,10 @@ const CollectionSliderInner = styled.div`
   .Glide-rightArrow  {
     display: none;
   }
+`
+
+const CollectionSliderContext = styled.div`
+  margin-left: 10%;
 `
 
 const CollectionSliderTitle = styled.h3`
@@ -184,21 +173,14 @@ const CollectionSlider = () => {
         <Glide
           ref={sliderRef}
           type="slider"
-          perView={3}
+          perView={2}
+          startAt= {1}
           breakpoints={{
             1200: {
-              perView: 3,
+              perView: 1,
               gap: 30,
               peek: {
-                before: 0,
-                after: 160,
-              }
-            },
-            800: {
-              perView: 2,
-              gap: 30,
-              peek: {
-                before: 0,
+                before: 140,
                 after: 140,
               }
             },
@@ -206,15 +188,16 @@ const CollectionSlider = () => {
               perView: 1,
               gap: 20,
               peek: {
-                before: 0,
+                before: 80,
                 after: 80,
               }
             }
           }}
           gap={40}
           bound={true}
+          
           peek={{
-            before: 0,
+            before: 200,
             after: 200,
           }}
           slideClassName="slider__frame"
@@ -234,16 +217,17 @@ const CollectionSlider = () => {
                    />
                 </Link>
 
-                
-                {/* COLLECTION SLIDER TITLE */}
-                <CollectionSliderTitle>
-                  <Link to={post.link} className="link-hover" rel="noreferrer">
-                    <span>{post.title}</span>
-                  </Link>
-                </CollectionSliderTitle>
+                <CollectionSliderContext>
+                  {/* COLLECTION SLIDER TITLE */}
+                  <CollectionSliderTitle>
+                    <Link to={post.link} className="link-hover" rel="noreferrer">
+                      <span>{post.title}</span>
+                    </Link>
+                  </CollectionSliderTitle>
 
-                {/* COLLECTION SLIDER TEXT */}
-                <CollectionSliderText>{post.image.description}</CollectionSliderText>
+                  {/* COLLECTION SLIDER TEXT */}
+                  <CollectionSliderText>{post.image.description}</CollectionSliderText>
+                </CollectionSliderContext>
                 
               </div>
             )
