@@ -50,7 +50,7 @@ const NavigationContainer = styled.div`
       color: ${ciWhite};
     }
     
-    .navigation__cart-counter {
+    .navigation__cart-button {
       border-color: ${ciWhite};
     }
   }
@@ -82,7 +82,7 @@ const NavigationContainer = styled.div`
       display: block;
     }
     
-    .navigation__cart-counter {
+    .navigation__cart-button {
       border-color: ${ciBlack};
     }
 
@@ -171,14 +171,6 @@ const NavigationButtonOrder = styled.button`
 `
 
 const NavigationButtonCounter = styled.button`
-  padding: 0px;
-  margin-left: 5px;  
-`
-
-
-// NAVIGATION CARD
-
-const NavigationCartCounter = styled.p`
   border: 2px solid var(--color-black);
   color: var(--color-black);
   width: 30px;
@@ -187,6 +179,8 @@ const NavigationCartCounter = styled.p`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: 2px 0 0 0;
+  margin-left: 5px;
 `
 
 const useQuantity = () => {
@@ -248,7 +242,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
             <span className="navigation__cart-span">your order</span>
           </NavigationButtonOrder>
           <NavigationButtonCounter onClick={() => onOrderButtonClick()} className="navigation__cart-button">
-            {hasItems ? <NavigationCartCounter className="navigation__cart-counter">{quantity}</NavigationCartCounter> : <NavigationCartCounter className="navigation__cart-counter">0</NavigationCartCounter>}
+            {hasItems ? <span className="navigation__cart-counter">{quantity}</span> : <span className="navigation__cart-counter">0</span>}
           </NavigationButtonCounter>
         </NavigationButtonRight>
 

@@ -6,10 +6,9 @@ import Seo from '~/components/seo'
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
 import Header from '~/components/Header'
-import TextTeaser from '~/components/TextTeaser'
+import GridTeaser from '~/components/GridTeaser'
 import CollectionSlider from '~/components/CollectionSlider'
 import InstaTeaser from '~/components/InstaTeaser'
-import Featured from '../components/Featured'
 
 
 const IndexPage = () => {
@@ -23,16 +22,23 @@ const IndexPage = () => {
       body.classList.remove('prevent-scroll--overlay');
     }
   }, [isOpen]);
+  
 
   return <>
     <Seo title="Shop" keywords={[`gatsby`, `application`, `react`]} />
+    
     <Navigation isWhite={true} onOrderButtonClick={() => setIsOpen(!isOpen)} />
+    
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
+    
     <Header />
+
     <div id="headermarker"></div>
-    <TextTeaser />
+    
     <CollectionSlider />
-    <Featured />
+
+    <GridTeaser />
+
     <InstaTeaser />
   </>
 }

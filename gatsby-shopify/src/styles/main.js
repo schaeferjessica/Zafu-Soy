@@ -54,7 +54,7 @@ export const GlobalStyle = props => (
         font-variant-ligatures: contextual;
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
-}
+        }
         
         @media ${breakpoint.mobile} { 
           font-size: 15px;
