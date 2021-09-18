@@ -13,6 +13,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled/macro';
 
 // styles
+import breakpoint from '../styles/breakpoints'
 import { container, headerSpace } from '../styles/containers'
 
 
@@ -95,7 +96,12 @@ const ProductSliderSold = styled.small`
 
 const ProductSliderTitle = styled.p`
   margin-top: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 0px; 
+  margin-left: 18px;
+
+  @media ${breakpoint.mobile} { 
+    margin-left: 3px;
+  }
 `
 
 

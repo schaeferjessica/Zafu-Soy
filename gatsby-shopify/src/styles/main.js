@@ -113,7 +113,7 @@ export const GlobalStyle = props => (
         font-size: 20px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 17px;
+          font-size: 15px;
         }
       }
 

@@ -3,7 +3,6 @@ import React, {useRef, useEffect} from 'react'
 
 // gatsby
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link, } from 'gatsby'
 
 // emotion
 import styled from '@emotion/styled/macro';
@@ -112,11 +111,7 @@ const ImageSlider = ({images}) => {
           {/* IMAGE SLIDER TOP */}
           <ImageSliderTop>
           {/* IMAGE SLIDER HEADER */}
-          <h2>
-            <Link to="">
-              <span>Detail Images</span>
-            </Link>
-          </h2>
+          <h2>gallery</h2>
 
           {/* IMAGE SLIDER BULLETS */}
           <ol className="bullets">

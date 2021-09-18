@@ -60,15 +60,6 @@ const FeaturedContext = styled.div`
   }
 `
 
-//  FEATURED TEXT 
-
-const FeaturedText = styled.div`
-  font-size: 26px;
-
-  @media ${breakpoint.tablet} {
-    font-size: 18px;
-  }
-`
 
 //  FEATURED SPAN
 
@@ -123,7 +114,7 @@ const {contentfulFeatured} = useStaticQuery(
           <FeaturedContext>
 
             {/* FEATURED TEXT */}
-            <FeaturedText>{documentToReactComponents(JSON.parse(contentfulFeatured.text.raw))}</FeaturedText>
+            <div>{documentToReactComponents(JSON.parse(contentfulFeatured.text.raw))}</div>
 
             {/* FEATURED LINK */}
             <FeaturedLink to={contentfulFeatured.link} className="link-hover">
