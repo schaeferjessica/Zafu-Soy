@@ -57,10 +57,6 @@ const CollectionSliderTitle = styled.p`
   margin-top: 20px;
 `
 
-const CollectionSliderText = styled.p`
-  margin-top: 5px;
-`
-
 
 
 /* COLLECTION SLIDER */
@@ -214,7 +210,7 @@ const CollectionSlider = () => {
                   </CollectionSliderTitle>
 
                   {/* COLLECTION SLIDER TEXT */}
-                  <CollectionSliderText>{post.image.description}</CollectionSliderText>
+                  <p>{post.image.description}</p>
                 </CollectionSliderContext>
                 
               </div>

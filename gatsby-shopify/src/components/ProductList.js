@@ -21,7 +21,6 @@ const ListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  font-family: 'IBM Plex Mono';
   border-bottom: 1px solid var(--color-blue);
   padding-top: 25px;
   padding-bottom: 25px;  

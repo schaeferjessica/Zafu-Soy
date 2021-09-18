@@ -135,7 +135,7 @@ const ProductDetailFilter = styled.ul`
 const ProductDetailFilterList = styled.li`
   padding-left: 12px;
   padding-right: 12px;
-  border: 3px solid var(--color-white);
+  border: 2px solid var(--color-white);
   line-height: 28px;
   margin-right: 12px;
   margin-top: 10px;

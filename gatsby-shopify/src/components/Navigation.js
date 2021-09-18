@@ -179,7 +179,7 @@ const NavigationButtonCounter = styled.button`
 // NAVIGATION CARD
 
 const NavigationCartCounter = styled.p`
-  border: 3px solid var(--color-blue);
+  border: 2px solid var(--color-blue);
   color: var(--color-blue);
   width: 30px;
   height: 30px;

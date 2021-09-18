@@ -83,11 +83,11 @@ const HeaderTitle = styled.h1`
   text-transform: lowercase;
   color: var(--color-white);
   cursor: pointer;
-  font-size: 80px;
+  font-size: 81px;
   line-height: 86px;
 
   @media ${breakpoint.tablet} {
-    font-size: 60px;
+    font-size: 63px;
     line-height: 67px;
   }
 `

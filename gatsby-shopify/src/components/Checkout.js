@@ -178,7 +178,7 @@ export const CheckoutClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid var(--color-blue);
+  border: 2px solid var(--color-blue);
   font-size: 14px;
   color: var(--color-blue);
   align-self: flex-end;

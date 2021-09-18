@@ -14,10 +14,9 @@ export const GlobalStyle = props => (
         padding-right: 2.45rem;
 
         span {
-          font-family: 'IBM Plex Mono';
+          font-family: 'IBM Plex Sans';
           display: inline-block;
           transition: transform .5s cubic-bezier(.23,1,.32,1);
-          font-weight: 500;
           text-transform: uppercase;
         }
 
@@ -55,9 +54,9 @@ export const GlobalStyle = props => (
       // BUTTON HOVER
 
       .button-hover {
-        font-family: 'IBM Plex Mono';
+        font-family: 'IBM Plex Sans';
         text-transform: uppercase;
-        border: 3px solid var(--color-blue);
+        border: 2px solid var(--color-blue);
         padding: 30px 50px;
         position: relative;
         display: inline-block;

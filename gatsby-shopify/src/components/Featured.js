@@ -127,7 +127,7 @@ const {contentfulFeatured} = useStaticQuery(
 
             {/* FEATURED LINK */}
             <FeaturedLink to={contentfulFeatured.link} className="link-hover">
-              <FeaturedSpan>Shop now</FeaturedSpan>
+              <FeaturedSpan>see more</FeaturedSpan>
             </FeaturedLink>
           </FeaturedContext>
 
