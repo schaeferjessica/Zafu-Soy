@@ -104,11 +104,13 @@ const {allContentfulGridItem} = useStaticQuery(
             </GridTeaserTitle>
 
             {/* GRID TEASER IMAGE */}
-            <GatsbyImage
-              image={image}
-              alt={gridItem.title}
-              className="image-hover"
-            />
+            <Link to={gridItem.link}>
+              <GatsbyImage
+                image={image}
+                alt={gridItem.title}
+                className="image-hover"
+              />
+            </Link>
 
             {/* GRID TEASER TEXT */}
             {/* <GridTeaserText>{documentToReactComponents(JSON.parse(gridItem.text.raw))}</GridTeaserText> */}
