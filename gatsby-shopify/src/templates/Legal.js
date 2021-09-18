@@ -79,9 +79,15 @@ const LegalText = styled.div`
     }
   }
 
+  ul {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+
   .accordion {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .accordion__button {

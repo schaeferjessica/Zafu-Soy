@@ -165,7 +165,7 @@ export const GlobalStyle = props => (
       // UNORDERED LIST
 
       ul {
-        list-style: square inside;
+        list-style: square;
       }
 
       // IMAGE
