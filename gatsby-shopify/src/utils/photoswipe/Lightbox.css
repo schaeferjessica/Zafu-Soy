@@ -233,7 +233,7 @@
 }
 
 .pswp__button.focus-visible {
-  outline: 2px dotted var(--color-black);
+  outline: 2px dotted var(--color-blue);
 }
 
 .pswp__button--arrow--left svg,
@@ -250,7 +250,7 @@
 }
 .pswp__button--arrow--left svg path,
 .pswp__button--arrow--right svg path {
-  fill: var(--color-black);
+  fill: var(--color-blue);
 }
 
 .pswp__button--close svg {
@@ -353,7 +353,7 @@
   display: flex;
   align-items: flex-end;
   padding: 40px;
-  color: var(--color-black);
+  color: var(--color-blue);
   -webkit-user-select: none;
       -ms-user-select: none;
           user-select: none;
@@ -384,7 +384,7 @@
 .pswp__caption__center {
   max-width: calc(100% - 50px);
   padding: 15px 0 30px 40px;
-  color: var(--color-black);
+  color: var(--color-blue);
   font-size: 20px;
   line-height: 26px;
   text-align: left;
@@ -446,7 +446,7 @@
   position: relative;
   width: 100%;
   padding: 40px;
-  color: var(--color-black);
+  color: var(--color-blue);
   font-size: 18px;
 }
 @media screen and (max-width: 1199px) {

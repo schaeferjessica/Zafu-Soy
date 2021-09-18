@@ -113,7 +113,7 @@ export const GlobalStyle = props => (
         font-size: 20px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 32px;
+          font-size: 17px;
         }
       }
 
@@ -169,26 +169,6 @@ export const GlobalStyle = props => (
 
       img {
         width: 100%;
-      }
-
-      .prevent-scroll {
-        overflow: hidden;
-      }
-
-      .prevent-scroll--overlay {
-        overflow: hidden;
-
-        &::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 10;
-          background-color: rgba(0,0,0,0.7);
-        } 
-      }
       }
 
     `}
