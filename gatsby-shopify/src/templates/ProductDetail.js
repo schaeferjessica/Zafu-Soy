@@ -148,6 +148,9 @@ const ProductDetail = ({ data }) => {
       {/* SCROLL TARGET */}
       <div id="discoverTarget"></div>
 
+      {/* IMAGE SLIDER */}
+      <ImageSlider images={detailInfo.images} />
+
       {/* DETAIL INPUT */}
       <DetailInput product={product} />
       
@@ -156,9 +159,6 @@ const ProductDetail = ({ data }) => {
         textLeft={documentToReactComponents(JSON.parse(detailInfo.textLeft.raw), options)}
         textRight={documentToReactComponents(JSON.parse(detailInfo.textRight.raw), options)}
       />
-
-      {/* SLIDER CONTENTFUL */}
-      <ImageSlider images={detailInfo.images} />
 
       {/* PRODUCT SLIDER */}
       {filteredCollectionProducts.length ? <ProductSlider products={filteredCollectionProducts} /> : ''}

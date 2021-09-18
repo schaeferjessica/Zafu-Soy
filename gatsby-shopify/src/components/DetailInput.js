@@ -154,11 +154,14 @@ const DetailInputButtonOrder = styled.div`
 // DETAIL INPUT BUTTON ORDER INNER
 
 const DetailInputButtonOrderInner = styled.button`
-    max-width: 500px;
+    max-width: 55%;
     margin-top: 100px;
+    border: 2px solid var(--color-black);
+    padding: 25px;
 
-    @media ${breakpoint.tablet} { 
-      margin-top: 50px;
+  @media ${breakpoint.mobile} { 
+    max-width: 100%;
+    margin-top: 50px;
   }
 `
 
@@ -263,9 +266,9 @@ const DetailInput = ({ product }) => {
       {/* DETAIL INPUT BUTTON ORDER */}
       <DetailInputButtonOrder>
         {/* DETAIL INPUT BUTTON ORDER INNER */}
-        <DetailInputButtonOrderInner type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
-          {available && <DetailInputPrice>Add to your order — {price}</DetailInputPrice>}
-          {!available && <DetailInputPrice>currently out of stock</DetailInputPrice>}
+        <DetailInputButtonOrderInner type="submit" disabled={!available || adding} onClick={handleAddToCart}>
+          {available && <DetailInputPrice className="caption-bold">Add to your order — {price}</DetailInputPrice>}
+          {!available && <DetailInputPrice className="caption-bold">currently out of stock</DetailInputPrice>}
         </DetailInputButtonOrderInner>
       </DetailInputButtonOrder>
 
