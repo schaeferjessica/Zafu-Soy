@@ -69,6 +69,14 @@ const FooterLink = styled(LinkTo)`
   margin-top: 5px;
 `
 
+const FooterSpan = styled.span`
+  font-size: 15px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 14px;
+  }
+`
+
 
 // FOOTER LINKS RIGHT
 
@@ -85,6 +93,11 @@ const FooterLinksRight = styled.div`
 
 const FooterCredit  = styled.p`
   margin-top: 30px;
+  font-size: 15px;
+
+  @media ${breakpoint.mobile} { 
+    font-size: 14px;
+  }
 `
 
 
@@ -99,31 +112,47 @@ const Footer = () => {
             <FooterLinksLeft>
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/collection/frontpage/" className="border-hover"><span>shop</span></FooterLink>
+                    <FooterLink to="/collection/frontpage/" className="border-hover">
+                      <FooterSpan>shop</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/about/" className="border-hover"><span>about</span></FooterLink>
+                    <FooterLink to="/about/" className="border-hover">
+                      <FooterSpan>about</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/faq/" className="border-hover"><span>FAQ</span></FooterLink>
+                    <FooterLink to="/faq/" className="border-hover">
+                      <FooterSpan>FAQ</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="border-hover"><span>Instagram</span></FooterLinkExtern>
+                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" className="border-hover" target="_blank" rel="noopener noreferrer">
+                      <FooterSpan>Instagram</FooterSpan>
+                    </FooterLinkExtern>
                   </li>
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/shipping/" className="border-hover"><span>Shipping & Returns</span></FooterLink>
+                    <FooterLink to="/shipping/" className="border-hover">
+                      <FooterSpan>Shipping & Returns</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/impressum/" className="border-hover"><span>Impressum</span></FooterLink>
+                    <FooterLink to="/impressum/" className="border-hover">
+                      <FooterSpan>Impressum</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/terms/" className="border-hover"><span>Terms</span></FooterLink>
+                    <FooterLink to="/terms/" className="border-hover">
+                      <FooterSpan>Terms</FooterSpan>
+                    </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/privacy/" className="border-hover"><span>Privacy</span></FooterLink>
+                    <FooterLink to="/privacy/" className="border-hover">
+                      <FooterSpan>Privacy</FooterSpan>
+                    </FooterLink>
                   </li>
                 </FooterLinksWrapper>
             </FooterLinksLeft>
@@ -133,12 +162,14 @@ const Footer = () => {
             <FooterLinksRight>
                 <FooterLinksWrapper>
                   <li>
-                  <FooterLink to="/about/" className="border-hover"><span>how can we help?</span></FooterLink>
+                    <FooterLink to="/about/" className="border-hover">
+                      <FooterSpan>how can we help?</FooterSpan>
+                    </FooterLink>
                   </li>
                 </FooterLinksWrapper>
 
                 <FooterCredit>&#169; {new Date().getFullYear()}, built by{` `} 
-                  <FooterLinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExtern>
+                  <FooterLinkExtern href="https://jessica.gatsbyjs.io/" className="border-hover" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExtern>
                 </FooterCredit>
             </FooterLinksRight>
 
