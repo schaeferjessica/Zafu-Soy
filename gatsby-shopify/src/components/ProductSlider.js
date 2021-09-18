@@ -154,7 +154,7 @@ const ProductSlider = ({products}) => {
           {/* PRODUCT SLIDER BULLETS */}
           <ol className="bullets">
           {products.map((_, index) => (
-            <li key={`bullet-${index}`} className="bullet">
+            <li key={`production-slider-bullet-${index}`} className="bullet">
               <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
               <span className="sr-only">jump to slide {index}</span>
               </button>

@@ -2,7 +2,7 @@
 import React, {useRef, useEffect} from 'react'
 
 // gatsby
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 // contentful
@@ -136,15 +136,15 @@ const InstaTeaser = () => {
     <InstaTeaserTop>
       {/* INSTA TEASER HEADER */}
       <h2>
-        <Link to="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="link-hover">
+        <a href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="link-hover">
           <span>{contentfulInstagram.heading}</span>
-        </Link>
+        </a>
       </h2>
 
       {/* INSTA TEASER BULLETS */}
       <ol className="bullets">
       {contentfulInstagram.instagramPost.map((_, index) => (
-        <li key={`bullet-${index}`} className="bullet">
+        <li key={`insta-bullet-${index}`} className="bullet">
           <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
             <span className="sr-only">jump to slide {index}</span>
           </button>
