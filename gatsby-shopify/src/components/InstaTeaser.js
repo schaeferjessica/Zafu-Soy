@@ -107,7 +107,7 @@ const InstaTeaser = () => {
     bullets.forEach(bullet => bullet.classList.remove('is-active'));
 
     // set active default bullet
-    bullets[1].classList.add('is-active');
+    bullets[0].classList.add('is-active');
 
     sliderRef.current.on('run', function() {
       // reset bullets
@@ -149,7 +149,7 @@ const InstaTeaser = () => {
           ref={sliderRef}
           type="slider"
           perView={3}
-          startAt={1}
+          startAt={0}
           breakpoints={{
             1200: {
               perView: 2,

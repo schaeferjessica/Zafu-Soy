@@ -14,6 +14,7 @@ import 'react-glidejs/dist/index.css';
 import styled from '@emotion/styled/macro'
 
 // styles
+import breakpoint from '../styles/breakpoints'
 import { container, moduleSpace, headerSpace }  from '../styles/containers'
 
 
@@ -45,7 +46,11 @@ const CollectionSliderInner = styled.div`
 `
 
 const CollectionSliderContext = styled.div`
-  margin-left: 10%;
+  margin-left: 18px;
+
+  @media ${breakpoint.mobile} { 
+    margin-left: 3px;
+  }
 `
 
 const CollectionSliderTitle = styled.p`
