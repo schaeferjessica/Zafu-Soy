@@ -93,6 +93,7 @@ const HeaderTitle = styled.h1`
 `
 
 const HeaderText = styled.p`
+  font-family: 'IBM Plex Sans';
   margin-bottom: 0;
   color: var(--color-white);
   cursor: pointer;
@@ -166,7 +167,7 @@ const Header = () => {
                 {/* HEADER CONTEXT RIGHT */}
 
                 <HeaderContextRight onClick={() => jumpTo('#headermarker')}>
-                    <HeaderText><strong>asian homewares</strong></HeaderText>
+                    <HeaderText>asian homewares</HeaderText>
                     <HeaderTitle>yayoi</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>

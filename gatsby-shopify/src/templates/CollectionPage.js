@@ -89,6 +89,14 @@ const CollectionFilterItem = styled.li`
 `
 
 const CollectionFilterLink = styled(Link)`
+    text-transform: lowercase;
+    font-size: 15px;
+
+    @media ${breakpoint.mobile} {
+      font-size: 13px;
+    }
+
+
     &:hover {
         text-decoration: none;
     }
@@ -155,11 +163,16 @@ const CollectionGridPrice = styled.p`
   text-align: end;
 `
 
-const CollectionGridSold = styled.small`
+const CollectionGridSold = styled.p`
   transform: rotate(270deg) translateX(80px);
   position: absolute;
-  bottom: 4px;
-  right: -70px;
+  bottom: 12px;
+  right: -73px;
+
+
+  @media ${breakpoint.mobile} {
+    bottom: 8px;
+  } 
 `
 
 
@@ -223,7 +236,9 @@ const CollectionPage = ({pageContext, data}) => {
 
             <CollectionFilterList>{data.allShopifyCollection.nodes.filter(node => node.title !== pageContext.title).map(node => 
               <CollectionFilterItem key={node.handle}>
-                <CollectionFilterLink to={`/collection/${node.handle}`}>{node.title}</CollectionFilterLink>
+                <CollectionFilterLink to={`/collection/${node.handle}`}>
+                  <strong>{node.title}</strong>
+                </CollectionFilterLink>
               </CollectionFilterItem>)}
             </CollectionFilterList>
             
@@ -269,8 +284,8 @@ const CollectionPage = ({pageContext, data}) => {
                                 </Link>
 
                                 {/* COLLECTION GRID PRICE */}
-                                <CollectionGridPrice>{getPrice(firstVariant.price)}</CollectionGridPrice>
-                                {firstVariant.availableForSale ? '' : <CollectionGridSold>will be back soon</CollectionGridSold>}
+                                <CollectionGridPrice className="caption-regular">{getPrice(firstVariant.price)}</CollectionGridPrice>
+                                {firstVariant.availableForSale ? '' : <CollectionGridSold className="caption-regular">will be back soon</CollectionGridSold>}
                             </CollectionGridListItem>
                             )
                         }

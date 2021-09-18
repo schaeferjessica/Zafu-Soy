@@ -46,7 +46,7 @@ export const GlobalStyle = props => (
         font-weight: 400;
         font-size: 17px;
         line-height: 1.7;
-        font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
+        font-family: 'IBM Plex Sans Light', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
@@ -54,11 +54,11 @@ export const GlobalStyle = props => (
         font-variant-ligatures: contextual;
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
-        }
         
         @media ${breakpoint.mobile} { 
           font-size: 15px;
         }
+      }
 
 
       // CAPTION
@@ -71,6 +71,13 @@ export const GlobalStyle = props => (
       }
 
       .caption-bold {
+        font-family: 'IBM Plex Mono SemiBold';
+        font-weight: 400;
+      }
+
+
+      b,
+      strong {
         font-family: 'IBM Plex Mono SemiBold';
         font-weight: 400;
       }
@@ -95,7 +102,7 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-size: 24px;
+        font-size: 20px;
         font-family: 'IBM Plex Sans';
         font-style: normal;
         font-weight: 400;
@@ -113,7 +120,7 @@ export const GlobalStyle = props => (
         font-size: 20px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 15px;
+          font-size: 17px;
         }
       }
 

@@ -379,7 +379,7 @@ const ProductDetail = ({ data }) => {
              <ProductDetailFilter className="filter-tag">
                 {product.tags.map(tag => (
                   <ProductDetailFilterList key={tag}>
-                    <ProductDetailFilterLink to={`/collection/${tag}`}>{tag}</ProductDetailFilterLink>
+                    <ProductDetailFilterLink to={`/collection/${tag}`} className="caption-bold">{tag}</ProductDetailFilterLink>
                   </ProductDetailFilterList>
                 ))}
               </ProductDetailFilter>
