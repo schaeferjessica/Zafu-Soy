@@ -47,7 +47,7 @@ const DetailInputOuter = styled.div`
 // DETAIL INPUT INNER
 
 const DetailInputInner = styled.div`
-  border: 1px solid var(--color-blue);
+  border: 3px solid var(--color-blue);
   display: flex;
   width: 100%;
   margin-top: 15px;

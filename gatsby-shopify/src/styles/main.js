@@ -43,8 +43,8 @@ export const GlobalStyle = props => (
       // HTML
 
       html {
-        font-weight: 300;
-        font-size: 16px;
+        font-weight: 500;
+        font-size: 17px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -59,14 +59,14 @@ export const GlobalStyle = props => (
 
       b,
       strong {
-        font-weight: 400;
+        font-weight: 600;
       }
 
       // SMALL
 
       small {
-        font-weight: 300;
         font-size: 15px;
+        font-weight: 400;
 
         @media ${breakpoint.mobile} { 
           font-size: 14px;
@@ -81,7 +81,7 @@ export const GlobalStyle = props => (
         margin: 0px;
         padding: 0px;
         color: var(--color-blue);
-        font-weight: 300;
+        font-weight: 500;
       }
 
       h1 {
@@ -104,10 +104,10 @@ export const GlobalStyle = props => (
 
 
       h3 {
-        font-size: 26px;
+        font-size: 32px;
 
         @media ${breakpoint.tablet} { 
-          font-size: 18px;
+          font-size: 19px;
         }
       }
 
@@ -141,8 +141,8 @@ export const GlobalStyle = props => (
       button,
       input {
         font-family: 'IBM Plex Sans';
-        font-weight: 300;
-        font-size: 16px;
+        font-weight: 500;
+        font-size: 17px;
     
         @media ${breakpoint.mobile} { 
           font-size: 15px;

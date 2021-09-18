@@ -60,7 +60,6 @@ const HeaderDiscoverButton = styled.button`
     }
 
   span {
-    font-weight: 400;
     color: var(--color-white);
   }
 `

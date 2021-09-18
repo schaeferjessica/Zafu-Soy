@@ -51,16 +51,14 @@ const CollectionTitle = styled.h1`
 const CollectionText = styled.div`
   p {
     margin-top: 10px;
-    width: 70%;
+    
   
     @media ${breakpoint.desktop} {
       margin-top: 5px;
-      width: 65%;
     }
     
     @media ${breakpoint.tablet} {
       margin-top: 0px;
-      width: 100%;
     }
   }
 `
@@ -77,18 +75,17 @@ const CollectionFilterList = styled.ul`
 `
 
 const CollectionFilterItem = styled.li`
-    border-radius: 18px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid var(--color-gray);
-    line-height: 28px;
-    margin-right: 12px;
-    margin-top: 10px;
-
-    &:hover {
-        border: 1px solid var(--color-blue);
-    }
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 3px solid var(--color-blue);
+  line-height: 28px;
+  margin-right: 12px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
 `
 
 const CollectionFilterLink = styled(Link)`
@@ -141,7 +138,7 @@ const CollectionGridImage = styled.div`
 
 // COLLECTION GRID TITLE
 
-const CollectionGridTitle = styled.h3`
+const CollectionGridTitle = styled.p`
   margin-bottom: 10px;
   max-width: 90%;
 
@@ -152,7 +149,7 @@ const CollectionGridTitle = styled.h3`
 
 // COLLECTION GRID PRICE
 
-const CollectionGridPrice = styled.small`
+const CollectionGridPrice = styled.p`
   display: block;
   margin-top: 10px;
   text-align: end;
@@ -161,8 +158,8 @@ const CollectionGridPrice = styled.small`
 const CollectionGridSold = styled.small`
   transform: rotate(270deg) translateX(80px);
   position: absolute;
-  bottom: 0;
-  right: -67px;
+  bottom: 4px;
+  right: -70px;
 `
 
 

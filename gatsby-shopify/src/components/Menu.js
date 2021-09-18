@@ -96,7 +96,6 @@ const CollectionCheckoutClose  = styled(CheckoutClose)`
 `
 export const CollectionCount  = styled.sup`
   color: var(--color-gray);
-  font-size: 13px;
 `
 
 

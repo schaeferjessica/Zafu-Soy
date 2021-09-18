@@ -80,14 +80,8 @@ const FooterLinksRight = styled.div`
   }
 `
 
-const FooterSmall  = styled.small`
+const FooterCredit  = styled.p`
   margin-top: 30px;
-  color: var(--color-gray);
-`
-
-const FooterLinkExternSmall  = styled.a`
-  margin-top: 5px;
-  color: var(--color-gray);
 `
 
 
@@ -122,9 +116,9 @@ const Footer = () => {
                   <FooterLink to="/about/"><span>how can we help?</span></FooterLink>
                 </FooterLinksWrapper>
 
-                <FooterSmall>&#169; {new Date().getFullYear()}, built by{` `} 
-                  <FooterLinkExternSmall href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExternSmall>
-                </FooterSmall>
+                <FooterCredit>&#169; {new Date().getFullYear()}, built by{` `} 
+                  <FooterLinkExtern href="https://jessica.gatsbyjs.io/" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExtern>
+                </FooterCredit>
             </FooterLinksRight>
 
         </FooterInner>

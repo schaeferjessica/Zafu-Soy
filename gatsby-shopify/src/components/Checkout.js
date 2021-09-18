@@ -81,7 +81,6 @@ const CheckoutShipping = styled.div`
 
   @media ${breakpoint.mobile} { 
     padding-left: 30px;
-    font-size: 13px;
   }
 `
 
@@ -179,20 +178,14 @@ export const CheckoutClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-gray);
+  border: 3px solid var(--color-blue);
   font-size: 14px;
   color: var(--color-blue);
-  font-weight: 400;
   align-self: flex-end;
   padding: 0px;
   width: 30px;
   height: 30px;
   min-height: 30px;
-  
-
-  &:hover {
-    border: 1px solid var(--color-blue);
-  }
 
   span {
     width: 30px;

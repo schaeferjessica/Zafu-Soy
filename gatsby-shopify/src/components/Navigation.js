@@ -48,15 +48,10 @@ const NavigationContainer = styled.div`
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciWhite};
-      font-weight: 400;
     }
     
     .navigation__cart-counter {
       border-color: ${ciWhite};
-
-      &:hover {
-        border-color: ${ciWhite};
-      }
     }
   }
 
@@ -81,7 +76,6 @@ const NavigationContainer = styled.div`
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciBlue};
-      font-weight: 300;
     }
 
     .navigation-span {
@@ -89,11 +83,7 @@ const NavigationContainer = styled.div`
     }
     
     .navigation__cart-counter {
-      border-color: ${ciGray};
-
-      &:hover {
-        border-color: ${ciBlue};
-      }
+      border-color: ${ciBlue};
     }
 
     .navigation__link {
@@ -188,8 +178,8 @@ const NavigationButtonCounter = styled.button`
 
 // NAVIGATION CARD
 
-const NavigationCartCounter = styled.small`
-  border: 1px solid var(--color-gray);
+const NavigationCartCounter = styled.p`
+  border: 3px solid var(--color-blue);
   color: var(--color-blue);
   width: 30px;
   height: 30px;
@@ -197,10 +187,6 @@ const NavigationCartCounter = styled.small`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  &:hover {
-    border: 1px solid var(--color-blue);
-  }
 `
 
 const useQuantity = () => {

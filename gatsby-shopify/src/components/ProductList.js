@@ -22,7 +22,6 @@ const ListItem = styled.li`
   align-items: center;
   flex-wrap: wrap;
   font-family: 'IBM Plex Mono';
-  font-weight: 300;
   border-bottom: 1px solid var(--color-blue);
   padding-top: 25px;
   padding-bottom: 25px;  
@@ -43,13 +42,6 @@ const ListItem = styled.li`
   }
 `
 
-// LIST ITEM TITLE
-
-const ListItemTitle = styled.span`
-  @media ${breakpoint.mobile} { 
-    font-size: 13px;
-  }
-`
 
 // LIST ITEM CONTEXT
 
@@ -61,17 +53,9 @@ const ListItemContext = styled.div`
 
   @media ${breakpoint.mobile} { 
     gap: 0px 10px;
-    font-size: 13px;
   }
 `
 
-// LIST ITEM REMOVE
-
-const ListItemRemove = styled.span`
-   @media ${breakpoint.mobile} { 
-    font-size: 13px;
-  }
-`
 
 
 const ProductList = props => {
@@ -94,11 +78,11 @@ const ProductList = props => {
   return (
     <ListItem>
       {/* LIST ITEM TITLE */}
-      <h3>
+      <p>
         <Link to={`/product/${item.variant.product.handle}/`} className="link-hover">
-          <ListItemTitle>{item.title}</ListItemTitle>
+          <span>{item.title}</span>
         </Link>
-      </h3>
+      </p>
 
       {/* LIST ITEM CONTEXT */}
       <ListItemContext>
@@ -109,7 +93,7 @@ const ProductList = props => {
         <p>Quantity {quantity}</p>
 
         {/* LIST ITEM REMOVE */}
-        <button onClick={handleRemove} className="link-hover"><ListItemRemove>Remove</ListItemRemove></button>
+        <button onClick={handleRemove} className="link-hover"><span>Remove</span></button>
       </ListItemContext>
     </ListItem>
   )

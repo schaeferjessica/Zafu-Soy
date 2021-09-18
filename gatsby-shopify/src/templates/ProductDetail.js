@@ -133,17 +133,17 @@ const ProductDetailFilter = styled.ul`
 `
 
 const ProductDetailFilterList = styled.li`
-  border-radius: 18px;
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid var(--color-white);
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 3px solid var(--color-white);
   line-height: 28px;
   margin-right: 12px;
-
-  &:hover {
-      border: 1px solid var(--color-gray);
-  }
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
 `
 
 const ProductDetailFilterLink = styled(Link)`
@@ -159,13 +159,13 @@ const ProductDetailFilterLink = styled(Link)`
 const ProductDetailTitle = styled.h1`
   margin-bottom: 5px;
   color: var(--color-white);
+  border-bottom: 6px solid var(--color-white);
 `;
 
 // PRODUCT DETAIL PRICE
 
 const ProductDetailPrice = styled.span`
   color: var(--color-white);
-  font-weight: 400;
 `;
 
 
@@ -184,7 +184,6 @@ const ProductDetailScroll = styled.button`
   }
 
   span {
-    font-weight: 400;
     color: var(--color-white);
   }
 `;
@@ -387,7 +386,7 @@ const ProductDetail = ({ data }) => {
              <ProductDetailFilter className="filter-tag">
                 {product.tags.map(tag => (
                   <ProductDetailFilterList key={tag}>
-                    <ProductDetailFilterLink to={`/collection/${tag}`}><small>{tag}</small></ProductDetailFilterLink>
+                    <ProductDetailFilterLink to={`/collection/${tag}`}>{tag}</ProductDetailFilterLink>
                   </ProductDetailFilterList>
                 ))}
               </ProductDetailFilter>
