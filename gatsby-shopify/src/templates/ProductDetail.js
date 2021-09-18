@@ -157,15 +157,8 @@ const ProductDetailFilterLink = styled(Link)`
 // PRODUCT DETAIL TITLE H1
 
 const ProductDetailTitle = styled.h1`
-  margin-bottom: 5px;
   color: var(--color-white);
-  border-bottom: 6px solid var(--color-white);
-`;
-
-// PRODUCT DETAIL PRICE
-
-const ProductDetailPrice = styled.span`
-  color: var(--color-white);
+  background-image: linear-gradient(180deg, transparent 95%, #fff 0);
 `;
 
 
@@ -395,11 +388,9 @@ const ProductDetail = ({ data }) => {
                   onClick={() => jumpTo('#discoverTarget')}
                   >
                 {/* PRODUCT DETAIL TITLE H1 */}
-                <ProductDetailTitle>{product.title}</ProductDetailTitle>
+                <ProductDetailTitle className="border-hover">{product.title}</ProductDetailTitle>
               </ProductDetailButton>
 
-              {/* PRODUCT DETAIL PRICE*/}
-              <ProductDetailPrice>{price}</ProductDetailPrice>
             </ProductDetailContext>
 
             {/* PRODUCT DETAIL SCROLL BUTTON */}

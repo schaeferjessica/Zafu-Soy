@@ -44,6 +44,13 @@ const ImageSliderTop = styled.div`
 `
 
 
+// IMAGE SLIDER CAPTION
+
+const ImageSliderCaption = styled.div`
+  margin-top: 20px;
+`
+
+
 // LIGHTBOX
 
 const LightboxButton = styled.div`
@@ -183,7 +190,9 @@ const ImageSlider = ({images}) => {
                   alt=""
                   className="image-hover" 
                 />
-                <small>{image.description}</small>
+
+                {/* IMAGE SLIDER CAPTION */}
+                <ImageSliderCaption className="caption-regular">{image.description}</ImageSliderCaption>
               </LightboxButton>
             )
           })}
