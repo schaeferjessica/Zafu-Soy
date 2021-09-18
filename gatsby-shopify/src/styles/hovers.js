@@ -1,5 +1,6 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
+import { ciBlack } from './colors'
 
 
 export const GlobalStyle = props => (
@@ -15,9 +16,9 @@ export const GlobalStyle = props => (
 
         span {
           font-family: 'IBM Plex Sans';
+          font-weight: 400;
           display: inline-block;
           transition: transform .5s cubic-bezier(.23,1,.32,1);
-          text-transform: uppercase;
         }
 
         &::after {
@@ -27,7 +28,7 @@ export const GlobalStyle = props => (
           right: 5px;
           width: 1rem;
           height: .30rem;
-          background-color: var(--color-blue);
+          background-color: var(--color-black);
           transform: scale(1);
           transition: .5s cubic-bezier(.23,1,.32,1);
               transition-property: all;
@@ -50,13 +51,26 @@ export const GlobalStyle = props => (
         }
       }
 
+      // BORDER HOVER 
+
+      .border-hover {
+        background-image: linear-gradient(180deg, transparent 95%, ${ciBlack} 0);
+        background-repeat: no-repeat;
+        transition: background-size 0.5s ease;
+        background-size: 0% 100%;
+
+        &:hover,
+        &.focus-visible {
+          background-size: 100% 100%;
+        }
+      }
 
       // BUTTON HOVER
 
       .button-hover {
         font-family: 'IBM Plex Sans';
         text-transform: uppercase;
-        border: 2px solid var(--color-blue);
+        border: 2px solid var(--color-black);
         padding: 30px 50px;
         position: relative;
         display: inline-block;

@@ -6,7 +6,8 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 // contentful
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 // components
 import Glide from 'react-glidejs';
@@ -85,7 +86,17 @@ const InstaTeaser = () => {
       }
     }
     `
-  )
+  );
+  const Small = ({ children }) => <p className="caption-regular">{children}</p>;
+  const Bold = ({ children }) => <b className="caption-bold">{children}</b>;
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    },
+    renderNode: {
+      [BLOCKS.HEADING_6]: (_, children) => <Small>{children}</Small>
+    },
+  };
 
   const handleBulletClick = (event, index) => {
     const bullets = $$('.bullet-button', containerRef.current);
@@ -198,7 +209,8 @@ const InstaTeaser = () => {
                 </a>
 
                 {/* INSTA TEASER TEXT */}
-                <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText> 
+                <InstaTeaserText>{renderRichText(post.text, options)}</InstaTeaserText> 
+                {/* <InstaTeaserText>{documentToReactComponents(JSON.parse(post.text.raw))}</InstaTeaserText>  */}
               </div>
             )
           })}

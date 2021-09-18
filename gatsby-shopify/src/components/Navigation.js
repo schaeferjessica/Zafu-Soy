@@ -14,7 +14,7 @@ import styled from '@emotion/styled/macro'
 // styles
 import breakpoint from '../styles/breakpoints'
 import { container } from '../styles/containers'
-import { ciWhite, ciBlue, ciGray } from '../styles/colors'
+import { ciWhite, ciBlack } from '../styles/colors'
 
 
 // NAVIGATION
@@ -60,22 +60,22 @@ const NavigationContainer = styled.div`
     background-color: ${ciWhite};
 
     .link-hover::after {
-      background-color: ${ciBlue};
+      background-color: ${ciBlack};
     }
 
     .stroke {
-      stroke: ${ciBlue};
+      stroke: ${ciBlack};
     }
 
     .fill {
-      fill: ${ciBlue};
+      fill: ${ciBlack};
     }
 
     .navigation__span,
     .navigation__cart-button,
     .navigation__cart-span,
     .navigation__cart-counter {
-      color: ${ciBlue};
+      color: ${ciBlack};
     }
 
     .navigation-span {
@@ -83,7 +83,7 @@ const NavigationContainer = styled.div`
     }
     
     .navigation__cart-counter {
-      border-color: ${ciBlue};
+      border-color: ${ciBlack};
     }
 
     .navigation__link {
@@ -130,7 +130,7 @@ const NavigationInner = styled.div`
 
 const NavigationSpan = styled.span`
   font-size: 17px;
-  color: var(--color-blue);
+  color: var(--color-black);
 
   @media ${breakpoint.mobile} { 
     font-size: 16px;
@@ -141,7 +141,7 @@ const NavigationSpan = styled.span`
 // NAVIGATION LINK LEFT
 
 const NavigationLinkLeft = styled(Link)`
-  color: var(--color-blue);
+  color: var(--color-black);
   grid-column: 1 / 4;
   grid-row: 1 / 1;
 `
@@ -150,7 +150,7 @@ const NavigationLinkLeft = styled(Link)`
 // NAVIGATION LINK CENTER
 
 const NavigationLinkCenter = styled(Link)`
-  color: var(--color-blue);
+  color: var(--color-black);
   grid-column: 2 / 4;
   grid-row: 1 / 1;
   `
@@ -179,8 +179,8 @@ const NavigationButtonCounter = styled.button`
 // NAVIGATION CARD
 
 const NavigationCartCounter = styled.p`
-  border: 2px solid var(--color-blue);
-  color: var(--color-blue);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
   width: 30px;
   height: 30px;
   margin-left: 10px;

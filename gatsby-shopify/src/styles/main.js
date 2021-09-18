@@ -49,28 +49,30 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
+        font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
+        font-kerning: normal;
+        font-variant-ligatures: contextual;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+}
         
         @media ${breakpoint.mobile} { 
           font-size: 15px;
         }
-      }
 
-      // BOLD STRONG
 
-      b,
-      strong {
-        font-weight: 500;
-      }
+      // CAPTION
 
-      // SMALL
-
-      small {
-        font-size: 15px;
+      .caption-regular {
+        font-size: 12px;
+        line-height: 19px;
+        font-family: 'IBM Plex Mono';
         font-weight: 400;
+      }
 
-        @media ${breakpoint.mobile} { 
-          font-size: 14px;
-        }
+      .caption-bold {
+        font-family: 'IBM Plex Mono SemiBold';
+        font-weight: 400;
       }
 
       // HEADINGS
@@ -80,32 +82,38 @@ export const GlobalStyle = props => (
       h3 {
         margin: 0px;
         padding: 0px;
-        color: var(--color-blue);
+        color: var(--color-black);
         font-weight: 400;
       }
 
       h1 {
         font-size: 57px;
 
-        @media ${breakpoint.tablet} { 
+        @media ${breakpoint.mobile} { 
           font-size: 32px;
         }
       }
 
       h2 {
-        font-size: 17px;
+        font-size: 24px;
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 400;
 
-        @media ${breakpoint.tablet} { 
-          font-size: 15px;
+        @media ${breakpoint.mobile} { 
+          font-size: 17px;
         }
       }
 
 
       h3 {
-        font-size: 32px;
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
 
-        @media ${breakpoint.tablet} { 
-          font-size: 19px;
+        @media ${breakpoint.mobile} { 
+          font-size: 32px;
         }
       }
 
@@ -117,7 +125,7 @@ export const GlobalStyle = props => (
       div {
         margin: 0px;
         padding: 0px;
-        color: var(--color-blue);
+        color: var(--color-black);
       }
 
       // LINK
@@ -180,6 +188,7 @@ export const GlobalStyle = props => (
           z-index: 10;
           background-color: rgba(0,0,0,0.7);
         } 
+      }
       }
 
     `}

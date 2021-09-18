@@ -21,7 +21,7 @@ const ListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--color-blue);
+  border-bottom: 1px solid var(--color-black);
   padding-top: 25px;
   padding-bottom: 25px;  
   padding-right: 150px; 

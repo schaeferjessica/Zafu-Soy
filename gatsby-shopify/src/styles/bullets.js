@@ -37,7 +37,7 @@ export const GlobalStyle = props => (
         content: '';
         width: 1rem;
         height: .30rem;
-        background-color: var(--color-blue);
+        background-color: var(--color-black);
         padding: 0px;
         margin: 0px;
         transition: all .5s cubic-bezier(.23,1,.32,1);

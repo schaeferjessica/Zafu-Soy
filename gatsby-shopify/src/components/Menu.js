@@ -82,7 +82,7 @@ export const MenuImage = styled.div`
 const LinkExtern  = styled.a`
   font-size: 15px;
   margin-top: 5px;
-  color: var(--color-blue);
+  color: var(--color-black);
 
   @media ${breakpoint.mobile} { 
     font-size: 14px;

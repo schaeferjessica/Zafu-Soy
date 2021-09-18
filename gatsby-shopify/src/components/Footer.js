@@ -41,9 +41,12 @@ const FooterLinksLeft = styled.div`
   display: flex;
 `
 
-const FooterLinksWrapper = styled.div`
+const FooterLinksWrapper = styled.ul`
 display: flex;
 flex-direction: column;
+list-style: none;
+margin: 0;
+padding: 0;
 
 &:not(:first-of-type) {
   margin-left: 100px;
@@ -95,17 +98,33 @@ const Footer = () => {
 
             <FooterLinksLeft>
                 <FooterLinksWrapper>
-                  <FooterLink to="/collection/frontpage/"><span>shop</span></FooterLink>
-                  <FooterLink to="/about/"><span>about</span></FooterLink>
-                  <FooterLink to="/faq/"><span>FAQ</span></FooterLink>
-                  <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer"><span>Instagram</span></FooterLinkExtern>
+                  <li>
+                    <FooterLink to="/collection/frontpage/" className="border-hover"><span>shop</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLink to="/about/" className="border-hover"><span>about</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLink to="/faq/" className="border-hover"><span>FAQ</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" target="_blank" rel="noopener noreferrer" className="border-hover"><span>Instagram</span></FooterLinkExtern>
+                  </li>
                 </FooterLinksWrapper>
 
                 <FooterLinksWrapper>
-                  <FooterLink to="/shipping/"><span>Shipping & Returns</span></FooterLink>
-                  <FooterLink to="/impressum/"><span>Impressum</span></FooterLink>
-                  <FooterLink to="/terms/"><span>Terms</span></FooterLink>
-                  <FooterLink to="/privacy/"><span>Privacy</span></FooterLink>
+                  <li>
+                    <FooterLink to="/shipping/" className="border-hover"><span>Shipping & Returns</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLink to="/impressum/" className="border-hover"><span>Impressum</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLink to="/terms/" className="border-hover"><span>Terms</span></FooterLink>
+                  </li>
+                  <li>
+                    <FooterLink to="/privacy/" className="border-hover"><span>Privacy</span></FooterLink>
+                  </li>
                 </FooterLinksWrapper>
             </FooterLinksLeft>
 
@@ -113,7 +132,9 @@ const Footer = () => {
 
             <FooterLinksRight>
                 <FooterLinksWrapper>
-                  <FooterLink to="/about/"><span>how can we help?</span></FooterLink>
+                  <li>
+                  <FooterLink to="/about/" className="border-hover"><span>how can we help?</span></FooterLink>
+                  </li>
                 </FooterLinksWrapper>
 
                 <FooterCredit>&#169; {new Date().getFullYear()}, built by{` `} 

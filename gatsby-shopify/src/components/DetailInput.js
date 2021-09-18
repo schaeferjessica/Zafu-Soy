@@ -47,7 +47,7 @@ const DetailInputOuter = styled.div`
 // DETAIL INPUT INNER
 
 const DetailInputInner = styled.div`
-  border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-black);
   display: flex;
   width: 100%;
   margin-top: 15px;
@@ -114,7 +114,7 @@ const DetailInputButtonPlus = styled.button`
     height: 12px;
 
     &:hover {
-      fill: var(--color-blue);
+      fill: var(--color-black);
     }
   }
 `
@@ -134,7 +134,7 @@ const DetailInputButtonMinus = styled.button`
     height: 12px;
 
     &:hover {
-      fill: var(--color-blue);
+      fill: var(--color-black);
     }
   }
 `
