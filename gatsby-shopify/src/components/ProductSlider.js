@@ -14,12 +14,14 @@ import styled from '@emotion/styled/macro';
 
 // styles
 import breakpoint from '../styles/breakpoints'
-import { container, headerSpace } from '../styles/containers'
+import { container, headerSpace, moduleSpace } from '../styles/containers'
 
 
 // PRODUCT SLIDER
 
 const ProductSliderContainer = styled.div`
+  ${moduleSpace}
+
   .glide__slides {
     margin: 0;
   }
@@ -34,7 +36,7 @@ const ProductSliderContainer = styled.div`
 
 const ProductSliderTop = styled.div`
   ${headerSpace}
-  ${container};
+  ${container}
 
   display: flex;
   justify-content: space-between;
