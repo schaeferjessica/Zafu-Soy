@@ -52,3 +52,12 @@
   src: url('./fonts/Kobe1.1-Regular.woff2') format('woff2');
   font-display: swap
 }
+
+/* Eiko */
+@font-face {
+  font-family: 'Eiko';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/PPEiko-Medium.woff') format('woff');
+  font-display: swap
+}

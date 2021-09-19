@@ -26,6 +26,7 @@ const ListItem = styled.li`
   padding-bottom: 25px;  
   padding-right: 150px; 
   padding-left: 50px; 
+  font-family: 'IBM Plex Sans';
 
   @media ${breakpoint.desktop} {
     padding-left: 50px; 

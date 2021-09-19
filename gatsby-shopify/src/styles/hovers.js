@@ -69,8 +69,7 @@ export const GlobalStyle = props => (
 
       .button-hover {
         font-family: 'IBM Plex Sans';
-        text-transform: uppercase;
-        border: 2px solid var(--color-black);
+        border: 1px solid var(--color-black);
         padding: 30px 50px;
         position: relative;
         display: inline-block;

@@ -134,7 +134,6 @@ const CheckoutPrice = styled.span`
   position: relative;
   display: inline-block;
   transition: transform .3s;
-  text-transform: uppercase;
 
   &::before {
     content: attr(data-hover);
@@ -178,7 +177,7 @@ export const CheckoutClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--color-black);
+  border: 1px solid var(--color-black);
   font-size: 14px;
   color: var(--color-black);
   align-self: flex-end;

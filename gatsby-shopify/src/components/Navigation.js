@@ -171,7 +171,7 @@ const NavigationButtonOrder = styled.button`
 `
 
 const NavigationButtonCounter = styled.button`
-  border: 2px solid var(--color-black);
+  border: 1px solid var(--color-black);
   color: var(--color-black);
   width: 30px;
   height: 30px;

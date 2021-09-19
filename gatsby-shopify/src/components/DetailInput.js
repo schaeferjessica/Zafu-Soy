@@ -156,7 +156,7 @@ const DetailInputButtonOrder = styled.div`
 const DetailInputButtonOrderInner = styled.button`
     max-width: 55%;
     margin-top: 100px;
-    border: 2px solid var(--color-black);
+    border: 1px solid var(--color-black);
     padding: 25px;
 
   @media ${breakpoint.mobile} { 
