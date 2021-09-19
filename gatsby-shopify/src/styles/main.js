@@ -44,7 +44,7 @@ export const GlobalStyle = props => (
 
       html {
         font-weight: 400;
-        font-size: 17px;
+        font-size: 16px;
         line-height: 1.7;
         font-family: 'IBM Plex Sans Light', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
         'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -155,7 +155,7 @@ export const GlobalStyle = props => (
       input {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 17px;
+        font-size: 16px;
     
         @media ${breakpoint.mobile} { 
           font-size: 15px;

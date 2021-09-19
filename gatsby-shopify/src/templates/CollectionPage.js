@@ -77,7 +77,7 @@ const CollectionFilterList = styled.ul`
 const CollectionFilterItem = styled.li`
   padding-left: 12px;
   padding-right: 12px;
-  border: 2px solid var(--color-black);
+  border: 1px solid var(--color-black);
   line-height: 28px;
   margin-right: 12px;
   margin-top: 10px;

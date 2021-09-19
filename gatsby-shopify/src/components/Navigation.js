@@ -129,11 +129,11 @@ const NavigationInner = styled.div`
 `
 
 const NavigationSpan = styled.span`
-  font-size: 17px;
+  font-size: 16px;
   color: var(--color-black);
 
   @media ${breakpoint.mobile} { 
-    font-size: 16px;
+    font-size: 15px;
   }
 `
 
