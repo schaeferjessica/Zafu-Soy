@@ -150,7 +150,7 @@ const CollectionSlider = () => {
           <Glide
             ref={sliderRef}
             type="slider"
-            perView={3}
+            perView={2}
             startAt={0}
             breakpoints={{
               1200: {
