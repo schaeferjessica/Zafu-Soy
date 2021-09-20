@@ -168,6 +168,10 @@ const NavigationButtonRight = styled.div`
 
 const NavigationButtonOrder = styled.button`
   margin-right: 5px;  
+
+  @media ${breakpoint.mobile} { 
+    display: none;
+  }
 `
 
 const NavigationButtonCounter = styled.button`

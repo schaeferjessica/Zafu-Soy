@@ -90,6 +90,11 @@ const HeaderTitle = styled.h1`
     font-size: 63px;
     line-height: 67px;
   }
+
+  @media ${breakpoint.mobile} {
+    font-size: 50px;
+    line-height: 67px;
+  }
 `
 
 const HeaderText = styled.p`
