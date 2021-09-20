@@ -86,14 +86,16 @@ const CollectionFilterItem = styled.li`
 const CollectionFilterLink = styled(Link)`
     text-transform: lowercase;
     font-size: 15px;
+    line-height: 20px;
 
     @media ${breakpoint.mobile} {
       font-size: 13px;
+      line-height: 16px;
     }
 
 
     &:hover {
-        text-decoration: none;
+      text-decoration: none;
     }
 `
 

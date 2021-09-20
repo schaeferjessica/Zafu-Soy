@@ -14,7 +14,6 @@ import Checkout from '~/components/Checkout'
 import DetailHeader from '~/components/DetailHeader'
 import ImageSlider from '~/components/ImageSlider'
 import ProductSlider from '~/components/ProductSlider'
-import DetailInput from '~/components/DetailInput'
 import DetailInfo from '~/components/DetailInfo'
 
 export const query = graphql`
@@ -148,8 +147,6 @@ const ProductDetail = ({ data }) => {
       {/* SCROLL TARGET */}
       <div id="discoverTarget"></div>
 
-      {/* DETAIL INPUT */}
-      <DetailInput product={product} />
 
       {/* IMAGE SLIDER */}
       <ImageSlider images={detailInfo.images} />

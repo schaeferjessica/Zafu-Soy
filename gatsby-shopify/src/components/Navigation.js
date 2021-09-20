@@ -88,15 +88,31 @@ const NavigationContainer = styled.div`
 
     .navigation__link {
       display: block;
+    }
 
+    navigation__link--left {
       @media ${breakpoint.mobile} { 
-          display: none;
+        display: block;
+        font-family: 'Kobe Regular';
+        font-size: 20px;
+        display: block;
       }
     }
-  }
+
+    .navigation__link--left.link-hover::after {
+      display: none;
+    }
+
+    navigation__link--right {
+      @media ${breakpoint.mobile} { 
+        display: none;
+      }
+    }
 
   &.content--is-blue {
     background-color: ${ciWhite};
+  }
+
   }
 `
 
@@ -129,11 +145,11 @@ const NavigationInner = styled.div`
 `
 
 const NavigationSpan = styled.span`
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-black);
 
   @media ${breakpoint.mobile} { 
-    font-size: 15px;
+    font-size: 14px;
   }
 `
 
@@ -231,12 +247,12 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
       <NavigationInner>
 
         {/* NAVIGATION LINK LEFT*/}
-        <NavigationLinkLeft to="/" className="link-hover navigation__link">
-          <NavigationSpan className="navigation__span">home</NavigationSpan>
+        <NavigationLinkLeft to="/" className="link-hover navigation__link navigation__link--left">
+          <NavigationSpan className="navigation__span">Zafu & Soy</NavigationSpan>
         </NavigationLinkLeft>
 
         {/* NAVIGATION LINK CENTER*/}
-        <NavigationLinkCenter to="/collection/frontpage" className="link-hover navigation__link">
+        <NavigationLinkCenter to="/collection/frontpage" className="link-hover navigation__link navigation__link--right">
           <NavigationSpan className="navigation__span">shop</NavigationSpan>
         </NavigationLinkCenter>
 

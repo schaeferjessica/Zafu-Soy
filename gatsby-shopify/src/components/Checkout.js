@@ -244,9 +244,9 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           <CheckoutButton 
             onClick={handleCheckout}
             disabled={checkout.lineItems.length === 0}
-            className="button-hover"
+            className="button-hover--black"
             >
-            <CheckoutPrice>Check out — € {checkout.totalPrice}</CheckoutPrice>
+            <CheckoutPrice className="caption-bold">Check out — € {checkout.totalPrice}</CheckoutPrice>
           </CheckoutButton>
 
           </> : <>

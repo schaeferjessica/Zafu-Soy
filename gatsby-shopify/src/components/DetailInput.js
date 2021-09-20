@@ -10,159 +10,21 @@ import styled from '@emotion/styled/macro'
 
 // styles
 import breakpoint from '../styles/breakpoints'
-import  {container}  from '../styles/containers'
 
 
-// DETAIL INPUT COMPONENT
-
-const DetailInputComponent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-`
-
-
-// DETAIL INPUT OUTER
-
-const DetailInputOuter = styled.div`
-  display: none;
-  flex-direction: column;
-  width: 35%;
-  z-index: 1;
-  margin-top: 15px;
-
-  @media ${breakpoint.desktop} { 
-    margin-top: 10px;
-    flex-shrink: 1;
-    padding-right: 10px;
-  }
-
-  @media ${breakpoint.mobile} { 
-    width: 100%;
-    padding-right: 0px;
-  }
-`
-
-
-// DETAIL INPUT INNER
-
-const DetailInputInner = styled.div`
-  border: 2px solid var(--color-black);
-  display: flex;
-  width: 100%;
-  margin-top: 15px;
-`
-
-
-// DETAIL INPUT INFO
-
-const DetailInputInfo = styled.input`
-  padding: 0;
-  padding: 15px;
-  background-color: transparent;
-  outline: none;
-  box-shadow: none;
-  border-radius: 0;
-  border: none;
-  width: 100%;
-
-  @media ${breakpoint.mobile} { 
-    padding: 14px;
-  }
-
-  /* Chrome, Safari, Edge, Opera */
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  &[type=number] {
-    -moz-appearance: textfield;
-  }
-`
-
-
-// DETAIL INPUT PRICE
-
-const DetailInputPrice = styled.span`
-  display: inline-block;
-`
 
 // DETAIL INPUT BUTTON
 
-const DetailInputButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`
-
-
-// DETAIL INPUT BUTTON PLUS
-
-const DetailInputButtonPlus = styled.button`
-  padding-right: 10px;
-
-  @media ${breakpoint.tablet} { 
-    padding-right: 6px;
-  }
-
-  svg {
-    fill: var(--color-gray);
-    width: 12px;
-    height: 12px;
-
-    &:hover {
-      fill: var(--color-black);
-    }
-  }
-`
-
-// DETAIL INPUT BUTTON MINUS
-
-const DetailInputButtonMinus = styled.button`
-  padding-right: 10px;
-
-  @media ${breakpoint.tablet} { 
-    padding-right: 6px;
-  }
-
-  svg {
-    fill: var(--color-gray);
-    width: 12px;
-    height: 12px;
-
-    &:hover {
-      fill: var(--color-black);
-    }
-  }
-`
-
-
-// DETAIL INPUT BUTTON ORDER
-
-const DetailInputButtonOrder = styled.div`
-  ${container};
-
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-`
-
-
-// DETAIL INPUT BUTTON ORDER INNER
-
-const DetailInputButtonOrderInner = styled.button`
-    max-width: 55%;
-    margin-top: 100px;
-    border: 1px solid var(--color-black);
-    padding: 25px;
-
-  @media ${breakpoint.mobile} { 
-    max-width: 100%;
+const DetailInputButton = styled.button`
     margin-top: 50px;
+
+  @media ${breakpoint.mobile} {
+    margin-top: 30px;
   }
+`
+
+const DetailInputSpan = styled.span`
+  color: var(--color-white);
 `
 
 
@@ -174,7 +36,7 @@ const DetailInput = ({ product }) => {
   } = product
 
   const [variant] = useState({ ...initialVariant })
-  const [quantity, setQuantity] = useState(1)
+  const [quantity] = useState(1)
   const {
     addVariantToCart,
     store: { client, adding },
@@ -204,16 +66,6 @@ const DetailInput = ({ product }) => {
   }, [productVariant, checkAvailability, product.shopifyId])
 
 
-  const handleQuantityAdd = () => {
-    if (quantity < 9) setQuantity(quantity + 1)
-  }
-
-
-  const handleQuantitySubstract = () => {
-    if (quantity > 1) setQuantity(quantity - 1)
-  }
-
-
   const handleAddToCart = () => {
     addVariantToCart(productVariant.shopifyId, quantity)
   }
@@ -226,53 +78,11 @@ const DetailInput = ({ product }) => {
 
 
   return (
-    <DetailInputComponent>
-
-      {/* DETAIL INPUT OUTER */}
-      <DetailInputOuter>
-        <label htmlFor="quantity">Quantity</label>
-
-        {/* DETAIL INPUT INNER */}
-        <DetailInputInner>
-          <DetailInputInfo
-            type="number"
-            id="quantity"
-            name="quantity"
-            min="1"
-            max="10"
-            step="1"
-            value={quantity}
-            readOnly
-          />
-
-          {/* DETAIL INPUT BUTTON */}
-          <DetailInputButton>
-
-            {/* DETAIL INPUT BUTTON PLUS */}
-            <DetailInputButtonPlus onClick={handleQuantityAdd}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
-            </DetailInputButtonPlus>
-
-            {/* DETAIL INPUT BUTTON MINUS */}
-            <DetailInputButtonMinus onClick={handleQuantitySubstract}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg>
-            </DetailInputButtonMinus>
-
-          </DetailInputButton>
-
-        </DetailInputInner>
-      </DetailInputOuter>
-
-      {/* DETAIL INPUT BUTTON ORDER */}
-      <DetailInputButtonOrder>
-        {/* DETAIL INPUT BUTTON ORDER INNER */}
-        <DetailInputButtonOrderInner type="submit" disabled={!available || adding} onClick={handleAddToCart}>
-          {available && <DetailInputPrice className="caption-bold">Add to your order — {price}</DetailInputPrice>}
-          {!available && <DetailInputPrice className="caption-bold">currently out of stock</DetailInputPrice>}
-        </DetailInputButtonOrderInner>
-      </DetailInputButtonOrder>
-
-    </DetailInputComponent>
+    <DetailInputButton type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
+      {/* DETAIL INPUT BUTTON */}
+      {available && <DetailInputSpan className="caption-bold">Add to your order — {price}</DetailInputSpan>}
+      {!available && <DetailInputSpan className="caption-bold">currently out of stock</DetailInputSpan>}
+    </DetailInputButton>
   )
 }
 

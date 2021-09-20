@@ -5,14 +5,14 @@ import React from 'react'
 import styled from '@emotion/styled/macro'
 
 // styles
-import { container, moduleSpace } from '../styles/containers'
+import { container, moduleSpaceSmall } from '../styles/containers'
 
 
 // DETAIL INFO CONTEXT
 
 const DetailInfoContext = styled.div` 
   ${container}
-  ${moduleSpace}
+  ${moduleSpaceSmall}
   
   display: flex;
   justify-content: space-between;

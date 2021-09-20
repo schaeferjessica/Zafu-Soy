@@ -51,13 +51,14 @@ export const GlobalStyle = props => (
         }
       }
 
+
       // TAG HOVER 
 
       .tag-hover {
         position: relative;
         z-index: 1;
         display: inline-flex;
-        padding: 6px;
+        padding: 4px;
         overflow: hidden;
         transition: all 0.3s ease;
         }
@@ -103,13 +104,17 @@ export const GlobalStyle = props => (
       // BUTTON HOVER
 
       .button-hover {
-        font-family: 'IBM Plex Sans Light';
-        border: 1px solid var(--color-black);
-        padding: 30px 50px;
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
+        padding: 20px 30px;
+        text-align: center;
         cursor: pointer;
+        border: 6px solid var(--color-white);
+      }
+
+      .button-hover--black {
+        padding: 25px;
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid var(--color-black);
       }
 
 

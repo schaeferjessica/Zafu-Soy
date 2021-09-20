@@ -44,10 +44,9 @@ export const GlobalStyle = props => (
 
       html {
         font-weight: 400;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.7;
-        font-family: 'IBM Plex Sans Light', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell',
-        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'IBM Plex Sans', 'Roboto','Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
         font-kerning: normal;
@@ -95,6 +94,7 @@ export const GlobalStyle = props => (
 
       h1 {
         font-family: 'Eiko';
+        //font-family: 'Kobe Regular';
         font-size: 57px;
 
         @media ${breakpoint.mobile} { 
@@ -156,10 +156,10 @@ export const GlobalStyle = props => (
       input {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 16px;
+        font-size: 15px;
     
         @media ${breakpoint.mobile} { 
-          font-size: 15px;
+          font-size: 14px;
         }
       }
 

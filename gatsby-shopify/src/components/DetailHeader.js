@@ -2,7 +2,6 @@
 import React, { useRef } from 'react'
 
 // gatsby
-import { Link } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 import BackgroundImage from 'gatsby-background-image'
 import { convertToBgImage } from "gbimage-bridge"
@@ -16,6 +15,9 @@ import { container } from '../styles/containers'
 
 // utils
 import aniScroll from '../utils/ani-scroll';
+
+// components 
+import DetailInput from '~/components/DetailInput'
 
 
 // PRODUCT DETAIL COMPONENT
@@ -106,50 +108,17 @@ const ProductDetailButton = styled.button`
 const ProductDetailContext = styled.div`
   ${container};
 
-  padding-bottom: 140px;
+  position: absolute;
+  top: 40%;
+  left: 0;
 `;
 
-
-// PRODUCT DETAIL FILTER
-
-const ProductDetailFilter = styled.ul`
-  display: none;
-  list-style: none;
-  //display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 0;
-`
-
-const ProductDetailFilterList = styled.li`
-  padding-left: 12px;
-  padding-right: 12px;
-  border: 2px solid var(--color-white);
-  line-height: 28px;
-  margin-right: 12px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
-`
-
-const ProductDetailFilterLink = styled(Link)`
-  color: var(--color-white);
-
-  &:hover {
-      text-decoration: none;
-  }    
-`
 
 // PRODUCT DETAIL TITLE H1
 
 const ProductDetailTitle = styled.h1`
   color: var(--color-white);
   background-image: linear-gradient(180deg, transparent 95%, #fff 0);
-  font-family: 'Eiko';
 `;
 
 
@@ -192,7 +161,7 @@ const ProductDetail = ({ product }) => {
         <ProductDetailInner ref={galleryEl}>
 
               {/* PRODUCT DETAIL IMAGE */}
-              {product.images.map((image, index) => {
+              {product.images.map((image) => {
                 const pluginImage = getImage(image.localFile)
                 const bgImage = convertToBgImage(pluginImage)
                 return (
@@ -211,21 +180,15 @@ const ProductDetail = ({ product }) => {
             {/* PRODUCT DETAIL CONTEXT */}
 
             <ProductDetailContext>
-              {/* PRODUCT DETAIL FILTER */}
-             <ProductDetailFilter className="filter-tag">
-                {product.tags.map(tag => (
-                  <ProductDetailFilterList key={tag}>
-                    <ProductDetailFilterLink to={`/collection/${tag}`} className="caption-bold">{tag}</ProductDetailFilterLink>
-                  </ProductDetailFilterList>
-                ))}
-              </ProductDetailFilter>
-
               <ProductDetailButton 
                   onClick={() => jumpTo('#discoverTarget')}
                   >
                 {/* PRODUCT DETAIL TITLE H1 */}
                 <ProductDetailTitle className="border-hover">{product.title}</ProductDetailTitle>
               </ProductDetailButton>
+
+              {/* DETAIL INPUT */}
+              <DetailInput product={product} />
 
             </ProductDetailContext>
 
