@@ -75,17 +75,12 @@ const CollectionFilterList = styled.ul`
 `
 
 const CollectionFilterItem = styled.li`
-  padding-left: 12px;
-  padding-right: 12px;
-  border: 1px solid var(--color-black);
+  padding: 0px;
   line-height: 28px;
-  margin-right: 12px;
-  margin-top: 10px;
+  margin-right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
 `
 
 const CollectionFilterLink = styled(Link)`
@@ -236,7 +231,7 @@ const CollectionPage = ({pageContext, data}) => {
 
             <CollectionFilterList>{data.allShopifyCollection.nodes.filter(node => node.title !== pageContext.title).map(node => 
               <CollectionFilterItem key={node.handle}>
-                <CollectionFilterLink to={`/collection/${node.handle}`}>
+                <CollectionFilterLink to={`/collection/${node.handle}`} className="tag-hover">
                   <strong>{node.title}</strong>
                 </CollectionFilterLink>
               </CollectionFilterItem>)}

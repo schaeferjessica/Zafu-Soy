@@ -148,11 +148,11 @@ const ProductDetail = ({ data }) => {
       {/* SCROLL TARGET */}
       <div id="discoverTarget"></div>
 
-      {/* IMAGE SLIDER */}
-      <ImageSlider images={detailInfo.images} />
-
       {/* DETAIL INPUT */}
       <DetailInput product={product} />
+
+      {/* IMAGE SLIDER */}
+      <ImageSlider images={detailInfo.images} />
       
       {/* DETAIL INFO */}
       <DetailInfo

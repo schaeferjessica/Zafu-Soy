@@ -99,6 +99,7 @@ const HeaderText = styled.p`
   cursor: pointer;
   font-size: 22px;
   line-height: 23px;
+  display: none;
 
   @media ${breakpoint.tablet} {
     font-size: 17px;
@@ -168,7 +169,7 @@ const Header = () => {
 
                 <HeaderContextRight onClick={() => jumpTo('#headermarker')}>
                     <HeaderText>asian homewares</HeaderText>
-                    <HeaderTitle>yayoi</HeaderTitle>
+                    <HeaderTitle>zafu&soy</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>
 

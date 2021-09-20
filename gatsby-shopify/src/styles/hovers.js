@@ -51,6 +51,40 @@ export const GlobalStyle = props => (
         }
       }
 
+      // TAG HOVER 
+
+      .tag-hover {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        padding: 6px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        }
+
+        .tag-hover:hover,
+        .tag-hover.focus-visible {
+          color: var(--color-white);
+        }
+
+        .tag-hover::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          background: var(--color-black);
+          transform: translateY(90%);
+          transition: all .3s;
+        }
+
+        .tag-hover:hover::after {
+          transform: translateY(0);
+        }
+
+
       // BORDER HOVER 
 
       .border-hover {
@@ -58,6 +92,7 @@ export const GlobalStyle = props => (
         background-repeat: no-repeat;
         transition: background-size 0.5s ease;
         background-size: 0% 100%;
+        display: inline;
 
         &:hover,
         &.focus-visible {
@@ -68,7 +103,7 @@ export const GlobalStyle = props => (
       // BUTTON HOVER
 
       .button-hover {
-        font-family: 'IBM Plex Sans';
+        font-family: 'IBM Plex Sans Light';
         border: 1px solid var(--color-black);
         padding: 30px 50px;
         position: relative;

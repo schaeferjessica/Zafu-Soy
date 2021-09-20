@@ -113,8 +113,9 @@ const ProductDetailContext = styled.div`
 // PRODUCT DETAIL FILTER
 
 const ProductDetailFilter = styled.ul`
+  display: none;
   list-style: none;
-  display: flex;
+  //display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -148,6 +149,7 @@ const ProductDetailFilterLink = styled(Link)`
 const ProductDetailTitle = styled.h1`
   color: var(--color-white);
   background-image: linear-gradient(180deg, transparent 95%, #fff 0);
+  font-family: 'Eiko';
 `;
 
 

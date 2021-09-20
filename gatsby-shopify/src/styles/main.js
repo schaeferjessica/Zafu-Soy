@@ -56,7 +56,7 @@ export const GlobalStyle = props => (
         -webkit-text-size-adjust: 100%;
         
         @media ${breakpoint.mobile} { 
-          font-size: 15px;
+          font-size: 14px;
         }
       }
 
@@ -94,6 +94,7 @@ export const GlobalStyle = props => (
       }
 
       h1 {
+        font-family: 'Eiko';
         font-size: 57px;
 
         @media ${breakpoint.mobile} { 
@@ -102,8 +103,8 @@ export const GlobalStyle = props => (
       }
 
       h2 {
-        font-size: 20px;
         font-family: 'IBM Plex Sans';
+        font-size: 20px;
         font-style: normal;
         font-weight: 400;
 
