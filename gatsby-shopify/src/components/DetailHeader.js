@@ -22,7 +22,7 @@ import DetailInput from '~/components/DetailInput'
 
 // PRODUCT DETAIL COMPONENT
 
-const ProductDetailComponent = styled.div`
+const DetailHeaderComponent = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   display: flex;
@@ -37,7 +37,7 @@ const ProductDetailComponent = styled.div`
 
 // PRODUCT DETAIL INNER
 
-const ProductDetailInner = styled.div`
+const DetailHeaderInner = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@ const ProductDetailInner = styled.div`
 
 // PRODUCT DETAIL IMAGE
 
-const ProductDetailImage = styled.div`
+const DetailHeaderImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -72,7 +72,7 @@ const ProductDetailImage = styled.div`
   }
 `;
 
-const StyledBackgroundSection = styled(BackgroundImage)`
+const DetailHeaderBackgroundImage = styled(BackgroundImage)`
   background-position: center;
   background-repeat: repeat-y;
   background-size: cover;
@@ -95,7 +95,7 @@ const StyledBackgroundSection = styled(BackgroundImage)`
 
 // PRODUCT DETAIL BUTTON
 
-const ProductDetailButton = styled.button`
+const DetailHeaderButton = styled.button`
   position: relative;
   padding: 0;
   text-align: left;
@@ -105,7 +105,7 @@ const ProductDetailButton = styled.button`
 
 // PRODUCT DETAIL CONTEXT
 
-const ProductDetailContext = styled.div`
+const DetailHeaderContext = styled.div`
   ${container};
 
   position: absolute;
@@ -116,7 +116,7 @@ const ProductDetailContext = styled.div`
 
 // PRODUCT DETAIL TITLE H1
 
-const ProductDetailTitle = styled.h1`
+const DetailHeaderTitle = styled.h1`
   color: var(--color-white);
   background-image: linear-gradient(180deg, transparent 95%, #fff 0);
 `;
@@ -124,7 +124,7 @@ const ProductDetailTitle = styled.h1`
 
 // PRODUCT DETAIL SCROLL BUTTON
 
-const ProductDetailScroll = styled.button`
+const DetailHeaderScroll = styled.button`
    position: absolute;
     transform: rotate(90deg);
     right: 20px;
@@ -141,7 +141,7 @@ const ProductDetailScroll = styled.button`
   }
 `;
 
-const ProductDetail = ({ product }) => {
+const DetailHeader = ({ product }) => {
   const galleryEl = useRef(null);
   
   const jumpTo = (hash) => {
@@ -155,53 +155,53 @@ const ProductDetail = ({ product }) => {
   return (
     <>
       {/* PRODUCT DETAIL COMPONENT */}
-      <ProductDetailComponent>
+      <DetailHeaderComponent>
 
         {/* PRODUCT DETAIL INNER */}
-        <ProductDetailInner ref={galleryEl}>
+        <DetailHeaderInner ref={galleryEl}>
 
               {/* PRODUCT DETAIL IMAGE */}
               {product.images.map((image) => {
                 const pluginImage = getImage(image.localFile)
                 const bgImage = convertToBgImage(pluginImage)
                 return (
-                  <ProductDetailImage key={image.id}>
+                  <DetailHeaderImage key={image.id}>
                     
-                        <StyledBackgroundSection
+                        <DetailHeaderBackgroundImage
                           Tag="div"
                           {...bgImage}
                           preserveStackingContext
                         />
                     
-                  </ProductDetailImage>
+                  </DetailHeaderImage>
                 )
               })}
 
             {/* PRODUCT DETAIL CONTEXT */}
 
-            <ProductDetailContext>
-              <ProductDetailButton 
+            <DetailHeaderContext>
+              <DetailHeaderButton 
                   onClick={() => jumpTo('#discoverTarget')}
                   >
                 {/* PRODUCT DETAIL TITLE H1 */}
-                <ProductDetailTitle className="border-hover">{product.title}</ProductDetailTitle>
-              </ProductDetailButton>
+                <DetailHeaderTitle className="border-hover">{product.title}</DetailHeaderTitle>
+              </DetailHeaderButton>
 
               {/* DETAIL INPUT */}
               <DetailInput product={product} />
 
-            </ProductDetailContext>
+            </DetailHeaderContext>
 
             {/* PRODUCT DETAIL SCROLL BUTTON */}
-            <ProductDetailScroll className="link-hover link-hover--white" onClick={() => jumpTo('#discoverTarget')}>
+            <DetailHeaderScroll className="link-hover link-hover--white" onClick={() => jumpTo('#discoverTarget')}>
               <span>Discover more</span>
-            </ProductDetailScroll>
+            </DetailHeaderScroll>
 
-        </ProductDetailInner>
-      </ProductDetailComponent>
+        </DetailHeaderInner>
+      </DetailHeaderComponent>
     </>
   )
 }
 
 
-export default ProductDetail
+export default DetailHeader
