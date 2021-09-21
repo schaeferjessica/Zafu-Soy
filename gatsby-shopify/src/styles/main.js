@@ -70,15 +70,15 @@ export const GlobalStyle = props => (
       }
 
       .caption-bold {
-        font-family: 'IBM Plex Mono SemiBold';
-        font-weight: 400;
+        font-family: 'IBM Plex Mono';
+        font-weight: 500;
       }
 
 
       b,
       strong {
-        font-family: 'IBM Plex Mono SemiBold';
-        font-weight: 400;
+        font-family: 'IBM Plex Mono';
+        font-weight: 500;
       }
 
       // HEADINGS
