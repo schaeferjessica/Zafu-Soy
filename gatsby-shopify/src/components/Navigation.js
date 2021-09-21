@@ -112,6 +112,10 @@ const NavigationButtonRight = styled.div`
 const NavigationButtonOrder = styled.button`
   margin-right: 10px;
   padding: 0;
+
+  @media ${breakpoint.mobile} { 
+    display: none;
+  }
 `
 
 const NavigationButtonCounter = styled.button`
@@ -123,7 +127,6 @@ const NavigationButtonCounter = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 2px 0px 0px 0px;
 `
 
 const useQuantity = () => {

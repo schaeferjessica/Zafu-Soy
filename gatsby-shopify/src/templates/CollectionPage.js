@@ -44,7 +44,7 @@ const CollectionContextInner = styled.div`
   }
 `
 
-const CollectionTitle = styled.h1`
+const CollectionTitle = styled.h2`
     margin-bottom: 10px;
 `
 
