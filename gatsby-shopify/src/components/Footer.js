@@ -112,22 +112,22 @@ const Footer = () => {
             <FooterLinksLeft>
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/collection/frontpage/" className="border-hover">
+                    <FooterLink to="/collection/frontpage/" className="underline-hover">
                       <FooterSpan>shop</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/about/" className="border-hover">
+                    <FooterLink to="/about/" className="underline-hover">
                       <FooterSpan>about</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/faq/" className="border-hover">
+                    <FooterLink to="/faq/" className="underline-hover">
                       <FooterSpan>FAQ</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" className="border-hover" target="_blank" rel="noopener noreferrer">
+                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" className="underline-hover" target="_blank" rel="noopener noreferrer">
                       <FooterSpan>Instagram</FooterSpan>
                     </FooterLinkExtern>
                   </li>
@@ -135,22 +135,22 @@ const Footer = () => {
 
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/shipping/" className="border-hover">
+                    <FooterLink to="/shipping/" className="underline-hover">
                       <FooterSpan>Shipping & Returns</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/impressum/" className="border-hover">
+                    <FooterLink to="/impressum/" className="underline-hover">
                       <FooterSpan>Impressum</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/terms/" className="border-hover">
+                    <FooterLink to="/terms/" className="underline-hover">
                       <FooterSpan>Terms</FooterSpan>
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLink to="/privacy/" className="border-hover">
+                    <FooterLink to="/privacy/" className="underline-hover">
                       <FooterSpan>Privacy</FooterSpan>
                     </FooterLink>
                   </li>
@@ -162,14 +162,14 @@ const Footer = () => {
             <FooterLinksRight>
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/about/" className="border-hover">
+                    <FooterLink to="/about/" className="underline-hover">
                       <FooterSpan>how can we help?</FooterSpan>
                     </FooterLink>
                   </li>
                 </FooterLinksWrapper>
 
                 <FooterCredit>&#169; {new Date().getFullYear()}, built by{` `} 
-                  <FooterLinkExtern href="https://jessica.gatsbyjs.io/" className="border-hover" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExtern>
+                  <FooterLinkExtern href="https://jessica.gatsbyjs.io/" className="underline-hover" target="_blank" rel="noreferrer">Jessica Schäfer</FooterLinkExtern>
                 </FooterCredit>
             </FooterLinksRight>
 

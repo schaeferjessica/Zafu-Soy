@@ -86,9 +86,9 @@ export const GlobalStyle = props => (
         }
 
 
-      // BORDER HOVER 
+      // UNDERLINE HOVER 
 
-      .border-hover {
+      .underline-hover {
         background-image: linear-gradient(180deg, transparent 95%, ${ciBlack} 0);
         background-repeat: no-repeat;
         transition: background-size 0.5s ease;
@@ -104,10 +104,10 @@ export const GlobalStyle = props => (
       // BUTTON HOVER
 
       .button-hover {
-        padding: 20px 30px;
+        padding: 15px;
         text-align: center;
         cursor: pointer;
-        border: 6px solid var(--color-white);
+        border: 3px solid var(--color-white);
       }
 
       .button-hover--black {

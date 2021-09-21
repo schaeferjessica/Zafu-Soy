@@ -27,31 +27,21 @@ const NavigationContainer = styled.div`
   left: 0;
 
   &.header--is-white {
-    .link-hover::after {
-      background-color: ${ciWhite};
-    }
-
-    .stroke {
-      stroke: ${ciWhite};
-    }
-
-    .fill {
-      fill: ${ciWhite};
-    }
-
-    .navigation__link {
-      display: none;
-    }
 
     .navigation__span,
     .navigation__cart-button,
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciWhite};
+      font-weight: 500;
     }
     
     .navigation__cart-button {
       border-color: ${ciWhite};
+    }
+
+    .link-hover::after {
+      background-color: ${ciWhite};
     }
   }
 
@@ -59,59 +49,21 @@ const NavigationContainer = styled.div`
   &.content--is-blue {
     background-color: ${ciWhite};
 
-    .link-hover::after {
-      background-color: ${ciBlack};
-    }
-
-    .stroke {
-      stroke: ${ciBlack};
-    }
-
-    .fill {
-      fill: ${ciBlack};
-    }
-
     .navigation__span,
     .navigation__cart-button,
     .navigation__cart-span,
     .navigation__cart-counter {
       color: ${ciBlack};
+      font-weight: 400;
     }
 
-    .navigation-span {
-      display: block;
+    .link-hover::after {
+      background-color: ${ciBlack};
     }
     
     .navigation__cart-button {
       border-color: ${ciBlack};
     }
-
-    .navigation__link {
-      display: block;
-    }
-
-    navigation__link--left {
-      @media ${breakpoint.mobile} { 
-        display: block;
-        font-family: 'Kobe Regular';
-        font-size: 20px;
-        display: block;
-      }
-    }
-
-    .navigation__link--left.link-hover::after {
-      display: none;
-    }
-
-    navigation__link--right {
-      @media ${breakpoint.mobile} { 
-        display: none;
-      }
-    }
-
-  &.content--is-blue {
-    background-color: ${ciWhite};
-  }
 
   }
 `
@@ -121,35 +73,16 @@ const NavigationContainer = styled.div`
 
 const NavigationInner = styled.div`
   ${container}
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
-  display: grid;
-  align-items: center;
-  justify-items: start;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  &.navigation--transparent {
-    background-color: transparent;
-  }
-
-  @media ${breakpoint.tablet} { 
-    grid-template-columns: 1fr;
-  }
 
   @media ${breakpoint.mobile} { 
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-`
-
-const NavigationSpan = styled.span`
-  font-size: 15px;
-  color: var(--color-black);
-
-  @media ${breakpoint.mobile} { 
-    font-size: 14px;
   }
 `
 
@@ -158,40 +91,31 @@ const NavigationSpan = styled.span`
 
 const NavigationLinkLeft = styled(Link)`
   color: var(--color-black);
-  grid-column: 1 / 4;
-  grid-row: 1 / 1;
 `
 
 
-// NAVIGATION LINK CENTER
+// NAVIGATION LINK SHOP
 
-const NavigationLinkCenter = styled(Link)`
+const NavigationLinkShop = styled(Link)`
   color: var(--color-black);
-  grid-column: 2 / 4;
-  grid-row: 1 / 1;
-  `
-
-
+  margin-right: 25px;
+`
 
 // NAVIGATION BUTTON RIGHT
 
 const NavigationButtonRight = styled.div`
-  grid-column: 4 / 4;
-  grid-row: 1 / 1;
-  justify-self: end;
   margin-left: 20px;
-`;
+  display: flex;
+  align-items: center;
+`
 
 const NavigationButtonOrder = styled.button`
-  margin-right: 5px;  
-
-  @media ${breakpoint.mobile} { 
-    display: none;
-  }
+  margin-right: 10px;
+  padding: 0;
 `
 
 const NavigationButtonCounter = styled.button`
-  border: 1px solid var(--color-black);
+  border: 1.5px solid var(--color-black);
   color: var(--color-black);
   width: 30px;
   height: 30px;
@@ -199,8 +123,7 @@ const NavigationButtonCounter = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 2px 0 0 0;
-  margin-left: 5px;
+  padding: 2px 0px 0px 0px;
 `
 
 const useQuantity = () => {
@@ -247,23 +170,28 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
       <NavigationInner>
 
         {/* NAVIGATION LINK LEFT*/}
-        <NavigationLinkLeft to="/" className="link-hover navigation__link navigation__link--left">
-          <NavigationSpan className="navigation__span">Zafu & Soy</NavigationSpan>
+        <NavigationLinkLeft to="/" className="navigation__link navigation__link--left underline-hover">
+          <span className="navigation__span">Zafu & Soy</span>
         </NavigationLinkLeft>
 
-        {/* NAVIGATION LINK CENTER*/}
-        <NavigationLinkCenter to="/collection/frontpage" className="link-hover navigation__link navigation__link--right">
-          <NavigationSpan className="navigation__span">shop</NavigationSpan>
-        </NavigationLinkCenter>
-
+  
         {/* NAVIGATION BUTTON RIGHT*/}
         <NavigationButtonRight>
-          <NavigationButtonOrder onClick={() => onOrderButtonClick()} className="navigation__cart-button link-hover">
+
+          {/* NAVIGATION LINK SHOP */}
+          <NavigationLinkShop to="/collection/frontpage" className="navigation__link navigation__link--right underline-hover">
+            <span className="navigation__span">shop</span>
+          </NavigationLinkShop>
+
+
+          <NavigationButtonOrder onClick={() => onOrderButtonClick()} className="navigation__cart-button underline-hover">
             <span className="navigation__cart-span">your order</span>
           </NavigationButtonOrder>
+
           <NavigationButtonCounter onClick={() => onOrderButtonClick()} className="navigation__cart-button">
             {hasItems ? <span className="navigation__cart-counter">{quantity}</span> : <span className="navigation__cart-counter">0</span>}
           </NavigationButtonCounter>
+
         </NavigationButtonRight>
 
       </NavigationInner>

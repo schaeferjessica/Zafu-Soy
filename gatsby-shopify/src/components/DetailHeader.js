@@ -184,7 +184,7 @@ const DetailHeader = ({ product }) => {
                   onClick={() => jumpTo('#discoverTarget')}
                   >
                 {/* PRODUCT DETAIL TITLE H1 */}
-                <DetailHeaderTitle className="border-hover">{product.title}</DetailHeaderTitle>
+                <DetailHeaderTitle className="underline-hover">{product.title}</DetailHeaderTitle>
               </DetailHeaderButton>
 
               {/* DETAIL INPUT */}

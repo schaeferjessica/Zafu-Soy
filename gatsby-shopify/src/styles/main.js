@@ -43,10 +43,10 @@ export const GlobalStyle = props => (
       // HTML
 
       html {
+        font-family: 'IBM Plex Sans', 'Roboto','Fira Sans', 'Helvetica Neue', sans-serif;
         font-weight: 400;
         font-size: 15px;
         line-height: 1.7;
-        font-family: 'IBM Plex Sans', 'Roboto','Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
         -webkit-font-smoothing: antialiased;
         font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
         font-kerning: normal;
@@ -63,10 +63,10 @@ export const GlobalStyle = props => (
       // CAPTION
 
       .caption-regular {
-        font-size: 12px;
-        line-height: 19px;
         font-family: 'IBM Plex Mono';
         font-weight: 400;
+        font-size: 12px;
+        line-height: 19px;
       }
 
       .caption-bold {
@@ -93,20 +93,21 @@ export const GlobalStyle = props => (
       }
 
       h1 {
-        font-family: 'Eiko';
-        //font-family: 'Kobe Regular';
-        font-size: 57px;
+        font-family: 'Kobe Regular';
+        font-size: 70px;
+        //font-family: 'Eiko';
+        //font-size: 57px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 32px;
+          font-size: 58px;
+          //font-size: 46px;
         }
       }
 
       h2 {
         font-family: 'IBM Plex Sans';
-        font-size: 20px;
-        font-style: normal;
         font-weight: 400;
+        font-size: 20px;
 
         @media ${breakpoint.mobile} { 
           font-size: 17px;
@@ -116,7 +117,6 @@ export const GlobalStyle = props => (
 
       h3 {
         font-family: 'IBM Plex Sans';
-        font-style: normal;
         font-weight: 400;
         font-size: 20px;
 
