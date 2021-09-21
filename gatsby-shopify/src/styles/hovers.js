@@ -1,6 +1,5 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
-import { ciBlack } from './colors'
 
 
 export const GlobalStyle = props => (
@@ -89,7 +88,8 @@ export const GlobalStyle = props => (
       // UNDERLINE HOVER 
 
       .underline-hover {
-        background-image: linear-gradient(180deg, transparent 95%, ${ciBlack} 0);
+        color: var(--color-black);
+        background-image: linear-gradient(180deg, transparent 95%, currentColor 0);
         background-repeat: no-repeat;
         transition: background-size 0.5s ease;
         background-size: 0% 100%;

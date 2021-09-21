@@ -31,11 +31,12 @@ const NavigationContainer = styled.div`
     .navigation__span,
     .navigation__cart-button,
     .navigation__cart-span,
-    .navigation__cart-counter {
+    .navigation__cart-counter,
+    .navigation__link {
       color: ${ciWhite};
       font-weight: 500;
     }
-    
+
     .navigation__cart-button {
       border-color: ${ciWhite};
     }
@@ -52,7 +53,8 @@ const NavigationContainer = styled.div`
     .navigation__span,
     .navigation__cart-button,
     .navigation__cart-span,
-    .navigation__cart-counter {
+    .navigation__cart-counter,
+    .navigation__link {
       color: ${ciBlack};
       font-weight: 400;
     }
@@ -106,7 +108,6 @@ const NavigationLinkShop = styled(Link)`
 const NavigationButtonRight = styled.div`
   margin-left: 20px;
   display: flex;
-  align-items: center;
 `
 
 const NavigationButtonOrder = styled.button`
