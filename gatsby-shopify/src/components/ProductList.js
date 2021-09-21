@@ -93,7 +93,7 @@ const ProductList = props => {
         <p>Quantity {quantity}</p>
 
         {/* LIST ITEM REMOVE */}
-        <button onClick={handleRemove} className="link-hover"><span>Remove</span></button>
+        <button onClick={handleRemove} className="underline-hover"><span>Remove</span></button>
       </ListItemContext>
     </ListItem>
   )

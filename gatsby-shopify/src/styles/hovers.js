@@ -94,6 +94,7 @@ export const GlobalStyle = props => (
         transition: background-size 0.5s ease;
         background-size: 0% 100%;
         display: inline;
+        padding: 0px;
 
         &:hover,
         &.focus-visible {

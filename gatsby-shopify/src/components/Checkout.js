@@ -47,7 +47,6 @@ const CheckboxHeader = styled.div`
   padding-left: 50px;
   padding-right: 150px;
   padding-bottom: 15px;
-  border-bottom: 1px solid black;
 
   @media ${breakpoint.desktop} {
     padding-right: 100px; 
@@ -213,7 +212,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
     <CheckoutComponent className={`checkout ${isOpen ? 'is-active' : ''}`}>
         {/* CHECKOUT CLOSE */}
         <CheckboxHeader>
-          <h2>Your Order</h2>
+          <p>Your Order</p>
           <CheckoutClose onClick={() => handleCheckoutClose()}>
             <svg
               aria-hidden="true"
