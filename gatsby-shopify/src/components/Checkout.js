@@ -21,7 +21,6 @@ import {container} from '../styles/containers'
 const CheckoutComponent = styled.div`
   transform: translateX(100%);
   transition: transform 300ms ease-in-out;
-  border: 1px solid black;
   position: fixed;
   top: 0;
   right: 0;
@@ -158,15 +157,11 @@ const CheckoutLink = styled.button`
 
 const CheckoutList = styled.ul`
   padding: 0;
-  height: calc(100vh - 305px);
+  height: calc(100vh - 270px);
   position: relative;
   overflow: auto;
   margin-top: 25px;
   margin-bottom: 25px;
-
-  @media ${breakpoint.tablet} { 
-    height: calc(100vh - 280px);
-  }
 `
 
 

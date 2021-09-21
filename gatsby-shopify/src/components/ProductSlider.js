@@ -119,7 +119,7 @@ const ProductSlider = ({products}) => {
     const bullets = $$('.bullet-button', containerRef.current);
 
     // reset bullets
-    bullets.forEach(bullet => bullet.classList.remove('is-active'));
+    bullets.length && bullets.forEach(bullet => bullet.classList.remove('is-active'));
 
     // set clicked bullet to active
     event.target.classList.add('is-active');
@@ -131,19 +131,21 @@ const ProductSlider = ({products}) => {
   useEffect(() => {
     const bullets = $$('.bullet-button', containerRef.current);
     
-    // reset bullets
-    bullets.forEach(bullet => bullet.classList.remove('is-active'));
-
-    // set active default bullet
-    bullets[0].classList.add('is-active');
-
-    sliderRef.current.on('run', function() {
+    if(bullets.length) {
       // reset bullets
-      bullets.forEach(bullet => bullet.classList.remove('is-active'));
-
-      // set active clicked bullet
-      bullets[sliderRef.current.index].classList.add('is-active');
-    })
+       bullets.forEach(bullet => bullet.classList.remove('is-active'));
+  
+      // set active default bullet
+      bullets[0].classList.add('is-active');
+  
+      sliderRef.current.on('run', function() {
+        // reset bullets
+        bullets.forEach(bullet => bullet.classList.remove('is-active'));
+  
+        // set active clicked bullet
+        bullets[sliderRef.current.index].classList.add('is-active');
+      })
+    }
   }, [])
 
 
@@ -160,15 +162,17 @@ const ProductSlider = ({products}) => {
           </h2>
 
           {/* PRODUCT SLIDER BULLETS */}
-          <ol className="bullets">
-          {products.map((_, index) => (
-            <li key={`production-slider-bullet-${index}`} className="bullet">
-              <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
-              <span className="sr-only">jump to slide {index}</span>
-              </button>
-            </li>
-          ))}
-          </ol>
+          {products.length > 1 ? 
+            <ol className="bullets">
+            {products.map((_, index) => (
+              <li key={`production-slider-bullet-${index}`} className="bullet">
+                <button className="bullet-button" onClick={(event) => handleBulletClick(event, index)}>
+                <span className="sr-only">jump to slide {index}</span>
+                </button>
+              </li>
+            ))}
+            </ol>
+          : ''}
         </ProductSliderTop>
 
         <Glide

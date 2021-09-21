@@ -108,14 +108,14 @@ export const GlobalStyle = props => (
         padding: 15px;
         text-align: center;
         cursor: pointer;
-        border: 3px solid var(--color-white);
+        border: 2px solid var(--color-white);
       }
 
       .button-hover--black {
         padding: 25px;
         text-align: center;
         cursor: pointer;
-        border: 2px solid var(--color-black);
+        border: 1px solid var(--color-black);
       }
 
 
