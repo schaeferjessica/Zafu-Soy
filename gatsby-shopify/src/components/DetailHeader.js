@@ -70,7 +70,7 @@ const DetailHeaderImage = styled.div`
     background-color: rgba(0,0,0,.2);
     z-index: 1;
   }
-`;
+`
 
 const DetailHeaderBackgroundImage = styled(BackgroundImage)`
   background-position: center;
@@ -93,14 +93,6 @@ const DetailHeaderBackgroundImage = styled(BackgroundImage)`
   }
 `
 
-// PRODUCT DETAIL BUTTON
-
-const DetailHeaderButton = styled.button`
-  position: relative;
-  padding: 0;
-  text-align: left;
-  display: block;
-`
 
 // PRODUCT DETAIL CONTEXT
 
@@ -110,7 +102,7 @@ const DetailHeaderContext = styled.div`
   position: absolute;
   bottom: 20%;
   left: 0;
-`;
+`
 
 
 // PRODUCT DETAIL SCROLL BUTTON
@@ -130,7 +122,7 @@ const DetailHeaderScroll = styled.button`
   span {
     color: var(--color-white);
   }
-`;
+`
 
 const DetailHeader = ({ product }) => {
   const galleryEl = useRef(null);
