@@ -105,16 +105,14 @@ export const GlobalStyle = props => (
       // BUTTON HOVER
 
       .button-hover {
-        padding: 15px;
+        padding: 45px 20px;
         text-align: center;
         cursor: pointer;
         border: 2px solid var(--color-white);
+        border-radius: 50%;
       }
 
       .button-hover--black {
-        padding: 25px;
-        text-align: center;
-        cursor: pointer;
         border: 1px solid var(--color-black);
       }
 

@@ -113,8 +113,8 @@ const CheckoutText = styled.div`
 const CheckoutButton = styled.button`
   position: absolute;
   bottom: 30px;
-  left: 50px;
-  width: 80%;
+  left: 50%;
+  width: 30%;
 
   @media ${breakpoint.tablet} { 
     width: 90%;
@@ -157,7 +157,7 @@ const CheckoutLink = styled.button`
 
 const CheckoutList = styled.ul`
   padding: 0;
-  height: calc(100vh - 270px);
+  height: calc(100vh - 285px);
   position: relative;
   overflow: auto;
   margin-top: 25px;
@@ -238,7 +238,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
           <CheckoutButton 
             onClick={handleCheckout}
             disabled={checkout.lineItems.length === 0}
-            className="button-hover--black"
+            className="button-hover button-hover--black"
             >
             <CheckoutPrice className="caption-bold">Check out — € {checkout.totalPrice}</CheckoutPrice>
           </CheckoutButton>

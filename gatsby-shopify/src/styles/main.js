@@ -93,15 +93,11 @@ export const GlobalStyle = props => (
       }
 
       h1 {
-        font-family: 'Kobe Regular';
-        font-size: 70px;
+        font-family: 'IBM Plex Mono';
+        font-weight: 500;
+        font-size: 15px;
         //font-family: 'Eiko';
         //font-size: 57px;
-
-        @media ${breakpoint.mobile} { 
-          font-size: 58px;
-          //font-size: 46px;
-        }
       }
 
       h2 {

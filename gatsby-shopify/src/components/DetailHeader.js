@@ -100,7 +100,6 @@ const DetailHeaderButton = styled.button`
   padding: 0;
   text-align: left;
   display: block;
-
 `
 
 // PRODUCT DETAIL CONTEXT
@@ -111,14 +110,6 @@ const DetailHeaderContext = styled.div`
   position: absolute;
   top: 40%;
   left: 0;
-`;
-
-
-// PRODUCT DETAIL TITLE H1
-
-const DetailHeaderTitle = styled.h1`
-  color: var(--color-white);
-  background-image: linear-gradient(180deg, transparent 95%, #fff 0);
 `;
 
 
@@ -178,18 +169,9 @@ const DetailHeader = ({ product }) => {
               })}
 
             {/* PRODUCT DETAIL CONTEXT */}
-
             <DetailHeaderContext>
-              <DetailHeaderButton 
-                  onClick={() => jumpTo('#discoverTarget')}
-                  >
-                {/* PRODUCT DETAIL TITLE H1 */}
-                <DetailHeaderTitle className="underline-hover">{product.title}</DetailHeaderTitle>
-              </DetailHeaderButton>
-
-              {/* DETAIL INPUT */}
+              {/* DETAIL INPUT */} 
               <DetailInput product={product} />
-
             </DetailHeaderContext>
 
             {/* PRODUCT DETAIL SCROLL BUTTON */}

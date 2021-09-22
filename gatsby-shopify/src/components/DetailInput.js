@@ -12,6 +12,12 @@ import styled from '@emotion/styled/macro'
 import breakpoint from '../styles/breakpoints'
 
 
+// PRODUCT DETAIL TITLE H1
+
+const DetailInputTitle = styled.h1`
+  color: var(--color-white);
+`;
+
 
 // DETAIL INPUT BUTTON
 
@@ -79,8 +85,10 @@ const DetailInput = ({ product }) => {
 
   return (
     <DetailInputButton type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
+      {/* PRODUCT DETAIL TITLE H1 */}
+      <DetailInputTitle>{product.title}</DetailInputTitle>
       {/* DETAIL INPUT BUTTON */}
-      {available && <DetailInputSpan className="caption-bold">Add to your order — {price}</DetailInputSpan>}
+      {available && <DetailInputSpan className="caption-bold">add to your order — {price}</DetailInputSpan>}
       {!available && <DetailInputSpan className="caption-bold">currently out of stock</DetailInputSpan>}
     </DetailInputButton>
   )
