@@ -27,11 +27,11 @@ const DetailHeaderComponent = styled.div`
   justify-content: space-between;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 52px);
-  margin-top: 62px;
+  height: calc(100vh - 50px);
+  margin-top: 60px;
 
   @media ${breakpoint.mobile} {
-    margin-top: 52px;
+    margin-top: 50px;
   }
 `
 
@@ -108,7 +108,7 @@ const DetailHeaderContext = styled.div`
   ${container};
 
   position: absolute;
-  top: 40%;
+  bottom: 20%;
   left: 0;
 `;
 
@@ -140,7 +140,7 @@ const DetailHeader = ({ product }) => {
     const rect = target.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    aniScroll(rect.top + scrollTop - 52, 1000, 'easeInOutQuart');
+    aniScroll(rect.top + scrollTop - 50, 1000, 'easeInOutQuart');
   };
 
   return (

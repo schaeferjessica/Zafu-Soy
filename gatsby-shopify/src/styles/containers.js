@@ -35,7 +35,7 @@ export const moduleSpace = `
   }
 
   @media ${breakpoint.mobile} { 
-    margin-top: 80px;
+    margin-top: 70px;
   }
 `;
 

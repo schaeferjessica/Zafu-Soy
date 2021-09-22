@@ -22,7 +22,8 @@ const DetailInputTitle = styled.h1`
 // DETAIL INPUT BUTTON
 
 const DetailInputButton = styled.button`
-    margin-top: 50px;
+  margin-top: 50px;
+  transform: rotate(6deg);
 
   @media ${breakpoint.mobile} {
     margin-top: 30px;
