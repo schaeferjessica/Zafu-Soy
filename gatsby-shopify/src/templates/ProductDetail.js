@@ -6,7 +6,8 @@ import Seo from '~/components/seo'
 import { graphql } from 'gatsby'
 
 // contentful
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 // components
 import Navigation from '~/components/Navigation'
@@ -119,13 +120,6 @@ const ProductDetail = ({ data }) => {
   collectionProducts.length = 4; // only keep the first 4 items in the array
   const filteredCollectionProducts = collectionProducts.filter(collectionProduct => collectionProduct.handle !== product.handle);
   const detailInfo = data.contentfulDetail;
-  const options  = {
-    renderText: text => {
-      return text.split('\n').reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      }, []);
-    },
-  };
 
   useEffect(() => {
     if (isOpen) {
@@ -134,6 +128,18 @@ const ProductDetail = ({ data }) => {
       document.querySelector('body').classList.remove('prevent-scroll--overlay');
     }
   }, [isOpen]);
+
+  // contentful renderRichText options
+  const Small = ({ children }) => <p className="caption-regular">{children}</p>;
+    const Bold = ({ children }) => <b className="caption-bold">{children}</b>;
+    const options = {
+      renderMark: {
+        [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+      },
+      renderNode: {
+        [BLOCKS.HEADING_6]: (_, children) => <Small>{children}</Small>
+      },
+    };
 
   return (
     <>
@@ -153,8 +159,8 @@ const ProductDetail = ({ data }) => {
       
       {/* DETAIL INFO */}
       <DetailInfo
-        textLeft={documentToReactComponents(JSON.parse(detailInfo.textLeft.raw), options)}
-        textRight={documentToReactComponents(JSON.parse(detailInfo.textRight.raw), options)}
+        textLeft={renderRichText(detailInfo.textLeft, options)}
+        textRight={renderRichText(detailInfo.textRight, options)}
       />
 
       {/* PRODUCT SLIDER */}

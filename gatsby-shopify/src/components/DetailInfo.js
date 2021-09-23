@@ -26,7 +26,6 @@ const DetailInfoContext = styled.div`
 // DETAIL INFO TEXT LEFT
 
 const DetailInfoTextLeft = styled.div` 
-    border-top: 1px solid var(--color-black);
     width: 55%;
 
     @media ${breakpoint.mobile} {
@@ -44,8 +43,7 @@ const DetailInfoTextLeft = styled.div`
 // DETAIL INFO TEXT RIGHT
 
 const DetailInfoTextRight = styled.div` 
-    border-top: 1px solid var(--color-black);
-    width: 40%;
+    width: 30%;
 
     @media ${breakpoint.mobile} {
       border-top: none;
