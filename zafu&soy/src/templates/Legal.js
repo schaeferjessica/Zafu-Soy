@@ -128,7 +128,7 @@ const LegalLink = styled(Link)`
 
 
 
-const LegaPage = (data) => {
+const LegalPage = (data) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -188,4 +188,4 @@ return <Legal>
   </Legal>
 }
 
-export default LegaPage
+export default LegalPage
