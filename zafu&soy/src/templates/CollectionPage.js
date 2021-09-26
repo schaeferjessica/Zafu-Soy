@@ -111,19 +111,17 @@ const CollectionGridList = styled.ul`
   list-style: none;
   display: grid;
   padding: 0;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 3.2rem;
   margin-top: 50px;
   margin-bottom: 0px;
 
   @media ${breakpoint.desktop} {
-    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 30px;
   }
 
   @media ${breakpoint.tablet} {
     margin-top: 20px;
-    grid-template-columns: 1fr 1fr;
   }
 
   @media ${breakpoint.mobile} {
@@ -136,7 +134,16 @@ const CollectionGridList = styled.ul`
 const CollectionGridListItem = styled.li`
   margin-top: 20px;
   position: relative;
+
+  &:nth-child(odd) {
+    margin-top: 65px;
+
+    @media ${breakpoint.tablet} {
+      margin-top: 20px;
+    }
+  }
 `
+
 
 const CollectionGridImage = styled.div`
   position: relative;

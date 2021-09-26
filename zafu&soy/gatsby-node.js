@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               originalSrc
               localFile {
                 childImageSharp {
-                  gatsbyImageData(width: 500)
+                  gatsbyImageData(width: 900)
                 }
               }
             }
