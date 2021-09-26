@@ -159,7 +159,7 @@ const Footer = () => {
   return (
     <>
     <BackToTop onClick={() => jumpTo()} className={isVisible ? 'is-visible': ''}>
-    <svg viewBox="0 0 40 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 40 78" fill="none">
       <path d="M15.4984 22.5C15.7746 22.5 15.9984 22.2761 15.9984 22C15.9984 21.7239 15.7746 21.5 15.4984 21.5C15.2223 21.5 14.9984 21.7239 14.9984 22C14.9984 22.2761 15.2223 22.5 15.4984 22.5Z" fill="black"/>
       <path d="M24.4984 22.5C24.7746 22.5 24.9984 22.2761 24.9984 22C24.9984 21.7239 24.7746 21.5 24.4984 21.5C24.2223 21.5 23.9984 21.7239 23.9984 22C23.9984 22.2761 24.2223 22.5 24.4984 22.5Z" fill="black"/>
       <path d="M21.4984 28.3C21.4984 27.9 21.1984 27.5 20.6984 27.5C20.3984 27.5 20.0984 27.7 19.9984 28C19.8984 27.7 19.5984 27.5 19.2984 27.5C18.8984 27.5 18.4984 27.8 18.4984 28.3C18.4984 29.1 19.1984 29.8 19.9984 29.8C20.7984 29.8 21.4984 29.2 21.4984 28.3Z" fill="black"/>
@@ -196,7 +196,7 @@ const Footer = () => {
                     </FooterLink>
                   </li>
                   <li>
-                    <FooterLinkExtern href="https://www.instagram.com/yayoi.shop/" className="underline-hover" target="_blank" rel="noopener noreferrer">
+                    <FooterLinkExtern href="https://www.instagram.com/zafu.soy/" className="underline-hover" target="_blank" rel="noopener noreferrer">
                       <FooterSpan>Instagram</FooterSpan>
                     </FooterLinkExtern>
                   </li>

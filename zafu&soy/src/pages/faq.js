@@ -163,7 +163,7 @@ return <Legal>
     {/* LEGAL TEXT*/}
     <LegalText>
 
-      <p><strong>Frequently Asked Questions</strong></p>
+      <p><strong>FAQ</strong></p>
 
       <div class="accordion">
         <button class="accordion__button">
