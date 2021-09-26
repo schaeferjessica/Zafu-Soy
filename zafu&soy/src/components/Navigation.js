@@ -108,6 +108,10 @@ const NavigationLinkShop = styled(Link)`
 const NavigationButtonRight = styled.div`
   margin-left: 20px;
   display: flex;
+
+  .navigation__link {
+    margin-top: 2px;
+  }
 `
 
 const NavigationButtonOrder = styled.button`

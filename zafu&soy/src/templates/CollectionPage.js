@@ -37,6 +37,7 @@ const CollectionContext = styled.div`
 `
 
 const CollectionContextInner = styled.div`
+  display: none;
   max-width: 70%;
 
   @media ${breakpoint.tablet} {
