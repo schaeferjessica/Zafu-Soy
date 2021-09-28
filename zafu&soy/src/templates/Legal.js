@@ -9,14 +9,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 // components
 import Navigation from '~/components/Navigation'
 import Checkout from '~/components/Checkout'
-import Shower from '../utils/shower';
-import { $$ } from '../utils/dom';
 
 // emotion
 import styled from '@emotion/styled/macro'
 
 // contentful
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 // styles
 import breakpoint from '../styles/breakpoints'
@@ -72,7 +72,6 @@ const LegalText = styled.div`
   p strong {
     margin-top: 30px;
     display: block;
-    font-family: IBM Plex Serif;
 
     @media ${breakpoint.mobile} { 
       margin-top: 20px;
@@ -84,38 +83,12 @@ const LegalText = styled.div`
     margin-bottom: 0px;
   }
 
-  .accordion {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
+  .paragraph-margin {
+    margin-top: 35px;
 
-  .accordion__button {
-    display: block;
-    position: relative;
-    text-align: left;
-    padding: 0;
-    margin: 0 0 0 20px;
-  }
-
-  .accordion__button::before {
-    content: "↓";
-    position: absolute;
-    left: -20px;
-    transition: transform 500ms ease-in-out;
-  }
-
-  .accordion__button[aria-expanded="true"]::before {
-    transform: rotate(180deg);
-  }
-
-  .accordion__panel {
-    height: 0;
-    overflow: hidden;
-  }
-
-  .accordion__panel p {
-    margin-left: 20px;
+    @media ${breakpoint.mobile} { 
+      margin-top: 25px;
+    } 
   }
 `
 
@@ -139,27 +112,16 @@ const LegalPage = (data) => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    const accordionButtons = $$('.accordion__button')
-
-   
-    if(accordionButtons.length) {
-      accordionButtons.forEach(accordionButton => {
-        const target = accordionButton.nextElementSibling;
-  
-          new Shower({
-            target: target,
-            handler: accordionButton,
-            easing: 'ease',
-            duration: 350,
-            initOpened: false,
-            openClassName: 'is-open',
-          }).init();
-      });
+    // contentful renderRichText options
+    const Margin= ({ children }) => <p className="paragraph-margin">{children}</p>;
+    const options = {
+      renderNode: {
+        [BLOCKS.HEADING_5]: (_, children) => <Margin>{children}</Margin>
+      },
     };
-  }, []);
 
-return <Legal>
+
+  return <Legal>
     <Seo title={data.pageContext.slug} />
     <Navigation onOrderButtonClick={() => setIsOpen(!isOpen)} hasScroll={false} />
     <Checkout isOpen={isOpen} handleCheckoutClose={() => setIsOpen(false)}/>
@@ -178,7 +140,7 @@ return <Legal>
 
     {/* LEGAL TEXT*/}
     <LegalText>
-     {documentToReactComponents(JSON.parse(data.pageContext.text))}
+     {renderRichText(data.pageContext.text, options)}
     </LegalText>
 
     {/* LEGAL LINK*/}

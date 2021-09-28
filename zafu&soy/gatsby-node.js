@@ -112,7 +112,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        text: node.text.raw,
+        text: node.text,
         images: node.images,
         slug: node.slug
       },
