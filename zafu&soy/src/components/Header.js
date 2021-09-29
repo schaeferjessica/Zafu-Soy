@@ -80,21 +80,22 @@ const HeaderContextRight = styled.div`
 `
 
 const HeaderTitle = styled.h1`
-  font-family: 'Kobe Regular';
-  text-transform: lowercase;
+  font-family: 'Space Mono';
+  font-size: 60px;
   color: var(--color-white);
   cursor: pointer;
-  font-size: 81px;
-  line-height: 86px;
-
-  @media ${breakpoint.tablet} {
-    font-size: 63px;
-    line-height: 67px;
-  }
+  font-size: 60px;
+  line-height: 70px;
 
   @media ${breakpoint.mobile} {
-    font-size: 50px;
-    line-height: 67px;
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  span {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--color-white);
   }
 `
 
@@ -175,7 +176,7 @@ const Header = () => {
 
                 <HeaderContextRight onClick={() => jumpTo('#headermarker')}>
                     <HeaderText>asian homewares</HeaderText>
-                    <HeaderTitle>zafu&soy</HeaderTitle>
+                    <HeaderTitle>zafu<span>&</span>soy</HeaderTitle>
                 </HeaderContextRight>
             </HeaderTop>
 

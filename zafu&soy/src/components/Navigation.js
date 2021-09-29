@@ -179,7 +179,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
 
         {/* NAVIGATION LINK LEFT*/}
         <NavigationLinkLeft to="/" className="navigation__link navigation__link--left underline-hover">
-          <span className="navigation__span">Zafu & Soy</span>
+          <span className="navigation__span">zafu & soy</span>
         </NavigationLinkLeft>
 
   

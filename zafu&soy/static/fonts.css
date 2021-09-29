@@ -39,6 +39,15 @@
        url('./fonts/ibm-plex-mono-500.woff') format('woff'); 
 }
 
+/* Space Mono Regular */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./fonts/space-mono-regular.woff2') format('woff2'),
+       url('./fonts/space-mono-regular.woff') format('woff');
+}
 
 /* Kobe Regular */
 @font-face {
