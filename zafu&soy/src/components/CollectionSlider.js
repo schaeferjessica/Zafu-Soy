@@ -128,7 +128,7 @@ const CollectionSlider = () => {
 
        {/* COLLECTION SLIDER HEADER */}
         <h2>
-          <Link to="/collection/frontpage" className="link-hover">
+          <Link to="/collection/shop-all" className="link-hover">
             <span>{contentfulCollectionSlider.header}</span>
           </Link>
         </h2>

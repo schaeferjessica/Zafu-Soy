@@ -196,7 +196,7 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
   }
   const handleBackClick = () => {
     handleCheckoutClose();
-    navigate(`/collection/frontpage`);
+    navigate(`/collection/shop-all`);
   }
 
   const lineItems = checkout.lineItems.map(item => (

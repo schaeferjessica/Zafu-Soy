@@ -181,7 +181,7 @@ const Footer = () => {
             <FooterLinksLeft>
                 <FooterLinksWrapper>
                   <li>
-                    <FooterLink to="/collection/frontpage/" className="underline-hover">
+                    <FooterLink to="/collection/shop-all/" className="underline-hover">
                       <FooterSpan>shop</FooterSpan>
                     </FooterLink>
                   </li>

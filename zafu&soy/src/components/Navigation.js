@@ -187,7 +187,7 @@ const Navigation = ({isWhite, onOrderButtonClick, hasScroll = true}) => {
         <NavigationButtonRight>
 
           {/* NAVIGATION LINK SHOP */}
-          <NavigationLinkShop to="/collection/frontpage" className="navigation__link navigation__link--right underline-hover">
+          <NavigationLinkShop to="/collection/shop-all" className="navigation__link navigation__link--right underline-hover">
             <span className="navigation__span">shop</span>
           </NavigationLinkShop>
 
