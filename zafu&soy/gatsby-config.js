@@ -54,7 +54,7 @@ module.exports = {
         password: process.env.SHOPIFY_SHOP_PASSWORD,
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
         shopName: process.env.SHOP_NAME,
-        accessToken: '61fbe67b5eea56f05571a824826a5c84',
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
       },
     },
     {
