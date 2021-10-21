@@ -16,21 +16,22 @@ import breakpoint from '../styles/breakpoints'
 
 const DetailInputTitle = styled.h1`
   color: var(--color-white);
+  text-align: left;
 `;
 
 
 // DETAIL INPUT BUTTON
 
 const DetailInputButton = styled.button`
-  margin-top: 50px;
-  transform: rotate(6deg);
+  margin-bottom: 30px;
 
   @media ${breakpoint.mobile} {
-    margin-top: 30px;
+    margin-bottom: 20px;
   }
 `
 
 const DetailInputSpan = styled.span`
+  display: block;
   color: var(--color-white);
 `
 
@@ -86,11 +87,16 @@ const DetailInput = ({ product }) => {
 
   return (
     <DetailInputButton type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
-      {/* PRODUCT DETAIL TITLE H1 */}
-      <DetailInputTitle>{product.title}</DetailInputTitle>
-      {/* DETAIL INPUT BUTTON */}
-      {available && <DetailInputSpan className="caption-bold">add to your order — {price}</DetailInputSpan>}
-      {!available && <DetailInputSpan className="caption-bold">currently out of stock</DetailInputSpan>}
+      
+      <DetailInputTitle>
+        {/* PRODUCT DETAIL TITLE H1 */}
+        {product.title}
+
+        {/* DETAIL INPUT BUTTON */}
+        {available && <DetailInputSpan>add to your order — {price}</DetailInputSpan>}
+        {!available && <DetailInputSpan>currently out of stock</DetailInputSpan>}
+      </DetailInputTitle>
+
     </DetailInputButton>
   )
 }

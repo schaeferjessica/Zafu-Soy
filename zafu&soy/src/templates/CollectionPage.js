@@ -139,7 +139,8 @@ const CollectionGridListItem = styled.li`
     margin-top: 65px;
 
     @media ${breakpoint.tablet} {
-      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-top: 0;
     }
   }
 `
@@ -151,7 +152,7 @@ const CollectionGridImage = styled.div`
 
 // COLLECTION GRID TITLE
 
-const CollectionGridTitle = styled.p`
+const CollectionGridTitle = styled.h3`
   margin-bottom: 10px;
   max-width: 90%;
 

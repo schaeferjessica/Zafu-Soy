@@ -46,7 +46,7 @@ const GridTeaserItem = styled.div`
 
 // GRID TEASER TITLE
 
-const GridTeaserTitle = styled.h3`
+const GridTeaserTitle = styled.h2`
     ${headerSpace}
 `
 

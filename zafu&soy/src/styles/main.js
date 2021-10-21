@@ -45,7 +45,7 @@ export const GlobalStyle = props => (
       html {
         font-family: 'IBM Plex Sans', 'Roboto','Fira Sans', 'Helvetica Neue', sans-serif;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
         font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
@@ -55,7 +55,7 @@ export const GlobalStyle = props => (
         -webkit-text-size-adjust: 100%;
         
         @media ${breakpoint.mobile} { 
-          font-size: 14px;
+          font-size: 15px;
         }
       }
 
@@ -65,7 +65,7 @@ export const GlobalStyle = props => (
       .caption-regular {
         font-family: 'IBM Plex Mono';
         font-weight: 400;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 19px;
       }
 
@@ -93,9 +93,9 @@ export const GlobalStyle = props => (
       }
 
       h1 {
-        font-family: 'IBM Plex Mono';
+        font-family: 'IBM Plex Sans';
         font-weight: 500;
-        font-size: 15px;
+        font-size: 38px;
         //font-family: 'Eiko';
         //font-size: 57px;
       }
@@ -103,10 +103,10 @@ export const GlobalStyle = props => (
       h2 {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 20px;
+        font-size: 24px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 17px;
+          font-size: 20px;
         }
       }
 
@@ -114,10 +114,10 @@ export const GlobalStyle = props => (
       h3 {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 20px;
+        font-size: 24px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 17px;
+          font-size: 20px;
         }
       }
 
@@ -152,10 +152,10 @@ export const GlobalStyle = props => (
       input {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 15px;
+        font-size: 16px;
     
         @media ${breakpoint.mobile} { 
-          font-size: 14px;
+          font-size: 15px;
         }
       }
 

@@ -27,15 +27,15 @@ export const container = `
 // MODULE SPACE
 
 export const moduleSpace = `
-  margin-top: 160px;
+  margin-top: 110px;
 
 
   @media ${breakpoint.tablet} { 
-    margin-top: 130px;
+    margin-top: 90px;
   }
 
   @media ${breakpoint.mobile} { 
-    margin-top: 70px;
+    margin-top: 60px;
   }
 `;
 
