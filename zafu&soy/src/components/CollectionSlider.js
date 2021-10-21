@@ -58,7 +58,7 @@ const CollectionSliderTitle = styled.h3`
 `
 
 const CollectionSliderText = styled.span`
-  display: block;
+  display: none;
 `
 
 
