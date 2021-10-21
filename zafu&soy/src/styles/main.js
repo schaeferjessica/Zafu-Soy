@@ -96,8 +96,10 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Sans';
         font-weight: 500;
         font-size: 38px;
-        //font-family: 'Eiko';
-        //font-size: 57px;
+
+        @media ${breakpoint.mobile} { 
+          font-size: 28px;
+        }
       }
 
       h2 {

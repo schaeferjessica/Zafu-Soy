@@ -139,8 +139,7 @@ const CollectionGridListItem = styled.li`
     margin-top: 65px;
 
     @media ${breakpoint.tablet} {
-      margin-bottom: 20px;
-      margin-top: 0;
+      margin-top: 20px;
     }
   }
 `

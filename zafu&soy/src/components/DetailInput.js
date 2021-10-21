@@ -24,6 +24,7 @@ const DetailInputTitle = styled.h1`
 
 const DetailInputButton = styled.button`
   margin-bottom: 30px;
+  text-align: inherit;
 
   @media ${breakpoint.mobile} {
     margin-bottom: 20px;
@@ -31,7 +32,6 @@ const DetailInputButton = styled.button`
 `
 
 const DetailInputSpan = styled.span`
-  display: block;
   color: var(--color-white);
 `
 
@@ -86,15 +86,15 @@ const DetailInput = ({ product }) => {
 
 
   return (
-    <DetailInputButton type="submit" className="button-hover" disabled={!available || adding} onClick={handleAddToCart}>
+    <DetailInputButton type="submit" disabled={!available || adding} onClick={handleAddToCart}>
       
-      <DetailInputTitle>
-        {/* PRODUCT DETAIL TITLE H1 */}
-        {product.title}
-
-        {/* DETAIL INPUT BUTTON */}
-        {available && <DetailInputSpan>add to your order — {price}</DetailInputSpan>}
-        {!available && <DetailInputSpan>currently out of stock</DetailInputSpan>}
+      <DetailInputTitle className="underline-hover">
+          {/* PRODUCT DETAIL TITLE H1 */}
+          {product.title}
+          <br />
+          {/* DETAIL INPUT BUTTON */}
+          {available && <DetailInputSpan>add to your order — {price}</DetailInputSpan>}
+          {!available && <DetailInputSpan>currently out of stock</DetailInputSpan>}
       </DetailInputTitle>
 
     </DetailInputButton>

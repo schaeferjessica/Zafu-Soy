@@ -102,16 +102,6 @@ export const GlobalStyle = props => (
         }
       }
 
-      // BUTTON HOVER
-
-      .button-hover {
-        padding: 5px;
-      }
-
-      .button-hover--black {
-        padding: 5px;
-      }
-
 
       // IMAGE HOVER
 
