@@ -114,10 +114,10 @@ export const GlobalStyle = props => (
       h3 {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
-        font-size: 24px;
+        font-size: 21px;
 
         @media ${breakpoint.mobile} { 
-          font-size: 20px;
+          font-size: 18px;
         }
       }
 

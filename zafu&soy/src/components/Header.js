@@ -81,15 +81,12 @@ const HeaderContextRight = styled.div`
 
 const HeaderTitle = styled.h1`
   font-family: 'Space Mono';
-  font-size: 60px;
+  font-size: 70px;
   color: var(--color-white);
   cursor: pointer;
-  font-size: 60px;
-  line-height: 70px;
 
   @media ${breakpoint.mobile} {
     font-size: 40px;
-    line-height: 50px;
   }
 
   span {
