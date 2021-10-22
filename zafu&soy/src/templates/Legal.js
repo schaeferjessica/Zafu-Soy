@@ -85,6 +85,7 @@ const LegalText = styled.div`
 
   .paragraph-margin {
     margin-top: 35px;
+    font-weight: 500;
 
     @media ${breakpoint.mobile} { 
       margin-top: 25px;
@@ -114,11 +115,9 @@ const LegalPage = (data) => {
 
     // contentful renderRichText options
     const Margin= ({ children }) => <p className="paragraph-margin">{children}</p>;
-    const Small = ({ children }) => <p className="caption-regular">{children}</p>;
     const options = {
       renderNode: {
         [BLOCKS.HEADING_5]: (_, children) => <Margin>{children}</Margin>,
-        [BLOCKS.HEADING_6]: (_, children) => <Small>{children}</Small>
       },
     };
 
