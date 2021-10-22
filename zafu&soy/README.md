@@ -34,7 +34,7 @@ Cart, Product grid, Product page, Dynamic Inventory Checking,Image optimization 
 
 Setting up your Shopify account: [Shopify](https://www.shopify.com/) Add TOKEN and NAME inside of `.env` and `gatsby-conf.js`.
 
-SHOPIFY_ACCESS_TOKEN= storefront access token _(not API key)_
+GATSBY_STOREFRONT_ACCESS_TOKEN= storefront access token _(not API key)_
 SHOP_NAME= name.~~myshopify.com~~ _(not private app name)_
 
 📌 
