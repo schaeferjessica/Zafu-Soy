@@ -24,6 +24,7 @@ const GridTeaserComponent = styled.div`
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   @media ${breakpoint.mobile} {
     display: block;
@@ -39,7 +40,7 @@ const GridTeaserItem = styled.div`
     width: 100%;
   }
 
-  &:not(:first-child){
+  &:not(:first-of-type){
     @media ${breakpoint.mobile} {
       margin-top: 40px;
     }
