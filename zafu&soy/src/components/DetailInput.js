@@ -56,7 +56,6 @@ const DetailInput = ({ product }) => {
 
   const checkAvailability = useCallback(
     productId => {
-      console.log(client.config);
       client.product.fetch(productId).then(fetchedProduct => {
         // this checks the currently selected variant for availability
         const result = fetchedProduct.variants.filter(
