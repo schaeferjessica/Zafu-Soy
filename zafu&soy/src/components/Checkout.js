@@ -111,34 +111,13 @@ const CheckoutText = styled.div`
 // CHECKOUT BUTTON
 
 const CheckoutButton = styled.button`
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  width: 30%;
-
-  @media ${breakpoint.tablet} { 
-    width: 90%;
-  }
-
-  @media ${breakpoint.mobile} { 
-    width: 85%;
-    left: 30px;
-  }
+  display: flex;
 `
 
 // CHECKOUT PRICE
 
-const CheckoutPrice = styled.span`
-  position: relative;
-  display: inline-block;
-  transition: transform .3s;
-
-  &::before {
-    content: attr(data-hover);
-    position: absolute;
-    top: 400%;
-    transform: translate3d(0, 0, 0);
-  }
+const CheckoutPrice = styled.h1`
+  margin-top: 30px;
 `
 
 
@@ -171,7 +150,7 @@ export const CheckoutClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-black);
+  border: 1.5px solid var(--color-black);
   font-size: 14px;
   color: var(--color-black);
   align-self: flex-end;
@@ -227,21 +206,22 @@ const Checkout = ({isOpen, handleCheckoutClose}) => {
             {lineItems}
           </CheckoutList>
 
-          {/* CHECKOUT SHIPPING */}
+          
           <CheckoutShipping>
+            {/* CHECKOUT SHIPPING */}
             <Link to="/shipping/" className="link-hover">
               <span>Free Shipping within 30 - 60 days</span>
             </Link>
-          </CheckoutShipping>
 
-          {/* CHECKOUT BUTTON */}
-          <CheckoutButton 
-            onClick={handleCheckout}
-            disabled={checkout.lineItems.length === 0}
-            className="button-hover button-hover--black"
-            >
-            <CheckoutPrice className="caption-bold">Check out — € {checkout.totalPrice}</CheckoutPrice>
-          </CheckoutButton>
+            {/* CHECKOUT BUTTON */}
+            <CheckoutButton 
+              onClick={handleCheckout}
+              disabled={checkout.lineItems.length === 0}
+              className="underline-hover"
+              >
+              <CheckoutPrice>Check out — € {checkout.totalPrice}</CheckoutPrice>
+            </CheckoutButton>
+          </CheckoutShipping>
 
           </> : <>
 
