@@ -75,7 +75,6 @@ const ProductSliderItem = styled.div`
 
 const ProductSliderLink = styled(Link)`
   position: relative;
-  padding-right: 25px;
   display: block;
 `
 
@@ -97,13 +96,17 @@ const ProductSliderSold = styled.small`
 // PRODUCT SLIDER TITLE
 
 const ProductSliderTitle = styled.p`
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 0px; 
   margin-left: 18px;
 
   @media ${breakpoint.mobile} { 
     margin-left: 3px;
   }
+`
+
+const ProductSliderSpan = styled.span`
+  font-family: 'IBM Plex Mono' !important;
 `
 
 
@@ -254,7 +257,7 @@ const ProductSlider = ({products}) => {
 
                     <ProductSliderTitle>
                       <Link to={`/product/${handle}/`} className="link-hover">
-                        <span>{title}</span>
+                        <ProductSliderSpan className="caption-regular">{title}</ProductSliderSpan>
                       </Link>
                     </ProductSliderTitle>
 
