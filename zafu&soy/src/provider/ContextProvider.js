@@ -11,7 +11,7 @@ import Context from '~/context/StoreContext'
 const client = Client.buildClient(
   {
     domain: process.env.GATSBY_SHOPIFY_STORE_URL,
-    storefrontAccessToken: 'test',
+    storefrontAccessToken: '61fbe67b5eea56f05571a824826a5c84',
   },
   fetch
 )
