@@ -108,7 +108,6 @@ const BackToTop = styled.button`
   right: 100px;
   color: var(--color-black);
   margin-left: 10px;
-  display: none;
   justify-content: center;
   align-items: center;
 
@@ -127,6 +126,7 @@ const BackToTop = styled.button`
   }
 
   svg {
+    display: none;
     width: 35px;
     height: 35px;
 

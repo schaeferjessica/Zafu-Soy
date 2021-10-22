@@ -55,7 +55,7 @@ const InstaTeaserInner = styled.div`
 // INSTA TEASER TEXT
 
 const InstaTeaserText = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `
 
 

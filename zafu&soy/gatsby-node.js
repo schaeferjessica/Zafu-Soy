@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           products {
             id
             title
+            description
             handle
             createdAt
             images {

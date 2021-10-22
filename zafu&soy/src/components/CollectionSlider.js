@@ -53,8 +53,13 @@ const CollectionSliderContext = styled.div`
   }
 `
 
-const CollectionSliderTitle = styled.h3`
-  margin-top: 20px;
+const CollectionSliderTitle = styled.p`
+  margin-top: 10px;
+`
+
+const CollectionSliderLink = styled.span`
+  font-family: 'IBM Plex Mono' !important;
+  margin-top: 10px;
 `
 
 const CollectionSliderText = styled.span`
@@ -209,7 +214,7 @@ const CollectionSlider = () => {
                   {/* COLLECTION SLIDER TITLE */}
                   <CollectionSliderTitle>
                     <Link to={post.link} className="link-hover" rel="noreferrer">
-                      <span>{post.title}</span>
+                      <CollectionSliderLink className="caption-regular">{post.title}</CollectionSliderLink>
                     </Link>
                      {/* COLLECTION SLIDER TEXT */}
                     <CollectionSliderText>{post.image.description}</CollectionSliderText>

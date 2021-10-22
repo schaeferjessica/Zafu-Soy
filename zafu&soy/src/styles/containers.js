@@ -50,9 +50,9 @@ export const moduleSpaceSmall = `
 // HEADER SPACE
 
 export const headerSpace = `
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   @media ${breakpoint.mobile} { 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 `;

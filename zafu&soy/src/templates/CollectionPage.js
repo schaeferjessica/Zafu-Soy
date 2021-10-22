@@ -134,14 +134,6 @@ const CollectionGridList = styled.ul`
 const CollectionGridListItem = styled.li`
   margin-top: 20px;
   position: relative;
-
-  &:nth-child(odd) {
-    margin-top: 65px;
-
-    @media ${breakpoint.tablet} {
-      margin-top: 20px;
-    }
-  }
 `
 
 
@@ -151,7 +143,7 @@ const CollectionGridImage = styled.div`
 
 // COLLECTION GRID TITLE
 
-const CollectionGridTitle = styled.h3`
+const CollectionGridTitle = styled.p`
   margin-bottom: 10px;
   max-width: 90%;
 
@@ -160,12 +152,17 @@ const CollectionGridTitle = styled.h3`
   }
 `
 
-// COLLECTION GRID PRICE
+// COLLECTION GRID Price
 
 const CollectionGridPrice = styled.p`
-  display: block;
   margin-top: 10px;
-  text-align: end;
+  display: none;
+`
+
+// COLLECTION GRID DESCRIPTION
+
+const CollectionGridDescription = styled.p`
+  margin-top: 10px;
 `
 
 const CollectionGridSold = styled.p`
@@ -258,6 +255,7 @@ const CollectionPage = ({pageContext, data}) => {
                             handle,
                             title,
                             images,
+                            description,
                             variants: [firstVariant],
                             },
                         ) => {
@@ -290,6 +288,9 @@ const CollectionPage = ({pageContext, data}) => {
 
                                 {/* COLLECTION GRID PRICE */}
                                 <CollectionGridPrice className="caption-regular">{getPrice(firstVariant.price)}</CollectionGridPrice>
+
+                                {/* COLLECTION GRID DESCRIPTION */}
+                                <CollectionGridDescription>{description}</CollectionGridDescription>
                                 {firstVariant.availableForSale ? '' : <CollectionGridSold className="caption-regular">will be back soon</CollectionGridSold>}
                             </CollectionGridListItem>
                             )

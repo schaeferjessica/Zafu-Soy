@@ -65,7 +65,7 @@ export const GlobalStyle = props => (
       .caption-regular {
         font-family: 'IBM Plex Mono';
         font-weight: 400;
-        font-size: 13px;
+        font-size: 12px;
         line-height: 19px;
       }
 

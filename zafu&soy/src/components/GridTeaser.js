@@ -39,8 +39,10 @@ const GridTeaserItem = styled.div`
     width: 100%;
   }
 
-  &:last-child {
-    margin-top: 70px;
+  &:not(:first-child){
+    @media ${breakpoint.mobile} {
+      margin-top: 40px;
+    }
   }
 `
 
@@ -53,7 +55,7 @@ const GridTeaserTitle = styled.h2`
 //  GRID TEASER TEXT 
 
 const GridTeaserText = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `
 
 
