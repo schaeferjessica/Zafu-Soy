@@ -162,23 +162,31 @@ const CollectionSlider = () => {
             perView={2}
             startAt={0}
             breakpoints={{
+              1440: {
+                perView: 2,
+                gap: 50,
+                peek: {
+                  before: 100,
+                  after: 100,
+                }
+              },
               1200: {
                 perView: 2,
                 gap: 40,
                 peek: {
-                  before: 75,
-                  after: 75,
+                  before: 80,
+                  after: 80,
                 }
               },
               800: {
                 perView: 2,
                 gap: 30,
                 peek: {
-                  before: 70,
-                  after: 70,
+                  before: 80,
+                  after: 80,
                 }
               },
-              500: {
+              768: {
                 perView: 1,
                 gap: 20,
                 peek: {
