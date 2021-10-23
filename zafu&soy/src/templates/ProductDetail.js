@@ -18,7 +18,7 @@ import ProductSlider from '~/components/ProductSlider'
 import DetailInfo from '~/components/DetailInfo'
 
 export const query = graphql`
-  query ($handle: String!, $sku: String, $collection: String) {
+  query ($handle: String!, $title: String, $collection: String) {
     shopifyProduct(handle: { eq: $handle }) {
       id
       title
@@ -33,7 +33,6 @@ export const query = graphql`
       }
       variants {
         id
-        sku
         title
         price
         availableForSale
@@ -88,7 +87,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulDetail(contentfulid: { eq: $sku }) {
+    contentfulDetail(title: { eq: $title }) {
       contentfulid
       textLeft {
         raw

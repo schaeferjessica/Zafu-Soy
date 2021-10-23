@@ -59,7 +59,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             handle
             title
-            variants {sku}
             tags
           }
         }
@@ -79,7 +78,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         handle: node.handle,
-        sku: node.variants[0].sku,
+        title: node.title,
         collection: node.tags[0],
       },
     });
