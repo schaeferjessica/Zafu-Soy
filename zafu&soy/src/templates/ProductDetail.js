@@ -66,7 +66,7 @@ export const query = graphql`
         }
       }
     }
-    shopifyCollection(handle: {eq: $collection}) {
+    shopifyCollection(title: {eq: $collection}) {
       products {
         id
         title
