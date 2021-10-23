@@ -21,7 +21,7 @@ const FooterComponent = styled.footer`
   background-color: var(--color-beige);
 `
 
-const FooterInner = styled.footer`
+const FooterInner = styled.div`
   ${container}
   display: flex;
   justify-content: space-between;

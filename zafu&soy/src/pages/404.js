@@ -5,11 +5,28 @@ import Seo from '~/components/seo'
 // components
 import Navigation from '~/components/Navigation'
 
+// emotion
+import styled from '@emotion/styled/macro';
+
+
+// NOT FOUND TITLE
+
+const NotFoundTitle = styled.h1`
+  height: calc(100vh - 168px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ~ footer {
+    margin-top: 0;
+  }
+`
+
 const NotFoundPage = () => (
   <>
     <Seo title="404: Not found" />
     <Navigation />
-    <h1>NOT FOUND</h1>
+    <NotFoundTitle>PAGE NOT FOUND</NotFoundTitle>
   </>
 )
 
