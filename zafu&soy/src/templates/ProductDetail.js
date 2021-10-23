@@ -88,7 +88,6 @@ export const query = graphql`
       }
     }
     contentfulDetail(title: { eq: $title }) {
-      contentfulid
       textLeft {
         raw
       }
