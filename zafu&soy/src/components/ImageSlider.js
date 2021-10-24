@@ -125,53 +125,53 @@ const ImageSlider = ({images}) => {
           </ol>
         </ImageSliderTop>
         
-        <Glide
-          ref={sliderRef}
-          type="slider"
-          perView={3}
-          startAt={0}
-          breakpoints={{
-            1440: {
-              perView: 3,
-              gap: 50,
-              peek: {
-                before: 100,
-                after: 100,
+        <Glide 
+            ref={sliderRef}
+            type="slider"
+            perView={2}
+            startAt={0}
+            breakpoints={{
+              1440: {
+                perView: 2,
+                gap: 50,
+                peek: {
+                  before: 100,
+                  after: 100,
+                }
+              },
+              1200: {
+                perView: 2,
+                gap: 40,
+                peek: {
+                  before: 80,
+                  after: 80,
+                }
+              },
+              800: {
+                perView: 2,
+                gap: 30,
+                peek: {
+                  before: 80,
+                  after: 80,
+                }
+              },
+              768: {
+                perView: 1,
+                gap: 20,
+                peek: {
+                  before: 30,
+                  after: 30,
+                }
               }
-            },
-            1200: {
-              perView: 2,
-              gap: 40,
-              peek: {
-                before: 80,
-                after: 80,
-              }
-            },
-            800: {
-              perView: 2,
-              gap: 30,
-              peek: {
-                before: 80,
-                after: 80,
-              }
-            },
-            768: {
-              perView: 1,
-              gap: 20,
-              peek: {
-                before: 30,
-                after: 30,
-              }
-            }
-          }}
-          gap={50}
-          bound={true}
-          peek={{
-            before: 150,
-            after: 150,
-          }}
-          slideClassName="slider__frame"
-        >
+            }}
+            gap={50}
+            bound={true}
+            peek={{
+              before: 150,
+              after: 150,
+            }}
+            slideClassName="slider__frame"
+          >
 
           {/* LIGHTBOX */}
 

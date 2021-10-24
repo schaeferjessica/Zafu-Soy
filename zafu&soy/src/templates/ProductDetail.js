@@ -105,7 +105,7 @@ export const query = graphql`
             }
           }
         }
-        gatsbyImageData(width: 500)
+        gatsbyImageData(width: 1000)
       }
     }
   }
