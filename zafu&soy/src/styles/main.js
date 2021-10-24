@@ -46,7 +46,7 @@ export const GlobalStyle = props => (
         font-family: 'IBM Plex Sans', 'Roboto','Fira Sans', 'Helvetica Neue', sans-serif;
         font-weight: 400;
         font-size: 16px;
-        line-height: 1.7;
+        line-height: 1.4;
         -webkit-font-smoothing: antialiased;
         font-feature-settings: "lnum" 1,"pnum" 1,"kern" 1,"liga" 1;
         font-kerning: normal;
