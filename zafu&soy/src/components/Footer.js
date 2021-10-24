@@ -73,6 +73,7 @@ const FooterLink = styled(LinkTo)`
 
 const FooterSpan = styled.span`
   font-size: 15px;
+  line-height: 1.6;
 
   @media ${breakpoint.mobile} { 
     font-size: 14px;

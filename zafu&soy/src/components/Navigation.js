@@ -93,6 +93,8 @@ const NavigationInner = styled.div`
 
 const NavigationLinkLeft = styled(Link)`
   color: var(--color-black);
+  line-height: 1;
+  padding-bottom: 2px;
 `
 
 
@@ -108,15 +110,19 @@ const NavigationLinkShop = styled(Link)`
 const NavigationButtonRight = styled.div`
   margin-left: 20px;
   display: flex;
+  align-items: center;
 
   .navigation__link {
-    margin-top: 2px;
+    line-height: 1;
+    padding-bottom: 2px;
   }
 `
 
 const NavigationButtonOrder = styled.button`
   margin-right: 10px;
   padding: 0;
+  line-height: 1;
+  padding-bottom: 2px;
 
   @media ${breakpoint.mobile} { 
     display: none;
