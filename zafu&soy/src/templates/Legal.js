@@ -84,8 +84,7 @@ const LegalText = styled.div`
   }
 
   .paragraph-margin {
-    margin-top: 35px;
-    font-weight: 500;
+    margin-top: 30px;
 
     @media ${breakpoint.mobile} { 
       margin-top: 25px;
