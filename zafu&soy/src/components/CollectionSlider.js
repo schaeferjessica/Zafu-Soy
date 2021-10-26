@@ -59,7 +59,6 @@ const CollectionSliderTitle = styled.p`
 
 const CollectionSliderLink = styled.span`
   font-family: 'IBM Plex Mono' !important;
-  margin-top: 10px;
 `
 
 const CollectionSliderText = styled.span`
