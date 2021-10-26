@@ -24,7 +24,7 @@ const ListItem = styled.li`
   border-bottom: 1px solid var(--color-black);
   padding-top: 25px;
   padding-bottom: 25px;  
-  padding-right: 150px; 
+  padding-right: 90px; 
   padding-left: 50px; 
   font-family: 'IBM Plex Sans';
 

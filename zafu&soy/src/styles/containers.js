@@ -4,23 +4,23 @@ import breakpoint from './breakpoints'
 // CONTAINER
 
 export const container = `
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 90px;
+  padding-right: 90px;
 
 
   @media ${breakpoint.desktop} { 
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 70px;
+    padding-right: 70px;
   }
 
   @media ${breakpoint.tablet} { 
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   @media ${breakpoint.mobile} { 
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 

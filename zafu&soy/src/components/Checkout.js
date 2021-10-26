@@ -44,7 +44,7 @@ const CheckboxHeader = styled.div`
   justify-content: space-between;
   padding-top: 15px;
   padding-left: 50px;
-  padding-right: 150px;
+  padding-right: 90px;
   padding-bottom: 15px;
 
   @media ${breakpoint.desktop} {
@@ -66,7 +66,7 @@ const CheckboxHeader = styled.div`
 const CheckoutShipping = styled.div`
   ${container};
 
-  padding-right: 150px; 
+  padding-right: 90px; 
   padding-left: 50px; 
 
   @media ${breakpoint.desktop} {
@@ -91,7 +91,7 @@ const CheckoutText = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding-right: 150px; 
+  padding-right: 90px; 
   padding-left: 50px; 
 
   @media ${breakpoint.desktop} {

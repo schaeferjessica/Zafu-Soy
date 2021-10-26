@@ -188,40 +188,40 @@ const ProductSlider = ({products}) => {
                 perView: 2,
                 gap: 50,
                 peek: {
-                  before: 100,
-                  after: 100,
+                  before: 70,
+                  after: 70,
                 }
               },
               1200: {
                 perView: 2,
                 gap: 40,
                 peek: {
-                  before: 80,
-                  after: 80,
+                  before: 30,
+                  after: 30,
                 }
               },
               800: {
                 perView: 2,
                 gap: 30,
                 peek: {
-                  before: 80,
-                  after: 80,
+                  before: 30,
+                  after: 30,
                 }
               },
               768: {
                 perView: 1,
                 gap: 20,
                 peek: {
-                  before: 30,
-                  after: 30,
+                  before: 20,
+                  after: 20,
                 }
               }
             }}
             gap={50}
             bound={true}
             peek={{
-              before: 150,
-              after: 150,
+              before: 90,
+              after: 90,
             }}
             slideClassName="slider__frame"
           >
