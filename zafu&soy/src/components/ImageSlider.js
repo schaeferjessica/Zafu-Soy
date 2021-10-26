@@ -46,7 +46,7 @@ const ImageSliderTop = styled.div`
 // IMAGE SLIDER CAPTION
 
 const ImageSliderCaption = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `
 
 
